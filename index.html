@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Society of Precision Health</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #00539C;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+            color: white;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #00BFFF;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        main {
+            text-align: center;
+            padding: 2rem;
+        }
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #00539C;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #00BFFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>International Society of Precision Health</h1>
+        <p>Welcome to the Annual Conference</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <div class="dropdown">
+            <a href="#">Scientific Info &#9662;</a>
+            <div class="dropdown-content">
+                <a href="#">Keynote Speakers</a>
+                <a href="#">Session Schedule</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Registrations &#9662;</a>
+            <div class="dropdown-content">
+                <a href="#">Register Now</a>
+                <a href="#">Fees & Options</a>
+            </div>
+        </div>
+        <a href="#">Abstract Book</a>
+        <a href="#">Sponsors</a>
+        <a href="#">Accommodation</a>
+        <div class="dropdown">
+            <a href="#">Social Events &#9662;</a>
+            <div class="dropdown-content">
+                <a href="#">Welcome Reception</a>
+                <a href="#">Gala Dinner</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">General Info &#9662;</a>
+            <div class="dropdown-content">
+                <a href="#">Travel Information</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+        <a href="#">Follow Us</a>
+    </nav>
+
+    <main>
+        <h2>About the Conference</h2>
+        <p>Join global experts in precision health as we explore cutting-edge research and advancements.</p>
+        <a href="#" class="button">Register Now</a>
+        <a href="#" class="button">Download Abstract Book</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 International Society of Precision Health. All rights reserved.</p>
+    </footer>
+</body>
+</html>
