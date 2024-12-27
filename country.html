@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Representation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 0;
+            font-size: 2rem;
+            color: #333;
+        }
+        .flag-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .flag-item {
+            text-align: center;
+        }
+        .flag-item img {
+            width: 80%;
+            max-width: 100px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .flag-item p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .flag-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 15px;
+            }
+            .flag-item img {
+                max-width: 80px;
+            }
+            .flag-item p {
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .flag-grid {
+                padding: 10px;
+                gap: 10px;
+            }
+            .flag-item img {
+                max-width: 70px;
+            }
+            .flag-item p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Country Representation</h1>
+
+    <div class="flag-grid">
+        <div class="flag-item">
+            <img src="flags/australia.jpg" alt="Australia">
+            <p>Australia</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/austria.jpg" alt="Austria">
+            <p>Austria</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/bulgaria.png" alt="Bulgaria">
+            <p>Bulgaria</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/canada.png" alt="Canada">
+            <p>Canada</p>
+        </div>
+        <!-- Add similar divs for all other countries -->
+    </div>
+</body>
+</html>
