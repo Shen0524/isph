@@ -70,28 +70,231 @@
                 font-size: 0.8rem;
             }
         }
+        nav {
+            background-color: #003366;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+        }
+        nav ul li a:hover {
+            background-color: #00539C;
+            border-radius: 5px;
+        }
+        nav ul li .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            color: #003366;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        nav ul li .dropdown-content li {
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li .dropdown-content li a {
+            color: #003366;
+            padding: 0.5rem 1rem;
+            display: block;
+            text-decoration: none;
+        }
+        nav ul li .dropdown-content li a:hover {
+            background-color: #ddd;
+        }
+        nav ul li:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1>International Society of Precision Health</h1>
+        <p>Welcome to the Annual Conference</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Scientific Info &#9662;</a>
+                <ul class="dropdown-content">
+                    <li><a href="keynote-speakers.html">Keynote Speakers</a></li>
+                    <li><a href="session-schedule.html">Session Schedule</a></li>
+                    <li><a href="country.html">Country Representation</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Registrations &#9662;</a>
+                <ul class="dropdown-content">
+                    <li><a href="register-now.html">Register Now</a></li>
+                    <li><a href="fees-options.html">Fees & Options</a></li>
+                </ul>
+            </li>
+            <li><a href="abstract-book.html">Abstract Book</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="accommodation.html">Accommodation</a></li>
+            <li class="dropdown">
+                <a href="#">Social Events &#9662;</a>
+                <ul class="dropdown-content">
+                    <li><a href="welcome-reception.html">Welcome Reception</a></li>
+                    <li><a href="gala-dinner.html">Gala Dinner</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">General Info &#9662;</a>
+                <ul class="dropdown-content">
+                    <li><a href="travel-info.html">Travel Information</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </li>
+            <li><a href="follow-us.html">Follow Us</a></li>
+        </ul>
+    </nav>
+
     <h1>Country Representation</h1>
 
     <div class="flag-grid">
-        <div class="flag-item">
-            <img src="flags/australia.jpg" alt="Australia">
-            <p>Australia</p>
-        </div>
-        <div class="flag-item">
-            <img src="flags/austria.jpg" alt="Austria">
-            <p>Austria</p>
-        </div>
-        <div class="flag-item">
-            <img src="flags/bulgaria.png" alt="Bulgaria">
-            <p>Bulgaria</p>
-        </div>
-        <div class="flag-item">
-            <img src="flags/canada.png" alt="Canada">
-            <p>Canada</p>
-        </div>
+<!-- First Row -->
+<!-- First Row -->
+<div class="flag-item">
+    <img src="flags/01.png" alt="Australia">
+    <p>Australia</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/02.png" alt="Austria">
+    <p>Austria</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/03.png" alt="Bulgaria">
+    <p>Bulgaria</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/04.png" alt="Canada">
+    <p>Canada</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/05.png" alt="China">
+    <p>China</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/06.png" alt="France">
+    <p>France</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/07.png" alt="Germany">
+    <p>Germany</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/08.png" alt="Hungary">
+    <p>Hungary</p>
+</div>
+
+<!-- Second Row -->
+<div class="flag-item">
+    <img src="flags/09.png" alt="India">
+    <p>India</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/10.png" alt="Indonesia">
+    <p>Indonesia</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/11.png" alt="Japan">
+    <p>Japan</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/12.png" alt="Lithuania">
+    <p>Lithuania</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/13.png" alt="Malaysia">
+    <p>Malaysia</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/14.png" alt="Pakistan">
+    <p>Pakistan</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/15.png" alt="Palestine">
+    <p>Palestine</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/16.png" alt="Poland">
+    <p>Poland</p>
+</div>
+
+<!-- Third Row -->
+<div class="flag-item">
+    <img src="flags/17.png" alt="Romania">
+    <p>Romania</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/18.png" alt="South Africa">
+    <p>South Africa</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/19.png" alt="South Korea">
+    <p>South Korea</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/20.png" alt="Spain">
+    <p>Spain</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/21.png" alt="Singapore">
+    <p>Singapore</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/Taiwan.jpeg" alt="Taiwan">
+    <p>Taiwan</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/23.png" alt="Thailand">
+    <p>Thailand</p>
+</div>
+
+<div class="flag-item">
+    <img src="flags/24.png" alt="USA">
+    <p>USA</p>
+</div>
         <!-- Add similar divs for all other countries -->
     </div>
 </body>
