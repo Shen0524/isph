@@ -18,7 +18,19 @@
             color: #333;
             line-height: 1.6;
         }
+        /* LOGO 樣式 */
+        .logo-container {
+            position: fixed; /* 固定定位，讓 LOGO 始終在左上角 */
+            top: 20px; /* 與頁面上方距離 */
+            left: 20px; /* 與頁面左側距離 */
+            z-index: 10; /* 確保 LOGO 在最上層 */
+        }
 
+        .logo-container img {
+            max-width: 100px; /* LOGO 大小 */
+            height: auto;
+            border-radius: 5px; /* 圓角樣式 */
+        }
         /* 標頭樣式 */
         header {
             background-color: #00539C;
@@ -200,6 +212,10 @@
     </style>
 </head>
 <body>
+      <!-- LOGO 放置區 -->
+    <div class="logo-container">
+        <img src="LOGO.png" alt="Society Logo">
+    </div>
     <header>
         <h1>International Society for Precision Health</h1>
         <p>Welcome to the Annual Conference</p>
