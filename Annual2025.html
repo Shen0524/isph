@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Society for Precision Health</title>
+    <style>
+        /* 全域設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* LOGO 樣式 */
+        .logo-container {
+            position: fixed; /* 固定定位，讓 LOGO 始終在左上角 */
+            top: 80px; /* 與頁面上方距離 */
+            left: 20px; /* 與頁面左側距離 */
+            z-index: 10; /* 確保 LOGO 在最上層 */
+        }
+
+        .logo-container img {
+            max-width: 100px; /* LOGO 大小 */
+            height: auto;
+            border-radius: 5px; /* 圓角樣式 */
+        }       
+        /* 標頭樣式 */
+        header {
+            background-color: #00539C;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+    
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 導航列樣式 */
+        nav {
+            background-color: #003366;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* 下拉選單樣式 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.8rem 1rem;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* 主要內容區域 */
+        main {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .event-info {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            color: #00539C;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            color: #fff;
+            background-color: #00539C;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #00BFFF;
+        }
+
+        /* 頁尾樣式 */
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                padding: 0.8rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: #004480;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding-left: 2rem;
+            }
+
+            .button {
+                display: block;
+                margin: 0.8rem auto;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .event-info {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGO 放置區 -->
+    <div class="logo-container">
+        <img src="LOGO.PNG" alt="Society Logo">
+    </div>
+    <header>
+        <h1>International Society for Precision Health</h1>
+        <p>Welcome to the Annual Conference</p>
+    </header>
+
+    <nav>
+        <button class="menu-toggle">☰ Menu</button>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <div class="dropdown">
+                <a href="#">Scientific Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="#">Keynote Speakers</a>
+                    <a href="#">Session Schedule</a>
+                    <a href="country.html">Country Representation</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Registrations &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="#">Register Now</a>
+                    <a href="#">Fees & Options</a>
+                </div>
+            </div>
+            <a href="#">Abstract Book</a>
+            <a href="#">Sponsors</a>
+            <a href="#">Accommodation</a>
+            <div class="dropdown">
+                <a href="#">Social Events &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="#">Welcome Reception</a>
+                    <a href="#">Gala Dinner</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">General Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="#">Travel Information</a>
+                    <a href="#">FAQs</a>
+                </div>
+            </div>
+            <a href="#">Follow Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2>About the Conference</h2>
+        <p>Join global experts in precision health as we explore cutting-edge research and advancements.</p>
+        <div class="event-info">
+            <p><strong>Event Date:</strong> October 18, 2025</p>
+            <p><strong>Location:</strong> CHANG YUNG-FA FOUNDATION International Convention Center</p>
+        </div>
+        <div class="main-visual">
+            <img src="upper.png" alt="Health and Technology Visual">
+        </div>
+        <a href="#" class="button">Register Now</a>
+        <a href="#" class="button">Download Abstract Book</a>
+       <div class="main-Logo">
+            <img src="LOGO.PNG" alt="Logo">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
