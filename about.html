@@ -51,7 +51,7 @@
             font-size: 1rem;
         }
 
-        .about-content {
+        .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
@@ -60,16 +60,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .about-content h2 {
+        .container h2 {
             color: #0056a6;
             margin-bottom: 20px;
         }
 
-        .about-content p {
-            margin-bottom: 15px;
-        }
-
-        .about-content img {
+        .container img {
             max-width: 150px;
             border-radius: 8px;
             margin-bottom: 15px;
@@ -82,6 +78,63 @@
 
         .signature img {
             max-width: 200px;
+        }
+
+        .initiators {
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .initiators h2 {
+            color: #0056a6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .initiators .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .initiators .initiator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .initiators .initiator img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .initiators .initiator p {
+            text-align: center;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .initiators .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .initiators .grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     </style>
 </head>
@@ -102,7 +155,7 @@
         </nav>
     </header>
 
-    <div class="about-content">
+    <div class="container">
         <h2>About Us</h2>
         <h2>Message from Chair Initiator</h2>
         <img src="WCK.jpg" alt="Dr. Prof. Chin-Kun Wang">
@@ -117,8 +170,148 @@
         <div class="signature">
             <img src="Sign.jpg" alt="Signature of Dr. Prof. Chin-Kun Wang">
         </div>
-        <div class="about-content">
-        <h2>Initiators of International Society for Precision Health </h2>
+    </div>
+
+    <div class="initiators">
+        <h2>Initiators of International Society for Precision Health</h2>
+        <div class="grid">
+        <div class="initiator">
+                <img src="speakers/jun_nishihira.jpg" alt="Jun Nishihira">
+                <p><strong>Jun Nishihira</strong><br>President, Hokkaido Information University<br><span>Japan</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/johji_inazawa.jpg" alt="Johji Inazawa">
+                <p><strong>Johji Inazawa</strong><br>Director, Tokyo Medical and Dental University<br><span>Japan</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/danny_dhanasekaran.jpg" alt="Danny Dhanasekaran">
+                <p><strong>Danny Dhanasekaran</strong><br>Associate Director, University of Oklahoma<br><span>USA</span></p>
+            </div>
+			<div class="initiator">
+                <img src="speakers/benjamin_tsang.jpg" alt="Benjamin Tsang">
+                <p><strong>Benjamin Tsang</strong><br>Senior Scientist, Ottawa Hospital Research Institute<br><span>Canada</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/yong_sang_song.jpg" alt="Yong Sang Song">
+                <p><strong>Yong Sang Song</strong><br>Professor, Seoul National University<br><span>Korea</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/young_joon_surh.jpg" alt="Young-Joon Surh">
+                <p><strong>Young-Joon Surh</strong><br>Director, Tumor Microenvironment Global Core Research Center<br><span>South Korea</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/kenji_sato.jpg" alt="Kenji Sato">
+                <p><strong>Kenji Sato</strong><br>Professor, Kyoto University<br><span>Japan</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/perry_ng.jpg" alt="Perry Ng">
+                <p><strong>Perry Ng</strong><br>Professor, Michigan State University<br><span>USA</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/diana_bogueva.jpg" alt="Diana Bogueva">
+                <p><strong>Diana Bogueva</strong><br>Research Associate, Curtin University<br><span>Australia</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/petras_rimantas_venskutonis.jpg" alt="Petras Rimantas Venskutonis">
+                <p><strong>Petras Rimantas Venskutonis</strong><br>Professor, Kaunas University of Technology<br><span>Lithuania</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/thierry_astruc.jpg" alt="Thierry Astruc">
+                <p><strong>Thierry Astruc</strong><br>Scientist, INRAE<br><span>France</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/thierry_regnier.jpg" alt="Thierry Regnier">
+                <p><strong>Thierry Regnier</strong><br>Professor, Tshwane University of Technology<br><span>South Africa</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/gokare_ravishankar.jpg" alt="Gokare Ravishankar">
+                <p><strong>Gokare Ravishankar</strong><br>Professor, Dayananda Sagar Institutions<br><span>India</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/katarzyna_swiader.jpg" alt="Katarzyna Świąder">
+                <p><strong>Katarzyna Świąder</strong><br>Assistant Professor, Warsaw University<br><span>Poland</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/christofora_hanny_wijaya.jpg" alt="Christofora Hanny Wijaya">
+                <p><strong>Christofora Hanny Wijaya</strong><br>Professor, Bogor Agricultural University<br><span>Indonesia</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/amin_bin_ismail.jpg" alt="Amin Bin Ismail">
+                <p><strong>Amin Bin Ismail</strong><br>Professor, Universiti Putra Malaysia<br><span>Malaysia</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/richard_khaw.jpg" alt="Richard Khaw">
+                <p><strong>Richard Khaw</strong><br>Deputy Director, Nanyang Polytechnic<br><span>Singapore</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/klaus_lange.jpg" alt="Klaus Lange">
+                <p><strong>Klaus Lange</strong><br>Professor, University of Regensburg<br><span>Germany</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/ciro_isidoro.jpg" alt="Ciro Isidoro">
+                <p><strong>Ciro Isidoro</strong><br>Professor, Università del Piemonte Orientale<br><span>Italy</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/livia_simon_sarkadi.jpg" alt="Livia Simon-Sarkadi">
+                <p><strong>Livia Simon-Sarkadi</strong><br>Professor, Hungarian University<br><span>Hungary</span></p>
+            </div>
+			 <div class="initiator">
+                <img src="speakers/marc_diederich.jpg" alt="Marc Diederich">
+                <p><strong>Marc Diederich</strong><br>Professor, College of Pharmacy, Seoul National University<br><span>South Korea</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/narain_naidu.jpg" alt="Narain Naidu">
+                <p><strong>Narain Naidu</strong><br>Director-General, Mission-COVID - Global Nutrition Healthcare Council<br><span>USA</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/debasis_bagchi.jpg" alt="Debasis Bagchi">
+                <p><strong>Debasis Bagchi</strong><br>Adjunct Professor, Texas Southern University<br><span>USA</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/abdel_qader_qawasmeh.jpg" alt="Abdel Qader Qawasmeh">
+                <p><strong>Abdel Qader Qawasmeh</strong><br>Assistant Professor, Hebron University<br><span>Australia</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/anca_miron.jpg" alt="Anca Miron">
+                <p><strong>Anca Miron</strong><br>Professor, Faculty of Pharmacy, Grigore T. Popa University<br><span>Romania</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/mukerrem_betul_yerer_aycan.jpg" alt="Mukerrem Betul Yerer-Aycan">
+                <p><strong>Mukerrem Betul Yerer-Aycan</strong><br>Professor of Pharmacology, Erciyes University<br><span>Turkey</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/li_shu_wang.jpg" alt="Li-Shu Wang">
+                <p><strong>Li-Shu Wang</strong><br>Associate Professor of Medicine, Medical College of Wisconsin<br><span>USA</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/yaman_elfahmi.jpg" alt="Yaman Elfahmi">
+                <p><strong>Yaman Elfahmi</strong><br>University Center of Excellence for Nutraceuticals, Bandung Institute of Technology<br><span>Indonesia</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/milen_georgiev.jpg" alt="Milen Georgiev">
+                <p><strong>Milen Georgiev</strong><br>Professor, Bulgarian Academy of Science<br><span>Bulgaria</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/mark_shamtsyan.jpg" alt="Mark Shamtsyan">
+                <p><strong>Mark Shamtsyan</strong><br>Professor, St. Petersburg State Institute of Technology<br><span>Russia</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/rotimi_aluko.jpg" alt="Rotimi Aluko">
+                <p><strong>Rotimi Aluko</strong><br>Professor and Tier 1 Canada Research Chair, University of Manitoba<br><span>Canada</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/nadiya_boyko.jpg" alt="Nadiya Boyko">
+                <p><strong>Nadiya Boyko</strong><br>Professor, Uzhhorod National University<br><span>Ukraine</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/binh_ly_nguyen.jpg" alt="Binh Ly Nguyen">
+                <p><strong>Binh Ly Nguyen</strong><br>Professor, Can Tho University<br><span>Vietnam</span></p>
+            </div>
+            <div class="initiator">
+                <img src="speakers/lotis_francisco.jpg" alt="Lotis Francisco">
+                <p><strong>Lotis Francisco</strong><br>Professor, University of the Philippines Diliman<br><span>Philippines</span></p>
+            </div>
+            <!-- Add more initiators following the same structure -->
         </div>
     </div>
 </body>
