@@ -26,6 +26,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         header .logo {
@@ -40,18 +41,26 @@
 
         header h1 {
             font-size: 24px;
+            white-space: nowrap;
         }
 
-        header nav ul {
+        nav {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        nav ul {
             list-style: none;
             display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
         }
 
-        header nav ul li {
+        nav ul li {
             margin: 0 10px;
         }
 
-        header nav ul li a {
+        nav ul li a {
             color: #fff;
             text-decoration: none;
         }
@@ -117,31 +126,36 @@
         }
 
         @media (max-width: 768px) {
-            .quick-links {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+
+            header .logo {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .quick-links a {
-                margin: 10px 0;
+            header .logo h1 {
+                font-size: 20px;
+                text-align: center;
+                margin-top: 5px;
             }
-        }
 
-        .about-content {
-            background: #ffffff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+            nav {
+                width: 100%;
+            }
 
-        .about-content h2 {
-            color: #0056a6;
-            margin-bottom: 10px;
-        }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+            }
 
-        .about-content p {
-            margin-bottom: 10px;
+            nav ul li {
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
