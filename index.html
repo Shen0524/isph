@@ -1,11 +1,11 @@
-“”<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>International Society for Precision Health</title>
     <style>
-        /* General Styles */
+        /* 全域設定 */
         * {
             margin: 0;
             padding: 0;
@@ -14,153 +14,128 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
         }
+        
+        /* LOGO 樣式 */
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
+        }
 
+        /* 標頭樣式 */
         header {
-            background: #0056a6;
+            background-color: #00539C;
             color: #fff;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        header .logo img {
-            max-height: 50px;
-            margin-right: 10px;
-        }
-
-        header h1 {
-            font-size: 24px;
-        }
-
-        header nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        header nav ul li {
-            margin: 0 10px;
-        }
-
-        header nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .hero {
-            background: url('hero-image.jpg') no-repeat center center/cover;
-            height: 300px;
-            position: relative;
-            color: white;
+            padding: 1rem;
             text-align: center;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        /* 導航列樣式 */
+        nav {
+            background-color: #003366;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+        .nav-links {
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
         }
-
-        .hero img {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            max-height: 240px;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            z-index: 2;
-        }
-
-        .main-content {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .quick-links {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-
-        .quick-links a {
+        .nav-links a {
             text-decoration: none;
-            color: #0056a6;
+            color: white;
+            padding: 0.5rem 1rem;
             font-weight: bold;
         }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
 
-        .event-section {
-            background-color: #fff;
+        /* 主要內容 */
+        .main-content {
+            max-width: 1200px;
+            margin: 80px auto 20px;
             padding: 20px;
-            margin-top: 20px;
         }
 
-        .event-section h2 {
-            color: #0056a6;
-        }
-
+        /* 頁尾樣式 */
         footer {
-            background: #003366;
+            background-color: #003366;
             color: #fff;
             text-align: center;
-            padding: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .quick-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .quick-links a {
-                margin: 10px 0;
-            }
-        }
-
-        .about-content {
-            background: #ffffff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-content h2 {
-            color: #0056a6;
-            margin-bottom: 10px;
-        }
-
-        .about-content p {
-            margin-bottom: 10px;
+            padding: 1rem;
         }
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img src="LOGO.PNG" alt="ISPH Logo">
+    </div>
+    
     <header>
-        <div class="logo">
-            <img src="LOGO.PNG" alt="ISPH Logo">
-            <h1>International Society for Precision Health</h1>
+        <h1>International Society for Precision Health</h1>
+    </header>
+    
+    <nav>
+        <button class="menu-toggle">☰</button>
+        <div class="nav-links">
+            <a href="about.html">About Us</a>
+            <a href="Join us.html">Membership</a>
+            <a href="Annual2025.html">Annual Meeting</a>
+            <a href="#research">Research</a>
+            <a href="Contact.html">Contact</a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="Join us.html">Membership</a></li>
-                <li><a href="Annual2025.html">Annual Meeting</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>“”
+    </nav>
+    
+    <main class="main-content">
+        <h2>Welcome to ISPH</h2>
+        <p>Your trusted source for precision health research and collaboration.</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector(".menu-toggle").addEventListener("click", function() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        });
+    </script>
+</body>
     <section class="hero">
         
         <img src="LOGO.PNG" alt="ISPH Logo">
