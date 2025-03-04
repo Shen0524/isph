@@ -146,6 +146,29 @@
         }
     </style>
 </head>
+    <body>
+    <div class="logo-container">
+        <img src="LOGO.PNG" alt="ISPH Logo">
+    </div>
+    <header>
+        <h1>International Society for Precision Health</h1>
+    </header>
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="Join us.html">Membership</a></li>
+            <li><a href="Annual2025.html">Annual Meeting</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        }
+    </script>
+</body>
 <body>
     <header>
         <div class="logo">
