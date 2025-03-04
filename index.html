@@ -19,26 +19,26 @@
             line-height: 1.6;
         }
         
-        /* LOGO 樣式 */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-        }
-        .logo-container img {
-            max-width: 100px;
-            height: auto;
-        }
-
-        /* 標頭樣式 */
+        /* 標頭樣式，包含 LOGO 和標題 */
         header {
             background-color: #00539C;
             color: #fff;
             padding: 1rem;
             text-align: center;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+        
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
         }
         
         header h1 {
@@ -86,6 +86,9 @@
             .nav-links.active {
                 display: flex;
             }
+            header {
+                flex-direction: column;
+            }
         }
 
         /* 主要內容 */
@@ -105,11 +108,10 @@
     </style>
 </head>
 <body>
-    <div class="logo-container">
-        <img src="LOGO.PNG" alt="ISPH Logo">
-    </div>
-    
     <header>
+        <div class="logo-container">
+            <img src="LOGO.PNG" alt="ISPH Logo">
+        </div>
         <h1>International Society for Precision Health</h1>
     </header>
     
