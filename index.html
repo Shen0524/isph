@@ -120,7 +120,11 @@
             <li><a href="Contact.html">Contact</a></li>
         </ul>
     </nav>
-
+    <script>
+        document.querySelector(".menu-toggle").addEventListener("click", function() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        });
+    </script>
     <div class="about-content">
         <h2>About Us</h2>
         <h2>Message from Chair Initiator</h2>
