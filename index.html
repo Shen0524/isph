@@ -19,12 +19,15 @@
             line-height: 1.6;
         }
         
-        /* 標頭樣式 */
+        /* 標頭樣式 - 讓內容完全置中 */
         header {
             background-color: #00539C;
             color: #fff;
             padding: 1rem;
             text-align: center;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
         }
         
         header h1 {
@@ -33,7 +36,7 @@
             margin: 0;
         }
 
-        /* 導航列樣式 */
+        /* 導航列樣式 - 預設為桌面版 */
         nav {
             background-color: #003366;
             padding: 0.5rem;
@@ -60,7 +63,7 @@
             font-weight: bold;
         }
         
-        /* 響應式設計 */
+        /* 響應式設計 - 手機版顯示漢堡選單 */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -69,9 +72,20 @@
                 display: none;
                 flex-direction: column;
                 text-align: center;
+                background-color: #003366;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 60px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 10;
             }
             .nav-links.active {
                 display: flex;
+            }
+            .nav-links a {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             }
         }
 
@@ -93,7 +107,7 @@
 </head>
 <body>
     <header>
-        <center><h1>International Society for Precision Health</h1></center>
+        <h1>International Society for Precision Health</h1>
     </header>
     
     <nav>
