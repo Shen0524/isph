@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - ISPH</title>
+    <title>Join ISPH</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,6 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         header .logo {
@@ -36,19 +37,63 @@
             font-size: 1.5rem;
         }
 
-        header nav ul {
-            list-style: none;
+        /* 電腦版導航 */
+        nav {
             display: flex;
         }
 
-        header nav ul li {
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
             margin: 0 10px;
         }
 
-        header nav ul li a {
+        nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 1rem;
+        }
+
+        /* 手機和平板導航 */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #0056a6;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul {
+                display: block;
+                padding: 0;
+            }
+
+            nav ul li {
+                text-align: right;
+                margin: 10px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-active {
+                display: block;
+            }
         }
 
         .container {
@@ -58,20 +103,27 @@
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .container h2 {
+        .container h1 {
             color: #0056a6;
             margin-bottom: 20px;
         }
 
-        .container p {
-            margin-bottom: 15px;
+        .submit-btn {
+            background-color: #0056a6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
         }
 
-        .container a {
-            color: #0056a6;
-            text-decoration: none;
+        .submit-btn:hover {
+            background-color: #003d7a;
         }
     </style>
 </head>
@@ -81,7 +133,8 @@
             <img src="LOGO.PNG" alt="ISPH Logo">
             <h1>International Society for Precision Health</h1>
         </div>
-        <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -99,6 +152,15 @@
     </div>
     
     <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-menu");
+            if (nav.classList.contains("menu-active")) {
+                nav.classList.remove("menu-active");
+            } else {
+                nav.classList.add("menu-active");
+            }
+        }
+
         function redirectToGoogleForm() {
             window.location.href = "https://forms.gle/BRV9zVUSjDYNLPM89";
         }
