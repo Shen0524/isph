@@ -18,74 +18,87 @@
             color: #333;
             line-height: 1.6;
         }
-        
-        /* 標頭樣式 - 讓內容完全置中 */
+
+        /* 標頭樣式 */
         header {
             background-color: #00539C;
             color: #fff;
             padding: 1rem;
-            text-align: center;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            position: relative;
         }
-        
+
         header h1 {
             font-size: 1.8rem;
-            text-align: center;
             margin: 0;
         }
 
-        /* 導航列樣式 - 預設為桌面版 */
+        /* 導航列 */
         nav {
-            background-color: #003366;
-            padding: 0.5rem;
-            text-align: center;
-        }
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 0.5rem;
-            cursor: pointer;
-        }
-        .nav-links {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
         }
-        .nav-links a {
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
             text-decoration: none;
             color: white;
-            padding: 0.5rem 1rem;
             font-weight: bold;
+            padding: 0.5rem 1rem;
         }
-        
-        /* 響應式設計 - 手機版改為下拉式選單 */
-        @media (max-width: 768px) {
+
+        /* 漢堡選單 */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
             .menu-toggle {
                 display: block;
             }
-            .nav-links {
+
+            nav {
                 display: none;
-                flex-direction: column;
-                text-align: center;
-                background-color: #003366;
                 position: absolute;
-                width: 100%;
-                left: 0;
                 top: 60px;
+                right: 20px;
+                background-color: #003366;
+                border-radius: 8px;
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 10;
+                width: 200px;
             }
-            .nav-links.active {
-                display: flex;
+
+            nav ul {
+                display: block;
+                text-align: right;
+                padding: 0;
             }
-            .nav-links a {
-                padding: 1rem;
+
+            nav ul li {
+                margin: 10px;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 10px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .menu-active {
+                display: block;
             }
         }
 
@@ -94,9 +107,20 @@
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
+            text-align: center;
         }
 
-        /* 頁尾樣式 */
+        .button {
+            display: inline-block;
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        /* 頁尾 */
         footer {
             background-color: #003366;
             color: #fff;
@@ -108,52 +132,39 @@
 <body>
     <header>
         <h1>International Society for Precision Health</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Join us.html">Join ISPH</a></li>
+                <li><a href="Annual2025.html">Annual Meeting</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <nav>
-        <button class="menu-toggle">☰</button>
-        <ul class="nav-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="Join us.html">Join ISPH</a></li>
-            <li><a href="Annual2025.html">Annual Meeting</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <script>
-        document.querySelector(".menu-toggle").addEventListener("click", function() {
-            document.querySelector(".nav-links").classList.toggle("active");
-        });
-    </script>
-    <section class="hero">
-
-        <img src="LOGO.PNG" alt="ISPH Logo">
-    </section>
 
     <div class="main-content">
-        <section id="about">
-            <h2>About Us</h2>
-            <p>The International Society for Precision Health (ISPH) is dedicated to advancing research and innovation in precision health.</p>
-            <a href="about.html" target="_blank">Learn More</a>
-        </section>
-
-        <section id="meeting" class="event-section">
-            <h2>Annual Meeting 2025</h2>
-            <p><strong>Date:</strong> October 18, 2025</p>
-            <p><strong>Location:</strong> Taipei, Taiwan</p>
-            <a href="Annual2025.html" target="_blank">Learn More</a>
-        </section>
-
+        <h2>About ISPH</h2>
+        <p>The International Society for Precision Health (ISPH) is dedicated to advancing research and innovation in precision health.</p>
+        <a href="about.html" class="button">Learn More</a>
         <a href="Join us.html" class="button">Join ISPH</a>
         <a href="Annual2025.html" class="button">Annual Meeting</a>
-         <a href="#" class="button">Sponsors</a>      
     </div>
 
     <footer>
         <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-menu");
+            nav.classList.toggle("menu-active");
+        }
+    </script>
 </body>
 </html>
+
 
 <!DOCTYPE html>
 <html lang="en">
