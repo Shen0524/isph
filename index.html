@@ -204,30 +204,19 @@
             position: relative;
         }
 
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        header .logo img {
-            max-height: 50px;
-            margin-right: 15px;
-        }
-
         header h1 {
             font-size: 1.5rem;
         }
 
-        /* 電腦版導航 */
-        nav {
-            display: flex;
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            margin: 0;
-            padding: 0;
         }
 
         nav ul li {
@@ -238,13 +227,6 @@
             color: #fff;
             text-decoration: none;
             font-size: 1rem;
-        }
-
-        /* 手機和平板導航 */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
         }
 
         @media screen and (max-width: 768px) {
@@ -260,7 +242,6 @@
                 background-color: #003366;
                 border-radius: 8px;
                 width: 200px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             }
 
             nav ul {
@@ -278,7 +259,7 @@
             }
         }
 
-        .container {
+        .about-content {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
@@ -287,91 +268,25 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .container h2 {
+        .about-content h2 {
             color: #0056a6;
             margin-bottom: 20px;
         }
 
-        .container img {
+        .about-content img {
             max-width: 150px;
             border-radius: 8px;
             margin-bottom: 15px;
         }
 
-        .signature {
-            text-align: center;
-            margin-top: 20px;
-        }
-
         .signature img {
             max-width: 200px;
-        }
-
-        /* Initiators Section */
-        .initiators {
-            margin: 30px auto;
-            max-width: 1200px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .initiators h2 {
-            color: #0056a6;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .initiators .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .initiators .initiator {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .initiators .initiator img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-
-        .initiators .initiator p {
-            text-align: center;
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .initiators .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .initiators .grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="LOGO.PNG" alt="ISPH Logo">
-            <h1>International Society for Precision Health</h1>
-        </div>
+        <h1>About ISPH</h1>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <nav id="nav-menu">
             <ul>
@@ -384,36 +299,9 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="about-content">
         <h2>Message from Chair Initiator</h2>
-        <img src="WCK.jpg" alt="Dr. Prof. Chin-Kun Wang">
-        <p>Appropriate nutritional intervention is essential for growth, development and resilience...</p>
-        <p><strong>Dr. Prof. Chin-Kun Wang</strong><br>
-        Chair Initiator of International Society for Precision Health<br>
-        United Nations Goodwill Ambassador</p>
-        <div class="signature">
-            <img src="Sign.jpg" alt="Signature of Dr. Prof. Chin-Kun Wang">
-        </div>
-    </div>
-
-    <div class="initiators">
-        <h2>Initiators of International Society for Precision Health</h2>
-        <div class="grid">
-            <div class="initiator">
-                <img src="speakers/diana_bogueva.jpg" alt="Diana Bogueva">
-                <p><strong>Diana Bogueva</strong><br>Research Associate, Curtin University<br><span>Australia</span></p>
-            </div>
-
-            <div class="initiator">
-                <img src="speakers/milen_georgiev.jpg" alt="Milen Georgiev">
-                <p><strong>Milen Georgiev</strong><br>Professor, Bulgarian Academy of Science<br><span>Bulgaria</span></p>
-            </div>
-
-            <div class="initiator">
-                <img src="speakers/rotimi_aluko.jpg" alt="Rotimi Aluko">
-                <p><strong>Rotimi Aluko</strong><br>Professor, University of Manitoba<br><span>Canada</span></p>
-            </div>
-        </div>
+        <p>...</p>
     </div>
 
     <script>
