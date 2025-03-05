@@ -20,6 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         header .logo {
@@ -36,19 +37,64 @@
             font-size: 1.5rem;
         }
 
-        header nav ul {
-            list-style: none;
+        /* 電腦版導航 */
+        nav {
             display: flex;
         }
 
-        header nav ul li {
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
             margin: 0 10px;
         }
 
-        header nav ul li a {
+        nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 1rem;
+        }
+
+        /* 手機和平板導航 */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #003366;
+                border-radius: 8px;
+                width: 200px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul {
+                display: block;
+                padding: 0;
+            }
+
+            nav ul li {
+                text-align: right;
+                margin: 10px;
+            }
+
+            .menu-active {
+                display: block;
+            }
         }
 
         .container {
@@ -80,6 +126,7 @@
             max-width: 200px;
         }
 
+        /* Initiators Section */
         .initiators {
             margin: 30px auto;
             max-width: 1200px;
@@ -144,7 +191,8 @@
             <img src="LOGO.PNG" alt="ISPH Logo">
             <h1>International Society for Precision Health</h1>
         </div>
-        <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="Join us.html">Join ISPH</a></li>
@@ -154,13 +202,6 @@
             </ul>
         </nav>
     </header>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('nav-menu').classList.toggle('show');
-        }
-    </script>
-
     <div class="container">
         <h2>About Us</h2>
         <h2>Message from Chair Initiator</h2>
