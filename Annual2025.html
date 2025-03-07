@@ -308,7 +308,20 @@
             display: inline-block;
             padding: 20px;
             border-radius: 10px;
+            border: 3px solid #d9534f; /* 加上外框 */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 手機版樣式 */
+        @media (max-width: 768px) {
+            #countdown {
+                font-size: 1.2em; /* 縮小字體 */
+                padding: 10px; /* 減少內邊距 */
+                border-width: 2px; /* 外框變細一點 */
+            }
+            h1 {
+                font-size: 1.5em; /* 縮小標題 */
+            }
         }
     </style>
 </head>
@@ -344,3 +357,4 @@
 
 </body>
 </html>
+
