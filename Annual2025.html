@@ -288,11 +288,11 @@
 </html>
 
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>倒數計時器</title>
+    <title>Countdown Timer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -317,8 +317,8 @@
 </head>
 <body>
 
-    <h1>距離 2025 年 10 月 18 日 還有：</h1>
-    <div id="countdown">計算中...</div>
+    <h1>Time Left Until October 18, 2025:</h1>
+    <div id="countdown">Calculating...</div>
 
     <script>
         function updateCountdown() {
@@ -327,7 +327,7 @@
             const timeRemaining = eventDate - now;
 
             if (timeRemaining <= 0) {
-                document.getElementById("countdown").innerHTML = "活動已開始！";
+                document.getElementById("countdown").innerHTML = "The event has started!";
                 return;
             }
 
@@ -336,12 +336,12 @@
             const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            document.getElementById("countdown").innerHTML = `${days}天 ${hours}時 ${minutes}分 ${seconds}秒`;
+            document.getElementById("countdown").innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
         }
 
-        // 每秒更新一次
+        // Update every second
         setInterval(updateCountdown, 1000);
-        // 頁面載入時立即執行一次
+        // Run once when page loads
         updateCountdown();
     </script>
 
