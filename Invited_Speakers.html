@@ -110,18 +110,17 @@
         }
 
         .speakers {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             justify-content: center;
         }
 
         .speaker {
             background: white;
-            margin: 15px;
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 250px;
             text-align: center;
         }
 
@@ -142,6 +141,18 @@
             color: #777;
             font-size: 14px;
             font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .speakers {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .speakers {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
 
         /* Footer */
@@ -177,22 +188,168 @@
         <p class="text-center">(Listed by the order of family name)</p>
 
         <div class="speakers">
-            <div class="speaker">
-                <img src="speakers/abdel_qader_qawasmeh.jpg" alt="Dr. Abdel Qader Qawasmeh">
-                <div class="name">Dr. Abdel Qader Qawasmeh</div>
-                <div class="country">(Palestine)</div>
-            </div>
-            <div class="speaker">
-                <img src="speakers/milen_georgiev.jpg" alt="Dr. Milen Georgiev">
-                <div class="name">Dr. Milen Georgiev</div>
-                <div class="country">(Bulgaria)</div>
-            </div>
-            <div class="speaker">
-                <img src="speakers/christofora_hanny_wijaya.jpg" alt="Dr. Christofora Hanny Wijaya">
-                <div class="name">Dr. Christofora Hanny Wijaya</div>
-                <div class="country">(Indonesia)</div>
-            </div>
-        </div>
+            <!-- Speakers ordered by family name -->
+<div class="speaker">
+    <img src="speakers/sirichai_adisakwattana.jpg" alt="Dr. Sirichai Adisakwattana">
+    <div class="name">Dr. Sirichai Adisakwattana</div>
+    <div class="country">(Thailand)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/rotimi_aluko.jpg" alt="Dr. Rotimi Aluko">
+    <div class="name">Dr. Rotimi Aluko</div>
+    <div class="country">(Canada)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi">
+    <div class="name">Dr. Debasis Bagchi</div>
+    <div class="country">(USA)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/nadiya_boyko.jpg" alt="Dr. Nadiya Boyko">
+    <div class="name">Dr. Nadiya Boyko</div>
+    <div class="country">(Ukraine)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/kuan_chen_cheng.png" alt="Dr. Kuan-Chen Cheng">
+    <div class="name">Dr. Kuan-Chen Cheng</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/danny_dhanasekaran.jpg" alt="Dr. Danny N. Dhanasekaran">
+    <div class="name">Dr. Danny N. Dhanasekaran</div>
+    <div class="country">(USA)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/marc_diederich.jpg" alt="Dr. Marc Diederich">
+    <div class="name">Dr. Marc Diederich</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/lotis_francisco.jpg" alt="Dr. Lotis Francisco">
+    <div class="name">Dr. Lotis Francisco</div>
+    <div class="country">(Philippines)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/milen_georgiev.jpg" alt="Dr. Milen Georgiev">
+    <div class="name">Dr. Milen Georgiev</div>
+    <div class="country">(Bulgaria)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/johji_inazawa.jpg" alt="Dr. Johji Inazawa">
+    <div class="name">Dr. Johji Inazawa</div>
+    <div class="country">(Japan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/amin_bin_ismail.jpg" alt="Dr. Amin Bin Ismail">
+    <div class="name">Dr. Amin Bin Ismail</div>
+    <div class="country">(Malaysia)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro">
+    <div class="name">Dr. Ciro Isidoro</div>
+    <div class="country">(Italy)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/richard_khaw.jpg" alt="Dr. Richard Khaw">
+    <div class="name">Dr. Richard Khaw</div>
+    <div class="country">(Singapore)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/binh_ly_nguyen.jpg" alt="Dr. Binh Ly Nguyen">
+    <div class="name">Dr. Binh Ly Nguyen</div>
+    <div class="country">(Vietnam)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/anca_miron.jpg" alt="Dr. Anca Miron">
+    <div class="name">Dr. Anca Miron</div>
+    <div class="country">(Romania)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/min_hsiung_pan.jpeg" alt="Dr. Min-Hsiung Pan">
+    <div class="name">Dr. Min-Hsiung Pan</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/abdel_qader_qawasmeh.jpg" alt="Dr. Abdel Qader Qawasmeh">
+    <div class="name">Dr. Abdel Qader Qawasmeh</div>
+    <div class="country">(Palestine)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier">
+    <div class="name">Dr. Thierry J.C. Regnier</div>
+    <div class="country">(South Africa)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/livia_simon_sarkadi.jpg" alt="Dr. Livia Simon Sarkadi">
+    <div class="name">Dr. Livia Simon Sarkadi</div>
+    <div class="country">(Hungary)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/mark_shamtsyan.jpg" alt="Dr. Mark Shamtsyan">
+    <div class="name">Dr. Mark Shamtsyan</div>
+    <div class="country">(Russia)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/fereidoon_shahidi.jpg" alt="Dr. Fereidoon Shahidi">
+    <div class="name">Dr. Fereidoon Shahidi</div>
+    <div class="country">(Canada)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/szu_chuan_shen.jpeg" alt="Dr. Szu-Chuan Shen">
+    <div class="name">Dr. Szu-Chuan Shen</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/yong_sang_song.jpg" alt="Dr. Yong Sang Song">
+    <div class="name">Dr. Yong Sang Song</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/young_joon_surh.jpg" alt="Dr. Young-Joon Surh">
+    <div class="name">Dr. Young-Joon Surh</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/benjamin_tsang.jpg" alt="Dr. Benjamin Tsang">
+    <div class="name">Dr. Benjamin Tsang</div>
+    <div class="country">(Canada)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/christofora_hanny_wijaya.jpg" alt="Dr. Christofora Hanny Wijaya">
+    <div class="name">Dr. Christofora Hanny Wijaya</div>
+    <div class="country">(Indonesia)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/mukerrem_betul_yerer_aycan.jpg" alt="Dr. Mukerrem Betul Yerer-Aycan">
+    <div class="name">Dr. Mukerrem Betul Yerer-Aycan</div>
+    <div class="country">(Turkey)</div>
+</div>
     </div>
 
     <footer>
