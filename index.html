@@ -218,11 +218,10 @@
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
-            z-index: 101; /* 確保在最上層 */
         }
 
         nav {
-            display: block;
+            display: block; /* Changed from flex to block for better mobile handling */
         }
 
         nav ul {
@@ -256,13 +255,12 @@
                 background-color: #003366;
                 border-radius: 8px;
                 width: 200px;
-                display: none; /* 預設在手機上隱藏 */
+                display: none; /* Hide by default on mobile */
                 z-index: 100;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
 
             nav.menu-active {
-                display: block; /* 當有 active 類別時顯示 */
+                display: block; /* Show when active class is applied */
             }
 
             nav ul {
@@ -278,10 +276,6 @@
             nav ul li a {
                 padding: 10px 20px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            }
-            
-            nav ul li:last-child a {
-                border-bottom: none;
             }
         }
 
@@ -313,7 +307,7 @@
 <body>
     <header>
         <h1>About ISPH</h1>
-        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -342,36 +336,10 @@
     </div>
 
     <script>
-        // 當文檔加載完成後運行
-        document.addEventListener('DOMContentLoaded', function() {
-            // 獲取菜單按鈕和導航菜單元素
-            var menuToggle = document.getElementById("menu-toggle");
-            var navMenu = document.getElementById("nav-menu");
-            
-            // 點擊菜單按鈕時切換導航菜單的顯示狀態
-            menuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle("menu-active");
-            });
-            
-            // 點擊導航菜單中的鏈接後關閉菜單（適用於手機版）
-            var navLinks = document.querySelectorAll('#nav-menu a');
-            navLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                    // 僅在窄屏幕下執行（手機版）
-                    if(window.innerWidth <= 768) {
-                        navMenu.classList.remove("menu-active");
-                    }
-                });
-            });
-            
-            // 點擊菜單外區域時關閉菜單
-            document.addEventListener('click', function(event) {
-                // 檢查點擊是否在菜單外且不是菜單按鈕
-                if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-                    navMenu.classList.remove("menu-active");
-                }
-            });
-        });
+        function toggleMenu() {
+            var nav = document.getElementById("nav-menu");
+            nav.classList.toggle("menu-active");
+        }
     </script>
 </body>
 </html>
