@@ -209,6 +209,43 @@
                 font-size: 1rem;
             }
         }
+		    /* 新增主題區塊樣式 */
+    .theme-container {
+        border: 3px solid #00539C;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        background-color: rgba(0, 83, 156, 0.05);
+    }
+
+    .theme-title {
+        color: #00539C;
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #00BFFF;
+    }
+
+    .sub-theme-title {
+        color: #d9534f;
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+        .theme-container {
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .theme-title {
+            font-size: 1.2rem;
+        }
+        .sub-theme-title {
+            font-size: 1rem;
+        }
+    }
     </style>
 </head>
 <body>
@@ -265,10 +302,8 @@
         <h2>About the Conference</h2>
         <!-- 主題區塊 -->
         <div class="theme-container">
-            <div class="theme-title">Theme: Health, Precision, Nutrition</div>
-            
-            <div class="sub-theme-title">Sub Theme: Disease Prevention, Nutrition Intervention, Big Data Application
-            </div>
+         <div class="theme-title">Theme: Health, Precision, Nutrition</div>
+         <div class="sub-theme-title">Sub Theme: Disease Prevention, Nutrition Intervention, Big Data Application</div>
         </div>
         <div class="main-visual">
             <img src="102025.png" alt="Health and Technology Visual">
@@ -364,4 +399,3 @@
 
 </body>
 </html>
-
