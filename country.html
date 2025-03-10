@@ -19,10 +19,10 @@
         }
         .flag-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(6, 1fr);
             gap: 20px;
             padding: 20px;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
         }
         .flag-item {
@@ -41,33 +41,15 @@
             color: #555;
         }
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
             .flag-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
-            }
-            .flag-item img {
-                max-width: 80px;
-            }
-            .flag-item p {
-                font-size: 0.9rem;
             }
         }
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
             .flag-grid {
-                padding: 10px;
+                grid-template-columns: repeat(1, 1fr);
                 gap: 10px;
-            }
-            .flag-item img {
-                max-width: 70px;
-            }
-            .flag-item p {
-                font-size: 0.8rem;
             }
         }
         nav {
@@ -97,31 +79,6 @@
             background-color: #00539C;
             border-radius: 5px;
         }
-        nav ul li .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            color: #003366;
-            min-width: 160px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        nav ul li .dropdown-content li {
-            padding: 0;
-            margin: 0;
-        }
-        nav ul li .dropdown-content li a {
-            color: #003366;
-            padding: 0.5rem 1rem;
-            display: block;
-            text-decoration: none;
-        }
-        nav ul li .dropdown-content li a:hover {
-            background-color: #ddd;
-        }
-        nav ul li:hover .dropdown-content {
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -133,164 +90,116 @@
     <nav>
         <ul>
             <li><a href="Annual2025.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Scientific Info &#9662;</a>
-                <ul class="dropdown-content">
-                    <li><a href="Invited_Speakers.html">Invited Speakers</a></li>
-                    <li><a href="session-schedule.html">Session Schedule</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#">Registrations &#9662;</a>
-                <ul class="dropdown-content">
-                    <li><a href="register-now.html">Register Now</a></li>
-                    <li><a href="fees-options.html">Fees & Options</a></li>
-                </ul>
-            </li>
+            <li><a href="Invited_Speakers.html">Invited Speakers</a></li>
+            <li><a href="session-schedule.html">Session Schedule</a></li>
+            <li><a href="register-now.html">Register Now</a></li>
+            <li><a href="fees-options.html">Fees & Options</a></li>
             <li><a href="abstract-book.html">Abstract Book</a></li>
             <li><a href="Sponsors.html">Sponsors</a></li>
-                            <ul class="dropdown-content">
-               
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#">General Info &#9662;</a>
-                <ul class="dropdown-content">
-                    <li><a href="travel-info.html">Travel Information</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
-                </ul>
-            </li>
+            <li><a href="travel-info.html">Travel Information</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
             <li><a href="follow-us.html">Follow Us</a></li>
         </ul>
     </nav>
-
     <h1>Country Representation</h1>
 
     <div class="flag-grid">
-<!-- First Row -->
-<!-- First Row -->
-<div class="flag-item">
-    <img src="flags/01.png" alt="Australia">
-    <p>Australia</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/02.png" alt="Austria">
-    <p>Austria</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/03.png" alt="Bulgaria">
-    <p>Bulgaria</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/04.png" alt="Canada">
-    <p>Canada</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/05.png" alt="China">
-    <p>China</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/06.png" alt="France">
-    <p>France</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/07.png" alt="Germany">
-    <p>Germany</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/08.png" alt="Hungary">
-    <p>Hungary</p>
-</div>
-
-<!-- Second Row -->
-<div class="flag-item">
-    <img src="flags/09.png" alt="India">
-    <p>India</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/10.png" alt="Indonesia">
-    <p>Indonesia</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/11.png" alt="Japan">
-    <p>Japan</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/12.png" alt="Lithuania">
-    <p>Lithuania</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/13.png" alt="Malaysia">
-    <p>Malaysia</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/14.png" alt="Pakistan">
-    <p>Pakistan</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/15.png" alt="Palestine">
-    <p>Palestine</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/16.png" alt="Poland">
-    <p>Poland</p>
-</div>
-
-<!-- Third Row -->
-<div class="flag-item">
-    <img src="flags/17.png" alt="Romania">
-    <p>Romania</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/18.png" alt="South Africa">
-    <p>South Africa</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/19.png" alt="South Korea">
-    <p>South Korea</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/20.png" alt="Spain">
-    <p>Spain</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/21.png" alt="Singapore">
-    <p>Singapore</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/Taiwan.jpeg" alt="Taiwan">
-    <p>Taiwan</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/23.png" alt="Thailand">
-    <p>Thailand</p>
-</div>
-
-<div class="flag-item">
-    <img src="flags/24.png" alt="USA">
-    <p>USA</p>
-</div>
-        <!-- Add similar divs for all other countries -->
+        <div class="flag-item">
+            <img src="flags/01.png" alt="Australia">
+            <p>Australia</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/02.png" alt="Austria">
+            <p>Austria</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/03.png" alt="Bulgaria">
+            <p>Bulgaria</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/04.png" alt="Canada">
+            <p>Canada</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/05.png" alt="China">
+            <p>China</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/06.png" alt="France">
+            <p>France</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/07.png" alt="Germany">
+            <p>Germany</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/08.png" alt="Hungary">
+            <p>Hungary</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/09.png" alt="India">
+            <p>India</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/10.png" alt="Indonesia">
+            <p>Indonesia</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/11.png" alt="Japan">
+            <p>Japan</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/12.png" alt="Lithuania">
+            <p>Lithuania</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/13.png" alt="Malaysia">
+            <p>Malaysia</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/14.png" alt="Pakistan">
+            <p>Pakistan</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/15.png" alt="Palestine">
+            <p>Palestine</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/16.png" alt="Poland">
+            <p>Poland</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/17.png" alt="Romania">
+            <p>Romania</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/18.png" alt="South Africa">
+            <p>South Africa</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/19.png" alt="South Korea">
+            <p>South Korea</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/20.png" alt="Spain">
+            <p>Spain</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/21.png" alt="Singapore">
+            <p>Singapore</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/Taiwan.jpeg" alt="Taiwan">
+            <p>Taiwan</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/23.png" alt="Thailand">
+            <p>Thailand</p>
+        </div>
+        <div class="flag-item">
+            <img src="flags/24.png" alt="USA">
+            <p>USA</p>
+        </div>
     </div>
 </body>
 </html>
