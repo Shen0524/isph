@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Committees - ISPH</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            max-height: 50px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        /* Desktop Navigation */
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #003366;
+                border-radius: 8px;
+                width: 200px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul {
+                display: block;
+                padding: 0;
+            }
+
+            nav ul li {
+                text-align: right;
+                margin: 10px;
+            }
+
+            .menu-active {
+                display: block;
+            }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4a4a4a;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .committees {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .committee-member {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .committee-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .committee-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #f0f0f0;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .country {
+            color: #7f8c8d;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .committees {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 20px;
+            }
+            
+            .committee-member img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .committee-member {
+                padding: 20px;
+            }
+            
+            .committee-member img {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .name {
+                font-size: 18px;
+            }
+            
+            .country {
+                font-size: 14px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="LOGO.PNG" alt="ISPH Logo">
+            <h1>ISPH 2025</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="Annual2025.html">Home</a></li>
+                <li><a href="Join us.html">Join ISPH</a></li>
+                <li><a href="Sponsors.html">Sponsors</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Organizing Committees</h1>
+        <p class="subtitle">(Listed by the order of family name)</p>
+
+        <div class="committees">
+            <!-- Committee members ordered by family name -->
+            <div class="committee-member">
+                <img src="speakers/thierry_astruc.jpg" alt="Dr. Thierry Astruc">
+                <div class="name">Dr. Thierry Astruc</div>
+                <div class="country">(France)</div>
+            </div>
+
+            <div class="committee-member">
+                <img src="speakers/jun_nishihira.jpg" alt="Prof. Dr. Jun Nishihira">
+                <div class="name">Prof. Dr. Jun Nishihira</div>
+                <div class="country">(Japan)</div>
+            </div>
+
+            <div class="committee-member">
+                <img src="speakers/kenji_sato.jpg" alt="Prof. Dr. Kenji Sato">
+                <div class="name">Prof. Dr. Kenji Sato</div>
+                <div class="country">(Japan)</div>
+            </div>
+
+            <div class="committee-member">
+                <img src="speakers/petras_venskutonis.jpg" alt="Prof. Dr. Petras Rimantas Venskutonis">
+                <div class="name">Prof. Dr. Petras Rimantas Venskutonis</div>
+                <div class="country">(Lithuania)</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("menu-active");
+        }
+    </script>
+
+</body>
+</html>
