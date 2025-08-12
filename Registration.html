@@ -94,8 +94,8 @@
       <p>活動日期：2025/10/18（六）｜</p>
     </div>
   </header>
-
-<main class="container">
+<body>
+  <main class="container">
     <div class="grid">
       <!-- Fees & add-ons (no early-bird) -->
       <section class="card" id="fees">
@@ -150,8 +150,6 @@
           </div>
         </div>
       </section>
-    </div>
-  </main>
 
       <!-- Registration form (Google Forms) -->
       <section class="card" id="register">
@@ -162,11 +160,11 @@
 
             <div class="row">
               <div>
-                <label>姓名/first name+family name<span style="color: red;">(請填中英文名)</span><span style="color:var(--danger)">*</span></label>
+                <label>姓名/first name+family name<span style="color: red;">(請填中英文名)</span><span style="color:red">*</span></label>
                 <input type="text" name="entry.1195663187" required placeholder="王小明/ Xiao-Ming Wang" />
               </div>
               <div>
-                <label>E-mail <span style="color:var(--danger)">*</span></label>
+                <label>E-mail <span style="color:red">*</span></label>
                 <input type="email" name="entry.1329980034" required placeholder="you@gmail.com" />
                 <input type="hidden" id="emailAddressHidden" name="emailAddress" value="" />
               </div>
@@ -174,7 +172,7 @@
 
             <div class="row">
               <div>
-                <label>聯絡電話 <span style="color:var(--danger)">*</span></label>
+                <label>聯絡電話 <span style="color:red">*</span></label>
                 <input type="tel" name="entry.1504094709" required placeholder="09xx-xxx-xxx" />
               </div>
               <div>
@@ -185,16 +183,16 @@
 
             <div class="row">
               <div>
-                <label>身分別 <span style="color:var(--danger)">*</span></label>
-                <select name="entry.573453040" required>
+                <label>身分別 <span style="color:red">*</span></label>
+                <select id="formStatus" name="entry.573453040" required>
                   <option value="">請選擇</option>
                   <option value="一般會員（NT$ 4,800）">一般會員（NT$ 4,800）</option>
-                  <option value="非會員（NT$ 8,000）">非會員（NT$ 8,000）</option>
                   <option value="學生（NT$ 4,800）">學生（NT$ 4,800）</option>
+                  <option value="非會員（NT$ 8,000）">非會員（NT$ 8,000）</option>
                 </select>
               </div>
               <div>
-                <label>餐食需求 <span style="color:var(--danger)">*</span></label>
+                <label>餐食需求 <span style="color:red">*</span></label>
                 <select name="entry.78350209" required>
                   <option value="葷食">葷食</option>
                   <option value="素食">素食</option>
@@ -205,7 +203,7 @@
 
             <div class="row">
               <div>
-                <label>是否需要發票/收據 <span style="color:var(--danger)">*</span></label>
+                <label>是否需要發票/收據 <span style="color:red">*</span></label>
                 <select name="entry.1845447127" required>
                   <option value="不需要">不需要</option>
                   <option value="收據（個人）">收據（個人）</option>
@@ -213,7 +211,7 @@
                 </select>
               </div>
               <div>
-                <label>付款方式 <span style="color:var(--danger)">*</span></label>
+                <label>付款方式 <span style="color:red">*</span></label>
                 <select name="entry.1154667495" required>
                   <option value="銀行轉帳">銀行轉帳</option>
                   <option value="現場繳費">現場繳費</option>
@@ -267,7 +265,7 @@
 
             <div class="row">
               <div>
-                <label>個資同意 <span style="color:var(--danger)">*</span></label>
+                <label>個資同意 <span style="color:red">*</span></label>
                 <label style="display:flex;gap:8px;align-items:center">
                   <input type="checkbox" id="gdpr" name="entry.979619625" value="我同意本會為活動聯繫與保險用途使用聯絡資訊" required />
                   <span>我同意本會為活動聯繫用途使用聯絡資訊</span>
@@ -280,7 +278,7 @@
                 <div>應繳金額</div>
                 <div class="muted">送出後將寄繳費資訊至您的 Email</div>
               </div>
-              <div class="amt" id="amountBottom">NT$ 8,000</div>
+              <div class="amt" id="amountBottom">NT$ 4,800</div>
             </div>
 
             <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
@@ -291,98 +289,133 @@
           <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
         </div>
       </section>
-    </div>
 
-    <section class="card" id="faq" style="margin-top:22px">
-      <div class="hd">注意事項</div>
-      <div class="bd">
-        <ol class="muted">
-          <li>報名完成後，系統將寄發確認信至您的電子郵件。</li>
-          <li>繳費資訊：完成線上表單後請於<span style="color: red;">3</span>  日內轉帳 (帳戶資訊：彰化銀行北台中分行 (009) 4004 51 48739 300 戶名:王進崑）。</li>
-          <li>退費規定：活動 14 天前（含）申請全額退費(須扣手續費)；活動 7–13 天退 50%；活動 6 天內恕不退費，可更換參加者。</li>
-          <li>收據：活動當天給予臨時收據，若須正式收據請當場登記，結束後30個工作日內寄出給您。</li>
-        </ol>
-      </div>
-    </section>
+      <section class="card" id="faq" style="margin-top:22px">
+        <div class="hd">注意事項</div>
+        <div class="bd">
+          <ol class="muted">
+            <li>報名完成後，系統將寄發確認信至您的電子郵件。</li>
+            <li>繳費資訊：完成線上表單後請於<span style="color: red;">3</span> 日內轉帳 (帳戶資訊：彰化銀行北台中分行 (009) 4004 51 48739 300 戶名:王進崑）。</li>
+            <li>退費規定：活動 14 天前（含）申請全額退費(須扣手續費)；活動 7–13 天退 50%；活動 6 天內恕不退費，可更換參加者。</li>
+            <li>收據：活動當天給予臨時收據，若須正式收據請當場登記，結束後30個工作日內寄出給您。</li>
+          </ol>
+        </div>
+      </section>
+    </div>
   </main>
 
   <script>
-    // ===== 導覽列：手機選單 =====
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    if(hamburger){
-      hamburger.addEventListener('click', ()=>{
-        const open = navLinks.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', open? 'true':'false');
-      });
+    // ===== 計費邏輯（無早鳥） =====
+    const FEES = { 
+      companion: 3300, 
+      banquet: 3300, 
+      tour: 2500 
+    };
+    const fmt = (n) => `NT$ ${n.toLocaleString('zh-TW')}`;
+
+    const statusSelect = document.getElementById('status');
+    const formStatus = document.getElementById('formStatus');
+    const qtyCompanion = document.getElementById('qtyCompanion');
+    const qtyBanquet = document.getElementById('qtyBanquet');
+    const qtyTour = document.getElementById('qtyTour');
+    const postCompanion = document.getElementById('postCompanion');
+    const postBanquet = document.getElementById('postBanquet');
+    const postTour = document.getElementById('postTour');
+    const amountTop = document.getElementById('amount');
+    const amountBottom = document.getElementById('amountBottom');
+    const postTotal = document.getElementById('postTotal');
+
+    function getNum(el) { return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
+
+    function calc() {
+      const status = statusSelect?.value || 'member';
+      const baseFee = (status === 'nonmember') ? 8000 : 4800;
+      const c = getNum(qtyCompanion);
+      const b = getNum(qtyBanquet);
+      const t = getNum(qtyTour);
+      const total = baseFee + c * FEES.companion + b * FEES.banquet + t * FEES.tour;
+      if (amountTop) amountTop.textContent = fmt(total);
+      if (amountBottom) amountBottom.textContent = fmt(total);
+      if (postTotal) postTotal.value = total;
+      // Sync form quantities
+      if (postCompanion) postCompanion.value = c;
+      if (postBanquet) postBanquet.value = b;
+      if (postTour) postTour.value = t;
+      // Sync form status
+      if (formStatus) {
+        formStatus.value = {
+          'member': '一般會員（NT$ 4,800）',
+          'student': '學生（NT$ 4,800）',
+          'nonmember': '非會員（NT$ 8,000）'
+        }[status] || '';
+      }
     }
 
-    // ===== 計費邏輯（無早鳥） =====
-    <script>
-const FEES = { 
-  companion: 3300, 
-  banquet: 3300, 
-  tour: 2500 
-};
-const fmt = (n) => `NT$ ${n.toLocaleString('zh-TW')}`;
+    // Sync quantities from form to fee section
+    function syncQuantitiesFromForm() {
+      if (qtyCompanion) qtyCompanion.value = getNum(postCompanion);
+      if (qtyBanquet) qtyBanquet.value = getNum(postBanquet);
+      if (qtyTour) qtyTour.value = getNum(postTour);
+      calc();
+    }
 
-const statusSelect = document.getElementById('status');
-const qtyCompanion = document.getElementById('qtyCompanion');
-const qtyBanquet = document.getElementById('qtyBanquet');
-const qtyTour = document.getElementById('qtyTour');
-const amountTop = document.getElementById('amount');
-const amountBottom = document.getElementById('amountBottom');
-const postTotal = document.getElementById('postTotal');
+    // Sync status from form to fee section
+    function syncStatusFromForm() {
+      if (formStatus && statusSelect) {
+        const mapping = {
+          '一般會員（NT$ 4,800）': 'member',
+          '學生（NT$ 4,800）': 'student',
+          '非會員（NT$ 8,000）': 'nonmember'
+        };
+        statusSelect.value = mapping[formStatus.value] || 'member';
+        calc();
+      }
+    }
 
-function getNum(el) { return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
+    [statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el => {
+      el?.addEventListener('input', calc);
+      el?.addEventListener('change', calc);
+    });
 
-function calc() {
-  const status = statusSelect?.value || 'member';
-  const baseFee = (status === 'nonmember') ? 8000 : 4800;
-  const c = getNum(qtyCompanion);
-  const b = getNum(qtyBanquet);
-  const t = getNum(qtyTour);
-  const total = baseFee + c * FEES.companion + b * FEES.banquet + t * FEES.tour;
-  if (amountTop) amountTop.textContent = fmt(total);
-  if (amountBottom) amountBottom.textContent = fmt(total);
-  if (postTotal) postTotal.value = total;
-}
+    [postCompanion, postBanquet, postTour].forEach(el => {
+      el?.addEventListener('input', syncQuantitiesFromForm);
+      el?.addEventListener('change', syncQuantitiesFromForm);
+    });
 
-[statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el => {
-  el?.addEventListener('input', calc);
-  el?.addEventListener('change', calc);
-});
+    formStatus?.addEventListener('change', syncStatusFromForm);
 
-calc();
-</script>
+    calc();
 
     // ===== Google Forms 送出：hidden iframe 成功提示 + 同步 emailAddress =====
-    const regForm  = document.getElementById('regForm');
-    const okMsg    = document.getElementById('okMsg');
+    const regForm = document.getElementById('regForm');
+    const okMsg = document.getElementById('okMsg');
     const resetBtn = document.getElementById('resetBtn');
-    const emailInput  = regForm?.querySelector('input[name="entry.1329980034"]');
+    const emailInput = regForm?.querySelector('input[name="entry.1329980034"]');
     const emailHidden = document.getElementById('emailAddressHidden');
     let submitted = false;
 
-    regForm.addEventListener('submit', (e)=>{
-      if(!regForm.reportValidity()) { e.preventDefault(); return; }
-      // 將 Email 同步到隱藏欄位 emailAddress，以支援「寄副本給填寫者」
-      if(emailHidden && emailInput){ emailHidden.value = emailInput.value || ''; }
+    regForm.addEventListener('submit', (e) => {
+      if (!regForm.reportValidity()) { e.preventDefault(); return; }
+      if (emailHidden && emailInput) { emailHidden.value = emailInput.value || ''; }
       submitted = true;
-      if(okMsg){ okMsg.style.display='block'; okMsg.textContent='⌛ 傳送中… 請稍候'; }
+      if (okMsg) { okMsg.style.display = 'block'; okMsg.textContent = '⌛ 傳送中… 請稍候'; }
     });
 
-    document.getElementById('hidden_iframe').addEventListener('load', ()=>{
-      if(!submitted) return;
-      if(okMsg){ okMsg.style.display='block'; okMsg.textContent='✅ 報名已送出！我們已收到您的資料，確認信將寄至您的 Email。'; }
+    document.getElementById('hidden_iframe').addEventListener('load', () => {
+      if (!submitted) return;
+      if (okMsg) { okMsg.style.display = 'block'; okMsg.textContent = '✅ 報名已送出！我們已收到您的資料，確認信將寄至您的 Email。'; }
       regForm.reset();
-      // 重設加購數量與金額
-      ['qtyCompanion','qtyBanquet','qtyTour'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=0; });
+      ['qtyCompanion', 'qtyBanquet', 'qtyTour', 'postCompanion', 'postBanquet', 'postTour'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = 0;
+      });
+      if (statusSelect) statusSelect.value = 'member';
+      if (formStatus) formStatus.value = '';
       calc();
       submitted = false;
     });
 
-    resetBtn.addEventListener('click', ()=>{ setTimeout(calc,0); });
+    resetBtn.addEventListener('click', () => { setTimeout(calc, 0); });
   </script>
 </body>
 </html>
