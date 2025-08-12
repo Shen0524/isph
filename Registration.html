@@ -96,64 +96,30 @@
   </header>
 
 <main class="container">
-  <div class="grid">
-    <!-- Fees & add-ons (no early-bird) -->
-    <section class="card" id="fees">
-      <div class="hd">費用與加購（無早鳥）</div>
-      <div class="bd">
-        <div class="fee-grid">
-          <div>
-            <label>基本報名費 <span class="muted">
-				（會員/學生 NT$ 4,800；非會員 NT$ 8,000）</span></label>
+    <div class="grid">
+      <!-- Fees & add-ons (no early-bird) -->
+      <section class="card" id="fees">
+        <div class="hd">費用與加購（無早鳥）</div>
+        <div class="bd">
+          <div class="fee-grid">
+            <div>
+              <label for="status">身份選擇</label>
+            </div>
+            <div>
+              <select id="status" aria-label="選擇身份">
+                <option value="member">會員 (NT$ 4,800)</option>
+                <option value="student">學生 (NT$ 4,800)</option>
+                <option value="nonmember">非會員 (NT$ 8,000)</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <select id="baseFee" name="entry.BASEFEE" required>
-              <option value="">-- 請選擇 --</option>
-              <option value="4800">4,800</option>
-              <option value="8000">8,000</option>
-            </select>
-          </div>
-        </div>
-        <div class="fee-grid" style="margin-top:12px">
-          <div>
-            <label>同行人員 <span class="muted">（每位 NT$ 3,300）</span></label>
-          </div>
-          <div>
-            <input type="number" id="qtyCompanion" name="entry.2073761257" min="0" value="0" />
-          </div>
-        </div>
 
-        <div class="fee-grid" style="margin-top:12px">
-          <div>
-            <label>大會晚宴 <span class="muted">（每位 NT$ 3,300）</span></label>
-          </div>
-          <div>
-            <input type="number" id="qtyBanquet" name="entry.566557431" min="0" value="0" />
-          </div>
-        </div>
-
-        <div class="fee-grid" style="margin-top:12px">
-          <div>
-            <label>大會旅遊 <span class="muted">（每位 NT$ 2,500）</span></label>
-          </div>
-          <div>
-            <input type="number" id="qtyTour" name="entry.932349988" min="0" value="0" />
-          </div>
-        </div>
-
-        <div class="total" aria-live="polite" style="margin-top:16px">
-          <div>
-            <div>應繳金額</div>
-            <div class="muted">依上述選擇自動更新</div>
-          </div>
-          <div class="amt" id="amount">NT$ 0</div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-	              <!-- POST to Google Forms -->
-              <input type="number" id="qtyCompanion" name="entry.2073761257" min="0" value="0" />
+          <div class="fee-grid" style="margin-top:12px">
+            <div>
+              <label>同行人員 <span class="muted">（每位 NT$ 3,300）</span></label>
+            </div>
+            <div>
+              <input type="number" id="qtyCompanion" name="entry.2073761257" min="0" value="0" aria-label="同行人員數量" />
             </div>
           </div>
 
@@ -162,7 +128,7 @@
               <label>大會晚宴 <span class="muted">（每位 NT$ 3,300）</span></label>
             </div>
             <div>
-              <input type="number" id="qtyBanquet" name="entry.566557431" min="0" value="0" />
+              <input type="number" id="qtyBanquet" name="entry.566557431" min="0" value="0" aria-label="大會晚宴數量" />
             </div>
           </div>
 
@@ -171,19 +137,21 @@
               <label>大會旅遊 <span class="muted">（每位 NT$ 2,500）</span></label>
             </div>
             <div>
-              <input type="number" id="qtyTour" name="entry.932349988" min="0" value="0" />
+              <input type="number" id="qtyTour" name="entry.932349988" min="0" value="0" aria-label="大會旅遊數量" />
             </div>
           </div>
 
           <div class="total" aria-live="polite" style="margin-top:16px">
             <div>
               <div>應繳金額</div>
-              <div class="muted">依上述數量自動更新</div>
+              <div class="muted">依上述數量及身份自動更新</div>
             </div>
-            <div class="amt" id="amount">NT$ 8,000</div>
+            <div class="amt" id="amount">NT$ 4,800</div>
           </div>
         </div>
       </section>
+    </div>
+  </main>
 
       <!-- Registration form (Google Forms) -->
       <section class="card" id="register">
@@ -407,6 +375,7 @@
   </script>
 </body>
 </html>
+
 
 
 
