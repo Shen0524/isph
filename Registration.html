@@ -75,7 +75,7 @@
         <a href="#fees">費用</a>
         <a href="#register">報名</a>
         <a href="Join us.html">Join ISPH</a>
-		<a href="Annual2025.html">Home</a>
+        <a href="Annual2025.html">Home</a>
       </div>
       <div class="nav-cta">
         <a class="btn primary" href="#register">立即報名</a>
@@ -94,7 +94,7 @@
       <p>活動日期：2025/10/18（六）｜</p>
     </div>
   </header>
-<body>
+
   <main class="container">
     <div class="grid">
       <!-- Fees & add-ons (no early-bird) -->
@@ -107,6 +107,7 @@
             </div>
             <div>
               <select id="status" aria-label="選擇身份">
+                <!-- 顯示 4,800/8,000 供使用者理解；實際提交的下拉在表單區 -->
                 <option value="member">會員 (NT$ 4,800)</option>
                 <option value="student">學生 (NT$ 4,800)</option>
                 <option value="nonmember">非會員 (NT$ 8,000)</option>
@@ -119,7 +120,8 @@
               <label>同行人員 <span class="muted">（每位 NT$ 3,300）</span></label>
             </div>
             <div>
-              <input type="number" id="qtyCompanion" name="entry.2073761257" min="0" value="0" aria-label="同行人員數量" />
+              <!-- 這裡不送出，只做即時計算與同步 -->
+              <input type="number" id="qtyCompanion" min="0" value="0" aria-label="同行人員數量" />
             </div>
           </div>
 
@@ -128,7 +130,7 @@
               <label>大會晚宴 <span class="muted">（每位 NT$ 3,300）</span></label>
             </div>
             <div>
-              <input type="number" id="qtyBanquet" name="entry.566557431" min="0" value="0" aria-label="大會晚宴數量" />
+              <input type="number" id="qtyBanquet" min="0" value="0" aria-label="大會晚宴數量" />
             </div>
           </div>
 
@@ -137,7 +139,7 @@
               <label>大會旅遊 <span class="muted">（每位 NT$ 2,500）</span></label>
             </div>
             <div>
-              <input type="number" id="qtyTour" name="entry.932349988" min="0" value="0" aria-label="大會旅遊數量" />
+              <input type="number" id="qtyTour" min="0" value="0" aria-label="大會旅遊數量" />
             </div>
           </div>
 
@@ -161,7 +163,7 @@
             <div class="row">
               <div>
                 <label>姓名/first name+family name<span style="color: red;">(請填中英文名)</span><span style="color:red">*</span></label>
-                <input type="text" name="entry.1195663187" required placeholder="王小明/ Xiao-Ming Wang" />
+                <input type="text" name="entry.1195663187" required placeholder="王小明 / Xiao‑Ming Wang" />
               </div>
               <div>
                 <label>E-mail <span style="color:red">*</span></label>
@@ -177,17 +179,18 @@
               </div>
               <div>
                 <label>職稱＋服務/就讀單位 (<span style="color: red;">請填英文)</span></label>
-                <input type="text" name="entry.1165126282" placeholder="Dr.+ XX University" />
+                <input type="text" name="entry.1165126282" placeholder="Dr. + XX University" />
               </div>
             </div>
 
             <div class="row">
               <div>
                 <label>身分別 <span style="color:red">*</span></label>
+                <!-- value 必須與 Google 表單選項文字完全一致（目前皆為 8,000） -->
                 <select id="formStatus" name="entry.573453040" required>
                   <option value="">請選擇</option>
-                  <option value="一般會員（NT$ 4,800）">一般會員（NT$ 4,800）</option>
-                  <option value="學生（NT$ 4,800）">學生（NT$ 4,800）</option>
+                  <option value="一般會員（NT$ 8,000）">一般會員（NT$ 8,000）</option>
+                  <option value="學生（NT$ 8,000）">學生（NT$ 8,000）</option>
                   <option value="非會員（NT$ 8,000）">非會員（NT$ 8,000）</option>
                 </select>
               </div>
@@ -241,7 +244,7 @@
               </div>
             </div>
 
-            <!-- 加購數量（與上方費用區共用同一組欄位） -->
+            <!-- 加購數量（表單送出用；上方費用區只做顯示+同步） -->
             <div class="row">
               <div>
                 <label>同行人員數量</label>
@@ -295,9 +298,9 @@
         <div class="bd">
           <ol class="muted">
             <li>報名完成後，系統將寄發確認信至您的電子郵件。</li>
-            <li>繳費資訊：完成線上表單後請於<span style="color: red;">3</span> 日內轉帳 (帳戶資訊：彰化銀行北台中分行 (009) 4004 51 48739 300 戶名:王進崑）。</li>
-            <li>退費規定：活動 14 天前（含）申請全額退費(須扣手續費)；活動 7–13 天退 50%；活動 6 天內恕不退費，可更換參加者。</li>
-            <li>收據：活動當天給予臨時收據，若須正式收據請當場登記，結束後30個工作日內寄出給您。</li>
+            <li>繳費資訊：完成線上表單後請於<span style="color: red;">3</span>日內轉帳（帳戶資訊：彰化銀行北台中分行 (009) 4004 51 48739 300 戶名：王進崑）。</li>
+            <li>退費規定：活動 14 天前（含）申請全額退費（須扣手續費）；活動 7–13 天退 50%；活動 6 天內恕不退費，可更換參加者。</li>
+            <li>收據：活動當天給予臨時收據，若須正式收據請當場登記，結束後 30 個工作日內寄出。</li>
           </ol>
         </div>
       </section>
@@ -305,12 +308,18 @@
   </main>
 
   <script>
+    // ===== 手機漢堡 =====
+    (function(){
+      const btn = document.getElementById('hamburger');
+      const nav = document.getElementById('navLinks');
+      btn?.addEventListener('click', ()=>{
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+
     // ===== 計費邏輯（無早鳥） =====
-    const FEES = { 
-      companion: 3300, 
-      banquet: 3300, 
-      tour: 2500 
-    };
+    const FEES = { companion: 3300, banquet: 3300, tour: 2500 };
     const fmt = (n) => `NT$ ${n.toLocaleString('zh-TW')}`;
 
     const statusSelect = document.getElementById('status');
@@ -325,64 +334,49 @@
     const amountBottom = document.getElementById('amountBottom');
     const postTotal = document.getElementById('postTotal');
 
-    function getNum(el) { return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
+    function getNum(el){ return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
 
-    function calc() {
+    function calc(){
       const status = statusSelect?.value || 'member';
-      const baseFee = (status === 'nonmember') ? 8000 : 4800;
+      const baseFee = (status === 'nonmember') ? 8000 : 4800; // 顯示與計算
       const c = getNum(qtyCompanion);
       const b = getNum(qtyBanquet);
       const t = getNum(qtyTour);
-      const total = baseFee + c * FEES.companion + b * FEES.banquet + t * FEES.tour;
+      const total = baseFee + c*FEES.companion + b*FEES.banquet + t*FEES.tour;
       if (amountTop) amountTop.textContent = fmt(total);
       if (amountBottom) amountBottom.textContent = fmt(total);
       if (postTotal) postTotal.value = total;
-      // Sync form quantities
+      // 同步數量到實際送出的表單欄位
       if (postCompanion) postCompanion.value = c;
       if (postBanquet) postBanquet.value = b;
       if (postTour) postTour.value = t;
-      // Sync form status
-      if (formStatus) {
-        formStatus.value = {
-          'member': '一般會員（NT$ 4,800）',
-          'student': '學生（NT$ 4,800）',
-          'nonmember': '非會員（NT$ 8,000）'
-        }[status] || '';
+      // 同步身分別到表單（值必須等於 Google 表單選項文字）
+      if (formStatus){
+        formStatus.value = ({
+          'member':'一般會員（NT$ 8,000）',
+          'student':'學生（NT$ 8,000）',
+          'nonmember':'非會員（NT$ 8,000）'
+        })[status] || '';
       }
     }
 
-    // Sync quantities from form to fee section
-    function syncQuantitiesFromForm() {
-      if (qtyCompanion) qtyCompanion.value = getNum(postCompanion);
-      if (qtyBanquet) qtyBanquet.value = getNum(postBanquet);
-      if (qtyTour) qtyTour.value = getNum(postTour);
+    // 從表單改回費用區（若使用者改了下拉）
+    function syncFromForm(){
+      if (!formStatus || !statusSelect) return;
+      const map = {
+        '一般會員（NT$ 8,000）':'member',
+        '學生（NT$ 8,000）':'student',
+        '非會員（NT$ 8,000）':'nonmember'
+      };
+      statusSelect.value = map[formStatus.value] || 'member';
       calc();
     }
 
-    // Sync status from form to fee section
-    function syncStatusFromForm() {
-      if (formStatus && statusSelect) {
-        const mapping = {
-          '一般會員（NT$ 4,800）': 'member',
-          '學生（NT$ 4,800）': 'student',
-          '非會員（NT$ 8,000）': 'nonmember'
-        };
-        statusSelect.value = mapping[formStatus.value] || 'member';
-        calc();
-      }
-    }
-
-    [statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el => {
+    [statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el=>{
       el?.addEventListener('input', calc);
       el?.addEventListener('change', calc);
     });
-
-    [postCompanion, postBanquet, postTour].forEach(el => {
-      el?.addEventListener('input', syncQuantitiesFromForm);
-      el?.addEventListener('change', syncQuantitiesFromForm);
-    });
-
-    formStatus?.addEventListener('change', syncStatusFromForm);
+    formStatus?.addEventListener('change', syncFromForm);
 
     calc();
 
@@ -394,39 +388,27 @@
     const emailHidden = document.getElementById('emailAddressHidden');
     let submitted = false;
 
-    regForm.addEventListener('submit', (e) => {
-      if (!regForm.reportValidity()) { e.preventDefault(); return; }
-      if (emailHidden && emailInput) { emailHidden.value = emailInput.value || ''; }
+    regForm.addEventListener('submit', (e)=>{
+      if (!regForm.reportValidity()){ e.preventDefault(); return; }
+      if (emailHidden && emailInput){ emailHidden.value = emailInput.value || ''; }
       submitted = true;
-      if (okMsg) { okMsg.style.display = 'block'; okMsg.textContent = '⌛ 傳送中… 請稍候'; }
+      if (okMsg){ okMsg.style.display='block'; okMsg.textContent='⌛ 傳送中… 請稍候'; }
     });
 
-    document.getElementById('hidden_iframe').addEventListener('load', () => {
+    document.getElementById('hidden_iframe').addEventListener('load', ()=>{
       if (!submitted) return;
-      if (okMsg) { okMsg.style.display = 'block'; okMsg.textContent = '✅ 報名已送出！我們已收到您的資料，確認信將寄至您的 Email。'; }
+      if (okMsg){ okMsg.style.display='block'; okMsg.textContent='✅ 報名已送出！我們已收到您的資料，確認信將寄至您的 Email。'; }
       regForm.reset();
-      ['qtyCompanion', 'qtyBanquet', 'qtyTour', 'postCompanion', 'postBanquet', 'postTour'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = 0;
+      // 重置顯示區的數量與身份
+      ['qtyCompanion','qtyBanquet','qtyTour'].forEach(id=>{
+        const el = document.getElementById(id); if (el) el.value = 0;
       });
       if (statusSelect) statusSelect.value = 'member';
-      if (formStatus) formStatus.value = '';
       calc();
       submitted = false;
     });
 
-    resetBtn.addEventListener('click', () => { setTimeout(calc, 0); });
+    resetBtn?.addEventListener('click', ()=>{ setTimeout(calc,0); });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
