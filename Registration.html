@@ -90,7 +90,7 @@
   <header class="hero">
     <div class="container">
       <p class="muted">Registration</p>
-      <h1>2025ISPH Join Meeting｜台灣與會者報名</h1>
+      <h1>2025 ISPH Join Meeting｜台灣與會者報名</h1>
       <p>活動日期：2025/10/18（六）｜</p>
     </div>
   </header>
@@ -151,6 +151,39 @@
       </div>
     </section>
   </div>
+
+	              <!-- POST to Google Forms -->
+              <input type="number" id="qtyCompanion" name="entry.2073761257" min="0" value="0" />
+            </div>
+          </div>
+
+          <div class="fee-grid" style="margin-top:12px">
+            <div>
+              <label>大會晚宴 <span class="muted">（每位 NT$ 3,300）</span></label>
+            </div>
+            <div>
+              <input type="number" id="qtyBanquet" name="entry.566557431" min="0" value="0" />
+            </div>
+          </div>
+
+          <div class="fee-grid" style="margin-top:12px">
+            <div>
+              <label>大會旅遊 <span class="muted">（每位 NT$ 2,500）</span></label>
+            </div>
+            <div>
+              <input type="number" id="qtyTour" name="entry.932349988" min="0" value="0" />
+            </div>
+          </div>
+
+          <div class="total" aria-live="polite" style="margin-top:16px">
+            <div>
+              <div>應繳金額</div>
+              <div class="muted">依上述數量自動更新</div>
+            </div>
+            <div class="amt" id="amount">NT$ 8,000</div>
+          </div>
+        </div>
+      </section>
 
       <!-- Registration form (Google Forms) -->
       <section class="card" id="register">
@@ -374,6 +407,7 @@
   </script>
 </body>
 </html>
+
 
 
 
