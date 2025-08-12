@@ -94,7 +94,6 @@
       <p>活動日期：2025/10/18（六）｜</p>
     </div>
   </header>
-
 <main class="container">
   <div class="grid">
     <!-- Fees & add-ons (no early-bird) -->
@@ -106,9 +105,6 @@
             <label>基本報名費 <span class="muted">（會員/學生 NT$ 4,800；非會員 NT$ 8,000）</span></label>
           </div>
           <div>
-            <input type="number" id="qtyBase" value="1" min="1" max="1" disabled aria-label="基本報名費數量（固定1）" />
-          </div>
-			 <div>
             <select id="baseFee" name="entry.BASEFEE" required>
               <option value="">-- 請選擇 --</option>
               <option value="4800">NT$ 4,800（會員/學生）</option>
@@ -122,24 +118,34 @@
             <label>同行人員 <span class="muted">（每位 NT$ 3,300）</span></label>
           </div>
           <div>
-            <input type="number" id="qtyCompanion" name="entry.2073761257" value="0" min="0" />
+            <input type="number" id="qtyCompanion" name="entry.2073761257" min="0" value="0" />
           </div>
         </div>
-        <div class="fee-grid">
+
+        <div class="fee-grid" style="margin-top:12px">
           <div>
             <label>大會晚宴 <span class="muted">（每位 NT$ 3,300）</span></label>
           </div>
           <div>
-            <input type="number" id="qtyBanquet" name="entry.566557431" value="0" min="0" />
+            <input type="number" id="qtyBanquet" name="entry.566557431" min="0" value="0" />
           </div>
         </div>
-        <div class="fee-grid">
+
+        <div class="fee-grid" style="margin-top:12px">
           <div>
             <label>大會旅遊 <span class="muted">（每位 NT$ 2,500）</span></label>
           </div>
           <div>
-            <input type="number" id="qtyTour" name="entry.932349988" value="0" min="0" />
+            <input type="number" id="qtyTour" name="entry.932349988" min="0" value="0" />
           </div>
+        </div>
+
+        <div class="total" aria-live="polite" style="margin-top:16px">
+          <div>
+            <div>應繳金額</div>
+            <div class="muted">依上述數量自動更新</div>
+          </div>
+          <div class="amt" id="amount">NT$ 0</div>
         </div>
       </div>
     </section>
@@ -399,6 +405,7 @@
   </script>
 </body>
 </html>
+
 
 
 
