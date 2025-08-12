@@ -103,10 +103,17 @@
       <div class="bd">
         <div class="fee-grid">
           <div>
-            <label>基本報名費 <span class="muted">（會員/學生 NT$ 4,800；非會員 NT$ 8,000｜數量固定 1）</span></label>
+            <label>基本報名費 <span class="muted">（會員/學生 NT$ 4,800；非會員 NT$ 8,000）</span></label>
           </div>
           <div>
             <input type="number" id="qtyBase" value="1" min="1" max="1" disabled aria-label="基本報名費數量（固定1）" />
+          </div>
+			 <div>
+            <select id="baseFee" name="entry.BASEFEE" required>
+              <option value="">-- 請選擇 --</option>
+              <option value="4800">NT$ 4,800（會員/學生）</option>
+              <option value="8000">NT$ 8,000（非會員）</option>
+            </select>
           </div>
         </div>
 
@@ -392,6 +399,7 @@
   </script>
 </body>
 </html>
+
 
 
 
