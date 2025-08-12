@@ -1,99 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2025 ISPH Join Meeting｜Registration</title>
-  <meta name="description" content="ISPH 2025 Registration（已串接 Google Forms）" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Registration Form</title>
   <style>
-    :root{ --primary:#2563eb; --primary-600:#1d4ed8; --bg:#f8fafc; --text:#111827; --muted:#6b7280; --card:#ffffff; --ring:rgba(37,99,235,.25); --danger:#dc2626; --success:#16a34a; }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--text);background:var(--bg)}
-
-    /* Nav */
-    .nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e5e7eb}
-    .nav .wrap{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-    .brand img{width:40px;height:40px;object-fit:contain}
-    .brand .title{font-weight:700;letter-spacing:.2px}
-    .nav-links{display:flex;gap:18px}
-    .nav-links a{color:#374151;text-decoration:none;font-size:15px;padding:8px 10px;border-radius:8px}
-    .nav-links a:hover{background:#f3f4f6}
-    .nav-cta{margin-left:8px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #d1d5db;border-radius:12px;background:#fff;color:var(--text);cursor:pointer;text-decoration:none}
-    .btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
-    .btn.primary:hover{background:var(--primary-600)}
-    .hamburger{display:none;background:none;border:0;padding:8px;border-radius:8px}
-    .hamburger span{display:block;width:22px;height:2px;background:#111;margin:5px 0;border-radius:2px}
-    @media (max-width:900px){
-      .nav-links{display:none;position:absolute;left:0;right:0;top:60px;background:#fff;border-bottom:1px solid #e5e7eb;flex-direction:column;padding:10px}
-      .nav-links.open{display:flex}
-      .nav-cta{display:none}
-      .hamburger{display:block}
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    .grid { display: grid; gap: 20px; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+    .hd { font-size: 1.5em; font-weight: bold; margin-bottom: 16px; }
+    .bd { font-size: 1em; }
+    .fee-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; }
+    .muted { color: #666; font-size: 0.9em; }
+    .total { display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .amt { font-size: 1.2em; color: #2c3e50; }
+    select, input[type="number"], input[type="text"], input[type="email"], input[type="tel"] { 
+      padding: 8px; font-size: 1em; border: 1px solid #ddd; border-radius: 4px; width: 100%; 
     }
-
-    /* Hero */
-    .hero{background:linear-gradient(180deg,#fff,#eef2ff);border-bottom:1px solid #e5e7eb}
-    .container{max-width:1100px;margin:auto;padding:24px 16px}
-    .hero h1{font-size:clamp(24px,3.5vw,40px);margin:6px 0 10px}
-    .hero p{color:var(--muted);margin:0}
-
-    /* Cards */
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
-    .card .hd{padding:14px 16px;border-bottom:1px solid #e5e7eb;font-weight:700}
-    .card .bd{padding:16px}
-
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:700px){.row{grid-template-columns:1fr}}
-    label{display:block;font-size:14px;color:#374151;margin-bottom:6px}
-    input[type="text"],input[type="email"],input[type="tel"],select,textarea{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:12px;background:#fff;font-size:15px}
-    input[type="number"]{width:100%;padding:10px 12px;border:1px solid #d1d5db;border-radius:12px;background:#fff;font-size:15px}
-    textarea{min-height:90px}
-
-    .fee-grid{display:grid;grid-template-columns:2fr 1fr;gap:10px;align-items:end}
-    .muted{color:var(--muted);font-size:13px}
-
-    .total{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:1px dashed #c7d2fe;border-radius:14px;background:#eef2ff;margin-top:10px}
-    .total .amt{font-size:22px;font-weight:800}
-
-    .success{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#ecfdf5;border:1px solid #bbf7d0;color:#065f46}
-    .footer{margin-top:28px;font-size:13px;color:#6b7280}
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .row.single { grid-template-columns: 1fr; }
+    .success { display: none; color: green; margin-bottom: 16px; }
+    .btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    .btn.primary { background: #007bff; color: white; }
+    .btn:hover { opacity: 0.9; }
+    @media (max-width: 600px) {
+      .row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-<body>
-  <!-- Nav -->
-  <nav class="nav" aria-label="主選單">
-    <div class="wrap">
-      <a class="brand" href="#">
-        <img src="LOGO.PNG" alt="ISPH Logo" />
-        <span class="title">International Society for Precision Health</span>
-      </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#fees">Fees</a>
-        <a href="#register">Registration</a>
-        <a href="Join us.html">Join ISPH</a>
-		<a href="Annual2025.html">Home</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn primary" href="#register">Registration</a>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero">
-    <div class="container">
-      <p class="muted">Registration</p>
-      <h1>2025 ISPH Join Meeting｜Registration</h1>
-      <p>Date：2025/10/18（Sat）｜</p>
-    </div>
-  </header>
 <body>
   <main class="container">
     <div class="grid">
@@ -106,6 +40,7 @@
               <label for="status">Registration Category</label>
             </div>
             <div>
+              <!-- UI-only selector (not posted to Google) -->
               <select id="status" aria-label="Select registration category">
                 <option value="nonmember">Non-member (NT$20,000 ≈USD$645)</option>
                 <option value="member">ISPH Member (NT$18,000 ≈USD$581)</option>
@@ -156,49 +91,65 @@
       <section class="card" id="register">
         <div class="hd">Online Registration Form</div>
         <div class="bd">
-          <form id="regForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf5n5V5Z5X5Y5Z5X5Y5Z5X5Y5Z5X5Y5Z5X5Y/formResponse" method="POST" target="hidden_iframe" novalidate>
+          <!-- IMPORTANT: Action points to Google Forms formResponse endpoint -->
+          <form id="regForm" action="https://docs.google.com/forms/d/e/1FAIpQLSf12TU9hAyHa-nquchyXXml4QDIB9Jj83oeod6CSrWuHNQ6zg/formResponse" method="POST" target="hidden_iframe" novalidate>
             <div id="okMsg" class="success">✅ Registration submitted! We have received your information, and a confirmation email will be sent to you.</div>
 
-            <div class="row">
+            <div class="row single">
               <div>
-                <label>Full Name <span style="color:red">*</span></label>
+                <label>Full Name <span style="color:red">* (First name then family name)</span></label>
                 <input type="text" name="entry.1195663187" required placeholder="e.g., John Smith" />
               </div>
+            </div>
+            <div class="row single">
               <div>
                 <label>Email <span style="color:red">*</span></label>
                 <input type="email" name="entry.1329980034" required placeholder="e.g., john.smith@example.com" />
+                <!-- Hidden emailAddress for Google 'send copy to respondent' feature -->
                 <input type="hidden" id="emailAddressHidden" name="emailAddress" value="" />
               </div>
             </div>
-
-            <div class="row">
+            <div class="row single">
               <div>
                 <label>Phone Number <span style="color:red">*</span></label>
                 <input type="tel" name="entry.1504094709" required placeholder="e.g., +886-9xx-xxx-xxx" />
               </div>
+            </div>
+            <div class="row single">
               <div>
-                <label>Title and Affiliation</label>
-                <input type="text" name="entry.1165126282" placeholder="e.g., Dr., XX University" />
+                <label>Title <span style="color:red">*</span></label>
+                <!-- Google field: entry.252943400 (e.g., Dr) -->
+                <input type="text" name="entry.252943400" required placeholder="e.g., Dr." />
+              </div>
+            </div>
+            <div class="row single">
+              <div>
+                <label>Affiliation</label>
+                <!-- Google field: entry.1165126282 (organization) -->
+                <input type="text" name="entry.1165126282" placeholder="e.g., XX University" />
               </div>
             </div>
 
             <div class="row">
               <div>
                 <label>Registration Category <span style="color:red">*</span></label>
+                <!-- Google field: entry.573453040 (value must match Google option text) -->
                 <select id="formStatus" name="entry.573453040" required>
                   <option value="">Please select</option>
-                  <option value="Non-member (NT$20,000 ≈USD$645)">Non-member (NT$20,000 ≈USD$645)</option>
-                  <option value="ISNPR Member (NT$18,000 ≈USD$581)">ISNPR Member (NT$18,000 ≈USD$581)</option>
-                  <option value="Student (NT$10,000 ≈USD$323)">Student (NT$10,000 ≈USD$323)</option>
-                  <option value="Reduced Registration (NT$10,000 ≈USD$323)">Reduced Registration (NT$10,000 ≈USD$323)</option>
+                  <!-- Values set to EXACT Chinese option texts used in the Google Form -->
+                  <option value="非會員（NT$ 20,000）">Non-member (NT$20,000 ≈USD$645)</option>
+                  <option value="會員（NT$ 18,000）">ISPH Member (NT$18,000 ≈USD$581)</option>
+                  <option value="學生（NT$ 10,000）">Student (NT$10,000 ≈USD$323)</option>
+                  <option value="優惠註冊（NT$ 10,000）">Reduced Registration (NT$10,000 ≈USD$323)</option>
                 </select>
               </div>
               <div>
                 <label>Dietary Requirements <span style="color:red">*</span></label>
+                <!-- Google field: entry.78350209 -->
                 <select name="entry.78350209" required>
-                  <option value="No restrictions">No restrictions</option>
-                  <option value="Vegetarian">Vegetarian</option>
-                  <option value="Special requirements (please specify in remarks)">Special requirements (please specify in remarks)</option>
+                  <option value="葷食">No restrictions</option>
+                  <option value="素食">Vegetarian</option>
+                  <option value="特殊過敏（請於備註欄說明）">Special requirements (please specify in remarks)</option>
                 </select>
               </div>
             </div>
@@ -206,17 +157,19 @@
             <div class="row">
               <div>
                 <label>Invoice/Receipt Requirement <span style="color:red">*</span></label>
+                <!-- Google field: entry.1845447127 -->
                 <select name="entry.1845447127" required>
-                  <option value="Not required">Not required</option>
-                  <option value="Personal receipt">Personal receipt</option>
-                  <option value="Company invoice">Company invoice</option>
+                  <option value="不需要">Not required</option>
+                  <option value="收據（個人）">Personal receipt</option>
+                  <option value="發票（公司）">Company invoice</option>
                 </select>
               </div>
               <div>
                 <label>Payment Method <span style="color:red">*</span></label>
+                <!-- Google field: entry.1154667495 -->
                 <select name="entry.1154667495" required>
-                  <option value="Bank transfer">Bank transfer</option>
-                  <option value="On-site payment">On-site payment</option>
+                  <option value="銀行轉帳">Bank transfer</option>
+                  <option value="現場繳費">On-site payment</option>
                 </select>
               </div>
             </div>
@@ -269,7 +222,8 @@
               <div>
                 <label>Data Consent <span style="color:red">*</span></label>
                 <label style="display:flex;gap:8px;align-items:center">
-                  <input type="checkbox" id="gdpr" name="entry.979619625" value="I consent to the use of my contact information for event-related purposes" required />
+                  <!-- Google field: entry.979619625 MUST match exact consent text -->
+                  <input type="checkbox" id="gdpr" name="entry.979619625" value="我同意本會為活動聯繫與保險用途使用聯絡資訊" required />
                   <span>I consent to the use of my contact information for event-related purposes</span>
                 </label>
               </div>
@@ -327,6 +281,7 @@
     const amountBottom = document.getElementById('amountBottom');
     const postTotal = document.getElementById('postTotal');
 
+    // Mapping from UI status to base fee
     function getNum(el) { return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
 
     function calc() {
@@ -343,13 +298,13 @@
       if (postCompanion) postCompanion.value = c;
       if (postBanquet) postBanquet.value = b;
       if (postTour) postTour.value = t;
-      // Sync form status
+      // Sync form status to Google-expected Chinese option text
       if (formStatus) {
         formStatus.value = {
-          'nonmember': 'Non-member (NT$20,000 ≈USD$645)',
-          'member': 'ISNPR Member (NT$18,000 ≈USD$581)',
-          'student': 'Student (NT$10,000 ≈USD$323)',
-          'reduced': 'Reduced Registration (NT$10,000 ≈USD$323)'
+          'nonmember': '非會員（NT$ 20,000）',
+          'member': '會員（NT$ 18,000）',
+          'student': '學生（NT$ 10,000）',
+          'reduced': '優惠註冊（NT$ 10,000）'
         }[status] || '';
       }
     }
@@ -364,10 +319,10 @@
     function syncStatusFromForm() {
       if (formStatus && statusSelect) {
         const mapping = {
-          'Non-member (NT$20,000 ≈USD$645)': 'nonmember',
-          'ISNPR Member (NT$18,000 ≈USD$581)': 'member',
-          'Student (NT$10,000 ≈USD$323)': 'student',
-          'Reduced Registration (NT$10,000 ≈USD$323)': 'reduced'
+          '非會員（NT$ 20,000）': 'nonmember',
+          '會員（NT$ 18,000）': 'member',
+          '學生（NT$ 10,000）': 'student',
+          '優惠註冊（NT$ 10,000）': 'reduced'
         };
         statusSelect.value = mapping[formStatus.value] || 'student';
         calc();
@@ -411,6 +366,7 @@
         const el = document.getElementById(id);
         if (el) el.value = 0;
       });
+      const statusSelect = document.getElementById('status');
       if (statusSelect) statusSelect.value = 'student';
       if (formStatus) formStatus.value = '';
       calc();
@@ -421,11 +377,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
