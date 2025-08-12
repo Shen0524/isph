@@ -95,26 +95,48 @@
     </div>
   </header>
 
-  <main class="container">
-    <div class="grid">
-      <!-- Fees & add-ons (no early-bird) -->
-      <section class="card" id="fees">
-        <div class="hd">費用與加購（無早鳥）</div>
-        <div class="bd">
-          <div class="fee-grid">
-            <div>
-              <label>基本報名費 <span class="muted">（NT$ 8,000｜數量固定 1）</span></label>
-            </div>
-            <div>
-              <input type="number" id="qtyBase" value="1" min="1" max="1" disabled aria-label="基本報名費數量（固定1）" />
-            </div>
+<main class="container">
+  <div class="grid">
+    <!-- Fees & add-ons (no early-bird) -->
+    <section class="card" id="fees">
+      <div class="hd">費用與加購（無早鳥）</div>
+      <div class="bd">
+        <div class="fee-grid">
+          <div>
+            <label>基本報名費 <span class="muted">（會員/學生 NT$ 4,800；非會員 NT$ 8,000｜數量固定 1）</span></label>
           </div>
+          <div>
+            <input type="number" id="qtyBase" value="1" min="1" max="1" disabled aria-label="基本報名費數量（固定1）" />
+          </div>
+        </div>
 
-          <div class="fee-grid" style="margin-top:12px">
-            <div>
-              <label>同行人員 <span class="muted">（每位 NT$ 3,300）</span></label>
-            </div>
-            <div>
+        <div class="fee-grid" style="margin-top:12px">
+          <div>
+            <label>同行人員 <span class="muted">（每位 NT$ 3,300）</span></label>
+          </div>
+          <div>
+            <input type="number" id="qtyCompanion" name="entry.2073761257" value="0" min="0" />
+          </div>
+        </div>
+        <div class="fee-grid">
+          <div>
+            <label>大會晚宴 <span class="muted">（每位 NT$ 3,300）</span></label>
+          </div>
+          <div>
+            <input type="number" id="qtyBanquet" name="entry.566557431" value="0" min="0" />
+          </div>
+        </div>
+        <div class="fee-grid">
+          <div>
+            <label>大會旅遊 <span class="muted">（每位 NT$ 2,500）</span></label>
+          </div>
+          <div>
+            <input type="number" id="qtyTour" name="entry.932349988" value="0" min="0" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
               <!-- POST to Google Forms -->
               <input type="number" id="qtyCompanion" name="entry.2073761257" min="0" value="0" />
             </div>
@@ -370,5 +392,6 @@
   </script>
 </body>
 </html>
+
 
 
