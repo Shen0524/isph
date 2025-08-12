@@ -318,32 +318,43 @@
     }
 
     // ===== 計費邏輯（無早鳥） =====
-    const FEES = { base:8000, companion:3300, banquet:3300, tour:2500 };
-    const fmt = (n)=> `NT$ ${n.toLocaleString('zh-TW')}`;
+    <script>
+const FEES = { 
+  companion: 3300, 
+  banquet: 3300, 
+  tour: 2500 
+};
+const fmt = (n) => `NT$ ${n.toLocaleString('zh-TW')}`;
 
-    const qtyCompanion = document.getElementById('qtyCompanion');
-    const qtyBanquet   = document.getElementById('qtyBanquet');
-    const qtyTour      = document.getElementById('qtyTour');
-    const amountTop    = document.getElementById('amount');
-    const amountBottom = document.getElementById('amountBottom');
-    const postTotal    = document.getElementById('postTotal');
+const statusSelect = document.getElementById('status');
+const qtyCompanion = document.getElementById('qtyCompanion');
+const qtyBanquet = document.getElementById('qtyBanquet');
+const qtyTour = document.getElementById('qtyTour');
+const amountTop = document.getElementById('amount');
+const amountBottom = document.getElementById('amountBottom');
+const postTotal = document.getElementById('postTotal');
 
-    function getNum(el){ return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
-    function calc(){
-      const c = getNum(qtyCompanion);
-      const b = getNum(qtyBanquet);
-      const t = getNum(qtyTour);
-      const total = FEES.base + c*FEES.companion + b*FEES.banquet + t*FEES.tour;
-      if(amountTop)    amountTop.textContent = fmt(total);
-      if(amountBottom) amountBottom.textContent = fmt(total);
-      if(postTotal)    postTotal.value = total;
-    }
+function getNum(el) { return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
 
-    [qtyCompanion, qtyBanquet, qtyTour].forEach(el=>{
-      el?.addEventListener('input', calc);
-      el?.addEventListener('change', calc);
-    });
-    calc();
+function calc() {
+  const status = statusSelect?.value || 'member';
+  const baseFee = (status === 'nonmember') ? 8000 : 4800;
+  const c = getNum(qtyCompanion);
+  const b = getNum(qtyBanquet);
+  const t = getNum(qtyTour);
+  const total = baseFee + c * FEES.companion + b * FEES.banquet + t * FEES.tour;
+  if (amountTop) amountTop.textContent = fmt(total);
+  if (amountBottom) amountBottom.textContent = fmt(total);
+  if (postTotal) postTotal.value = total;
+}
+
+[statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el => {
+  el?.addEventListener('input', calc);
+  el?.addEventListener('change', calc);
+});
+
+calc();
+</script>
 
     // ===== Google Forms 送出：hidden iframe 成功提示 + 同步 emailAddress =====
     const regForm  = document.getElementById('regForm');
@@ -375,6 +386,7 @@
   </script>
 </body>
 </html>
+
 
 
 
