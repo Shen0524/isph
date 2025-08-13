@@ -1,4 +1,4 @@
-F<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
@@ -108,7 +108,7 @@ F<!DOCTYPE html>
             <div>
               <select id="status" aria-label="選擇身份">
                 <!-- 顯示 4,800/8,000 供使用者理解；實際提交的下拉在表單區 -->
-                <option value="member">會員 (NT$ 4,800)</option>
+                <option value="member">一般會員 (NT$ 4,800)</option>
                 <option value="student">學生 (NT$ 4,800)</option>
                 <option value="nonmember">非會員 (NT$ 8,000)</option>
               </select>
@@ -186,7 +186,7 @@ F<!DOCTYPE html>
             <div class="row">
               <div>
                 <label>身分別 <span style="color:red">*</span></label>
-                <!-- value 必須與 Google 表單選項文字完全一致 -->
+                <!-- 修正：確保所有選項都顯示 -->
                 <select id="formStatus" name="entry.573453040" required>
                   <option value="">請選擇</option>
                   <option value="一般會員（NT$ 4,800）">一般會員（NT$ 4,800）</option>
@@ -350,26 +350,34 @@ F<!DOCTYPE html>
       if (postCompanion) postCompanion.value = c;
       if (postBanquet) postBanquet.value = b;
       if (postTour) postTour.value = t;
-      // 同步身分別到表單（值必須等於 Google 表單選項文字）
+      
+      // 修正：同步身分別到表單，確保所有選項都能正確對應
       if (formStatus){
-        formStatus.value = ({
-          'member':'一般會員（NT$ 8,000）',
-          'student':'學生（NT$ 8,000）',
-          'nonmember':'非會員（NT$ 8,000）'
-        })[status] || '';
+        const statusMap = {
+          'member': '一般會員（NT$ 4,800）',
+          'student': '學生（NT$ 4,800）',
+          'nonmember': '非會員（NT$ 8,000）'
+        };
+        const targetValue = statusMap[status];
+        if (targetValue) {
+          formStatus.value = targetValue;
+        }
       }
     }
 
     // 從表單改回費用區（若使用者改了下拉）
     function syncFromForm(){
       if (!formStatus || !statusSelect) return;
-      const map = {
-        '一般會員（NT$ 8,000）':'member',
-        '學生（NT$ 8,000）':'student',
-        '非會員（NT$ 8,000）':'nonmember'
+      const reverseMap = {
+        '一般會員（NT$ 4,800）': 'member',
+        '學生（NT$ 4,800）': 'student',
+        '非會員（NT$ 8,000）': 'nonmember'
       };
-      statusSelect.value = map[formStatus.value] || 'member';
-      calc();
+      const newStatus = reverseMap[formStatus.value];
+      if (newStatus) {
+        statusSelect.value = newStatus;
+        calc();
+      }
     }
 
     [statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el=>{
@@ -412,5 +420,3 @@ F<!DOCTYPE html>
   </script>
 </body>
 </html>
-
-
