@@ -1,131 +1,140 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2025 ISPH Annual Meeting｜Registration</title>
-  <meta name="description" content="ISPH 2025 Registration Form" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root{ --primary:#2563eb; --primary-600:#1d4ed8; --bg:#f8fafc; --text:#111827; --muted:#6b7280; --card:#ffffff; }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg)}
-
-    /* Nav */
-    .nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e5e7eb}
-    .nav .wrap{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-    .brand img{width:40px;height:40px;object-fit:contain}
-    .brand .title{font-weight:700;letter-spacing:.2px}
-    .nav-links{display:flex;gap:18px}
-    .nav-links a{color:#374151;text-decoration:none;font-size:15px;padding:8px 10px;border-radius:8px}
-    .nav-links a:hover{background:#f3f4f6}
-    .nav-cta{margin-left:8px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #d1d5db;border-radius:12px;background:#fff;color:var(--text);cursor:pointer;text-decoration:none;font-size:14px}
-    .btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
-    .btn.primary:hover{background:var(--primary-600)}
-    .hamburger{display:none;background:none;border:0;padding:8px;border-radius:8px}
-    .hamburger span{display:block;width:22px;height:2px;background:#111;margin:5px 0;border-radius:2px}
-    @media (max-width:900px){
-      .nav-links{display:none;position:absolute;left:0;right:0;top:60px;background:#fff;border-bottom:1px solid #e5e7eb;flex-direction:column;padding:10px}
-      .nav-links.open{display:flex}
-      .nav-cta{display:none}
-      .hamburger{display:block}
+    :root {
+      --primary: #2563eb;
+      --text: #111827;
+      --bg: #f8fafc;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
     }
 
-    /* Main content */
-    .container{max-width:1100px;margin:auto;padding:24px 16px}
-    .hero{background:linear-gradient(180deg,#fff,#eef2ff);border-bottom:1px solid #e5e7eb}
-    .hero h1{font-size:clamp(24px,3.5vw,40px);margin:6px 0 10px;text-align:center;color:var(--primary)}
-    .hero p{color:var(--muted);margin:0;text-align:center}
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .nav .wrap {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      font-size: 15px;
+    }
 
-    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.03);margin-top:20px}
-    .card .hd{padding:14px 16px;border-bottom:1px solid #e5e7eb;font-weight:700}
-    .card .bd{padding:16px}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--primary);
+    }
+    iframe {
+      width: 100%;
+      height: 1800px;
+      border: none;
+    }
 
-    iframe{width:100%;height:1800px;border:none;border-radius:12px}
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 40px;
+    }
+
+    .card h2 {
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
-  <!-- Nav -->
-  <nav class="nav" aria-label="Main navigation">
+  <!-- Navigation -->
+  <nav class="nav">
     <div class="wrap">
       <a class="brand" href="#">
-        <img src="LOGO.PNG" alt="ISPH Logo" />
-        <span class="title">International Society for Precision Health</span>
+        <img src="LOGO.PNG" alt="ISPH Logo" style="width: 36px; height: 36px;" />
+        <span>ISPH 2025</span>
       </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#register">Registration Form</a>
+      <div class="nav-links">
+        <a href="#register">Register</a>
         <a href="#payment">Payment Info</a>
         <a href="Join us.html">Join ISPH</a>
         <a href="Annual2025.html">Home</a>
       </div>
-      <div class="nav-cta">
-        <a class="btn primary" href="#register">Register Now</a>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="container">
-      <p class="muted">Registration</p>
-      <h1>2025 ISPH Annual Meeting｜Registration</h1>
-      <p>Date: October 18, 2025 (Saturday)</p>
-    </div>
-  </header>
+  <!-- Registration Form -->
+  <div class="container" id="register">
+    <h1>2025 ISPH Annual Meeting｜Online Registration</h1>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzKJdJcnNONVT_KDkCePwv1_-S9CsYkL_pit5XoEZR2ygscg/viewform?embedded=true">Loading…</iframe>
+  </div>
 
-  <main class="container">
-    <!-- Registration Form -->
-    <section class="card" id="register">
-      <div class="hd">Online Registration Form</div>
-      <div class="bd">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzKJdJcnNONVT_KDkCePwv1_-S9CsYkL_pit5XoEZR2ygscg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-    </section>
+  <!-- Payment Information -->
+  <div class="container card" id="payment">
+    <h2>💳 Payment Information</h2>
+    <p>Please complete your bank transfer <strong style="color:red;">within 3 days</strong> after submitting the form.</p>
+    <ul style="line-height: 1.8;">
+      <li><strong>Account With Bank:</strong> Chang Hwa Bank Pei-Taichung Branch</li>
+      <li><strong>Bank Address:</strong> No.6, Sec. 2, Taiwan Blvd., West Dist., Taichung City 40354, Taiwan (R.O.C.)</li>
+      <li><strong>Swift Code:</strong> CCBCTWTP400</li>
+      <li><strong>Account No.:</strong> 4004 51 48739 300</li>
+      <li><strong>Beneficiary’s Name:</strong> Chin-Kun Wang</li>
+    </ul>
 
-    <!-- Payment Information -->
-    <section class="card" id="payment">
-      <div class="hd">Payment Information</div>
-      <div class="bd">
-        <h3>Bank Transfer Details</h3>
-        <p>Please complete bank transfer within <strong style="color:red">3 days</strong> after form submission:</p>
-        <ul>
-          <li><strong>Bank:</strong> Chang Hwa Bank, North Taichung Branch</li>
-          <li><strong>Bank Code:</strong> 009</li>
-          <li><strong>Account Number:</strong> 4004 51 48739 300</li>
-          <li><strong>Account Holder:</strong> Jin-Kun Wang</li>
-        </ul>
+    <h2>💡 Refund Policy</h2>
+    <ul style="line-height: 1.8;">
+      <li>✅ Full refund (less processing fee): Canceled 14+ days before event</li>
+      <li>🔁 50% refund: Canceled 7–13 days before event</li>
+      <li>🚫 No refund: Within 6 days (but participant substitution allowed)</li>
+    </ul>
 
-        <h3>Refund Policy</h3>
-        <ul>
-          <li>Full refund (less processing fee): Canceled 14+ days before event</li>
-          <li>50% refund: Canceled 7-13 days before event</li>
-          <li>No refund: Within 6 days, but participant substitution allowed</li>
-        </ul>
+    <h2>📮 Receipt Information</h2>
+    <p>A temporary receipt will be provided on-site. The official receipt will be mailed within 30 working days after the event.</p>
 
-        <h3>Receipt Information</h3>
-        <p>Temporary receipt provided on-site. Official receipt mailed within 30 working days after the event.</p>
-
-        <h3>Technical Support</h3>
-        <p>If you experience issues with form submission, please contact us directly or try the alternative registration method.</p>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburger?.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      const expanded = navLinks.classList.contains('open');
-      hamburger.setAttribute('aria-expanded', expanded);
-    });
-  </script>
+    <h2>🛠️ Technical Support</h2>
+    <p>If you encounter issues with form submission, please contact us directly or try an alternative registration method.</p>
+  </div>
 </body>
 </html>
