@@ -6,7 +6,7 @@
   <title>2025 ISPH Annual Meeting｜Registration</title>
   <meta name="description" content="ISPH 2025 Registration Form" />
   <style>
-    :root{ --primary:#2563eb; --primary-600:#1d4ed8; --bg:#f8fafc; --text:#111827; --muted:#6b7280; --card:#ffffff; --ring:rgba(37,99,235,.25); --danger:#dc2626; --success:#16a34a; }
+    :root{ --primary:#2563eb; --primary-600:#1d4ed8; --bg:#f8fafc; --text:#111827; --muted:#6b7280; --card:#ffffff; }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg)}
@@ -33,43 +33,17 @@
       .hamburger{display:block}
     }
 
-    /* Hero */
-    .hero{background:linear-gradient(180deg,#fff,#eef2ff);border-bottom:1px solid #e5e7eb}
+    /* Main content */
     .container{max-width:1100px;margin:auto;padding:24px 16px}
-    .hero h1{font-size:clamp(24px,3.5vw,40px);margin:6px 0 10px}
-    .hero p{color:var(--muted);margin:0}
+    .hero{background:linear-gradient(180deg,#fff,#eef2ff);border-bottom:1px solid #e5e7eb}
+    .hero h1{font-size:clamp(24px,3.5vw,40px);margin:6px 0 10px;text-align:center;color:var(--primary)}
+    .hero p{color:var(--muted);margin:0;text-align:center}
 
-    /* Cards */
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.03);margin-top:20px}
     .card .hd{padding:14px 16px;border-bottom:1px solid #e5e7eb;font-weight:700}
     .card .bd{padding:16px}
 
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:700px){.row{grid-template-columns:1fr}}
-    label{display:block;font-size:14px;color:#374151;margin-bottom:6px}
-    input[type="text"],input[type="email"],input[type="tel"],select,textarea{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:12px;background:#fff;font-size:15px}
-    input[type="number"]{width:100%;padding:10px 12px;border:1px solid #d1d5db;border-radius:12px;background:#fff;font-size:15px}
-    textarea{min-height:90px}
-    input[type="radio"]{margin-right:8px}
-    .radio-group{display:flex;flex-direction:column;gap:8px}
-    .radio-option{display:flex;align-items:center;gap:8px}
-
-    .fee-grid{display:grid;grid-template-columns:2fr 1fr;gap:10px;align-items:end}
-    .muted{color:var(--muted);font-size:13px}
-
-    .total{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:1px dashed #c7d2fe;border-radius:14px;background:#eef2ff;margin-top:10px}
-    .total .amt{font-size:22px;font-weight:800}
-
-    .success{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#ecfdf5;border:1px solid #bbf7d0;color:#065f46}
-    .error{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
-    .footer{margin-top:28px;font-size:13px;color:#6b7280}
-
-    /* Instructions */
-    .instruction-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:16px;margin-bottom:20px}
-    .instruction-title{font-weight:600;color:#0c4a6e;margin-bottom:8px}
-    .instruction-text{font-size:14px;color:#0c4a6e}
+    iframe{width:100%;height:1800px;border:none;border-radius:12px}
   </style>
 </head>
 <body>
@@ -81,8 +55,8 @@
         <span class="title">International Society for Precision Health</span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#fees">Registration Fees</a>
         <a href="#register">Registration Form</a>
+        <a href="#payment">Payment Info</a>
         <a href="Join us.html">Join ISPH</a>
         <a href="Annual2025.html">Home</a>
       </div>
@@ -103,231 +77,21 @@
       <p>Date: October 18, 2025 (Saturday)</p>
     </div>
   </header>
+
   <main class="container">
-    <div class="grid">
-      <!-- Fees & Add-ons -->
-      <section class="card" id="fees">
-        <div class="hd">Registration Fees & Add-ons</div>
-        <div class="bd">
-          <div class="fee-grid">
-            <div>
-              <label for="status">Registration Category</label>
-            </div>
-            <div>
-              <select id="status" aria-label="Select registration category">
-                <option value="student">Student (NT$10,000 ≈ USD$323)</option>
-                <option value="member">ISPH Member (NT$18,000 ≈ USD$581)</option>
-                <option value="nonmember">Non-member (NT$20,000 ≈ USD$645)</option>
-                <option value="reduced">Reduced Registration (NT$10,000 ≈ USD$323)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="fee-grid" style="margin-top:12px">
-            <div>
-              <label>Accompanying Person <span class="muted">(NT$3,300 ≈ USD$106 per person)</span></label>
-            </div>
-            <div>
-              <input type="number" id="qtyCompanion" min="0" value="0" aria-label="Number of accompanying persons" />
-            </div>
-          </div>
-
-          <div class="fee-grid" style="margin-top:12px">
-            <div>
-              <label>Welcome Dinner <span class="muted">(NT$3,300 ≈ USD$106 per person)</span></label>
-            </div>
-            <div>
-              <input type="number" id="qtyBanquet" min="0" value="0" aria-label="Number of welcome dinner tickets" />
-            </div>
-          </div>
-
-          <div class="fee-grid" style="margin-top:12px">
-            <div>
-              <label>Conference Tour <span class="muted">(NT$2,500 ≈ USD$81 per person)</span></label>
-            </div>
-            <div>
-              <input type="number" id="qtyTour" min="0" value="0" aria-label="Number of conference tour tickets" />
-            </div>
-          </div>
-
-          <div class="total" aria-live="polite" style="margin-top:16px">
-            <div>
-              <div>Total Amount</div>
-              <div class="muted">Automatically updated based on selections</div>
-            </div>
-            <div class="amt" id="amount">NT$10,000 (≈ USD$323)</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Registration Form (Google Forms) -->
-      <section class="card" id="register">
-        <div class="hd">Online Registration Form</div>
-        <div class="bd">
-          <div id="okMsg" class="success">✅ Registration submitted successfully! A confirmation email will be sent to you.</div>
-          <div id="errorMsg" class="error">❌ There was an error submitting the form. Please try again.</div>
-          
-          <form id="regForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfM9LEZcUPetZFB3QSPE6hb_Q13WE-yA5O4uiME7PxbmHBzeg/formResponse" method="POST" target="hidden_iframe" novalidate>
-            <div class="row">
-              <div>
-                <label>Full Name <span style="color:red">*</span></label>
-                <input type="text" name="entry.1195663187" required placeholder="John Smith" />
-              </div>
-              <div>
-                <label>Email Address <span style="color:red">*</span></label>
-                <input type="email" name="entry.1329980034" required placeholder="john.smith@example.com" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Phone Number <span style="color:red">*</span></label>
-                <input type="tel" name="entry.1504094709" required placeholder="+886-912-345-678" />
-              </div>
-              <div>
-                <label>Title <span style="color:red">*</span></label>
-                <input type="text" name="entry.252943400" required placeholder="Dr. / Prof. / Mr. / Ms." />
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Affiliation</label>
-                <input type="text" name="entry.1165126282" placeholder="University / Hospital / Company" />
-              </div>
-              <div>
-                <label>Registration Category <span style="color:red">*</span></label>
-                <select id="formStatus" name="entry.573453040" required>
-                  <option value="">Please select</option>
-                  <option value="學生（NT$ 10,000）">Student (NT$ 10,000)</option>
-                  <option value="會員（NT$ 18,000）">ISPH Member (NT$ 18,000)</option>
-                  <option value="非會員（NT$20,000）">Non-member (NT$20,000)</option>
-                  <option value="Reduced Registration (NT$10,000 )">Reduced Registration (NT$10,000)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Accompanying Person <span style="color:red">*</span></label>
-                <input type="number" id="postCompanion" name="entry.2073761257" min="0" value="0" />
-              </div>
-              <div>
-                <label>Welcome Dinner Tickets <span style="color:red">*</span></label>
-                <input type="number" id="postBanquet" name="entry.566557431" min="0" value="0" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Conference Tour Tickets <span style="color:red">*</span></label>
-                <input type="number" id="postTour" name="entry.932349988" min="0" value="0" />
-              </div>
-              <div>
-                <label>Invoice/Receipt Required <span style="color:red">*</span></label>
-                <select name="entry.1845447127" required>
-                  <option value="不需要">Not required</option>
-                  <option value="收據（個人）">Personal receipt</option>
-                  <option value="發票（公司/三聯式）">Company invoice</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Invoice/Receipt Title</label>
-                <input type="text" name="entry.179378040" placeholder="Company Name / Personal Name" />
-              </div>
-              <div>
-                <label>Tax ID (for company invoice)</label>
-                <input type="text" name="entry.984856977" placeholder="12345678" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Mailing Address</label>
-                <input type="text" name="entry.1261185884" placeholder="Address for sending invoice/receipt" />
-              </div>
-              <div>
-                <label>Dietary Requirements <span style="color:red">*</span></label>
-                <div class="radio-group">
-                  <div class="radio-option">
-                    <input type="radio" id="meal1" name="entry.78350209" value="葷食" required>
-                    <label for="meal1">No restrictions</label>
-                  </div>
-                  <div class="radio-option">
-                    <input type="radio" id="meal2" name="entry.78350209" value="素食" required>
-                    <label for="meal2">Vegetarian</label>
-                  </div>
-                  <div class="radio-option">
-                    <input type="radio" id="meal3" name="entry.78350209" value="特殊過敏（請於備註欄說明）" required>
-                    <label for="meal3">Special requirements (please specify in remarks)</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Remarks</label>
-                <textarea name="entry.749605536" placeholder="Please specify allergies or special requirements"></textarea>
-              </div>
-              <div>
-                <label>Payment Method <span style="color:red">*</span></label>
-                <div class="radio-group">
-                  <div class="radio-option">
-                    <input type="radio" id="pay1" name="entry.1154667495" value="銀行轉帳" required>
-                    <label for="pay1">Bank transfer</label>
-                  </div>
-                  <div class="radio-option">
-                    <input type="radio" id="pay2" name="entry.1154667495" value="現場繳費" required>
-                    <label for="pay2">On-site payment</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Total Amount (Auto-calculated)</label>
-                <input type="text" id="postTotal" readonly style="background:#f9fafb" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label>Data Consent <span style="color:red">*</span></label>
-                <label style="display:flex;gap:8px;align-items:center;font-size:14px">
-                  <input type="checkbox" name="entry.979619625" value="我同意本會為活動聯繫與保險用途使用聯絡資訊" required />
-                  <span>I consent to the use of my contact information for event-related purposes</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="total" aria-live="polite">
-              <div>
-                <div>Total Amount</div>
-                <div class="muted">Payment details will be sent to your email upon submission</div>
-              </div>
-              <div class="amt" id="amountBottom">NT$10,000 (≈ USD$323)</div>
-            </div>
-
-            <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-              <button type="submit" class="btn primary">Submit Registration</button>
-              <button type="reset" class="btn" id="resetBtn">Clear Form</button>
-            </div>
-          </form>
-          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
-        </div>
-      </section>
-    </div>
-
-    <!-- Important Notes -->
-    <section class="card" id="notes" style="margin-top:22px">
-      <div class="hd">Important Information</div>
+    <!-- Registration Form -->
+    <section class="card" id="register">
+      <div class="hd">Online Registration Form</div>
       <div class="bd">
-        <h3>Payment Information</h3>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzKJdJcnNONVT_KDkCePwv1_-S9CsYkL_pit5XoEZR2ygscg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+    </section>
+
+    <!-- Payment Information -->
+    <section class="card" id="payment">
+      <div class="hd">Payment Information</div>
+      <div class="bd">
+        <h3>Bank Transfer Details</h3>
         <p>Please complete bank transfer within <strong style="color:red">3 days</strong> after form submission:</p>
         <ul>
           <li><strong>Bank:</strong> Chang Hwa Bank, North Taichung Branch</li>
@@ -353,93 +117,6 @@
   </main>
 
   <script>
-    const FEES = { 
-      companion: 3300, 
-      banquet: 3300, 
-      tour: 2500 
-    };
-    const USD_RATE = 31;
-    const fmt = (n) => `NT$${n.toLocaleString('en-US')} (≈ USD$${Math.round(n / USD_RATE)})`;
-
-    const statusSelect = document.getElementById('status');
-    const formStatus = document.getElementById('formStatus');
-    const qtyCompanion = document.getElementById('qtyCompanion');
-    const qtyBanquet = document.getElementById('qtyBanquet');
-    const qtyTour = document.getElementById('qtyTour');
-    const postCompanion = document.getElementById('postCompanion');
-    const postBanquet = document.getElementById('postBanquet');
-    const postTour = document.getElementById('postTour');
-    const amountTop = document.getElementById('amount');
-    const amountBottom = document.getElementById('amountBottom');
-    const postTotal = document.getElementById('postTotal');
-
-    function getNum(el) { return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
-
-    function calc() {
-      const status = statusSelect?.value || 'student';
-      const baseFee = status === 'nonmember' ? 20000 : 
-                     status === 'member' ? 18000 : 10000;
-      const c = getNum(qtyCompanion);
-      const b = getNum(qtyBanquet);
-      const t = getNum(qtyTour);
-      const total = baseFee + c * FEES.companion + b * FEES.banquet + t * FEES.tour;
-      
-      if (amountTop) amountTop.textContent = fmt(total);
-      if (amountBottom) amountBottom.textContent = fmt(total);
-      if (postTotal) postTotal.value = fmt(total);
-      
-      // Sync form quantities
-      if (postCompanion) postCompanion.value = c;
-      if (postBanquet) postBanquet.value = b;
-      if (postTour) postTour.value = t;
-      
-      // Sync form status with English labels
-      if (formStatus) {
-        formStatus.value = {
-          'nonmember': '非會員（NT$20,000）',
-          'member': '會員（NT$ 18,000）',
-          'student': '學生（NT$ 10,000）',
-          'reduced': 'Reduced Registration (NT$10,000 )'
-        }[status] || '';
-      }
-    }
-
-    function syncQuantitiesFromForm() {
-      if (qtyCompanion) qtyCompanion.value = getNum(postCompanion);
-      if (qtyBanquet) qtyBanquet.value = getNum(postBanquet);
-      if (qtyTour) qtyTour.value = getNum(postTour);
-      calc();
-    }
-
-    function syncStatusFromForm() {
-      if (formStatus && statusSelect) {
-        const mapping = {
-          '非會員（NT$20,000）': 'nonmember',
-          '會員（NT$ 18,000）': 'member',
-          '學生（NT$ 10,000）': 'student',
-          'Reduced Registration (NT$10,000 )': 'reduced'
-        };
-        statusSelect.value = mapping[formStatus.value] || 'student';
-        calc();
-      }
-    }
-
-    // Test form submission function
-    // Removed as requested
-
-    // Event listeners
-    [statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el => {
-      el?.addEventListener('input', calc);
-      el?.addEventListener('change', calc);
-    });
-
-    [postCompanion, postBanquet, postTour].forEach(el => {
-      el?.addEventListener('input', syncQuantitiesFromForm);
-      el?.addEventListener('change', syncQuantitiesFromForm);
-    });
-
-    formStatus?.addEventListener('change', syncStatusFromForm);
-
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -448,107 +125,6 @@
       navLinks.classList.toggle('open');
       const expanded = navLinks.classList.contains('open');
       hamburger.setAttribute('aria-expanded', expanded);
-    });
-
-    calc(); // Initial calculation
-
-    // Google Forms Submission Handler
-    const regForm = document.getElementById('regForm');
-    const okMsg = document.getElementById('okMsg');
-    const errorMsg = document.getElementById('errorMsg');
-    const resetBtn = document.getElementById('resetBtn');
-    let submitted = false;
-    let submissionTimeout;
-
-    regForm.addEventListener('submit', (e) => {
-      // Hide previous messages
-      okMsg.style.display = 'none';
-      errorMsg.style.display = 'none';
-      
-      // Check if entry IDs are still placeholder values
-      const formData = new FormData(regForm);
-      let hasPlaceholders = false;
-      for (let [key, value] of formData.entries()) {
-        if (key.includes('entry.XXXXXXXX')) {
-          hasPlaceholders = true;
-          break;
-        }
-      }
-      
-      if (hasPlaceholders) {
-        e.preventDefault();
-        errorMsg.textContent = '⚠️ Form is not configured properly. Please update the entry IDs with actual Google Forms field names.';
-        errorMsg.style.display = 'block';
-        return;
-      }
-      
-      if (!regForm.reportValidity()) { 
-        e.preventDefault(); 
-        return; 
-      }
-      
-      submitted = true;
-      
-      // Show loading message
-      okMsg.textContent = '⌛ Submitting registration... Please wait';
-      okMsg.style.display = 'block';
-      
-      // Set timeout to detect potential submission failure
-      submissionTimeout = setTimeout(() => {
-        if (submitted) {
-          errorMsg.textContent = '❌ Submission timeout. Please check your internet connection or try again.';
-          errorMsg.style.display = 'block';
-          okMsg.style.display = 'none';
-          submitted = false;
-        }
-      }, 10000); // 10 second timeout
-    });
-
-    // Handle successful submission
-    document.getElementById('hidden_iframe').addEventListener('load', () => {
-      if (!submitted) return;
-      
-      clearTimeout(submissionTimeout);
-      
-      okMsg.textContent = '✅ Registration submitted successfully! A confirmation email will be sent to you.';
-      okMsg.style.display = 'block';
-      errorMsg.style.display = 'none';
-      
-      // Reset form
-      regForm.reset();
-      ['qtyCompanion', 'qtyBanquet', 'qtyTour', 'postCompanion', 'postBanquet', 'postTour'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = 0;
-      });
-      
-      if (statusSelect) statusSelect.value = 'student';
-      if (formStatus) formStatus.value = '';
-      
-      calc();
-      submitted = false;
-      
-      // Scroll to success message
-      okMsg.scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Handle form reset
-    resetBtn.addEventListener('click', () => { 
-      setTimeout(() => {
-        calc();
-        okMsg.style.display = 'none';
-        errorMsg.style.display = 'none';
-      }, 0); 
-    });
-
-    // Handle potential iframe errors
-    document.getElementById('hidden_iframe').addEventListener('error', () => {
-      if (submitted) {
-        clearTimeout(submissionTimeout);
-        errorMsg.textContent = '❌ Error submitting form. Please check the Google Forms URL or try again.';
-        errorMsg.style.display = 'block';
-        okMsg.style.display = 'none';
-        submitted = false;
-      }
     });
   </script>
 </body>
