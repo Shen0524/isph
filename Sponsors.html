@@ -3,104 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 👇 這兩行是新增加的HTTPS安全標頭 -->
+    <!-- HTTPS安全標頭 -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <!-- 👆 新增加的部分結束 -->
     <title>Sponsors - ISPH</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("active");
-        }
-    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* 全域設定 */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* LOGO 樣式 */
+        .logo-container {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* 標頭樣式 */
         header {
-            background-color: #004a99;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: #00539C;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
         }
-        .menu-icon {
+
+        header h1 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 導航列樣式 */
+        nav {
+            background-color: #003366;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        .menu-toggle {
             display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem;
             cursor: pointer;
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 15px;
-        }
-        nav ul li a {
-            color: white;
+
+        nav a {
             text-decoration: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
         }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* 下拉選單樣式 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 0.8rem 1rem;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* 主要內容區域 */
+        main {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 贊助商區域樣式 */
         .sponsors {
             text-align: center;
-            padding: 20px;
+            padding: 2rem 1rem;
         }
+
+        .sponsors h2 {
+            color: #00539C;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .sponsors p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sponsor-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .sponsor-item:hover {
+            transform: translateY(-5px);
+        }
+
         .sponsors img {
-            width: 200px;
+            max-width: 100%;
             height: 100px;
             object-fit: contain;
-            margin: 10px;
+            margin-bottom: 1rem;
         }
+
+        .sponsor-name {
+            font-size: 1rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* 頁尾樣式 */
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* 響應式設計 */
         @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
+            header h1 {
+                font-size: 1.5rem;
             }
-            nav ul {
+
+            .menu-toggle {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .nav-links {
                 display: none;
                 flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                background: #004a99;
-                padding: 10px;
-                border-radius: 5px;
+                width: 100%;
             }
-            nav ul.active {
+
+            .nav-links.active {
                 display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                padding: 0.8rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: #004480;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding-left: 2rem;
+            }
+
+            .sponsors h2 {
+                font-size: 1.5rem;
+            }
+
+            .sponsors-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .sponsors {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- LOGO 放置區 -->
+    <div class="logo-container">
+        <img src="LOGO.PNG" alt="Society Logo">
+    </div>
+
     <header>
-        <div class="logo">ISPH</div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <nav>
-            <ul id="nav-menu">
-                <li><a href="Annual2025.html">Home</a></li>
-                <li><a href="Registration1.html">Register Now</a></li>
-                <li><a href="Registration.html">Register Now <span style="color: red;">(Taiwanese Only)</span></a></li>
-                <li><a href="Invited_Speakers.html">Invited Speakers</a></li>
-                <li><a href="Join us.html">Join ISPH</a></li>
-                <li><a href="Contact.html">Follow Us</a></li>
-            </ul>
-        </nav>
+        <h1>International Society for Precision Health</h1>
+        <p>Sponsors - 2025 Annual Conference</p>
     </header>
-    
-    <section class="sponsors">
-        <h2>Sponsors</h2>
-        <p>The ISPH 2025 is grateful for the continued support of our sponsors.</p>
-        <div>
-            <img src="sponsors/hpa.png" alt="Health Promotion Administration">
-            <img src="sponsors/ita_logo.png" alt="International Trade Administration">
-            <img src="sponsors/ISNPR.png" alt="International Society for Nutritional Psychiatry Research">
-            <img src="sponsors/chungte.JPG" alt="Chung Te Foundation">
-            <img src="sponsors/csmu_logo.png" alt="Chung Shan Medical University">
+
+    <nav>
+        <button class="menu-toggle">☰ Menu</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">Scientific Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Organizing_Committees.html">Organizing Committees</a>
+                    <a href="Invited_Speakers.html">Invited Speakers</a>
+                    <a href="session_schedule.html">Session Schedule</a>
+                    <a href="country.html">Country Representation</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Registrations &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Fees.html">Fees & Options</a>
+                    <a href="Registration1.html"><span style="color: #b0e0e6;">Register Now</span></a>
+                    <a href="Registration.html">Register Now <span style="color: red;">(Taiwanese Only)</span></a>
+                </div>
+            </div>
+            <a href="session_schedule.html">Session Schedule</a>
+            <a href="Invited_Speakers.html">Invited Speakers</a>
+            <div class="dropdown">
+                <a href="#">Social Events &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="One-Day Tour.html">One Day Tour</a>
+                    <a href="Gala.html">Gala Dinner</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">General Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Transportation_Guide.html">Transportation Guide</a>
+                    <a href="FAQ.html">FAQs</a>
+                </div>
+            </div>
+            <a href="Contact.html">Follow Us</a>
         </div>
-    </section>
+    </nav>
+
+    <main>
+        <section class="sponsors">
+            <h2>Our Sponsors</h2>
+            <p>The ISPH 2025 is grateful for the continued support of our sponsors.</p>
+            
+            <div class="sponsors-grid">
+                <div class="sponsor-item">
+                    <img src="sponsors/hpa.png" alt="Health Promotion Administration">
+                    <div class="sponsor-name">Health Promotion Administration</div>
+                </div>
+                
+                <div class="sponsor-item">
+                    <img src="sponsors/ita_logo.png" alt="International Trade Administration">
+                    <div class="sponsor-name">International Trade Administration</div>
+                </div>
+                
+                <div class="sponsor-item">
+                    <img src="sponsors/ISNPR.png" alt="International Society for Nutritional Psychiatry Research">
+                    <div class="sponsor-name">International Society for Nutritional Psychiatry Research</div>
+                </div>
+                
+                <div class="sponsor-item">
+                    <img src="sponsors/chungte.jpg" alt="Chung Te Foundation">
+                    <div class="sponsor-name">Chung Te Foundation</div>
+                </div>
+                
+                <div class="sponsor-item">
+                    <img src="sponsors/csmu_logo.png" alt="Chung Shan Medical University">
+                    <div class="sponsor-name">Chung Shan Medical University</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
-
-
