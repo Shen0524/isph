@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 👇 這兩行是新增加的HTTPS安全標頭 -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <!-- 👆 新增加的部分結束 -->
+    <title>Contact - ISPH</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            max-height: 50px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        /* 電腦版導航 */
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        /* 手機與平板導航 */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #0056a6;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul {
+                display: block;
+                padding: 0;
+            }
+
+            nav ul li {
+                text-align: right;
+                margin: 10px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-active {
+                display: block;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            color: #0056a6;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            margin-bottom: 15px;
+        }
+
+        .container a {
+            color: #0056a6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="LOGO.PNG" alt="ISPH Logo">
+            <h1>International Society for Precision Health</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Join us.html">Join ISPH</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+<div class="container"> 
+    <section style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
+        <h2>CONTACT US</h2>
+        <p>
+            <strong>ISPH Office</strong><br>
+            Jengshin Hall, Room 1252D<br>
+            Chung Shan Medical University<br>
+            No. 110, Sec. 1, Jianguo N. Rd.<br>
+            Taichung City 40201, Taiwan<br>
+            Tel: +886-4-2473-0022 ext. 12206<br>
+            E-MAIL: <a href="mailto:isfph2025@gmail.com">isfph2025@gmail.com</a>
+        </p>
+    </section>
+</div>
+
+</div>
+
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-menu");
+            if (nav.classList.contains("menu-active")) {
+                nav.classList.remove("menu-active");
+            } else {
+                nav.classList.add("menu-active");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
