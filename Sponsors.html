@@ -241,7 +241,36 @@
                 padding: 1rem;
             }
         }
-    </style>
+    /* ...前面保持不變... */
+
+    .sponsors img {
+        max-width: 100%;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease; /* 平滑動畫 */
+    }
+
+    /* 放大並置中 CO- 圖片 */
+    .sponsors img[alt="CO-"] {
+        height: 200px;
+        display: block;
+        margin: 0 auto 1rem auto; /* 上0 左右auto 下1rem */
+    }
+
+    /* sponsor-item 內容置中 */
+    .sponsor-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* CO- 圖片 hover 特效 */
+    .sponsors img[alt="CO-"]:hover {
+        transform: scale(1.1);
+    }
+</style>
 </head>
 <body>
     <!-- LOGO 放置區 -->
@@ -349,6 +378,7 @@
     </script>
 </body>
 </html>
+
 
 
 
