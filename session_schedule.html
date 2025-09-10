@@ -1,1018 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 Joint Meeting - Conference Program</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.1);
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .date-venue {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-left: 5px solid #3498db;
-            margin: 2rem;
-            border-radius: 5px;
-        }
-        
-        .schedule-overview {
-            padding: 2rem;
-        }
-        
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .schedule-table th {
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .schedule-table td {
-            padding: 0.8rem;
-            border-bottom: 1px solid #eee;
-            text-align: center;
-        }
-        
-        .schedule-table tr:hover {
-            background-color: #f8f9fa;
-            transform: scale(1.01);
-            transition: all 0.3s ease;
-        }
-        
-        .time-slot {
-            background: #e3f2fd;
-            font-weight: bold;
-            color: #1976d2;
-        }
-        
-        .break {
-            background: #fff3e0;
-            font-style: italic;
-            color: #f57c00;
-        }
-        
-        .session-details {
-            padding: 2rem;
-        }
-        
-        .session {
-            margin: 2rem 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        
-        .session:hover {
-            transform: translateY(-5px);
-        }
-        
-        .session-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-        
-        .session-content {
-            padding: 1.5rem;
-        }
-        
-        .speaker-list {
-            list-style: none;
-        }
-        
-        .speaker-item {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-            transition: background 0.3s ease;
-        }
-        
-        .speaker-item:hover {
-            background: #f8f9fa;
-        }
-        
-        .speaker-item:last-child {
-            border-bottom: none;
-        }
-        
-        .speaker-name {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        .speaker-title {
-            color: #666;
-            font-style: italic;
-        }
-        
-        .room-info {
-            background: #e8f5e8;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 0.9rem;
-            color: #2e7d32;
-            margin-bottom: 1rem;
-        }
-        
-        .navigation {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .nav-link {
-            display: block;
-            padding: 0.5rem;
-            text-decoration: none;
-            color: #333;
-            border-radius: 5px;
-            margin: 0.2rem 0;
-            transition: background 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            background: #3498db;
-            color: white;
-        }
-        
-        .disclaimer {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-            padding: 1rem;
-            margin: 2rem;
-            border-radius: 5px;
-            text-align: center;
-            font-style: italic;
-        }
-        
-        @media (max-width: 768px) {
-            .navigation {
-                display: none;
-            }
-            
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .schedule-table {
-                font-size: 0.9rem;
-            }
-            
-            .session-header {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2025 Joint Meeting - Conference Program (Updated)</title>
+  <style>
+    :root{
+      --bg1:#667eea; --bg2:#764ba2; --ink:#222; --muted:#6b7280; --brand:#2563eb;
+      --panel:#ffffff; --accent:#0ea5e9; --warn:#f59e0b; --ok:#16a34a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color:var(--ink);
+      background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 100%);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:1200px;margin:0 auto;min-height:100vh;background:var(--panel);box-shadow:0 0 30px rgba(0,0,0,.12)}
+    header.hero{position:relative;overflow:hidden;color:#fff;padding:2.2rem;text-align:center;background:linear-gradient(135deg,#2c3e50,#3498db)}
+    header.hero:before{content:"";position:absolute;inset:-60% -60% auto auto;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,.08)"/></svg>') repeat;width:220%;height:220%;animation:float 18s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-20px) rotate(180deg)}}
+    h1{font-size:2.3rem;margin-bottom:.35rem}
+    h2.subtitle{font-weight:300;font-size:1.15rem;opacity:.95}
+    .notice{background:#fff7ed;border:1px solid #ffedd5;color:#7c2d12;border-radius:10px;padding:1rem;margin:1.2rem 1.2rem 0}
+
+    .meta{display:grid;gap:1rem;grid-template-columns:1fr; padding:1.2rem}
+    .card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:1rem}
+    .badge{display:inline-block;padding:.25rem .6rem;border-radius:999px;font-size:.85rem}
+    .badge.room{background:#e0f2fe;color:#075985}
+    .badge.time{background:#ecfdf5;color:#065f46}
+    .tabs{display:flex;gap:.5rem;flex-wrap:wrap;padding:0 1.2rem 1.2rem}
+    .tab-btn{appearance:none;border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:.5rem .9rem;cursor:pointer}
+    .tab-btn[aria-selected="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+
+    .grid{padding:1.2rem}
+    .table{width:100%;border-collapse:separate;border-spacing:0 6px}
+    .table th,.table td{padding:.75rem .6rem;text-align:center}
+    .table thead th{background:#0f172a;color:#fff;font-weight:600}
+    .table tbody tr{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+    .table td.time{font-weight:700;color:#1d4ed8;background:#eef2ff}
+    .table tr.break td{font-style:italic;background:#fff7ed;color:#b45309}
+
+    details.session{margin:1rem 0;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff}
+    summary.session-h{cursor:pointer;list-style:none;padding:1rem 1.2rem;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-weight:700}
+    .session-body{padding:1rem 1.2rem}
+    .chair{font-size:.95rem;color:#111827;margin:.5rem 0}
+    .talks{width:100%;border-collapse:collapse}
+    .talks th,.talks td{border-bottom:1px solid #eef2f7;padding:.55rem .4rem;text-align:left}
+    .talks th{background:#f1f5f9}
+    .talks td.time{white-space:nowrap;font-weight:600}
+
+    .nav{position:fixed;top:50%;right:18px;transform:translateY(-50%);background:rgba(255,255,255,.94);padding:10px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    .nav a{display:block;text-decoration:none;color:#111827;padding:.4rem .6rem;border-radius:6px}
+    .nav a:hover{background:var(--brand);color:#fff}
+
+    @media (max-width: 860px){
+      .nav{display:none}
+      h1{font-size:1.7rem}
+      .table{font-size:.9rem}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>2025 Joint Meeting</h1>
-            <h2>International Conference of Nutritional Fortification, ISPH, ISNPR</h2>
-        </header>
-        
-        <div class="disclaimer">
-            <strong>⚠️ This is a preliminary program plan. The schedule is subject to change.</strong>
-        </div>
-        
-        <div class="date-venue">
-            <h3>📅 Saturday, October 18, 2025</h3>
-            <p><strong>📍 Venue:</strong> Chang Yung-Fa Charity Foundation</p>
-        </div>
-        
-        <div class="schedule-overview">
-            <h2>📋 Program Schedule Overview</h2>
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>(R601)</th>
-                        <th>(R602)</th>
-                        <th>(R603)</th>
-                        <th>(R605)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="time-slot">8:30 - 9:00</td>
-                        <td colspan="4">Registration</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">9:00 - 9:20</td>
-                        <td colspan="4">Opening Ceremony</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">9:20 - 10:00</td>
-                        <td colspan="4">Plenary 1 - Dr. Felice Jacka (R601)</td>
-                    </tr>
-                    <tr class="break">
-                        <td class="time-slot">10:00 - 10:20</td>
-                        <td colspan="4">Morning Break ☕</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">10:20 - 12:30</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 1:</strong><br>
-  <span style="font-size: 0.95em;">The Gut Microbiome and Mental Health</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 2:</strong><br>
-  <span style="font-size: 0.95em;">Nutrient Fortification / Food Safety / Nutraceuticals</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 3:</strong><br>
-  <span style="font-size: 0.95em;">Functional Foods</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 4:</strong><br>
-  <span style="font-size: 0.95em;">Cancer</span>
-</td>
-                    </tr>
-                    <tr class="break">
-                        <td class="time-slot">12:30 - 13:15</td>
-                        <td colspan="4">Lunch Break 🍽️</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">13:15 - 15:10</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 5:</strong><br>
-  <span style="font-size: 0.95em;">Nutrition, Aging and Cognitive Health</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 6:</strong><br>
-  <span style="font-size: 0.95em;">Nutrient Fortification / Food Safety / Nutraceuticals</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 7:</strong><br>
-  <span style="font-size: 0.95em;">Cancer / Functional Foods</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 8:</strong><br>
-  <span style="font-size: 0.95em;">Phytotherapy / Pharmacology</span>
-</td>
+  <div class="container">
+    <header class="hero">
+      <h1>2025 Joint Meeting</h1>
+      <h2 class="subtitle">International Conference of Nutritional Fortification · ISPH · ISNPR</h2>
+    </header>
 
-                    </tr>
-                    <tr class="break">
-                        <td class="time-slot">15:10 - 15:30</td>
-                        <td colspan="4">Afternoon Break ☕</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">15:30 - 16:10</td>
-                        <td colspan="4">Plenary 2 - Prof. Dr. Chin-Kun Wang</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">16:10 - 18:30</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 9:</strong><br>
-  <span style="font-size: 0.95em;">Nutrition from the Moleculars and Cells</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 10:</strong><br>
-  <span style="font-size: 0.95em;">Food Safety / Functional Food / Nutraceuticals</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 11:</strong><br>
-  <span style="font-size: 0.95em;">Phytochemistry / Pharmacology</span>
-</td>
-<td>
-  <strong style="font-size: 1.1em;">Session 12:</strong><br>
-  <span style="font-size: 0.95em;">Precision Health / Precision Nutrition</span>
-</td>
+    <p class="notice"><strong>⚠️ Preliminary Program.</strong> Subject to change; refer back for updates.</p>
 
-                    </tr>
-                    <tr class="break">
-                        <td class="time-slot">19:00 - 21:30</td>
-                        <td colspan="4">Welcome Dinner 🥂</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="session-details">
-            <h2>📚 Detailed Session Information</h2>
-<!-- 隱藏元素 -->
-<div hidden>這個內容不會顯示  
-            <!-- Session 1 -->
-            <div class="session" id="session1">
-                <div class="session-header">
-                    Session 1: The Gut Microbiome and Mental Health
-                    <div class="room-info">Room R601 | 10:20 - 12:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">1. Dr. Aslam Hajara</div>
-                            <div class="speaker-title">Feasibility and tolerability of Musa sp. pseudo-stem core powder as a dietary supplement with gut microbiota-modulating potential: A pilot randomised controlled trial</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">2. Dr. Anat Elmann</div>
-                            <div class="speaker-title">Neuroprotective, anti-anxiety, and microbiome-modulating properties of Pulicaria incisa infusion</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">3. Dr. K. Emmanuvel Rajan</div>
-                            <div class="speaker-title">Supplementation of probiotics prevent development of depressive-like behaviour in early-life social stress animal model</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">4. Dr. Nadiya Bokyo</div>
-                            <div class="speaker-title">Microbiome biomarkers in precise diagnostics and nutrition mental health and longevity of working and elderly populations</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Session 2 -->
-            <div class="session" id="session2">
-                <div class="session-header">
-                    Session 2: Nutrient Fortification/Food Safety/Nutraceuticals
-                    <div class="room-info">Room R602 | 10:20 - 12:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">4. Dr. Yi-Chin Lin</div>
-                            <div class="speaker-title">Vitamin D and calcium fortification- current status</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">5. Dr. Yi-Fang Liu</div>
-                            <div class="speaker-title">Iodine deficiency and fortification strategy</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">6. Dr. Shu Ru Zhuang</div>
-                            <div class="speaker-title">Dietary Behavior, Sub-health Symptoms, and Public Perceptions of Nutritional Fortification: A Cross-Sectional Study in Taiwan</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">7. Dr. Folake Idowu-Adebayo</div>
-                            <div class="speaker-title">Nutritional evaluation of fortified bread from wheat, soy-cheese, and pineapple rind blends</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">8. Dr. Ly Nguyen Binh</div>
-                            <div class="speaker-title">Enhancing nutritional standards: A comprehensive review of micronutrient fortification in Vietnam and future regulatory amendments</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">9. Dr. Mark Shamtsyan</div>
-                            <div class="speaker-title">The protective role of mushroom beta-D-glucans in the development of psychoemotional complications in patients with moderate Covid-19.</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">10. Dr. Mathoto Thaoge</div>
-                            <div class="speaker-title">Development of functional sorghum-based foods fortified with protein and probiotics: A sustainable solution for nutritional security in South African communities</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">11. Dr. Sri Raharjo</div>
-                            <div class="speaker-title">Optimization and sensory acceptance of coconut water drinks fortified with α-Tocopherol/Tocotrienol loaded nanostructured lipid carriers</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">12. Dr. Yuli Witono</div>
-                            <div class="speaker-title">Characteristics of smart flavor from enzymatic hydrolysis of Sardinella lemuru and its potential as healthy food ingredients</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">13. Dr. Zita Letviany Sarungallo</div>
-                            <div class="speaker-title">Red fruit (Pandanus conoideus Lamk.) oil: A natural antioxidant, colorant, and fortificant for functional food applications</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Continue with other sessions... -->
-            <div class="session" id="session3">
-                <div class="session-header">
-                    Session 3: Cancer
-                    <div class="room-info">Room R603 | 10:20 - 12:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">14. Dr. Benjamin K Tsang</div>
-                            <div class="speaker-title">A circulatory biomarker for Ovarian cancer</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">15. Dr. Christina L Addison</div>
-                            <div class="speaker-title">Identifying metabolic vulnerabilities to prevent invasive lobular breast cancer metastasis</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">16. Dr. Ciro Isidoro</div>
-                            <div class="speaker-title">Modulation of autophagy by dietary supplements as preventive and adjuvant therapeutic strategy in cancer management</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">17. Dr. Danny N. Dhanasekaran</div>
-                            <div class="speaker-title">LncRNAs in the era of precision health: Unlocking molecular vulnerabilities in cancer. Rewriting the noncoding code of cancer</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">18. Dr. Elvira Gille</div>
-                            <div class="speaker-title">Targeting non-melanoma skin cancer: Exploring the potential of plant-based therapies</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">19. Dr. Hye-Kyung Na</div>
-                            <div class="speaker-title">15-Hydroxyprostaglandin dehydrogenase and its product 15-Ketoprostagladin E2 as emerging targets for cancer chemoprevention and therapy</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">20. Dr. Jie Ni</div>
-                            <div class="speaker-title">Proteomic study of small extracellular vesicle biomarkers for breast cancer personalized medicine</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">21. Dr. M. Betül Yerer Aycan</div>
-                            <div class="speaker-title">Targeted nutraceutical interventions in cancer: A precision medicine approach</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">22. Dr. Yoshiro Saito</div>
-                            <div class="speaker-title">Development of diabetes Prophylaxis Using Food-Derived Electrophilic Compounds and the Biomarker Selenoprotein P</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">23. Dr. Zhizhuang Joe Zhao</div>
-                            <div class="speaker-title">Targeting malignant ascites in ovarian cancer</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="session" id="session4">
-                <div class="session-header">
-                    Session 4: Functional Foods
-                    <div class="room-info">Room R605 | 10:20 - 12:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">24. Dr. Christofora Hanny Wijaya</div>
-                            <div class="speaker-title">Usage of plant derived exosome like nanoparticles (PDEN) in precision functional foods: Ginger PDEN in Cajuputs® Candy</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">25. Dr. Irina Lazarova</div>
-                            <div class="speaker-title">Alimurgic plants: The sustainable source of functional food and health promoting substances</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">26. Dr. Indah Epriliati</div>
-                            <div class="speaker-title">Reengineering of traditional foods: Food processing for modernization and precision health goals</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">27. Dr. Kunle Oni</div>
-                            <div class="speaker-title">Effect of drying methods on the hydrophilic, reconstitution and viscosity of okra (Abelmoschus esculentus L. Moench) slices.</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">28. Dr. Mona Elena Popa</div>
-                            <div class="speaker-title">Nutraceutical and functional food industry roles and responsibilities in precision health approach</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">29. Dr. Nurul Husna Shafie</div>
-                            <div class="speaker-title">Multiomics insight on bioavailability, gut microbiota and proteomic profiling of green tea polyphenols nanoparticles</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">30. Dr. Sarah S. Comstock</div>
-                            <div class="speaker-title">Dietary impacts on the gut microbiota for improved health outcomes</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">31. Dr. Sirichai Adisakwattana</div>
-                            <div class="speaker-title">Encapsulated egg white noodles as a functional protein for satiety and weight management</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">32. Dr. Siti Raihanah Shafie</div>
-                            <div class="speaker-title">Barnyard millet: A potential functional food for metabolic syndrome management</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">33. Dr. Wan Rosli Wan Ishak</div>
-                            <div class="speaker-title">Does incorporating overripe banana extract (OBE) in food improve nutritional value and glycemic parameters?</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Session 5 -->
-            <div class="session" id="session5">
-                <div class="session-header">
-                    Session 5: Nutrition, Aging and Cognitive Health
-                    <div class="room-info">Room R601 | 13:15 - 15:10</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">34. Dr. Shizuo Yamada</div>
-                            <div class="speaker-title">Beneficial effects of a representative polymethoxylated flavonoid, nobiletin on cognitive impairment with aging</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">35. Dr. Samudra P. Banik</div>
-                            <div class="speaker-title">The impact of glycation on fibrillation and stability of α-synuclein: An introspection into the role of dietary AGEs in cellular amyloidogenesis</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">36. Dr. Natalia Mikhailichenko</div>
-                            <div class="speaker-title">Evaluation of the beneficial effects of ETAS® on normal aging or Mild Cognitive Impairment subjects: a pilot randomized controlled trial</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">37. Dr. Belayneh Mengist</div>
-                            <div class="speaker-title">Effect of Ultra-processed Food on Depression and Mental Health Quality of Life in Older Adults: A Preventive Target Trial Emulation</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <section class="meta">
+      <div class="card">
+        <strong>📍 Venues</strong><br/>
+        <div>Fri, Oct 17, 2025 — <em>14F VIP Lounge, Fuhua Cultural and Educational Center</em></div>
+        <div>Sat, Oct 18, 2025 — <em>Chang Yung-Fa Charity Foundation</em></div>
+      </div>
+      <div class="card">
+        <span class="badge time">🕘 Time zone: Taipei (UTC+8)</span>
+      </div>
+    </section>
 
-            <!-- Session 6 -->
-            <div class="session" id="session6">
-                <div class="session-header">
-                    Session 6: Nutrient Fortification/Food Safety/Nutraceuticals
-                    <div class="room-info">Room R602 | 13:15 - 15:10</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">38. Dr. Azrina Azlan (Malaysia)</div>
-                            <div class="speaker-title">Are Ready-to-Eat Foods a Healthy Alternative? A Review of Nutrition, Health Risks, and Convenience</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">39. Dr. Christelle Bou Mitri</div>
-                            <div class="speaker-title">Trends and development of Plant-based milk and dairy alternatives: A multifaceted research approach.</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">40. Dr. Darshee Baxi</div>
-                            <div class="speaker-title">Role of functional foods in PCOS: Investigating the gut microbiome -- ovary cross talk.</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">41. Dr. Dony Dahana</div>
-                            <div class="speaker-title">Dual certification regulation and its impact on functional food market</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">42. Dr. Ignasius Radix</div>
-                            <div class="speaker-title">The role of food packaging technology to support personalized nutrition recommendation</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">43. Dr. Khaw MC Richard</div>
-                            <div class="speaker-title">Singapore Standards and Guidelines in Nutrition Fortification and Claims in Food Products</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">44. Dr. Liviu Gaceu</div>
-                            <div class="speaker-title">Vulnerable plates: What we (Don't) know about food and health</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">45. Dr. Mari Maeda Yamamoto</div>
-                            <div class="speaker-title">Development of nutritionally balanced self-care diets</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">46. Dr. Maya Georgieva</div>
-                            <div class="speaker-title">RP-HPLC/DAD methods for seperation and determination of water-soluble and fat-soluble vitamins in food supplements and brewer's yeast.</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Session 7 -->
-            <div class="session" id="session7">
-                <div class="session-header">
-                    Session 7: Cancer/Functional Foods
-                    <div class="room-info">Room R603 | 13:15 - 15:10</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">47. Dr. Aline Issa</div>
-                            <div class="speaker-title">Functionality of fermented wheat germ extract (FWGE) -- A showcase for novel fermented foods</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">48. Dr. Amin Bin Ismail</div>
-                            <div class="speaker-title">Cocoa and Obesity -- A recent study</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">49. Dr. Camelia Munteanu</div>
-                            <div class="speaker-title">Precision nutrition for ovarian cancer: Targeting obesity-driven lncRNA signatures</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">50. Dr. Kuan-Chen Cheng</div>
-                            <div class="speaker-title">Artificial intelligence assisted technology in precision fermentation for functional foods development</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">51. Dr. Marc Diederich</div>
-                            <div class="speaker-title">Harnessing controlled necrosis for immunogenic vaccination against Myeloid leukemia</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">52. Dr. Matkowski Adam</div>
-                            <div class="speaker-title">Can you eat carnations? Saponins and other phytochemicals as bioactive compounds</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">53. Dr. Milen I. Georgiev</div>
-                            <div class="speaker-title">Nurturing longevity through natural compounds</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">54. Dr. Szu-Chuan Shen</div>
-                            <div class="speaker-title">Therapeutic effects of Myrtaceae extracts on Diabetes mellitus</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">54. Dr. Thierry Regnier</div>
-                            <div class="speaker-title">African mushrooms as preventive healthcare and nutrition intervention</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">55. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Session 8 -->
-            <div class="session" id="session8">
-                <div class="session-header">
-                    Session 8: Phytotherapy/Pharmacology
-                    <div class="room-info">Room R605 | 13:15 - 15:10</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">56. Dr. Abdel Qawasmeh</div>
-                            <div class="speaker-title">Biochemical evaluation of Ceratonia silique (Carob; Fabaceae)</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">57. Dr. Ardiansyah</div>
-                            <div class="speaker-title">Volatile, non-volatile compounds, sensory profiles and hypotensive effects of Kenikir leaves (Cosmos caudatus L)</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">58. Dr. Corina Danciu</div>
-                            <div class="speaker-title">Phytochemical composition and bio-nutrient impact of Aronia melanocarpa <Michx.> Elliott berries: brinding nutritional benefits with biological effects</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">59. Dr. Hao Jing</div>
-                            <div class="speaker-title">Transformation of sulfur-containing compounds in Garlic</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">60. Dr. Mohd-Esa Norhaizan</div>
-                            <div class="speaker-title">In vitro and in vivo antidiabetic activity of stingless bee (Heterotrigona itama) honey and its phenolic-rich extract</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">61. Dr. Rajalaksmi Manikkam</div>
-                            <div class="speaker-title">Novel phytochemical analogs-promising therapeutics for endocrine and metabolic diabetes</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">62. Dr. Rotimi. E. Aluko</div>
-                            <div class="speaker-title">Antioxidative and antihypersensitive properties of a multifunctional hemp seed protein hydrolysate: evidence from a randomized double-blind cross over trial</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">63. Dr. Srinivas Nerella</div>
-                            <div class="speaker-title">Impurity profiling and repurposing of Raltegravir-An anti-HIV drug</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">64. Dr. Takuya Sugahara</div>
-                            <div class="speaker-title">Anti-inflammatory function of sudachitin and demethoxysudachitin from Citrus sudachi</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Session 9 -->
-            <div class="session" id="session9">
-                <div class="session-header">
-                    Session 9: Nutrition From the Moleculars and Cells
-                    <div class="room-info">Room R601 | 16:10 - 18:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">65. Ms. Elizabeth Gamage</div>
-                            <div class="speaker-title">Polyphenol intake and serum high-sensitivity C-reactive protein concentrations in young adults: Evidence from a population-based longitudinal study</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">66. Dr. Young Joon Surh</div>
-                            <div class="speaker-title">Nutritional modulation of cellular redox signaling in the management of age-associated disorders</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">67. Dr. Debasis Bagchi</div>
-                            <div class="speaker-title">In silico analyses reveals receptor tyrosine kinases as prime targets of Shatavarin IV mediated augmentation of cognitive health</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">68. Dr. Bing Wang</div>
-                            <div class="speaker-title">Molecular deciphering of iron and sialic acid in the lactoferrin molecule and their impact on neurodevelopment</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Session 10 -->
-            <div class="session" id="session10">
-                <div class="session-header">
-                    Session 10: Food Safety/Functional Food/Nutraceuticals
-                    <div class="room-info">Room R602 | 16:10 - 18:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">69. Dr. Anca Miron</div>
-                            <div class="speaker-title">Plant-derived therapies for Rheumatoid arthritis: current status and emerging trends</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">70. Dr. Claudia Cerella</div>
-                            <div class="speaker-title">Advancing precision health and medicine through data-driven discovery of prognostic and therapeutic markers</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">71. Dr. Eni Harmayani</div>
-                            <div class="speaker-title">Combination of Javanese turmeric (Curcuma xanthorrhiza) and lemongrass (Cymbopogon citratus) drink exhibit anti-hyperglycemic, anti-oxidant and prebiotic activities in vitro</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">72. Dr. Elfahmi</div>
-                            <div class="speaker-title">Cassava bioflavonoids ameliorate metabolic syndrome and its related complications induced rats administered a high-fat diet and high-fructose drink</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">73. Dr. Lotis dL. Francisco</div>
-                            <div class="speaker-title">From Sensory Insights to Precision Health: Innovating Nutritional Interventions</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">74. Dr. Rumiyati</div>
-                            <div class="speaker-title">The potential of Indonesia's local food resources in the prevention and management of degenerative diseases: In vitro and in vivo studies</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">75. Dr. Sylwia Zielinska</div>
-                            <div class="speaker-title">Poppy family medicinals: Isoquinoline alkaloids from Papaveraceae</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">76. Ms. Rutvi Vaja</div>
-                            <div class="speaker-title">Melatonin Administration Reverses Alzheimer's Induced Neurodegenerative Like Changes in Zebrafish Model Organism</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">77. Ms. Yashshvini Patel</div>
-                            <div class="speaker-title">Prebiotic Ulvan Reshapes Microbial Ecology and Antioxidant Responses in PCOS: Insights from the Gut-Brain-ovary Axis</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">78. Sheng-Luen Shih</div>
-                            <div class="speaker-title">Assessing Choline Bioavailability and Metabolism from a New Dairy Ingredient (WPPC) for Post-Menopausal Women: A Randomized Controlled Trial</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">79. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Session 11 -->
-            <div class="session" id="session11">
-                <div class="session-header">
-                    Session 11: Phytochemistry/Pharmacology
-                    <div class="room-info">Room R603 | 16:10 - 18:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">80. Dr. David Mary Rajathei</div>
-                            <div class="speaker-title">Quantitative Structure Activity Relationship models for identification of novel antidepressant drug analogs</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">81. Dr. Jacqueline Doumit</div>
-                            <div class="speaker-title">Nutritional resilience in aging populations: Addressing malnutrition and functional decline in Lebanese nursing homes through precision nutrition</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">82. Dr. Jiankang Liu</div>
-                            <div class="speaker-title">Mitochondria as a sensor and a biological clock in stress-accelerated aging and associated diseases</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">83. Dr. Johji Inazawa</div>
-                            <div class="speaker-title">Cancer-associated microRNAs and their therapeutic applications</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">84. Mr. Ngwang Erick Chuye</div>
-                            <div class="speaker-title">Promoting nutrition through forest conservation in Cameroon</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">85. Dr. Krystyna</div>
-                            <div class="speaker-title">Title yet to receive</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">86. Dr. Indrawati Oey</div>
-                            <div class="speaker-title">Title yet to receive</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">87. Dr. P. Rajakumari</div>
-                            <div class="speaker-title">Title yet to receive</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">88. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">89. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">90. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Session 12 -->
-            <div class="session" id="session12">
-                <div class="session-header">
-                    Session 12: Precision Health/Precision Nutrition
-                    <div class="room-info">Room R605 | 16:10 - 18:30</div>
-                </div>
-                <div class="session-content">
-                    <p><strong>Chairperson:</strong> Yet to confirm</p>
-                    <ul class="speaker-list">
-                        <li class="speaker-item">
-                            <div class="speaker-name">91. Dr. Dae Young Kwon</div>
-                            <div class="speaker-title">What is the most competitive power in personalized nutrition that we are prone to missing in the future AI era?</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">92. Dr. Dora Marinova</div>
-                            <div class="speaker-title">Generation Z and precision health</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">93. Dr. Kuncoro Harto Widodo</div>
-                            <div class="speaker-title">Precision Health through Hospital Food Service Optimization: Menu Customization for Patient Nutrition Need Fulfillment and Food Waste Reduction</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">94. Dr. Loh Su Peng</div>
-                            <div class="speaker-title">Optimising iron intake: Addressing iron deficiency Anaemia through precision nutrition and genetic insights</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">95. Dr. A.S. Narain Naidu</div>
-                            <div class="speaker-title">Viral-Induced Impairment of the Bio-Operational Surveillance System (B.O.S.S.) in the Human Spine Leads to Long COVID: Precision Nutra-Metabolic Reset (P-NMR) for Health Recovery</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">96. Dr. Widiastuti Setyaningsih</div>
-                            <div class="speaker-title">Precision Extraction of Antioxidants and Neuroprotective Metabolites from Banana Flowers Using Ultrasound and Solvent Mixtures</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">97. Dr. Yong Sang Song</div>
-                            <div class="speaker-title">Precision Medicine Approaches in Obesity: Integrating Adipose-Derived Stem Cells and Microbial Extracellular Vesicles</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">98. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">99. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">100. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                        <li class="speaker-item">
-                            <div class="speaker-name">101. Yet to plan</div>
-                            <div class="speaker-title">Yet to plan</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="disclaimer">
-            <strong>📝 Note:</strong> This is a preliminary program plan. The schedule is subject to change. Please check for updates regularly.
-        </div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn" data-tab="fri" aria-selected="true">Friday · Oct 17</button>
+      <button class="tab-btn" data-tab="sat">Saturday · Oct 18</button>
+      <a class="tab-btn" href="#sessions">Jump to Detailed Sessions</a>
     </div>
- </div>
-    <nav class="navigation">
-	<a href="Annual2025.html">Home</a>
-	<a href="#session1" class="nav-link">Session 1</a>
-        <a href="#session2" class="nav-link">Session 2</a>
-        <a href="#session3" class="nav-link">Session 3</a>
-        <a href="#session4" class="nav-link">Session 4</a>
-        <a href="#session5" class="nav-link">Session 5</a>
-        <a href="#session6" class="nav-link">Session 6</a>
-        <a href="#session7" class="nav-link">Session 7</a>
-        <a href="#session8" class="nav-link">Session 8</a>
-        <a href="#session9" class="nav-link">Session 9</a>
-        <a href="#session10" class="nav-link">Session 10</a>
-        <a href="#session11" class="nav-link">Session 11</a>
-        <a href="#session12" class="nav-link">Session 12</a>
-		<a href="Registration.html">Register Now <span style="color: #ff0000;">(Taiwanese Only)</span></a>
-		<div class="registration-container">
-        <a href="Registration1.html">Registration</a>
-    </div>
-    </nav>
-    
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Add hover effects to session cards
-        document.querySelectorAll('.session').forEach(session => {
-            session.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
-            
-            session.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-        
-        // Loading animation
-        window.addEventListener('load', function() {
-            document.querySelectorAll('.session').forEach((session, index) => {
-                session.style.opacity = '0';
-                session.style.transform = 'translateY(50px)';
-                
-                setTimeout(() => {
-                    session.style.transition = 'all 0.6s ease';
-                    session.style.opacity = '1';
-                    session.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
-    </script>
+
+    <!-- Friday overview -->
+    <section class="grid" data-panel="fri">
+      <table class="table" aria-label="Friday schedule">
+        <thead>
+          <tr><th>Time</th><th>Program</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="time">18:00–18:30</td><td>Reception</td></tr>
+          <tr><td class="time">18:30–18:40</td><td>Opening Ceremony — Chairs: Dr. Chin‑Kun Wang, Dr. Fereidoon Shahidi</td></tr>
+          <tr><td class="time">18:40–21:10</td><td>Spotlighted Event (9 invited talks; see details below)</td></tr>
+          <tr><td class="time">21:10–21:30</td><td>ISPH Kick‑off</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Saturday overview -->
+    <section class="grid" data-panel="sat" hidden>
+      <table class="table" aria-label="Saturday schedule overview">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>R601</th>
+            <th>R602</th>
+            <th>R603</th>
+            <th>R604</th>
+            <th>R605</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="time">08:30–09:00</td><td colspan="5">Registration</td></tr>
+          <tr><td class="time">09:00–09:20</td><td colspan="5">Opening Ceremony</td></tr>
+          <tr><td class="time">09:20–10:00</td><td colspan="5">Plenary 1 — Prof. Felice Jacka (R601)</td></tr>
+          <tr class="break"><td class="time">10:00–10:20</td><td colspan="5">Morning Break ☕</td></tr>
+          <tr>
+            <td class="time">10:20–12:26</td>
+            <td>Session 1 — Food, Microbes & Mood</td>
+            <td>Session 2 — Nutrient Fortification / Food Safety</td>
+            <td>Session 3 — Precision Health / Medicine</td>
+            <td></td>
+            <td>Session 4 — Functional Foods</td>
+          </tr>
+          <tr class="break"><td class="time">12:00–13:30</td><td colspan="5">Lunch Break 🍽️</td></tr>
+          <tr>
+            <td class="time">13:30–15:10</td>
+            <td>Session 5 — Nutrition, Aging & Cognitive Health</td>
+            <td>Session 6 — Nutrient Fortification / Food Safety</td>
+            <td>Session 7 — Precision Functional Foods</td>
+            <td>(R604)</td>
+            <td>Session 8 — Phytochemistry / Pharmacology</td>
+          </tr>
+          <tr class="break"><td class="time">15:10–15:30</td><td colspan="5">Afternoon Break ☕</td></tr>
+          <tr><td class="time">15:30–16:10</td><td colspan="5">Plenary 2 — Prof. Dr. Chin‑Kun Wang (R601)</td></tr>
+          <tr>
+            <td class="time">16:10–17:50</td>
+            <td>Session 9 — Nutrition from the Moleculars and Cells</td>
+            <td>Session 10 — Nutrient Fortification / Food Safety</td>
+            <td>Session 11 — Precision Cancer Medicine</td>
+            <td></td>
+            <td>Session 12 — Phytochemistry / Pharmacology</td>
+          </tr>
+          <tr class="break"><td class="time">18:30–21:30</td><td colspan="5">Gala Dinner 🥂</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sessions" class="grid">
+      <!-- Spotlighted Event (Fri) -->
+      <details class="session" open>
+        <summary class="session-h">Friday Spotlighted Event — Fuhua 14F VIP Lounge</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairs:</strong> Dr. Chin‑Kun Wang, Dr. Fereidoon Shahidi</div>
+          <table class="talks" aria-label="Spotlighted talks">
+            <thead><tr><th style="width:9rem">Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">18:40–18:55</td><td>Dr. Fereidoon Shahidi</td><td>Memorial University of Newfoundland · Canada</td><td>Upcycling and value‑added application of marine processing discards in products and health</td></tr>
+              <tr><td class="time">18:55–19:10</td><td>Dr. Debasis Bagchi</td><td>Adelphi University · USA</td><td>Shatavarin IV promotes neuronal health by augmenting TrkB‑kinase mediated dampening of inflammatory response in PC12 cell line</td></tr>
+              <tr><td class="time">19:10–19:25</td><td>Dr. Livia Simon Sarkadi</td><td>Hungarian University of Agriculture and Life Sciences · Hungary</td><td>Changes in the fatty acid composition of donor breast milk after holder pasteurization</td></tr>
+              <tr><td class="time">19:25–19:40</td><td>Dr. Jun Nishihira</td><td>Hokkaido Information University · Japan</td><td>Ebetsu Model: A Platform for Precision Nutrition — Assessment of Food Functionality and Health</td></tr>
+              <tr><td class="time">19:40–19:55</td><td>Dr. Petras Rimantas Venskutonis</td><td>Kaunas University of Technology · Lithuania</td><td>Antioxidant dietary fiber from fruit processing side‑streams for bread fortification</td></tr>
+              <tr><td class="time">19:55–20:10</td><td>Dr. Kenji Sato</td><td>Kyoto University · Japan</td><td>Perspective Review: Deterioration of the Gut Environment in Japan Over the Past Five Decades — Decline in Dietary Fiber Intake or Other Dietary Factors?</td></tr>
+              <tr><td class="time">20:10–20:25</td><td>Dr. Sirichai Adisakwattana</td><td>Chulalongkorn University · Thailand</td><td>Encapsulated egg white noodles as a functional protein for satiety and weight management</td></tr>
+              <tr><td class="time">20:25–20:40</td><td>Dr. M. Betül Yerer Aycan</td><td>Erciyes University · Turkey</td><td>Targeted nutraceutical interventions in cancer: A precision medicine approach</td></tr>
+              <tr><td class="time">20:40–20:55</td><td>Dr. Takuya Sugahara</td><td>Ehime University · Japan</td><td>Anti‑inflammatory function of sudachitin and demethoxysudachitin from Citrus sudachi</td></tr>
+              <tr><td class="time">20:55–21:10</td><td>Dr. Kuan‑Chen Cheng</td><td>National Taiwan University · Taiwan</td><td>Artificial intelligence assisted technology in precision fermentation for functional foods development</td></tr>
+              <tr><td class="time">21:10–21:30</td><td colspan="3"><em>ISPH kick‑off</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session blocks for Saturday -->
+      <!-- Session 1 -->
+      <details class="session">
+        <summary class="session-h">Session 1 (R601) — Food, Microbes, and Mood: Integrative Approach to Depression and Anxiety</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Anat Elmann, Dr. Marx Wolfgang</div>
+          <table class="talks">
+            <thead><tr><th style="width:8.5rem">Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">09:20–10:00</td><td>Prof. Dr. Felice Jacka</td><td>Deakin University · Australia</td><td><strong>Plenary 1</strong> — The Lost Harvest: Industrial Diets, Vanishing Diversity, and the Global Health Crisis</td></tr>
+              <tr><td class="time">10:20–10:36</td><td>Dr. Aslam Hajara</td><td>Deakin University · Australia</td><td>Feasibility and tolerability of <em>Musa</em> sp. pseudo‑stem core powder as a dietary supplement…</td></tr>
+              <tr><td class="time">10:36–10:52</td><td>Dr. Anat Elmann</td><td>The Volcani Center · Israel</td><td>Neuroprotective, anti‑anxiety, and microbiome‑modulating properties of <em>Pulicaria incisa</em> infusion</td></tr>
+              <tr><td class="time">10:52–11:08</td><td>Dr. K. Emmanuvel Rajan</td><td>Bharathidasan University · India</td><td>Supplementation of probiotics prevents development of depressive‑like behaviour in early‑life social stress animal model</td></tr>
+              <tr><td class="time">11:08–11:24</td><td>Dr. Polona Prelog</td><td>University of Ljubljana · Slovenia</td><td>More Than Mood: Nutritional Vulnerability in Geriatric Depression as a Multidimensional Risk Factor</td></tr>
+              <tr><td class="time">11:24–11:40</td><td>Dr. Katharina Größbacher</td><td>Medical University of Graz · Austria</td><td>A Specialized Outpatient Clinic for Nutrition and Mental Health: A Pilot Study</td></tr>
+              <tr><td class="time">11:40–11:56</td><td>Dr. Nadiya Boyko</td><td>Uzhhorod National University · Ukraine</td><td>Microbiome biomarkers in precise diagnostics and nutrition mental health and longevity…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 2 -->
+      <details class="session">
+        <summary class="session-h">Session 2 (R602) — Nutrient Fortification / Food Safety</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Gow‑Chin Yen, Dr. Chin‑Kun Wang</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">10:20–10:30</td><td>Dr. Yi‑Chin Lin</td><td>Taiwan</td><td>Vitamin D and calcium fortification — current status</td></tr>
+              <tr><td class="time">10:30–10:40</td><td>Dr. Yi‑Fang Liu</td><td>Fu Jen Catholic University · Taiwan</td><td>Iodine deficiency and fortification strategy</td></tr>
+              <tr><td class="time">10:40–10:50</td><td>Dr. Shu Ru Zhuang</td><td>Chung Shan Medical University · Taiwan</td><td>Dietary Behavior, Sub‑health Symptoms, and Public Perceptions of Nutritional Fortification: A Cross‑Sectional Study in Taiwan</td></tr>
+              <tr><td class="time">10:50–11:02</td><td colspan="3"><em>Total Discussion</em></td></tr>
+              <tr><td class="time">11:02–11:16</td><td>Dr. Thierry Astruc</td><td>INRAE · France</td><td>Design and characterization of a sustainable food for people with anaemia</td></tr>
+              <tr><td class="time">11:16–11:30</td><td>Dr. Katarzyna Świąder</td><td>Warsaw University of Life Sciences · Poland</td><td>Co‑creation as a Catalyst for Developing Tailored Food Products for Special Dietary Needs</td></tr>
+              <tr><td class="time">11:30–11:44</td><td>Dr. Diana</td><td>Curtin University Sustainability Policy (CUSP) Institute · Australia</td><td>Reimagining food fortification through a consumer‑centered approach</td></tr>
+              <tr><td class="time">11:44–11:58</td><td>Dr. Thierry Regnier</td><td>Tshwane University of Technology · South Africa</td><td>African mushrooms as preventive healthcare and nutrition intervention</td></tr>
+              <tr><td class="time">11:58–12:12</td><td>Dr. Indrawati Oey</td><td>University of Otago · New Zealand</td><td>Incorporating Faba Bean into Wheat Bread as a Fortification strategy to Boost Protein and Fiber Levels</td></tr>
+              <tr><td class="time">12:12–12:26</td><td>Dr. Mathoto Thaoge</td><td>Tshwane University of Technology · South Africa</td><td>Development of functional sorghum‑based foods fortified with protein and probiotics…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 3 -->
+      <details class="session">
+        <summary class="session-h">Session 3 (R603) — Precision Health / Precision Medicine</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Yong Sang Song, Dr. Mona Elena Popa</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">10:20–10:34</td><td>Dr. Yong Sang Song</td><td>Myungji Hospital · Republic of Korea</td><td>Precision Medicine Approaches in Obesity: Integrating Adipose‑Derived Stem Cells and Microbial Extracellular Vesicles</td></tr>
+              <tr><td class="time">10:34–10:48</td><td>Dr. Danny N. Dhanasekaran</td><td>University of Oklahoma HSC · USA</td><td>LncRNAs in the era of precision health…</td></tr>
+              <tr><td class="time">10:48–11:02</td><td>Dr. Mona Elena Popa</td><td>UASVM Bucharest · Romania</td><td>Nutraceutical and functional food industry roles and responsibilities in precision health approach</td></tr>
+              <tr><td class="time">11:02–11:16</td><td>Dr. Dae Young Kwon</td><td>Institute of Food Culture and Science · ROK</td><td>What is the most competitive power in personalized nutrition that we are prone to missing in the future AI era?</td></tr>
+              <tr><td class="time">11:16–11:30</td><td>Dr. Dora Marinova</td><td>Curtin University · Australia</td><td>Generation Z and precision health</td></tr>
+              <tr><td class="time">11:30–11:44</td><td>Dr. Claudia Cerella</td><td>Luxembourg Institute — Blood & Cancer</td><td>Advancing precision health and medicine through data‑driven discovery of prognostic and therapeutic markers</td></tr>
+              <tr><td class="time">11:44–11:58</td><td>Dr. Sarah S. Comstock</td><td>Michigan State University · USA</td><td>Dietary impacts on the gut microbiota for improved health outcomes</td></tr>
+              <tr><td class="time">11:58–12:12</td><td>Dr. Kuncoro Harto Widodo</td><td>Universitas Gadjah Mada · Indonesia</td><td>Precision Health through Hospital Food Service Optimization…</td></tr>
+              <tr><td class="time">12:12–12:26</td><td>Dr. Loh Su Peng</td><td>Universiti Putra Malaysia</td><td>Optimising iron intake: Addressing iron deficiency Anaemia through precision nutrition and genetic insights</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 4 -->
+      <details class="session">
+        <summary class="session-h">Session 4 (R605) — Functional Foods</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Wan Rosli Wan Ishak, Dr. Darshee Baxi</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">10:20–10:34</td><td>Dr. Wan Rosli Wan Ishak</td><td>Universiti Sains Malaysia · Malaysia</td><td>Does incorporating overripe banana extract (OBE) in food improve nutritional value and glycemic parameters?</td></tr>
+              <tr><td class="time">10:34–10:48</td><td>Dr. Darshee Baxi</td><td>Navrachana University · India</td><td>Role of functional foods in PCOS: Investigating the gut microbiome – ovary cross talk</td></tr>
+              <tr><td class="time">10:48–11:02</td><td>Dr. Zita Letviany Sarungallo</td><td>Papua University · Indonesia</td><td>Red fruit (<em>Pandanus conoideus</em>) oil: A natural antioxidant, colorant, and fortificant…</td></tr>
+              <tr><td class="time">11:02–11:16</td><td>Dr. Irina Lazarova</td><td>Medical University of Sofia · Bulgaria</td><td>Alimurgic plants: The sustainable source of functional food and health promoting substances</td></tr>
+              <tr><td class="time">11:16–11:30</td><td>Dr. Aline Issa</td><td>Notre Dame University‑Louaize · Lebanon</td><td>Functionality of fermented wheat germ extract (FWGE) — A showcase for novel fermented foods</td></tr>
+              <tr><td class="time">11:30–11:44</td><td>Dr. Kunle Oni</td><td>Federal University Oye‑Ekiti · Nigeria</td><td>Effect of drying methods on the hydrophilic, reconstitution and viscosity of okra slices</td></tr>
+              <tr><td class="time">11:44–11:58</td><td>Dr. Sri Raharjo</td><td>Universitas Gadjah Mada · Indonesia</td><td>Optimization and sensory acceptance of coconut water drinks fortified with α‑Tocopherol/Tocotrienol loaded NLCs</td></tr>
+              <tr><td class="time">11:58–12:12</td><td>Dr. Nurul Husna Shafie</td><td>Universiti Putra Malaysia</td><td>Multiomics insight on bioavailability, gut microbiota and proteomic profiling of green tea polyphenols nanoparticles</td></tr>
+              <tr><td class="time">12:12–12:26</td><td>Dr. Siti Raihanah Shafie</td><td>Universiti Putra Malaysia</td><td>Barnyard millet: A potential functional food for metabolic syndrome management</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 5 -->
+      <details class="session">
+        <summary class="session-h">Session 5 (R601) — Nutrition, Aging and Cognitive Health</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Shizuo Yamada, Dr. Tsuo‑Hung Lan (藍祚鴻)</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">13:30–13:46</td><td>Dr. Vesna Simič</td><td>University Psychiatric Clinic Ljubljana · Slovenia</td><td>Sarcopenia and Nutritional Status in Alzheimer’s Disease…</td></tr>
+              <tr><td class="time">13:46–14:02</td><td>Dr. Shizuo Yamada</td><td>University of Shizuoka · Japan</td><td>Beneficial effects of nobiletin on cognitive impairment with aging</td></tr>
+              <tr><td class="time">14:02–14:18</td><td>Dr. Natalia Mikhailichenko</td><td>Nevron International Medical Center · Russia</td><td>Effects of standardized extract of <em>Asparagus officinalis</em> stem on normal aging or MCI</td></tr>
+              <tr><td class="time">14:18–14:34</td><td>Mr. Debele ROBA</td><td>Deakin University · Australia</td><td>Statin Use and Risk of Late‑life Depression… Target Trial Emulation Study</td></tr>
+              <tr><td class="time">14:34–14:50</td><td>Dr. Daphne Spyropoulos</td><td>Cleveland Clinic · USA</td><td>Fat and Fiber Consumption… and Sporadic Alzheimer’s Disease in Alabama and Cape Town</td></tr>
+              <tr><td class="time">14:50–15:06</td><td>Ms. Johnston Donni</td><td>University of Queensland · Australia</td><td>Acceptability of Two Meal Provision Interventions for Individuals with Schizophrenia (SNaCK Study)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 6 -->
+      <details class="session">
+        <summary class="session-h">Session 6 (R602) — Nutrient Fortification / Food Safety</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Khaw MC Richard, Dr. Mari Maeda Yamamoto</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">13:30–13:44</td><td>Dr. Mari Maeda Yamamoto</td><td>NARO · Japan</td><td>Development of nutritionally balanced self‑care diets</td></tr>
+              <tr><td class="time">13:44–13:58</td><td>Dr. Khaw MC Richard</td><td>Singapore Institute of Food Science & Technology · Singapore</td><td>Singapore Standards and Guidelines in Nutrition Fortification and Claims in Food Products</td></tr>
+              <tr><td class="time">13:58–14:12</td><td>Dr. Dony Dahana</td><td>Osaka University · Japan</td><td>Dual certification regulation and its impact on functional food market</td></tr>
+              <tr><td class="time">14:12–14:26</td><td>Dr. Liviu Gaceu</td><td>Transilvania University of Brasov · Romania</td><td>Vulnerable plates: What we (Don’t) know about food and health</td></tr>
+              <tr><td class="time">14:26–14:40</td><td>Dr. Christelle Bou Mitri</td><td>Notre Dame University‑Louaize · Lebanon</td><td>Trends and development of plant‑based milk and dairy alternatives</td></tr>
+              <tr><td class="time">14:40–14:54</td><td>Dr. Azrina Azlan</td><td>Universiti Putra Malaysia</td><td>Are Ready‑to‑Eat Foods a Healthy Alternative? A Review…</td></tr>
+              <tr><td class="time">14:54–15:08</td><td>Dr. Maya Georgieva</td><td>Medical University of Sofia · Bulgaria</td><td>RP‑HPLC/DAD methods for separation of water‑ and fat‑soluble vitamins in supplements and brewer’s yeast</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 7 (R604) -->
+      <details class="session">
+        <summary class="session-h">Session 7 (R604) — Precision Functional Foods</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Christofora Hanny Wijaya, Dr. Amin Bin Ismail</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">13:30–13:44</td><td>Dr. Christofora Hanny Wijaya</td><td>IPB University · Indonesia</td><td>Plant‑derived exosome‑like nanoparticles (PDEN) in precision functional foods: Ginger PDEN in Cajuputs® Candy</td></tr>
+              <tr><td class="time">13:44–13:58</td><td>Dr. Amin Bin Ismail</td><td>Universiti Putra Malaysia</td><td>Cocoa and Obesity — A recent study</td></tr>
+              <tr><td class="time">13:58–14:12</td><td>Dr. Indah Epriliati</td><td>Widya Mandala Surabaya Catholic University · Indonesia</td><td>Reengineering of traditional foods for modernization and precision health goals</td></tr>
+              <tr><td class="time">14:12–14:26</td><td>Dr. Widiastuti Setyaningsih</td><td>Gadjah Mada University · Indonesia</td><td>Precision extraction of antioxidants and neuroprotective metabolites from banana flowers</td></tr>
+              <tr><td class="time">14:26–14:40</td><td>Dr. Lotis dL. Francisco</td><td>University of the Philippines · Philippines</td><td>From Sensory Insights to Precision Health</td></tr>
+              <tr><td class="time">14:40–14:54</td><td>Dr. Jacqueline Doumit</td><td>Notre Dame University‑Louaize · Lebanon</td><td>Nutritional resilience in aging populations…</td></tr>
+              <tr><td class="time">14:54–15:08</td><td>Dr. Matkowski Adam</td><td>Wroclaw Medical University · Poland</td><td>Can you eat carnations? Saponins and other phytochemicals as bioactive compounds</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 8 -->
+      <details class="session">
+        <summary class="session-h">Session 8 (R605) — Phytotherapy / Pharmacology</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Ardiansyah, Dr. Rotimi E. Aluko</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">13:30–13:44</td><td>Dr. Rotimi E. Aluko</td><td>University of Manitoba · Canada</td><td>Antioxidative and antihypersensitive properties of a multifunctional hemp seed protein hydrolysate…</td></tr>
+              <tr><td class="time">13:44–13:58</td><td>Dr. Ardiansyah</td><td>Universitas Bakrie · Indonesia</td><td>Kenikir leaves (<em>Cosmos caudatus</em>): volatile, non‑volatile compounds and hypotensive effects</td></tr>
+              <tr><td class="time">13:58–14:12</td><td>Dr. Abdel Qawasmeh</td><td>Hebron University · Palestine</td><td>Biochemical evaluation of <em>Ceratonia siliqua</em> (Carob; Fabaceae)</td></tr>
+              <tr><td class="time">14:12–14:26</td><td>Dr. Corina Danciu</td><td>Victor Babeș University of Medicine and Pharmacy · Romania</td><td>Phytochemical composition and bio‑nutrient impact of <em>Aronia melanocarpa</em></td></tr>
+              <tr><td class="time">14:26–14:40</td><td>Dr. Hao Jing</td><td>China Agricultural University · China</td><td>Transformation of sulfur‑containing compounds in Garlic</td></tr>
+              <tr><td class="time">14:40–14:54</td><td>Dr. Mohd‑Esa Norhaizan</td><td>Universiti Putra Malaysia</td><td>Antidiabetic activity of stingless bee honey and its phenolic‑rich extract</td></tr>
+              <tr><td class="time">14:54–15:08</td><td>Dr. Yoshiro Saito</td><td>Tohoku University · Japan</td><td>Diabetes prophylaxis using food‑derived electrophilic compounds and biomarker Selenoprotein P</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 9 -->
+      <details class="session">
+        <summary class="session-h">Session 9 (R601) — Nutrition From the Moleculars and Cells</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Young Joon Surh, Dr. Wei‑Che Chiu (邱偉哲)</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">15:30–16:10</td><td>Prof. Dr. Chin‑Kun Wang</td><td>Chung Shan Medical University · Taiwan</td><td><strong>Plenary 2</strong> — Advancing Global Health Through Nutrition: Taiwan's Leadership in Zero Hunger and Nutritional Psychiatry</td></tr>
+              <tr><td class="time">16:10–16:25</td><td>Dr. Samudra P. Banik</td><td>Government General Degree College · India</td><td>Impact of glycation on α‑synuclein fibrillation and stability…</td></tr>
+              <tr><td class="time">16:25–16:40</td><td>Mr. Ikbal Malau</td><td>China Medical University · Taiwan</td><td>HMGB1, S100β, and NSE biomarkers in patients with depressive symptom: A meta‑analysis</td></tr>
+              <tr><td class="time">16:40–16:55</td><td>Ms. Alexis Hung</td><td>QIMR Berghofer Medical Research Institute · Australia</td><td>Therapeutic mechanism of a ketogenic diet in a schizophrenia mouse model</td></tr>
+              <tr><td class="time">16:55–17:10</td><td>Dr. Young Joon Surh</td><td>Seoul National University · ROK</td><td>Nutritional modulation of cellular redox signaling in the management of age‑associated disorders</td></tr>
+              <tr><td class="time">17:10–17:25</td><td>Dr. Debasis Bagchi</td><td>Adelphi University · USA</td><td>In silico analyses reveal RTKs as prime targets of Shatavarin IV for cognitive health</td></tr>
+              <tr><td class="time">17:25–17:40</td><td>Dr. Bing Wang</td><td>Charles Sturt University · Australia</td><td>Molecular deciphering of iron and sialic acid in lactoferrin and their impact on neurodevelopment</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 10 -->
+      <details class="session">
+        <summary class="session-h">Session 10 (R602) — Nutrient Fortification / Food Safety</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Anca Miron, Dr. Gokare Ravishankar</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">15:30–15:44</td><td>Dr. Anca Miron</td><td>Popa University of Medicine and Pharmacy · Romania</td><td>Plant‑derived therapies for rheumatoid arthritis: current status and trends</td></tr>
+              <tr><td class="time">15:44–15:58</td><td>Dr. Gokare Ravishankar</td><td>Dayananda Sagar University · India</td><td>Biotechnologically derived food ingredients for vegetarian & vegan populations</td></tr>
+              <tr><td class="time">15:58–16:12</td><td>Dr. Folake Idowu‑Adebayo</td><td>Federal University Oye‑Ekiti · Nigeria</td><td>Nutritional evaluation of fortified bread from wheat, soy‑cheese, and pineapple rind blends</td></tr>
+              <tr><td class="time">16:12–16:26</td><td>Dr. Eni Harmayani</td><td>Universitas Gadjah Mada · Indonesia</td><td>Javanese turmeric + lemongrass drink: anti‑hyperglycemic, antioxidant & prebiotic activities (in vitro)</td></tr>
+              <tr><td class="time">16:26–16:40</td><td>Dr. Elfahmi</td><td>Bandung Institute of Technology · Indonesia</td><td>Cassava bioflavonoids ameliorate metabolic syndrome in diet‑induced models</td></tr>
+              <tr><td class="time">16:40–16:54</td><td>Dr. Ignasius Radix</td><td>Widya Mandala Surabaya Catholic University · Indonesia</td><td>Food packaging technology to support personalized nutrition recommendations</td></tr>
+              <tr><td class="time">16:54–17:08</td><td>Dr. Rumiyati</td><td>Universitas Gadjah Mada · Indonesia</td><td>Indonesia’s local food resources for prevention/management of degenerative diseases (in vitro & in vivo)</td></tr>
+              <tr><td class="time">17:08–17:22</td><td>Dr. Sylwia Zielinska</td><td>Wroclaw Medical University · Poland</td><td>Poppy family medicinals: Isoquinoline alkaloids from Papaveraceae</td></tr>
+              <tr><td class="time">17:22–17:36</td><td>Mr. Ngwang Erick Chuye</td><td>Boyo Taxation Centre · Cameroon</td><td>Promoting nutrition through forest conservation in Cameroon</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 11 -->
+      <details class="session">
+        <summary class="session-h">Session 11 (R603) — Precision Cancer Medicine</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Benjamin K Tsang, Dr. Danny N. Dhanasekaran</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">15:30–15:44</td><td>Dr. Benjamin K Tsang</td><td>University of Ottawa · Canada</td><td>A circulatory biomarker for ovarian cancer</td></tr>
+              <tr><td class="time">15:44–15:58</td><td>Dr. Christina L Addison</td><td>University of Ottawa · Canada</td><td>Preventing invasive lobular breast cancer metastasis: metabolic vulnerabilities</td></tr>
+              <tr><td class="time">15:58–16:12</td><td>Dr. Tae Jin Ahn</td><td>Handong University · ROK</td><td>Liquid biopsy for early detection of cancer</td></tr>
+              <tr><td class="time">16:12–16:26</td><td>Dr. Hye‑Kyung Na</td><td>Sungshin Women’s University · ROK</td><td>15‑HGD and 15‑K‑PGE2 as emerging targets for chemoprevention and therapy</td></tr>
+              <tr><td class="time">16:26–16:40</td><td>Dr. Jie Ni</td><td>Cancer Care Centre, St George Hospital · Australia</td><td>Proteomic study of sEV biomarkers for breast cancer personalized medicine</td></tr>
+              <tr><td class="time">16:40–16:54</td><td>Dr. Marc Diederich</td><td>Seoul National University · ROK</td><td>Harnessing controlled necrosis for immunogenic vaccination against myeloid leukemia</td></tr>
+              <tr><td class="time">16:54–17:08</td><td>Dr. Zhizhuang Joe Zhao</td><td>University of Oklahoma HSC · USA</td><td>Targeting malignant ascites in ovarian cancer</td></tr>
+              <tr><td class="time">17:08–17:22</td><td>Dr. Camelia Munteanu</td><td>UASVM · Romania</td><td>Precision nutrition for ovarian cancer: Targeting obesity‑driven lncRNA signatures</td></tr>
+              <tr><td class="time">17:22–17:36</td><td>Dr. Rajalaksmi Manikkam</td><td>Holy Cross College / Bharathidasan University · India</td><td>Novel phytochemical analogs — promising therapeutics for endocrine and metabolic diabetes</td></tr>
+              <tr><td class="time">17:36–17:50</td><td>Dr. P. Rajakumari</td><td>Holy Cross College / Bharathidasan University · India</td><td>Chettinad cuisine: Regional flavours and health benefits</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Session 12 -->
+      <details class="session">
+        <summary class="session-h">Session 12 (R605) — Phytochemistry / Pharmacology</summary>
+        <div class="session-body">
+          <div class="chair"><strong>Chairpersons:</strong> Dr. Johji Inazawa, Dr. Ly Nguyen Binh</div>
+          <table class="talks">
+            <thead><tr><th>Time</th><th>Speaker</th><th>Affiliation / Country</th><th>Title</th></tr></thead>
+            <tbody>
+              <tr><td class="time">15:30–15:44</td><td>Dr. Ly Nguyen Binh</td><td>Can Tho University · Vietnam</td><td>Enhancing nutritional standards: Comprehensive review of micronutrient fortification in Vietnam</td></tr>
+              <tr><td class="time">15:44–15:58</td><td>Dr. Szu‑Chuan Shen</td><td>National Taiwan Normal University · Taiwan</td><td>Therapeutic effects of Myrtaceae extracts on Diabetes mellitus</td></tr>
+              <tr><td class="time">15:58–16:12</td><td>Dr. Jiankang Liu</td><td>University of Health and Rehabilitation Sciences · China</td><td>Mitochondria as a sensor and biological clock in stress‑accelerated aging</td></tr>
+              <tr><td class="time">16:12–16:26</td><td>Dr. Johji Inazawa</td><td>Institute of Science Tokyo · Japan</td><td>Cancer‑associated microRNAs and their therapeutic applications</td></tr>
+              <tr><td class="time">16:26–16:40</td><td>Dr. Yuli Witono</td><td>University of Jember · Indonesia</td><td>Smart flavor from enzymatic hydrolysis of <em>Sardinella lemuru</em> — potential as healthy ingredients</td></tr>
+              <tr><td class="time">16:40–16:54</td><td>Dr. David Mary Rajathei</td><td>Bishop Heber College / Bharathidasan University · India</td><td>QSAR models for novel antidepressant drug analogs</td></tr>
+              <tr><td class="time">16:54–17:08</td><td>Dr. Mark Shamtsyan</td><td>Saint Petersburg State Institute of Technology · Russia</td><td>Protective role of mushroom β‑D‑glucans in psychoemotional complications in moderate COVID‑19</td></tr>
+              <tr><td class="time">17:08–17:18</td><td>Mr. Sheng‑Luen Shih</td><td>University of Wisconsin‑Madison · USA</td><td>Choline bioavailability and metabolism from a new dairy ingredient (WPPC) in post‑menopausal women</td></tr>
+              <tr><td class="time">17:18–17:28</td><td>Ms. Yashshvini Patel</td><td>Navrachana University · India</td><td>Prebiotic Ulvan reshapes microbial ecology and antioxidant responses in PCOS</td></tr>
+              <tr><td class="time">17:28–17:38</td><td>Ms. Rutvi Vaja</td><td>Navrachana University · India</td><td>Melatonin reverses Alzheimer’s‑like neurodegeneration in a zebrafish model</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <p class="notice" style="margin-top:1rem"><strong>📝 Note:</strong> The program may be updated. Please check this page for the latest information.</p>
+    </section>
+  </div>
+
+  <nav class="nav" aria-label="Quick navigation">
+    <a href="#sessions">All Sessions</a>
+    <a href="Annual2025.html">Home</a>
+    <a href="Registration.html">Register (TW)</a>
+    <a href="Registration1.html">Registration</a>
+  </nav>
+
+  <script>
+    // Tabs logic
+    const btns = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('[data-panel]');
+    btns.forEach(btn => btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      btns.forEach(b=>b.setAttribute('aria-selected','false'));
+      btn.setAttribute('aria-selected','true');
+      panels.forEach(p=>{ p.hidden = (p.dataset.panel !== tab); });
+    }));
+
+    // Smooth show animation for sessions
+    document.querySelectorAll('details.session').forEach((d,i)=>{
+      d.style.opacity = 0; d.style.transform = 'translateY(18px)';
+      setTimeout(()=>{ d.style.transition = 'all .5s ease'; d.style.opacity = 1; d.style.transform = 'translateY(0)'; }, 80*i);
+    });
+  </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
