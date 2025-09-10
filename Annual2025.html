@@ -1,262 +1,108 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 👇 這兩行是新增加的HTTPS安全標頭 -->
+    <!-- HTTPS 安全標頭 -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <!-- 👆 新增加的部分結束 -->
     <title>International Society for Precision Health</title>
     <style>
         /* 全域設定 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+
+        /* LOGO */
+        .logo-container { position: fixed; top: 80px; left: 20px; z-index: 10; }
+        .logo-container img { max-width: 100px; height: auto; border-radius: 5px; }
+
+        /* 標頭 */
+        header { background-color: #00539C; color: #fff; padding: 1rem; text-align: center; }
+        header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
+
+        /* 導航 */
+        nav { background-color: #003366; padding: 0.5rem; position: relative; }
+        .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; padding: 0.5rem; cursor: pointer; }
+        nav a { text-decoration: none; color: #fff; padding: 0.5rem 1rem; display: inline-block; font-weight: bold; }
+        .nav-links { display: flex; justify-content: center; flex-wrap: wrap; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 200px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: #333; padding: 0.8rem 1rem; display: block; text-align: left; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* 主要內容 */
+        main { padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
+
+        /* Banner + 淡入動畫 */
+        .banner img {
+            width: 100%; height: auto; display: block; border-radius: 0; margin-bottom: 1.5rem;
+            opacity: 0; animation: fadeIn 2s ease forwards;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* 倒數區塊 */
+        .countdown-wrap { text-align: center; margin-bottom: 1.5rem; }
+        .countdown-wrap h2 { color: #333; font-size: 1.4rem; margin-bottom: 0.8rem; }
+        #countdown {
+            font-size: 2em; font-weight: bold; color: #d9534f; background: #fff; display: inline-block;
+            padding: 20px; border-radius: 10px; border: 3px solid #d9534f; box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        /* LOGO 樣式 */
-        .logo-container {
-            position: fixed; /* 固定定位，讓 LOGO 始終在左上角 */
-            top: 80px; /* 與頁面上方距離 */
-            left: 20px; /* 與頁面左側距離 */
-            z-index: 10; /* 確保 LOGO 在最上層 */
-        }
-
-        .logo-container img {
-            max-width: 100px; /* LOGO 大小 */
-            height: auto;
-            border-radius: 5px; /* 圓角樣式 */
-        }       
-        /* 標頭樣式 */
-        header {
-            background-color: #00539C;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-    
-        header h1 {
-            font-size: 1.8rem;color: white; /* 修改這行，確保標題文字為白色 */
-            margin-bottom: 0.5rem;
-        }
-
-        /* 導航列樣式 */
-        nav {
-            background-color: #003366;
-            padding: 0.5rem;
-            position: relative;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 0.5rem;
-            cursor: pointer;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            padding: 0.5rem 1rem;
-            display: inline-block;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* 下拉選單樣式 */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 0.8rem 1rem;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* 主要內容區域 */
-        main {
-            padding: 2rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .main-visual img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-
-        .event-info {
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-            color: #00539C;
-        }
+        .main-visual img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; }
+        .event-info { margin: 1.5rem 0; font-size: 1.1rem; color: #00539C; }
 
         .button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            margin: 0.5rem;
-            color: #fff;
-            background-color: #00539C;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            display: inline-block; padding: 0.8rem 1.5rem; margin: 0.5rem; color: #fff;
+            background-color: #00539C; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;
         }
+        .button:hover { background-color: #00BFFF; }
 
-        .button:hover {
-            background-color: #00BFFF;
-        }
+        /* 頁尾 */
+        footer { background-color: #003366; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
 
-        /* 頁尾樣式 */
-        footer {
-            background-color: #003366;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-
-        /* 響應式設計 */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            .menu-toggle {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            nav a {
-                width: 100%;
-                padding: 0.8rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .dropdown {
-                width: 100%;
-            }
-
-            .dropdown-content {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                background-color: #004480;
-            }
-
-            .dropdown-content a {
-                color: white;
-                padding-left: 2rem;
-            }
-
-            .button {
-                display: block;
-                margin: 0.8rem auto;
-                max-width: 280px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.2rem;
-            }
-
-            main {
-                padding: 1rem;
-            }
-
-            .event-info {
-                font-size: 1rem;
-            }
-        }
-		    /* 新增主題區塊樣式 */
-    .theme-container {
-        border: 3px solid #00539C;
-        border-radius: 10px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        background-color: rgba(0, 83, 156, 0.05);
-    }
-
-    .theme-title {
-        color: #00539C;
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-bottom: 0.8rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #00BFFF;
-    }
-
-    .sub-theme-title {
-        color: #d9534f;
-        font-size: 1.1rem;
-        font-weight: 600;
-        line-height: 1.4;
-    }
-
-    @media (max-width: 768px) {
+        /* 主題區塊 */
         .theme-container {
-            padding: 1rem;
-            margin: 1rem 0;
+            border: 3px solid #00539C; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;
+            background-color: rgba(0,83,156,0.05);
         }
         .theme-title {
-            font-size: 1.2rem;
+            color: #00539C; font-size: 1.4rem; font-weight: bold; margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem; border-bottom: 2px solid #00BFFF;
         }
-        .sub-theme-title {
-            font-size: 1rem;
+        .sub-theme-title { color: #d9534f; font-size: 1.1rem; font-weight: 600; line-height: 1.4; }
+
+        /* 響應式 */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.5rem; }
+            .menu-toggle { display: block; width: 100%; text-align: left; }
+            .nav-links { display: none; flex-direction: column; width: 100%; }
+            .nav-links.active { display: flex; }
+            nav a { width: 100%; padding: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; width: 100%; box-shadow: none; background-color: #004480; }
+            .dropdown-content a { color: #fff; padding-left: 2rem; }
+            .button { display: block; margin: 0.8rem auto; max-width: 280px; }
+            /* 倒數縮小 */
+            #countdown { font-size: 1.2em; padding: 10px; border-width: 2px; }
+            .countdown-wrap h2 { font-size: 1.1rem; }
+            .theme-container { padding: 1rem; margin: 1rem 0; }
+            .theme-title { font-size: 1.2rem; }
+            .sub-theme-title { font-size: 1rem; }
         }
-    }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.2rem; }
+            main { padding: 1rem; }
+            .event-info { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
-    <!-- LOGO 放置區 -->
+    <!-- LOGO -->
     <div class="logo-container">
         <img src="LOGO.PNG" alt="Society Logo">
     </div>
+
     <header>
         <h1>International Society for Precision Health</h1>
         <p>Welcome to the 2025 Annual Conference</p>
@@ -269,18 +115,17 @@
             <div class="dropdown">
                 <a href="#">Scientific Info &#9662;</a>
                 <div class="dropdown-content">
-		    <a href="Organizing_Committees.html">Organizing Committees</a>
+                    <a href="Organizing_Committees.html">Organizing Committees</a>
                     <a href="Invited_Speakers.html">Invited Speakers</a>
-                   <!-- <a href="session_schedule.html">Session Schedule</a>-->
                     <a href="country.html">Country Representation</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#">Registrations &#9662;</a>
                 <div class="dropdown-content">
-					<a href="Fees.html">Fees & Options</a>
-					<a href="Registration1.html"> <span style="color: #b0e0e6;">Register Now </span></a>
-                    <a href="Registration.html">Register Now <span style="color: red;">(Taiwanese Only)</span></a> 
+                    <a href="Fees.html">Fees & Options</a>
+                    <a href="Registration1.html"><span style="color: #b0e0e6;">Register Now </span></a>
+                    <a href="Registration.html">Register Now <span style="color: red;">(Taiwanese Only)</span></a>
                 </div>
             </div>
             <a href="session_schedule.html">Session Schedule</a>
@@ -305,16 +150,27 @@
     </nav>
 
     <main>
-        <h2>About the Conference</h2>
+        <!-- Banner -->
+        <div class="banner">
+            <img src="Banner_2025.png" alt="Conference Banner">
+        </div>
+
+        <!-- 倒數計時 -->
+        <div class="countdown-wrap" aria-live="polite">
+            <h2>Time Left Until October 18, 2025</h2>
+            <div id="countdown">Calculating...</div>
+        </div>
+
         <!-- 主題區塊 -->
         <div class="theme-container">
-         <div class="theme-title">Theme: Health, Precision, Nutrition</div>
-         <div class="sub-theme-title">Sub Theme: Disease Prevention, Nutrition Intervention, Big Data Application</div>
+            <div class="theme-title">Theme: Health, Precision, Nutrition</div>
+            <div class="sub-theme-title">Sub Theme: Disease Prevention, Nutrition Intervention, Big Data Application</div>
         </div>
+
         <div class="main-visual">
             <img src="102025.png" alt="Health and Technology Visual">
         </div>
-        
+
         <a href="Invited_Speakers.html" class="button">Invited Speakers</a>
         <a href="Registration1.html" class="button">Register Now </a>
         <a href="Registration.html" class="button">Register Now <span style="color: #ff0000;">(Taiwanese Only)</span></a>
@@ -326,67 +182,22 @@
     </footer>
 
     <script>
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
+        // 手機選單
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
             document.querySelector('.nav-links').classList.toggle('active');
         });
-    </script>
-</body>
-</html>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            padding: 50px;
-        }
-        h1 {
-            color: #333;
-        }
-        #countdown {
-            font-size: 2em;
-            font-weight: bold;
-            color: #d9534f;
-            background: white;
-            display: inline-block;
-            padding: 20px;
-            border-radius: 10px;
-            border: 3px solid #d9534f; /* 加上外框 */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 手機版樣式 */
-        @media (max-width: 768px) {
-            #countdown {
-                font-size: 1.2em; /* 縮小字體 */
-                padding: 10px; /* 減少內邊距 */
-                border-width: 2px; /* 外框變細一點 */
-            }
-            h1 {
-                font-size: 1.5em; /* 縮小標題 */
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Time Left Until October 18, 2025:</h1>
-    <div id="countdown">Calculating...</div>
-
-    <script>
+        // 倒數計時
         function updateCountdown() {
-            const eventDate = new Date("2025-10-18T00:00:00").getTime();
+            const eventDate = new Date("2025-10-18T00:00:00").getTime(); // 以使用者裝置時區計算
             const now = new Date().getTime();
             const timeRemaining = eventDate - now;
 
+            const el = document.getElementById("countdown");
+            if (!el) return;
+
             if (timeRemaining <= 0) {
-                document.getElementById("countdown").innerHTML = "The event has started!";
+                el.textContent = "The event has started!";
                 return;
             }
 
@@ -395,41 +206,11 @@
             const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            document.getElementById("countdown").innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+            el.textContent = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
         }
-
-        // Update every second
-        setInterval(updateCountdown, 1000);
-        // Run once when page loads
+        // 先跑一次，之後每秒更新
         updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
