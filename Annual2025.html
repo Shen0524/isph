@@ -8,7 +8,6 @@
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <title>International Society for Precision Health</title>
     <style>
-        /* 全域設定 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
 
@@ -25,7 +24,6 @@
         .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; padding: 0.5rem; cursor: pointer; }
         nav a { text-decoration: none; color: #fff; padding: 0.5rem 1rem; display: inline-block; font-weight: bold; }
         .nav-links { display: flex; justify-content: center; flex-wrap: wrap; }
-
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 200px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1; }
         .dropdown-content a { color: #333; padding: 0.8rem 1rem; display: block; text-align: left; }
@@ -34,14 +32,15 @@
         /* 主要內容 */
         main { padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
 
-        /* Banner + 淡入動畫 */
+        /* Banner + 淡入動畫 + 置中 */
+        .banner { text-align: center; margin-bottom: 1.5rem; }
         .banner img {
-            width: 100%; height: auto; display: block; border-radius: 0; margin-bottom: 1.5rem;
+            max-width: 100%; height: auto; display: inline-block;
             opacity: 0; animation: fadeIn 2s ease forwards;
         }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* 倒數區塊 */
+        /* 倒數 */
         .countdown-wrap { text-align: center; margin-bottom: 1.5rem; }
         .countdown-wrap h2 { color: #333; font-size: 1.4rem; margin-bottom: 0.8rem; }
         #countdown {
@@ -49,8 +48,9 @@
             padding: 20px; border-radius: 10px; border: 3px solid #d9534f; box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        .main-visual img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; }
-        .event-info { margin: 1.5rem 0; font-size: 1.1rem; color: #00539C; }
+        /* 主題圖片置中 */
+        .main-visual { text-align: center; margin: 1.5rem 0; }
+        .main-visual img { max-width: 100%; height: auto; border-radius: 8px; display: inline-block; }
 
         .button {
             display: inline-block; padding: 0.8rem 1.5rem; margin: 0.5rem; color: #fff;
@@ -58,7 +58,6 @@
         }
         .button:hover { background-color: #00BFFF; }
 
-        /* 頁尾 */
         footer { background-color: #003366; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
 
         /* 主題區塊 */
@@ -66,10 +65,7 @@
             border: 3px solid #00539C; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;
             background-color: rgba(0,83,156,0.05);
         }
-        .theme-title {
-            color: #00539C; font-size: 1.4rem; font-weight: bold; margin-bottom: 0.8rem;
-            padding-bottom: 0.5rem; border-bottom: 2px solid #00BFFF;
-        }
+        .theme-title { color: #00539C; font-size: 1.4rem; font-weight: bold; margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 2px solid #00BFFF; }
         .sub-theme-title { color: #d9534f; font-size: 1.1rem; font-weight: 600; line-height: 1.4; }
 
         /* 響應式 */
@@ -83,7 +79,6 @@
             .dropdown-content { position: static; width: 100%; box-shadow: none; background-color: #004480; }
             .dropdown-content a { color: #fff; padding-left: 2rem; }
             .button { display: block; margin: 0.8rem auto; max-width: 280px; }
-            /* 倒數縮小 */
             #countdown { font-size: 1.2em; padding: 10px; border-width: 2px; }
             .countdown-wrap h2 { font-size: 1.1rem; }
             .theme-container { padding: 1rem; margin: 1rem 0; }
@@ -93,7 +88,6 @@
         @media (max-width: 480px) {
             header h1 { font-size: 1.2rem; }
             main { padding: 1rem; }
-            .event-info { font-size: 1rem; }
         }
     </style>
 </head>
@@ -189,7 +183,7 @@
 
         // 倒數計時
         function updateCountdown() {
-            const eventDate = new Date("2025-10-18T00:00:00").getTime(); // 以使用者裝置時區計算
+            const eventDate = new Date("2025-10-18T00:00:00").getTime();
             const now = new Date().getTime();
             const timeRemaining = eventDate - now;
 
@@ -208,7 +202,6 @@
 
             el.textContent = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
         }
-        // 先跑一次，之後每秒更新
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
