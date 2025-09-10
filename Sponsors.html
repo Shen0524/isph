@@ -146,6 +146,10 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .sponsor-item:hover {
@@ -157,12 +161,33 @@
             height: 100px;
             object-fit: contain;
             margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* CO- 橫幅 */
+        .sponsor-item.co-banner {
+            grid-column: 1 / -1; /* 佔滿整行 */
+        }
+
+        .sponsors img[alt="CO-"] {
+            width: 100%;
+            max-width: 600px; /* 限制最大寬度 */
+            height: 200px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 1rem auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sponsors img[alt="CO-"]:hover {
+            transform: scale(1.1);
         }
 
         .sponsor-name {
             font-size: 1rem;
             color: #333;
             font-weight: bold;
+            text-align: center;
         }
 
         /* 頁尾樣式 */
@@ -241,36 +266,7 @@
                 padding: 1rem;
             }
         }
-    /* ...前面保持不變... */
-
-    .sponsors img {
-        max-width: 100%;
-        height: 100px;
-        object-fit: contain;
-        margin-bottom: 1rem;
-        transition: transform 0.3s ease; /* 平滑動畫 */
-    }
-
-    /* 放大並置中 CO- 圖片 */
-    .sponsors img[alt="CO-"] {
-        height: 200px;
-        display: block;
-        margin: 0 auto 1rem auto; /* 上0 左右auto 下1rem */
-    }
-
-    /* sponsor-item 內容置中 */
-    .sponsor-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* CO- 圖片 hover 特效 */
-    .sponsors img[alt="CO-"]:hover {
-        transform: scale(1.1);
-    }
-</style>
+    </style>
 </head>
 <body>
     <!-- LOGO 放置區 -->
@@ -329,6 +325,12 @@
             <p>The ISPH 2025 is grateful for the continued support of our sponsors.</p>
             
             <div class="sponsors-grid">
+                <!-- CO- 橫幅 -->
+                <div class="sponsor-item co-banner">
+                    <img src="sponsors/co-.PNG" alt="CO-">
+                    <div class="sponsor-name"></div>
+                </div>
+
                 <div class="sponsor-item">
                     <img src="sponsors/hpa.png" alt="Health Promotion Administration">
                     <div class="sponsor-name">Health Promotion Administration</div>
@@ -354,14 +356,9 @@
                     <div class="sponsor-name">Chung Shan Medical University</div>
                 </div>
     
-                 <div class="sponsor-item">
+                <div class="sponsor-item">
                     <img src="sponsors/6.png" alt="Youcan Bio-tech Co. Ltd">
                     <div class="sponsor-name">Youcan Bio-tech Co. Ltd</div>
-                </div>
-
-                 <div class="sponsor-item">
-                    <img src="sponsors/co-.PNG" alt="CO-">
-                    <div class="sponsor-name">CO-</div>
                 </div>
             </div>
         </section>
@@ -378,9 +375,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
