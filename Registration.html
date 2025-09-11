@@ -281,7 +281,7 @@
                 <div>應繳金額</div>
                 <div class="muted">送出後將寄繳費資訊至您的 Email</div>
               </div>
-              <div class="amt" id="amountBottom">NT$ 4,800</div>
+              <div class="amt" id="amountBottom">NT$ 0</div>
             </div>
 
             <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
@@ -354,7 +354,7 @@
       // 修正：同步身分別到表單，確保所有選項都能正確對應
       if (formStatus){
         const statusMap = {
-          'member': '一般會員（NT$ 4,800）',
+          'member': '會員（NT$ 0）',
           'student': '學生（NT$ 4,800）',
           'nonmember': '非會員（NT$ 8,000）'
         };
@@ -369,7 +369,7 @@
     function syncFromForm(){
       if (!formStatus || !statusSelect) return;
       const reverseMap = {
-        '一般會員（NT$ 4,800）': 'member',
+        '會員（NT$ 0）': 'member',
         '學生（NT$ 4,800）': 'student',
         '非會員（NT$ 8,000）': 'nonmember'
       };
@@ -420,6 +420,7 @@
   </script>
 </body>
 </html>
+
 
 
 
