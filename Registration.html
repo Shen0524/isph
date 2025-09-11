@@ -318,75 +318,91 @@
       });
     })();
 
-    // ===== 計費邏輯（無早鳥） =====
-    const FEES = { companion: 3300, banquet: 3300, tour: 2500 };
-    const fmt = (n) => `NT$ ${n.toLocaleString('zh-TW')}`;
+// ===== 計費邏輯（修正版） =====
+const FEES = { companion: 3300, banquet: 3300, tour: 2500 };
+const fmt = (n) => `NT$ ${n.toLocaleString('zh-TW')}`;
+const statusSelect = document.getElementById('status');
+const formStatus = document.getElementById('formStatus');
+const qtyCompanion = document.getElementById('qtyCompanion');
+const qtyBanquet = document.getElementById('qtyBanquet');
+const qtyTour = document.getElementById('qtyTour');
+const postCompanion = document.getElementById('postCompanion');
+const postBanquet = document.getElementById('postBanquet');
+const postTour = document.getElementById('postTour');
+const amountTop = document.getElementById('amount');
+const amountBottom = document.getElementById('amountBottom');
+const postTotal = document.getElementById('postTotal');
 
-    const statusSelect = document.getElementById('status');
-    const formStatus = document.getElementById('formStatus');
-    const qtyCompanion = document.getElementById('qtyCompanion');
-    const qtyBanquet = document.getElementById('qtyBanquet');
-    const qtyTour = document.getElementById('qtyTour');
-    const postCompanion = document.getElementById('postCompanion');
-    const postBanquet = document.getElementById('postBanquet');
-    const postTour = document.getElementById('postTour');
-    const amountTop = document.getElementById('amount');
-    const amountBottom = document.getElementById('amountBottom');
-    const postTotal = document.getElementById('postTotal');
+function getNum(el){ return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
 
-    function getNum(el){ return Math.max(0, parseInt(el?.value || '0', 10) || 0); }
-
-    function calc(){
-      const status = statusSelect?.value || 'member';
-      const baseFee = (status === 'nonmember') ? 8000 : 4800; // 顯示與計算
-      const c = getNum(qtyCompanion);
-      const b = getNum(qtyBanquet);
-      const t = getNum(qtyTour);
-      const total = baseFee + c*FEES.companion + b*FEES.banquet + t*FEES.tour;
-      if (amountTop) amountTop.textContent = fmt(total);
-      if (amountBottom) amountBottom.textContent = fmt(total);
-      if (postTotal) postTotal.value = total;
-      // 同步數量到實際送出的表單欄位
-      if (postCompanion) postCompanion.value = c;
-      if (postBanquet) postBanquet.value = b;
-      if (postTour) postTour.value = t;
-      
-      // 修正：同步身分別到表單，確保所有選項都能正確對應
-      if (formStatus){
-        const statusMap = {
-          'member': '會員（NT$ 0）',
-          'student': '學生（NT$ 4,800）',
-          'nonmember': '非會員（NT$ 8,000）'
-        };
-        const targetValue = statusMap[status];
-        if (targetValue) {
-          formStatus.value = targetValue;
-        }
-      }
+function calc(){
+  const status = statusSelect?.value || 'member';
+  
+  // 修正：正確設定各身份的基礎費用
+  let baseFee;
+  switch(status) {
+    case 'member':
+      baseFee = 0;        // 會員 0 元
+      break;
+    case 'student':
+      baseFee = 4800;     // 學生 4800 元
+      break;
+    case 'nonmember':
+      baseFee = 8000;     // 非會員 8000 元
+      break;
+    default:
+      baseFee = 0;
+  }
+  
+  const c = getNum(qtyCompanion);
+  const b = getNum(qtyBanquet);
+  const t = getNum(qtyTour);
+  const total = baseFee + c*FEES.companion + b*FEES.banquet + t*FEES.tour;
+  
+  if (amountTop) amountTop.textContent = fmt(total);
+  if (amountBottom) amountBottom.textContent = fmt(total);
+  if (postTotal) postTotal.value = total;
+  
+  // 同步數量到實際送出的表單欄位
+  if (postCompanion) postCompanion.value = c;
+  if (postBanquet) postBanquet.value = b;
+  if (postTour) postTour.value = t;
+  
+  // 同步身分別到表單
+  if (formStatus){
+    const statusMap = {
+      'member': '會員（NT$ 0）',
+      'student': '學生（NT$ 4,800）',
+      'nonmember': '非會員（NT$ 8,000）'
+    };
+    const targetValue = statusMap[status];
+    if (targetValue) {
+      formStatus.value = targetValue;
     }
+  }
+}
 
-    // 從表單改回費用區（若使用者改了下拉）
-    function syncFromForm(){
-      if (!formStatus || !statusSelect) return;
-      const reverseMap = {
-        '會員（NT$ 0）': 'member',
-        '學生（NT$ 4,800）': 'student',
-        '非會員（NT$ 8,000）': 'nonmember'
-      };
-      const newStatus = reverseMap[formStatus.value];
-      if (newStatus) {
-        statusSelect.value = newStatus;
-        calc();
-      }
-    }
-
-    [statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el=>{
-      el?.addEventListener('input', calc);
-      el?.addEventListener('change', calc);
-    });
-    formStatus?.addEventListener('change', syncFromForm);
-
+// 從表單改回費用區（若使用者改了下拉）
+function syncFromForm(){
+  if (!formStatus || !statusSelect) return;
+  const reverseMap = {
+    '會員（NT$ 0）': 'member',
+    '學生（NT$ 4,800）': 'student',
+    '非會員（NT$ 8,000）': 'nonmember'
+  };
+  const newStatus = reverseMap[formStatus.value];
+  if (newStatus) {
+    statusSelect.value = newStatus;
     calc();
+  }
+}
+
+[statusSelect, qtyCompanion, qtyBanquet, qtyTour].forEach(el=>{
+  el?.addEventListener('input', calc);
+  el?.addEventListener('change', calc);
+});
+formStatus?.addEventListener('change', syncFromForm);
+calc();
 
     // ===== Google Forms 送出：hidden iframe 成功提示 + 同步 emailAddress =====
     const regForm = document.getElementById('regForm');
@@ -420,6 +436,7 @@
   </script>
 </body>
 </html>
+
 
 
 
