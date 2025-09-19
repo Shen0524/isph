@@ -54,6 +54,39 @@
     .nav{position:fixed;top:50%;right:18px;transform:translateY(-50%);background:rgba(255,255,255,.94);padding:10px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
     .nav a{display:block;text-decoration:none;color:#111827;padding:.4rem .6rem;border-radius:6px}
     .nav a:hover{background:var(--brand);color:#fff}
+/* === NEW: mobile nav button === */
+.mobile-nav-toggle{
+  position: fixed; top: 12px; left: 12px; z-index: 1100;
+  padding: .55rem .8rem; border: 1px solid #e5e7eb; border-radius: 10px;
+  background:#fff; box-shadow:0 4px 12px rgba(0,0,0,.08);
+  font-size: 1rem; line-height:1; cursor:pointer; display:none;
+}
+
+/* === NEW: overlay & drawer === */
+.mobile-nav{
+  position: fixed; inset: 0; z-index: 1090;
+  background: rgba(0,0,0,.35);
+  opacity: 0; pointer-events: none; transition: opacity .25s ease;
+}
+.mobile-nav.active{ opacity:1; pointer-events:auto; }
+.mobile-nav-content{
+  position: absolute; top:0; left:0; height:100%;
+  width: 82vw; max-width: 360px; background:#fff;
+  padding: 16px; box-shadow: 6px 0 20px rgba(0,0,0,.12);
+  transform: translateX(-100%); transition: transform .25s ease;
+  display: flex; gap: 8px; flex-direction: column;
+}
+
+/* === NEW: drawer slide-in when active === */
+.mobile-nav.active .mobile-nav-content{ transform: translateX(0); }
+
+/* === NEW: links bigger touch targets, not squeezed === */
+.mobile-nav-content a{
+  display:block; text-decoration:none; color:#111827;
+  padding: 14px 16px; border: 1px solid #e5e7eb; border-radius:12px;
+  font-size: 1.05rem; min-height: 44px; /* iOS/Android tap size */
+}
+.mobile-nav-content a:active{ background:#f3f4f6; }
 
     @media (max-width: 860px){
       .nav{display:none}
@@ -68,13 +101,17 @@
 </head>
 <body>
   <div class="container">
-    <!-- Mobile Navigation Button -->
-<button class="mobile-nav-toggle" onclick="toggleMobileNav()">
+<!-- Mobile Navigation Button (UPDATED) -->
+<button class="mobile-nav-toggle"
+        aria-label="Open menu"
+        aria-controls="mobileNav"
+        aria-expanded="false"
+        onclick="toggleMobileNav()">
   ☰ Menu
 </button>
 
-<!-- Mobile Navigation Overlay -->
-<div class="mobile-nav" onclick="closeMobileNav()">
+<!-- Mobile Navigation Overlay (UPDATED) -->
+<div id="mobileNav" class="mobile-nav" role="dialog" aria-modal="true" onclick="closeMobileNav()">
   <div class="mobile-nav-content" onclick="event.stopPropagation()">
     <a href="#sessions">All Sessions</a>
     <a href="Annual2025.html">Home</a>
@@ -82,6 +119,7 @@
     <a href="Registration1.html">Registration</a>
   </div>
 </div>
+
     <header class="hero">
       <h1>2025 Joint Meeting</h1>
       <h2 class="subtitle">International Conference of Nutritional Fortification · ISPH · ISNPR</h2>
@@ -478,19 +516,33 @@
       d.style.opacity = 0; d.style.transform = 'translateY(18px)';
       setTimeout(()=>{ d.style.transition = 'all .5s ease'; d.style.opacity = 1; d.style.transform = 'translateY(0)'; }, 80*i);
     });
-    // Mobile navigation functions
-function toggleMobileNav() {
-  const nav = document.querySelector('.mobile-nav');
-  nav.classList.toggle('active');
+// === UPDATED: Mobile navigation functions ===
+const bodyEl = document.body;
+const navEl  = document.getElementById('mobileNav');
+const btnEl  = document.querySelector('.mobile-nav-toggle');
+
+function toggleMobileNav(){
+  const active = navEl.classList.toggle('active');
+  btnEl.setAttribute('aria-expanded', active ? 'true' : 'false');
+  bodyEl.style.overflow = active ? 'hidden' : '';
 }
 
-function closeMobileNav() {
-  const nav = document.querySelector('.mobile-nav');
-  nav.classList.remove('active');
+function closeMobileNav(){
+  if(!navEl.classList.contains('active')) return;
+  navEl.classList.remove('active');
+  btnEl.setAttribute('aria-expanded','false');
+  bodyEl.style.overflow = '';
 }
+
+// ESC 關閉
+window.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape') closeMobileNav();
+});
+
   </script>
 </body>
 </html>
+
 
 
 
