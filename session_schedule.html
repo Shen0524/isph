@@ -57,13 +57,31 @@
 
     @media (max-width: 860px){
       .nav{display:none}
+      .mobile-nav-toggle{display:block}
       h1{font-size:1.7rem}
       .table{font-size:.9rem}
+      .container{margin:0;box-shadow:none}
+      .talks{font-size:.85rem}
+      .talks th,.talks td{padding:.4rem .2rem}
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Mobile Navigation Button -->
+<button class="mobile-nav-toggle" onclick="toggleMobileNav()">
+  ☰ Menu
+</button>
+
+<!-- Mobile Navigation Overlay -->
+<div class="mobile-nav" onclick="closeMobileNav()">
+  <div class="mobile-nav-content" onclick="event.stopPropagation()">
+    <a href="#sessions">All Sessions</a>
+    <a href="Annual2025.html">Home</a>
+    <a href="Registration.html">Register (TW)</a>
+    <a href="Registration1.html">Registration</a>
+  </div>
+</div>
     <header class="hero">
       <h1>2025 Joint Meeting</h1>
       <h2 class="subtitle">International Conference of Nutritional Fortification · ISPH · ISNPR</h2>
@@ -461,9 +479,20 @@
       d.style.opacity = 0; d.style.transform = 'translateY(18px)';
       setTimeout(()=>{ d.style.transition = 'all .5s ease'; d.style.opacity = 1; d.style.transform = 'translateY(0)'; }, 80*i);
     });
+    // Mobile navigation functions
+function toggleMobileNav() {
+  const nav = document.querySelector('.mobile-nav');
+  nav.classList.toggle('active');
+}
+
+function closeMobileNav() {
+  const nav = document.querySelector('.mobile-nav');
+  nav.classList.remove('active');
+}
   </script>
 </body>
 </html>
+
 
 
 
