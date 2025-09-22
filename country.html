@@ -475,7 +475,7 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-number" id="total-countries">44+</span>
-                    <span class="stat-label">Countries & Regions Represented</span>
+                    <span class="stat-label">Countries</span>
                 </div>
             </div>
             
@@ -520,16 +520,7 @@
             const flagItems = document.querySelectorAll('.flag-item');
             const totalCount = flagItems.length;
             
-            // 按大洲分類計算
-            const continents = {
-                asia: ['China', 'India', 'Indonesia', 'Japan', 'Malaysia', 'Pakistan', 'South Korea', 'Singapore', 'Thailand', 'Vietnam', 'Taiwan', 'Israel', 'Lebanon', 'Palestine', 'Philippines', 'West Bengal'],
-                europe: ['Bulgaria', 'France', 'Germany', 'Hungary', 'Lithuania', 'Luxembourg', 'Poland', 'Romania', 'Spain', 'Slovenia', 'Switzerland', 'Turkey', 'Ukraine', 'United Kingdom', 'Ireland', 'Italy', 'Netherlands', 'Russia'],
-                northAmerica: ['Canada', 'USA', 'Mexico'],
-                southAmerica: ['Brazil', 'Chile'],
-                africa: ['Cameroon', 'Ghana', 'Nigeria', 'South Africa'],
-                oceania: ['Australia', 'New Zealand']
-            };
-            
+           
             // 更新總數（保持+號）
             document.getElementById('total-countries').textContent = totalCount + '+';
             
@@ -541,6 +532,7 @@
     </script>
 </body>
 </html>
+
 
 
 
