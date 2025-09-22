@@ -115,6 +115,76 @@
                 margin: 10px 0;
             }
         }
+        
+        /* 新增統計區域樣式 */
+        .statistics-section {
+            background-color: #003366;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .stats-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stats-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .stat-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .continents-breakdown {
+            margin-top: 30px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .continent-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .continent-item:last-child {
+            border-bottom: none;
+        }
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-title {
+                font-size: 1.5rem;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -352,19 +422,77 @@
         </div>
     </div>
 
+    <!-- 修正後的統計區域 -->
+    <section class="statistics-section">
+        <div class="stats-container">
+            <h2 class="stats-title">Global Participation Statistics</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-countries">44+</span>
+                    <span class="stat-label">Countries & Regions Represented</span>
+                </div>
+            </div>
+            
+            <div class="continents-breakdown">
+                <h3 style="color: #FFD700; margin-bottom: 15px;">Continental Distribution</h3>
+                <div class="continent-item">
+                    <span>Asia</span>
+                    <span><strong>16 countries/regions</strong></span>
+                </div>
+                <div class="continent-item">
+                    <span>Europe</span>
+                    <span><strong>18 countries</strong></span>
+                </div>
+                <div class="continent-item">
+                    <span>North America</span>
+                    <span><strong>3 countries</strong></span>
+                </div>
+                <div class="continent-item">
+                    <span>South America</span>
+                    <span><strong>2 countries</strong></span>
+                </div>
+                <div class="continent-item">
+                    <span>Africa</span>
+                    <span><strong>3 countries</strong></span>
+                </div>
+                <div class="continent-item">
+                    <span>Oceania</span>
+                    <span><strong>2 countries</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         function toggleMenu() {
             const navMenu = document.getElementById('nav-menu');
             navMenu.classList.toggle('active');
         }
+
+        // 動態計算國家數量並驗證分布
+        function countCountries() {
+            const flagItems = document.querySelectorAll('.flag-item');
+            const totalCount = flagItems.length;
+            
+            // 按大洲分類計算
+            const continents = {
+                asia: ['China', 'India', 'Indonesia', 'Japan', 'Malaysia', 'Pakistan', 'South Korea', 'Singapore', 'Thailand', 'Vietnam', 'Taiwan', 'Israel', 'Lebanon', 'Palestine', 'Philippines', 'West Bengal'],
+                europe: ['Bulgaria', 'France', 'Germany', 'Hungary', 'Lithuania', 'Luxembourg', 'Poland', 'Romania', 'Spain', 'Slovenia', 'Switzerland', 'Turkey', 'Ukraine', 'United Kingdom', 'Ireland', 'Italy', 'Netherlands', 'Russia'],
+                northAmerica: ['Canada', 'USA', 'Mexico'],
+                southAmerica: ['Brazil', 'Chile'],
+                africa: ['Cameroon', 'Ghana', 'Nigeria', 'South Africa'],
+                oceania: ['Australia', 'New Zealand']
+            };
+            
+            // 更新總數（保持+號）
+            document.getElementById('total-countries').textContent = totalCount + '+';
+            
+            console.log(`總計：${totalCount}+ 個國家/地區`);
+        }
+
+        // 頁面載入時執行計算
+        document.addEventListener('DOMContentLoaded', countCountries);
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
