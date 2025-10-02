@@ -132,6 +132,52 @@
             margin-bottom: 2rem;
         }
 
+        .sponsor-tier {
+            margin-bottom: 3rem;
+        }
+
+        .tier-title {
+            color: #00539C;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            border-bottom: 2px solid #00539C;
+            padding-bottom: 0.5rem;
+        }
+
+        .tier-title.diamond {
+            color: #b9f2ff;
+            border-color: #b9f2ff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .tier-title.super-gold {
+            color: #DAA520;
+            border-color: #DAA520;
+        }
+
+        .tier-title.gold {
+            color: #FFD700;
+            border-color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .tier-title.silver {
+            color: #C0C0C0;
+            border-color: #C0C0C0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .tier-title.bronze {
+            color: #CD7F32;
+            border-color: #CD7F32;
+        }
+
+        .tier-title.general {
+            color: #666;
+            border-color: #666;
+        }
+
         .sponsors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -324,88 +370,160 @@
             <h2>Our Sponsors</h2>
             <p>The ISPH 2025 is grateful for the continued support of our sponsors.</p>
             
+            <!-- CO- 橫幅 -->
             <div class="sponsors-grid">
-                <!-- CO- 橫幅 -->
                 <div class="sponsor-item co-banner">
                     <img src="sponsors/co-.png" alt="CO-">
                     <div class="sponsor-name"></div>
                 </div>
-                <!--
-                <div class="sponsor-item">
-                    <img src="sponsors/hpa.png" alt="Health Promotion Administration">
-                    <div class="sponsor-name">Health Promotion Administration</div>
-                </div>
-                -->
-                
-                <div class="sponsor-item">
-                    <img src="sponsors/ISNPR.png" alt="International Society for Nutritional Psychiatry Research">
-                    <div class="sponsor-name">International Society for Nutritional Psychiatry Research</div>
-                </div>
-                   
-                <div class="sponsor-item">
-                    <img src="sponsors/chungte.JPG" alt="Chung Te Foundation">
-                    <div class="sponsor-name">Chung Te Foundation</div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <img src="sponsors/csmu_logo.png" alt="Chung Shan Medical University">
-                    <div class="sponsor-name">Chung Shan Medical University</div>
-                </div>
-    
-                <div class="sponsor-item">
-                    <img src="sponsors/6.png" alt="Youcan Bio-tech Co. Ltd.">
-                    <div class="sponsor-name">Youcan Bio-tech Co. Ltd.</div>
-                </div>
-                 <div class="sponsor-item">
-                    <img src="sponsors/Protison.png" alt="SMAD Biotechnology Co., Ltd.">
-                    <div class="sponsor-name">SMAD Biotechnology Co., Ltd.</div>
-                </div>
-                <div class="sponsor-item">
-                    <img src="sponsors/Standard Foods Corporation.png" alt="Standard Foods Corporation">
-                    <div class="sponsor-name">Standard Foods Corporation</div>
-                </div>
-                
-                 <div class="sponsor-item">
-                    <img src="sponsors/Hughes_logo.png" alt="Hughes Biotechnology Co., Ltd.">
-                    <div class="sponsor-name">Hughes Biotechnology Co., Ltd.</div>
-                </div>
+            </div>
 
-                 <div class="sponsor-item">
-                    <img src="sponsors/Herbalife_logo.png" alt="Herbalife International of America, Inc.">
-                    <div class="sponsor-name">Herbalife International of America, Inc.</div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <img src="sponsors/toong_logo.png" alt="Toong Yeuan Enterprise Co., Ltd.">
-                    <div class="sponsor-name">Toong Yeuan Enterprise Co., Ltd.</div>
-                </div>
-                <div class="sponsor-item">
-                    <img src="sponsors/I-Mei_logo.png" alt="I-Mei Foods Co., Ltd.">
-                    <div class="sponsor-name">I-Mei Foods Co., Ltd.</div>
-                </div>
-                   <div class="sponsor-item">
-                    <img src="sponsors/HeySong_logo.png" alt="HeySong Corporation">
-                    <div class="sponsor-name">HeySong Corporation</div>
-                </div>
-                   <div class="sponsor-item">
-                    <img src="sponsors/Efione_logo.png" alt="Nutritec-Enjoy Corporation">
-                    <div class="sponsor-name">Nutritec-Enjoy Corporation</div>
-                </div>
-               
-                <div class="sponsor-item">
-                    <img src="sponsors/Yun_Ding_logo.png" alt="Yun Ding Food & Beverage">
-                    <div class="sponsor-name">Yun Ding Food & Beverage</div>
-                </div>
-                 <div class="sponsor-item">
-                    <img src="sponsors/Jerosse_logo.png" alt="Jerosse Biotech Inc.">
-                    <div class="sponsor-name">Jerosse Biotech Inc.</div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <img src="sponsors/Jiun_logo.png" alt="Jiun Chiuan Co., Ltd.">
-                    <div class="sponsor-name">Jiun Chiuan Co., Ltd.</div>
+            <!-- 固定前三個贊助商 -->
+            <div class="sponsor-tier">
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="sponsors/ISNPR.png" alt="International Society for Nutritional Psychiatry Research">
+                        <div class="sponsor-name">International Society for Nutritional Psychiatry Research</div>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="sponsors/chungte.JPG" alt="Chung Te Foundation">
+                        <div class="sponsor-name">Chung Te Foundation</div>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="sponsors/csmu_logo.png" alt="Chung Shan Medical University">
+                        <div class="sponsor-name">Chung Shan Medical University</div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Diamond Tier -->
+            <div class="sponsor-tier">
+                <h3 class="tier-title diamond">💎 Diamond Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="sponsors/Standard Foods Corporation.png" alt="Standard Foods Corporation">
+                        <div class="sponsor-name">Standard Foods Corporation</div>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="sponsors/I-Mei_logo.png" alt="I-MEI Foods Co., Ltd.">
+                        <div class="sponsor-name">I-MEI Foods Co., Ltd.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Super Gold Tier -->
+            <div class="sponsor-tier">
+                <h3 class="tier-title super-gold">🌟 Super Gold Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="sponsors/Yun_Ding_logo.png" alt="Yun Ding Food & Beverage / Chia Meei International">
+                        <div class="sponsor-name">Yun Ding Food & Beverage / Chia Meei International</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gold Tier -->
+            <div class="sponsor-tier">
+                <h3 class="tier-title gold">🥇 Gold Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="sponsors/HeySong_logo.png" alt="HeySong Corporation">
+                        <div class="sponsor-name">HeySong Corporation</div>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="sponsors/Hughes_logo.png" alt="Hughes Biotechnology Co., Ltd.">
+                        <div class="sponsor-name">Hughes Biotechnology Co., Ltd.</div>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="sponsors/Herbalife_logo.png" alt="Herbalife Taiwan Branch Inc., Taiwan Branch">
+                        <div class="sponsor-name">Herbalife Taiwan Branch Inc., Taiwan Branch</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Silver Tier -->
+            <div class="sponsor-tier">
+                <h3 class="tier-title silver">🥈 Silver Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="sponsors/6.png" alt="Yoke Chuan Biotechnology Co., Ltd.">
+                        <div class="sponsor-name">Yoke Chuan Biotechnology Co., Ltd.</div>
+                    </div>
+                
+                    <div class="sponsor-item">
+                        <img src="sponsors/toong_logo.png" alt="Toong Yeuan Enterprise Co., Ltd.">
+                        <div class="sponsor-name">Toong Yeuan Enterprise Co., Ltd.</div>
+                    </div>
+                    <!--
+                    <div class="sponsor-item">
+                        <img src="sponsors/Efione_logo.png" alt="Mesona Baby Co., Ltd.">
+                        <div class="sponsor-name">Mesona Baby Co., Ltd.</div>
+                    </div>
+					  -->
+                    <div class="sponsor-item">
+                        <img src="sponsors/Sinphar_logo.png" alt="Sinphar Pharmaceutical Co., Ltd.">
+                        <div class="sponsor-name">Sinphar Pharmaceutical Co., Ltd.</div>
+                    </div>
+					<!--
+                    <div class="sponsor-item">
+                        <img src="sponsors/Protison.png" alt="Nutrisense Co., Ltd.">
+                        <div class="sponsor-name">Nutrisense Co., Ltd.</div>
+                    </div>
+                    -->
+                    <div class="sponsor-item">
+                        <img src="sponsors/Protison.png" alt="SMAD Biotechnology Co., Ltd.">
+                        <div class="sponsor-name">SMAD Biotechnology Co., Ltd.</div>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="sponsors/Jiun_logo.png" alt="Jiun Chiuan Co., Ltd.">
+                        <div class="sponsor-name">Jiun Chiuan Co., Ltd.</div>
+                    </div>
+                    <!--
+                    <div class="sponsor-item">
+                        <img src="sponsors/Protison.png" alt="Zhuang Cafe">
+                        <div class="sponsor-name">Zhuang Cafe</div>
+                    </div>
+                    -->
+                    <div class="sponsor-item">
+                        <img src="sponsors/Efione_logo.png" alt="Nutritec-Enjoy Corporation">
+                        <div class="sponsor-name">Nutritec-Enjoy Corporation</div>
+                    </div>
+                    <!--
+                    <div class="sponsor-item">
+                        <img src="sponsors/Protison.png" alt="Weike Biotechnology Co., Ltd.">
+                        <div class="sponsor-name">Weike Biotechnology Co., Ltd.</div>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <!-- Bronze Tier -->
+            <div class="sponsor-tier">
+                <h3 class="tier-title bronze">🥉 Bronze Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="sponsors/Nutrisense_logo.png" alt="Nutrisense Co., Ltd.">
+                        <div class="sponsor-name">Nutrisense Co., Ltd.</div>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="sponsors/Jerosse_logo.png" alt="Jerosse Biotech Inc.">
+                        <div class="sponsor-name">Jerosse Biotech Inc.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General Tier -->
+            <!--
+            <div class="sponsor-tier">
+                <h3 class="tier-title general">General Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-item">
+                        <img src="sponsors/Jerosse_logo.png" alt="Qimei">
+                        <div class="sponsor-name">Qimei</div>
+                    </div>
+                </div>
+            </div>
+            -->
         </section>
     </main>
 
@@ -420,18 +538,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
