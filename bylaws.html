@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Bylaws - International Society for Precision Health</title>
+    <style>
+        /* 全域設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 標頭樣式 */
+        header {
+            background-color: #00539C;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        /* 導航列 */
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        /* 下拉選單樣式 */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        .dropdown-content a {
+            color: #333 !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: normal;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+            color: #00539C !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 箭頭指示器 */
+        .dropdown > a::after {
+            content: " ▼";
+            font-size: 0.8rem;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover > a::after {
+            transform: rotate(180deg);
+        }
+
+        /* 漢堡選單 */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #003366;
+                border-radius: 8px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                width: 250px;
+            }
+
+            nav ul {
+                display: block;
+                text-align: right;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 0;
+                position: static;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 10px 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .menu-active {
+                display: block;
+            }
+
+            /* 手機版下拉選單 */
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #002244;
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+            }
+
+            .dropdown-content a {
+                color: #cccccc !important;
+                padding-left: 30px;
+                font-size: 0.9rem;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #001122;
+                color: #ffffff !important;
+            }
+
+            .dropdown.mobile-open .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                float: right;
+            }
+        }
+
+        /* 主要內容區域 */
+        .main-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content h1 {
+            color: #00539C;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #00539C;
+            padding-bottom: 15px;
+        }
+
+        .article {
+            margin-bottom: 30px;
+        }
+
+        .article h2 {
+            color: #00539C;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .article h3 {
+            color: #0056a6;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+
+        .article p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .article ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .article ul li {
+            margin-bottom: 8px;
+        }
+
+        .membership-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .membership-table th,
+        .membership-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .membership-table th {
+            background-color: #00539C;
+            color: white;
+        }
+
+        .membership-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .highlight-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #00539C;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        /* 頁尾 */
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>International Society for Precision Health</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
+            <ul>
+                <li class="dropdown">
+                    <a href="about.html">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="president-message.html">President Message</a>
+                        <a href="bylaws.html">Bylaws</a>
+                    </div>
+                </li>
+                <li><a href="Join us.html">Join ISPH</a></li>
+                <li><a href="Annual2025.html">Annual Meeting</a></li>
+                <li><a href="Contact1.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1>Bylaws of the International Society for Precision Health (ISPH)</h1>
+
+        <div class="article">
+            <h2>Article 1. Name, Location and Representation</h2>
+            <h3>Section 1.1 Name</h3>
+            <p>International Society for Precision Health (ISPH).</p>
+            
+            <h3>Section 1.2 Address</h3>
+            <p>Office decided by the President; normally at residence; may set other offices.</p>
+            
+            <h3>Section 1.3 Language</h3>
+            <p>English is the official language.</p>
+            
+            <h3>Section 1.4 Composition</h3>
+            <p>ISPH consists of individual and organizational members.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 2. Purpose</h2>
+            <h3>Section 2.1 General Purpose</h3>
+            <p>The Society is a non-political and non-profit organization that aims to promote global health, diversity, equity, and widen the application of big data resources.</p>
+            
+            <h3>Section 2.2 Objectives</h3>
+            <p>The specific objectives of ISPH are:</p>
+            <ul>
+                <li>Organize scientific Symposia every year or as practicable to foster communication among researchers and innovators in all related sectors.</li>
+                <li>Establish and maintain ISPH's website as an information source for members and non-members.</li>
+                <li>Act as a network hub for individuals working in the area of researches, international cooperation, nutritional interventions, genetics/microbiome, big data collection and analysis, food/agriculture policy, functional foods, personalized health and the other activities.</li>
+            </ul>
+        </div>
+
+        <div class="article">
+            <h2>Article 3. Members</h2>
+            <h3>Section 3.1 Membership</h3>
+            <p>Membership in the Society is open to any individual, organization, institution, or corporation sharing the vision and mission of the Society. Membership is voluntary and all who are interested are invited to join.</p>
+            
+            <h3>Section 3.2 Categories of Membership</h3>
+            <p>The Headquarter Board shall establish categories of individual and corporate membership and determine the dues for each category. There are four classes of individual membership: 'Full', 'Lifetime', 'Student', and 'Honorary'. There is one class of corporate membership.</p>
+            
+            <h3>Section 3.3 Membership Fee</h3>
+            <p><strong>Admission fee:</strong> US$10</p>
+            <p><strong>Membership fee (annually) for individuals:</strong></p>
+            
+            <table class="membership-table">
+                <tr>
+                    <th>Membership Type</th>
+                    <th>Annual Fee</th>
+                </tr>
+                <tr>
+                    <td>Full Member</td>
+                    <td>US$100</td>
+                </tr>
+                <tr>
+                    <td>Student Member</td>
+                    <td>US$50</td>
+                </tr>
+                <tr>
+                    <td>Lifetime Member</td>
+                    <td>US$1,000 (one-time)</td>
+                </tr>
+                <tr>
+                    <td>Honorary Member</td>
+                    <td>Free</td>
+                </tr>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>Corporate Membership:</strong> US$1,000 annually</p>
+                <p>Benefits include:</p>
+                <ul>
+                    <li>Logo display on the Society's website</li>
+                    <li>2 individual memberships</li>
+                </ul>
+            </div>
+            
+            <h3>Section 3.4 Payment Dues</h3>
+            <p>Payment is at the beginning of one year.</p>
+            
+            <h3>Section 3.5 Voting Rights</h3>
+            <p>Full, Lifetime, and corporate representatives own full rights. Student and honorary members have no voting rights. Each member shall be entitled to one vote on each matter submitted to a vote of the members by a resolution of the Board members of the Society, and upon payment of the membership fee.</p>
+            
+            <h3>Section 3.6 Quorum of Members</h3>
+            <p>The presence in person (or virtual) of at least twenty (20) voting Members, or of ten percent (10%) of the total voting members, whichever is the smaller number, shall be necessary to establish a quorum for a General Assembly Meeting or a Special Membership Meeting. The vote of a majority (more than half) of the quorum is necessary for the adoption of any item voted on by the Members, unless a greater proportion is required by Law, or any provision of these bylaws.</p>
+            
+            <h3>Section 3.7 Voting at Membership Meetings</h3>
+            <p>Each Member in good standing shall have one (1) vote on each matter submitted to a vote of Members at the General Assembly Meeting or a Special Membership Meeting. Each Corporate Member shall nominate in writing one (1) delegate to exercise the Institution's vote at the General Assembly Meeting or at a Special Membership Meeting and shall deposit such nomination with the Secretary prior to the official opening of the General Assembly Meeting or Special Membership Meeting.</p>
+            
+            <h3>Section 3.8 Right</h3>
+            <p>Every member has the right under the By-Laws to participate in activities organized by the Society, to elect and be elected to the Headquarter Board, to inspect the books and records of the Society, and pay the membership fee. The membership fee shall be determined, from time to time, by the members at an annual meeting.</p>
+            
+            <h3>Section 3.9 Removal of Member</h3>
+            <p>Any member wishing to withdraw from membership may do so upon a notice in writing to the Board. If any member is in arrears for fees or assessments for any year, such member shall be automatically suspended at the expiration of six months from the end of such year and shall thereafter be entitled to no membership privileges or powers in the Society until reinstated.</p>
+            <p>Any Member of the Society may be removed at any time with cause, (a) by two-thirds vote of the officers then serving on the Board, or (b) by the majority vote of the Active Members present in person or by proxy at the members' annual meeting if a quorum exists.</p>
+            
+            <h3>Section 3.10 Authority</h3>
+            <p>In no event shall a member have any authority to act on behalf of the Society without the express authority of the Board.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 4. General Assembly Meeting</h2>
+            <h3>Section 4.1 Annual Meeting</h3>
+            <p>The Members of the Society shall meet annually at a place designated by the Headquarter Board. The date, time, and place of each such meeting shall be set by the Headquarter Board, and notice shall be given to the Members not less than fifteen (15) days prior to the meeting. At such annual meetings, the Members shall receive the report of the President, or the Secretary, or the Treasurer, and their designees.</p>
+            
+            <h3>Section 4.2 Special Membership Meetings</h3>
+            <p>Special meetings of the Membership may be called by the President of the Headquarter Board or upon the written request of not less than four (4) members of the Headquarter Board. The Membership shall be given written notice of the date and place of each such meeting, either in person or virtual, not less than fifteen (15) days prior to the meeting. The purpose(s) of each such meeting shall be stated, and any other necessary business shall be conducted as required.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 5. Governance and the Headquarter Group</h2>
+            <h3>Article 5(a). Governance</h3>
+            <p>The affairs of the Society shall be managed by the Headquarter Board elected from its membership, which shall have: (1) full control of the activities of the Society subject to the limitations of the Bylaw, laws, and the results of letter ballots, and (2) power to enact, amend, or repeal Bylaw.</p>
+            
+            <h3>Article 5(b). Headquarter Group</h3>
+            <p>Headquarter Group is composed of Headquarter Board and Headquarter Supervisory Board.</p>
+            
+            <h3>Section 5.1 Headquarter Board of Directors</h3>
+            <p>13 Headquarter Board of Directors includes 5 Standing Board (including the President) and 4 Alternates.</p>
+            
+            <h3>Section 5.2 Headquarter Supervisory Board</h3>
+            <p>Headquarter Supervisory Board includes 5 Supervisors (including 1 Standing Supervisor) and 2 Alternates. Standing Supervisor is elected by all Supervisors, chairs Supervisory Board and overseas affairs.</p>
+            
+            <h3>Section 5.3 Term</h3>
+            <p>The term for Headquarter Group is three (3) years. The President may serve a maximum of two terms (6 years) if re-elected.</p>
+            
+            <h3>Section 5.4 Dismissal</h3>
+            <p>Lose membership, resign with approval, recalled/removed, or suspension greater than half term (1.5 years).</p>
+            
+            <h3>Section 5.5 Secretary General</h3>
+            <p>Secretary General and Deputy Secretary Generals nominated by President, approved by Board. Staff may not serve as Directors or Supervisors.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 6. Councilor Board, Committees, and Advisory Board</h2>
+            <h3>Section 6.1 Councils</h3>
+            <p>There are ten (10) councils in the Councilor Board, including Education, Promotion, Big Data, Pharmacy & Phytochemical, Microbiota, Cancer, Nutrition, Molecular Approaches, Mental & Neuroscience, and Disease Intervention. All the councilors are appointed by the President. Each council has one chair.</p>
+            
+            <h3>Section 6.2 Nomination Committee</h3>
+            <p>Nomination Committee is appointed by President.</p>
+            
+            <h3>Section 6.3 Local Organizing Committee</h3>
+            <p>Local Organizing Committee organizes Annual Meeting; President appoints the Chair.</p>
+            
+            <h3>Section 6.4 Advisory Board</h3>
+            <p>Advisory Board members are invited by the President.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 7. Finance and Accounting</h2>
+            <h3>Section 7.1 Finance</h3>
+            <p>Revenues include admission fees, dues, donations, data usage fees, other income.</p>
+            
+            <h3>Section 7.2 Fiscal Year</h3>
+            <p>January 1 - December 31.</p>
+            
+            <h3>Section 7.3 Budget & Reporting</h3>
+            <p>Board prepares budgets & reports; approved by general assembly meeting; audited by Headquarter Board; filed with authorities.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 8. Amendments</h2>
+            <p>Any proposal must be submitted at least 3 months before general meeting; adoption requires approval by two-thirds of members in the general assembly meeting.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 9. Dissolution</h2>
+            <p>Dissolution requires two-thirds approval in the general meeting. Remaining assets donated to local autonomous body or designated agency.</p>
+        </div>
+
+        <div class="article">
+            <h2>Article 10. Appendix</h2>
+            <p>Matters not stipulated follow common practice and relevant laws. These Bylaws are effective after general meeting approval and filing with authorities. Amendments follow the same procedure.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-menu");
+            nav.classList.toggle("menu-active");
+        }
+
+        // 手機版下拉選單功能
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const dropdowns = document.querySelectorAll('.dropdown > a');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('mobile-open');
+                    });
+                });
+            }
+        });
+
+        // 監聽視窗大小變化
+        window.addEventListener('resize', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            if (window.innerWidth > 768) {
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.classList.remove('mobile-open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
