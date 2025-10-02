@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 👇 這兩行是新增加的HTTPS安全標頭 -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <!-- 👆 新增加的部分結束 -->
     <title>International Society for Precision Health</title>
     <style>
-        /* 全域設定 */
         * {
             margin: 0;
             padding: 0;
@@ -23,7 +20,6 @@
             line-height: 1.6;
         }
 
-        /* 標頭樣式 */
         header {
             background-color: #00539C;
             color: #fff;
@@ -39,7 +35,6 @@
             margin: 0;
         }
 
-        /* 導航列 */
         nav {
             display: flex;
         }
@@ -62,7 +57,6 @@
             padding: 0.5rem 1rem;
         }
 
-        /* 漢堡選單 */
         .menu-toggle {
             display: none;
             font-size: 1.8rem;
@@ -106,7 +100,6 @@
             }
         }
 
-        /* 主要內容 */
         .main-content {
             max-width: 1200px;
             margin: 20px auto;
@@ -124,7 +117,6 @@
             margin: 10px;
         }
 
-        /* 頁尾 */
         footer {
             background-color: #003366;
             color: #fff;
@@ -143,33 +135,31 @@
                 <li><a href="bylaws.html">Bylaws</a></li>
                 <li><a href="Join us.html">Join ISPH</a></li>
                 <li><a href="Annual2025.html">Annual Meeting</a></li>
-                <!--<li><a href="#research">Research</a></li>-->
                 <li><a href="Contact1.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-   <section class="hero" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
-    <img src="LOGO.PNG" alt="ISPH Logo" style="display: block; margin-left: auto; margin-right: auto;">
-</section>
 
-<section id="about" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
-    <h2>About Us</h2>
-    <p>The International Society for Precision Health (ISPH) is dedicated to advancing research and innovation in precision health.</p>
-    <a href="about.html" target="_blank">Learn More</a>
-</section>
+    <section class="hero" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
+        <img src="LOGO.PNG" alt="ISPH Logo" style="display: block; margin-left: auto; margin-right: auto;">
+    </section>
 
-<section id="meeting" class="event-section" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
-    <h2>Annual Meeting 2025</h2>
-    <p><strong>Date:</strong> October 17-19, 2025</p>
-    <p><strong>Location:</strong> Taipei, Taiwan</p>
-    <a href="Annual2025.html" target="_blank">Learn More</a>
-    
-    <!-- 在下方加入圖片 -->
-    <div style="margin-top: 15px;">
-        <img src="1026.png" alt="Annual Meeting Poster" style="max-width: 250px; height: auto; display: block; margin-left: auto; margin-right: auto;">
-    </div>
-</section>
+    <section id="about" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
+        <h2>About Us</h2>
+        <p>The International Society for Precision Health (ISPH) is dedicated to advancing research and innovation in precision health.</p>
+        <a href="about.html" target="_blank">Learn More</a>
+    </section>
 
+    <section id="meeting" class="event-section" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
+        <h2>Annual Meeting 2025</h2>
+        <p><strong>Date:</strong> October 17-19, 2025</p>
+        <p><strong>Location:</strong> Taipei, Taiwan</p>
+        <a href="Annual2025.html" target="_blank">Learn More</a>
+        
+        <div style="margin-top: 15px;">
+            <img src="1026.png" alt="Annual Meeting Poster" style="max-width: 250px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+        </div>
+    </section>
 
     <div class="main-content">
         <a href="Join us.html" class="button">Join ISPH</a>
@@ -190,157 +180,3 @@
     </script>
 </body>
 </html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - ISPH</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        header {
-            background-color: #0056a6;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-
-        nav {
-            display: block; /* Changed from flex to block for better mobile handling */
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            display: block;
-        }
-
-        @media screen and (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            nav {
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background-color: #003366;
-                border-radius: 8px;
-                width: 200px;
-                display: none; /* Hide by default on mobile */
-                z-index: 100;
-            }
-
-            nav.menu-active {
-                display: block; /* Show when active class is applied */
-            }
-
-            nav ul {
-                display: block;
-                padding: 0;
-            }
-
-            nav ul li {
-                text-align: right;
-                margin: 0;
-            }
-
-            nav ul li a {
-                padding: 10px 20px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            }
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-content h2 {
-            color: #0056a6;
-            margin-bottom: 20px;
-        }
-
-        .about-content img {
-            max-width: 150px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .signature img {
-            max-width: 200px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>ISPH</h1>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Join us.html">Join ISPH</a></li>
-                <li><a href="Annual2025.html">Annual Meeting</a></li>
-                <li><a href="Registration.html">Register Now</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("nav-menu");
-            nav.classList.toggle("menu-active");
-        }
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
