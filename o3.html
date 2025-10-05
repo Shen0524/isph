@@ -129,19 +129,20 @@
       .person { flex-direction: column; text-align: center; }
       .person img { width: 60px; height: 60px; }
     }
-  /* Councilor avatars in country list */
-  .country-list { list-style: none; margin-left: 0; padding-left: 0; }
-  .country-list li { margin: 6px 0; padding-left: 0; }
-  .council-person{
-    display:flex; align-items:center; gap:10px; padding:6px 0;
-    background: #f8fafc; border-radius: 10px; padding:8px 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.06);
-  }
-  .council-person img{
-    width:36px; height:36px; border-radius:50%; object-fit:cover;
-    border:1.5px solid #00539C;
-  }
-  .council-person span{ font-weight:600; color:#0f172a; }
+
+    /* Councilor avatars in country list */
+    .country-list { list-style: none; margin-left: 0; padding-left: 0; }
+    .country-list li { margin: 6px 0; padding-left: 0; }
+    .council-person{
+      display:flex; align-items:center; gap:10px; padding:8px 10px;
+      background: #f8fafc; border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .council-person img{
+      width:36px; height:36px; border-radius:50%; object-fit:cover;
+      border:1.5px solid #00539C;
+    }
+    .council-person span{ font-weight:600; color:#0f172a; }
 
   </style>
 </head>
@@ -175,7 +176,7 @@
         <div class="box advisors">
           <div class="box-title">Advisory Board</div>
 
-         <div class="person">
+          <div class="person">
             <img src="speakers/fereidoon_shahidi.jpg" alt="Fereidoon Shahidi">
             <div class="person-info">
               <div class="person-name">Dr. Fereidoon Shahidi <span class="badge">Advisor</span></div>
@@ -552,256 +553,364 @@
           <div class="box-title" style="color:#0f172a; font-size:1.5em;">Councilor Board (by Country)</div>
           <div class="country-grid">
 
-            <div class="country-grid">
+            <div class="country-card">
+              <div class="country-name">🇦🇺 Australia</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/diana_bogueva.jpg" alt="Dr. Diana Bogueva"><span>Dr. Diana Bogueva</span></li>
+              </ul>
+            </div>
 
- <div class="country-grid">
+            <div class="country-card">
+              <div class="country-name">🇧🇬 Bulgaria</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Dora Marinova"><span>Dr. Dora Marinova</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Australia</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/diana_bogueva.jpg" alt="Diana Bogueva"><span>Diana Bogueva</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇧🇷 Brazil</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/milen_georgiev.jpg" alt="Dr. Milen I. Georgiev"><span>Dr. Milen I. Georgiev</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Bulgaria</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/milen_georgiev.jpg" alt="Milen I. Georgiev"><span>Milen I. Georgiev</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇨🇦 Canada</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/benjamin_tsang.jpg" alt="Dr. Benjamin K. Tsang"><span>Dr. Benjamin K. Tsang</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Mr. Ngwang Erick Chuye"><span>Mr. Ngwang Erick Chuye</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Brazil</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Adriano Costa de Camargo"><span>Adriano Costa de Camargo</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇨🇲 Cameroon</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/rotimi_aluko.jpg" alt="Dr. Rotimi E. Aluko"><span>Dr. Rotimi E. Aluko</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Canada</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/benjamin_tsang.jpg" alt="Benjamin K. Tsang"><span>Benjamin K. Tsang</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Ngwang Erick Chuye"><span>Ngwang Erick Chuye</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇨🇱 Chile</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Adriano Costa de Camargo"><span>Dr. Adriano Costa de Camargo</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Cameroon</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/rotimi_aluko.jpg" alt="Rotimi E. Aluko"><span>Rotimi E. Aluko</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇨🇳 China</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Hao Jing"><span>Dr. Hao Jing</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Jian Kang Liu"><span>Dr. Jian Kang Liu</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Chile</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Adriano Costa de Camargo"><span>Adriano Costa de Camargo</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇨🇷 Costa Rica</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Ana Cristina Gutierrez"><span>Dr. Ana Cristina Gutierrez</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">China</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Hao Jing"><span>Hao Jing</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Jian Kang Liu"><span>Jian Kang Liu</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇪🇨 Ecuador</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Jose Reinhat"><span>Dr. Jose Reinhat</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Costa Rica</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Ana Cristina Gutierrez"><span>Ana Cristina Gutierrez</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇫🇷 France</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/thierry_astruc.jpg" alt="Dr. Astruc Thierry"><span>Dr. Astruc Thierry</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Veronique S. Sante-Lhoutellier"><span>Dr. Veronique S. Sante-Lhoutellier</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Ecuador</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Jose Reinhat"><span>Jose Reinhat</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇩🇪 Germany</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/klaus_lange.jpg" alt="Dr. Klaus W. Lange"><span>Dr. Klaus W. Lange</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">France</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/thierry_astruc.jpg" alt="Astruc Thierry"><span>Astruc Thierry</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Veronique S. Sante-Lhoutellier"><span>Veronique S. Sante-Lhoutellier</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇭🇺 Hungary</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/livia_simon_sarkadi.jpg" alt="Dr. Livia Simon Sarkadi"><span>Dr. Livia Simon Sarkadi</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Germany</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/klaus_lange.jpg" alt="Klaus W. Lange"><span>Klaus W. Lange</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇮🇳 India</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/gokare_ravishankar.jpg" alt="Dr. Gokare Ravishankar"><span>Dr. Gokare Ravishankar</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Darshee Baxi"><span>Dr. Darshee Baxi</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Hungary</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/livia_simon_sarkadi.jpg" alt="Livia Simon Sarkadi"><span>Livia Simon Sarkadi</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇮🇩 Indonesia</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/christofora_hanny_wijaya.jpg" alt="Dr. Christofora Hanny Wijaya"><span>Dr. Christofora Hanny Wijaya</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Indah Epriliati"><span>Dr. Indah Epriliati</span></li>
+                <li class="council-person"><img src="speakers/yaman_elfahmi.jpg" alt="Dr. Yaman Elfahmi"><span>Dr. Yaman Elfahmi</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Ardiansyah"><span>Dr. Ardiansyah</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">India</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/gokare_ravishankar.jpg" alt="Gokare Ravishankar"><span>Gokare Ravishankar</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Darshee Baxi"><span>Darshee Baxi</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇮🇪 Ireland</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Richard Fitzgerald"><span>Dr. Richard Fitzgerald</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Indonesia</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/christofora_hanny_wijaya.jpg" alt="Christofora Hanny Wijaya"><span>Christofora Hanny Wijaya</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Indah Epriliati"><span>Indah Epriliati</span></li>
-      <li class="council-person"><img src="speakers/yaman_elfahmi.jpg" alt="Yaman Elfahmi"><span>Yaman Elfahmi</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Ardiansyah"><span>Ardiansyah</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇮🇱 Israel</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/anat_elmann.jpg" alt="Dr. Anat Elmann"><span>Dr. Anat Elmann</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Ireland</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Richard Fitzgerald"><span>Richard Fitzgerald</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇮🇹 Italy</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro"><span>Dr. Ciro Isidoro</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Carmen Lammi"><span>Dr. Carmen Lammi</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Israel</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/anat_elmann.jpg" alt="Anat Elmann"><span>Anat Elmann</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇯🇵 Japan</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/johji_inazawa.jpg" alt="Dr. Johji Inazawa"><span>Dr. Johji Inazawa</span></li>
+                <li class="council-person"><img src="speakers/jun_nishihira.jpg" alt="Dr. Jun Nishihira"><span>Dr. Jun Nishihira</span></li>
+                <li class="council-person"><img src="speakers/kenji_sato.jpg" alt="Dr. Kenji Sato"><span>Dr. Kenji Sato</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Italy</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/ciro_isidoro.jpg" alt="Ciro Isidoro"><span>Ciro Isidoro</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Carmen Lammi"><span>Carmen Lammi</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇰🇪 Kenya</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Ruth K. Oniang'o"><span>Dr. Ruth K. Oniang'o</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Japan</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/johji_inazawa.jpg" alt="Johji Inazawa"><span>Johji Inazawa</span></li>
-      <li class="council-person"><img src="speakers/jun_nishihira.jpg" alt="Jun Nishihira"><span>Jun Nishihira</span></li>
-      <li class="council-person"><img src="speakers/kenji_sato.jpg" alt="Kenji Sato"><span>Kenji Sato</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇱🇧 Lebanon</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Christelle Bou-Mitri"><span>Dr. Christelle Bou-Mitri</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Aline Issa"><span>Dr. Aline Issa</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Korea</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/yong_sang_song.jpg" alt="Yong Sang Song"><span>Yong Sang Song</span></li>
-      <li class="council-person"><img src="speakers/young_joon_surh.jpg" alt="Young Joon Surh"><span>Young Joon Surh</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Hye-Kyung Na"><span>Hye-Kyung Na</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇱🇺 Luxembourg</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Claudia Cerella"><span>Dr. Claudia Cerella</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Malaysia</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/amin_bin_ismail.jpg" alt="Amin Bin Ismail"><span>Amin Bin Ismail</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇱🇹 Lithuania</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/petras_rimantas_venskutonis.jpg" alt="Dr. Petras Rimantas Venskutonis"><span>Dr. Petras Rimantas Venskutonis</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Palestine</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/abdel_qader_qawasmeh.jpg" alt="Abdel Qader Qawasmeh"><span>Abdel Qader Qawasmeh</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇲🇰 Macedonia</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Vladimir Kakurinov"><span>Dr. Vladimir Kakurinov</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Philippines</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/lotis_francisco.jpg" alt="Lotis Francisco"><span>Lotis Francisco</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇲🇾 Malaysia</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/amin_bin_ismail.jpg" alt="Dr. Amin Bin Ismail"><span>Dr. Amin Bin Ismail</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Poland</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/katarzyna_swiader.jpg" alt="Katarzyna Świąder"><span>Katarzyna Świąder</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇲🇽 Mexico</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Marien Gordoa"><span>Dr. Marien Gordoa</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Romania</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/anca_miron.jpg" alt="Anca Miron"><span>Anca Miron</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Liviu Gaceu"><span>Liviu Gaceu</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇳🇿 New Zealand</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Indrawati Oey"><span>Dr. Indrawati Oey</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Russia</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/mark_shamtsyan.jpg" alt="Mark Shamtsyan"><span>Mark Shamtsyan</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Natalya Mikhailichenko"><span>Natalya Mikhailichenko</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇳🇬 Nigeria</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Folake Idowu Adebayo"><span>Dr. Folake Idowu Adebayo</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Singapore</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/richard_khaw.jpg" alt="Richard Khaw"><span>Richard Khaw</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇵🇸 Palestine</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/abdel_qader_qawasmeh.jpg" alt="Dr. Abdel Qader Qawasmeh"><span>Dr. Abdel Qader Qawasmeh</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">South Africa</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/thierry_regnier.jpg" alt="Thierry J.C. Regnier"><span>Thierry J.C. Regnier</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Mathoto Thaoge"><span>Mathoto Thaoge</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇵🇭 Philippines</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/lotis_francisco.jpg" alt="Dr. Lotis Francisco"><span>Dr. Lotis Francisco</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Thailand</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/sirichai_adisakwattana.jpg" alt="Sirichai Adisakwattana"><span>Sirichai Adisakwattana</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇵🇪 Peru</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Cecilia Solis Rosas"><span>Dr. Cecilia Solis Rosas</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Turkey</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/mukerrem_betul_yerer_aycan.jpg" alt="M. Betül Yerer Aycan"><span>M. Betül Yerer Aycan</span></li>
-      <li class="council-person"><img src="speakers/cesarettin_alasalvar.jpg" alt="Cesarettin Alasalvar"><span>Cesarettin Alasalvar</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇵🇱 Poland</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/katarzyna_swiader.jpg" alt="Dr. Katarzyna Świąder"><span>Dr. Katarzyna Świąder</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">United Kingdom</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/emmanouil_papaioannou.jpg" alt="Emmanouil Papaioannou"><span>Emmanouil Papaioannou</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇵🇹 Portugal</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Joaquim Caetano"><span>Dr. Joaquim Caetano</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">United States of America</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/debasis_bagchi.jpg" alt="Debasis Bagchi"><span>Debasis Bagchi</span></li>
-      <li class="council-person"><img src="speakers/danny_dhanasekaran.jpg" alt="Danny N. Dhanasekaran"><span>Danny N. Dhanasekaran</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Sarah S. Comstock"><span>Sarah S. Comstock</span></li>
-      <li class="council-person"><img src="speakers/xx.jpg" alt="Bradly Bolling"><span>Bradly Bolling</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇰🇷 Republic of Korea</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Hye-Kyung Na"><span>Dr. Hye-Kyung Na</span></li>
+                <li class="council-person"><img src="speakers/yong_sang_song.jpg" alt="Dr. Yong Sang Song"><span>Dr. Yong Sang Song</span></li>
+                <li class="council-person"><img src="speakers/young_joon_surh.jpg" alt="Dr. Young Joon Surh"><span>Dr. Young Joon Surh</span></li>
+              </ul>
+            </div>
 
-  <div class="country-card">
-    <div class="country-name">Vietnam</div>
-    <ul class="country-list">
-      <li class="council-person"><img src="speakers/binh_ly_nguyen.jpg" alt="Binh Ly Nguyen"><span>Binh Ly Nguyen</span></li>
-    </ul>
-  </div>
+            <div class="country-card">
+              <div class="country-name">🇷🇴 Romania</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/anca_miron.jpg" alt="Dr. Anca Miron"><span>Dr. Anca Miron</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Liviu Gaceu"><span>Dr. Liviu Gaceu</span></li>
+              </ul>
+            </div>
 
-</div>
+            <div class="country-card">
+              <div class="country-name">🇷🇺 Russia</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/mark_shamtsyan.jpg" alt="Dr. Mark Shamtsyan"><span>Dr. Mark Shamtsyan</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Natalya Mikhailichenko"><span>Dr. Natalya Mikhailichenko</span></li>
+              </ul>
+            </div>
 
+            <div class="country-card">
+              <div class="country-name">🇷🇸 Serbia</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Miomir Nikšić"><span>Dr. Miomir Nikšić</span></li>
+              </ul>
+            </div>
 
+            <div class="country-card">
+              <div class="country-name">🇸🇬 Singapore</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/richard_khaw.jpg" alt="Dr. Richard Khaw"><span>Dr. Richard Khaw</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇪🇸 Spain</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Julian Alvarez"><span>Dr. Julian Alvarez</span></li>
+                <li class="council-person"><img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier"><span>Dr. Thierry J.C. Regnier</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇿🇦 South Africa</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Mathoto Thaoge"><span>Dr. Mathoto Thaoge</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇸🇪 Sweden</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Kartik Baruah"><span>Dr. Kartik Baruah</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇨🇭 Switzerland</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Evelyn Wolfram"><span>Dr. Evelyn Wolfram</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇹🇼 Taiwan</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/zwe_ling_kong.jpeg" alt="Dr. Zwe-Ling Kong"><span>Dr. Zwe-Ling Kong</span></li>
+                <li class="council-person"><img src="speakers/min_hsiung_pan.jpeg" alt="Dr. Min-Hsiung Pan"><span>Dr. Min-Hsiung Pan</span></li>
+                <li class="council-person"><img src="speakers/jing_hsien_chen.jpeg" alt="Dr. Jing-Hsien Chen"><span>Dr. Jing-Hsien Chen</span></li>
+                <li class="council-person"><img src="speakers/patrick_ck_lo.jpeg" alt="Dr. Patrick Chih Kang Lo"><span>Dr. Patrick Chih Kang Lo</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇹🇭 Thailand</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/sirichai_adisakwattana.jpg" alt="Dr. Sirichai Adisa Wattana"><span>Dr. Sirichai Adisa Wattana</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇹🇷 Türkiye</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/mukerrem_betul_yerer_aycan.jpg" alt="Dr. M. Betül Yerer Aycan"><span>Dr. M. Betül Yerer Aycan</span></li>
+                <li class="council-person"><img src="speakers/cesarettin_alasalvar.jpg" alt="Dr. Cesarettin Alasalvar"><span>Dr. Cesarettin Alasalvar</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇬🇧 United Kingdom</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/emmanouil_papaioannou.jpg" alt="Dr. Emmanouil Papaioannou"><span>Dr. Emmanouil Papaioannou</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇺🇦 Ukraine</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/nadiya_boyko.jpg" alt="Dr. Nadiya Boyko"><span>Dr. Nadiya Boyko</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇺🇸 United States of America</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi"><span>Dr. Debasis Bagchi</span></li>
+                <li class="council-person"><img src="speakers/danny_dhanasekaran.jpg" alt="Dr. Danny N. Dhanasekaran"><span>Dr. Danny N. Dhanasekaran</span></li>
+                <li class="council-person"><img src="speakers/sarah_s_comstock.jpg" alt="Dr. Sarah S. Comstock"><span>Dr. Sarah S. Comstock</span></li>
+                <li class="council-person"><img src="speakers/xx.jpg" alt="Dr. Bradly Bolling"><span>Dr. Bradly Bolling</span></li>
+              </ul>
+            </div>
+
+            <div class="country-card">
+              <div class="country-name">🇻🇳 Vietnam</div>
+              <ul class="country-list">
+                <li class="council-person"><img src="speakers/binh_ly_nguyen.jpg" alt="Dr. Binh Ly Nguyen"><span>Dr. Binh Ly Nguyen</span></li>
+              </ul>
+            </div>
 
           </div>
         </div>
@@ -815,5 +924,3 @@
   </div>
 </body>
 </html>
-
-
