@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Participation - ISPH 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            aspect-ratio: 16/9;
+            max-width: 100vw;
+            max-height: 100vh;
+            background: linear-gradient(135deg, #003366 0%, #00539C 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 3vh 4vw;
+            box-sizing: border-box;
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2vh;
+            padding-bottom: 1.5vh;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .conference-title {
+            font-size: 3.5vw;
+            color: #ffffff;
+            margin-bottom: 0.8vh;
+            font-weight: bold;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 2vw;
+            color: #FFD700;
+            font-weight: 500;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 3vw;
+            flex: 1;
+            align-items: start;
+        }
+        
+        .stats-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 20px;
+            padding: 3vh 2vw;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+            height: 100%;
+        }
+        
+        .stats-number {
+            font-size: 10vw;
+            font-weight: bold;
+            color: #003366;
+            line-height: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stats-label {
+            font-size: 2vw;
+            color: #003366;
+            text-transform: uppercase;
+            letter-spacing: 0.2vw;
+            margin-top: 2vh;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .flags-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .flags-section-title {
+            font-size: 2.5vw;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 2vh;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .flag-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 1.2vw;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2vh 1.5vw;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .flag-item {
+            text-align: center;
+            padding: 0.8vh 0.3vw;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .flag-item:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+            background: #fff;
+            z-index: 10;
+        }
+        
+        .flag-emoji {
+            font-size: 3vw;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5vh;
+        }
+        
+        .flag-name {
+            font-size: 0.75vw;
+            color: #333;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .footer {
+            text-align: center;
+            padding-top: 1.5vh;
+            margin-top: 1.5vh;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            font-size: 1.2vw;
+            line-height: 1.4;
+        }
+        
+        /* 動畫效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .flag-item {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+        
+        .flag-item:nth-child(n) {
+            animation-delay: calc(0.02s * var(--index));
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="header">
+            <h1 class="conference-title">International Society for Precision Health</h1>
+            <p class="subtitle">Annual Conference 2025 - Global Participation Overview</p>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="stats-section">
+                <div class="stats-number" id="country-count">54</div>
+                <div class="stats-label">Countries<br>Represented</div>
+            </div>
+            
+            <div class="flags-section">
+                <h2 class="flags-section-title">🌍 Participating Nations Worldwide 🌏</h2>
+                
+                <div class="flag-grid" id="flag-grid">
+                    <div class="flag-item" style="--index: 1"><span class="flag-emoji">🇦🇺</span><p class="flag-name">Australia</p></div>
+                    <div class="flag-item" style="--index: 2"><span class="flag-emoji">🇧🇷</span><p class="flag-name">Brazil</p></div>
+                    <div class="flag-item" style="--index: 3"><span class="flag-emoji">🇧🇬</span><p class="flag-name">Bulgaria</p></div>
+                    <div class="flag-item" style="--index: 4"><span class="flag-emoji">🇨🇲</span><p class="flag-name">Cameroon</p></div>
+                    <div class="flag-item" style="--index: 5"><span class="flag-emoji">🇨🇦</span><p class="flag-name">Canada</p></div>
+                    <div class="flag-item" style="--index: 6"><span class="flag-emoji">🇨🇱</span><p class="flag-name">Chile</p></div>
+                    <div class="flag-item" style="--index: 7"><span class="flag-emoji">🇨🇳</span><p class="flag-name">China</p></div>
+                    <div class="flag-item" style="--index: 8"><span class="flag-emoji">🇨🇷</span><p class="flag-name">Costa Rica</p></div>
+                    <div class="flag-item" style="--index: 9"><span class="flag-emoji">🇪🇨</span><p class="flag-name">Ecuador</p></div>
+                    <div class="flag-item" style="--index: 10"><span class="flag-emoji">🇫🇷</span><p class="flag-name">France</p></div>
+                    <div class="flag-item" style="--index: 11"><span class="flag-emoji">🇩🇪</span><p class="flag-name">Germany</p></div>
+                    <div class="flag-item" style="--index: 12"><span class="flag-emoji">🇬🇭</span><p class="flag-name">Ghana</p></div>
+                    <div class="flag-item" style="--index: 13"><span class="flag-emoji">🇭🇺</span><p class="flag-name">Hungary</p></div>
+                    <div class="flag-item" style="--index: 14"><span class="flag-emoji">🇮🇳</span><p class="flag-name">India</p></div>
+                    <div class="flag-item" style="--index: 15"><span class="flag-emoji">🇮🇩</span><p class="flag-name">Indonesia</p></div>
+                    <div class="flag-item" style="--index: 16"><span class="flag-emoji">🇮🇪</span><p class="flag-name">Ireland</p></div>
+                    <div class="flag-item" style="--index: 17"><span class="flag-emoji">🇮🇱</span><p class="flag-name">Israel</p></div>
+                    <div class="flag-item" style="--index: 18"><span class="flag-emoji">🇮🇹</span><p class="flag-name">Italy</p></div>
+                    <div class="flag-item" style="--index: 19"><span class="flag-emoji">🇯🇵</span><p class="flag-name">Japan</p></div>
+                    <div class="flag-item" style="--index: 20"><span class="flag-emoji">🇰🇪</span><p class="flag-name">Kenya</p></div>
+                    <div class="flag-item" style="--index: 21"><span class="flag-emoji">🇱🇧</span><p class="flag-name">Lebanon</p></div>
+                    <div class="flag-item" style="--index: 22"><span class="flag-emoji">🇱🇹</span><p class="flag-name">Lithuania</p></div>
+                    <div class="flag-item" style="--index: 23"><span class="flag-emoji">🇱🇺</span><p class="flag-name">Luxembourg</p></div>
+                    <div class="flag-item" style="--index: 24"><span class="flag-emoji">🇲🇾</span><p class="flag-name">Malaysia</p></div>
+                    <div class="flag-item" style="--index: 25"><span class="flag-emoji">🇲🇰</span><p class="flag-name">Macedonia</p></div>
+                    <div class="flag-item" style="--index: 26"><span class="flag-emoji">🇲🇽</span><p class="flag-name">Mexico</p></div>
+                    <div class="flag-item" style="--index: 27"><span class="flag-emoji">🇳🇱</span><p class="flag-name">Netherlands</p></div>
+                    <div class="flag-item" style="--index: 28"><span class="flag-emoji">🇳🇿</span><p class="flag-name">New Zealand</p></div>
+                    <div class="flag-item" style="--index: 29"><span class="flag-emoji">🇳🇬</span><p class="flag-name">Nigeria</p></div>
+                    <div class="flag-item" style="--index: 30"><span class="flag-emoji">🇵🇰</span><p class="flag-name">Pakistan</p></div>
+                    <div class="flag-item" style="--index: 31"><span class="flag-emoji">🇵🇸</span><p class="flag-name">Palestine</p></div>
+                    <div class="flag-item" style="--index: 32"><span class="flag-emoji">🇵🇭</span><p class="flag-name">Philippines</p></div>
+                    <div class="flag-item" style="--index: 33"><span class="flag-emoji">🇵🇱</span><p class="flag-name">Poland</p></div>
+                    <div class="flag-item" style="--index: 34"><span class="flag-emoji">🇵🇹</span><p class="flag-name">Portugal</p></div>
+                    <div class="flag-item" style="--index: 35"><span class="flag-emoji">🇵🇪</span><p class="flag-name">Peru</p></div>
+                    <div class="flag-item" style="--index: 36"><span class="flag-emoji">🇷🇴</span><p class="flag-name">Romania</p></div>
+                    <div class="flag-item" style="--index: 37"><span class="flag-emoji">🇷🇺</span><p class="flag-name">Russia</p></div>
+                    <div class="flag-item" style="--index: 38"><span class="flag-emoji">🇷🇸</span><p class="flag-name">Serbia</p></div>
+                    <div class="flag-item" style="--index: 39"><span class="flag-emoji">🇸🇬</span><p class="flag-name">Singapore</p></div>
+                    <div class="flag-item" style="--index: 40"><span class="flag-emoji">🇸🇮</span><p class="flag-name">Slovenia</p></div>
+                    <div class="flag-item" style="--index: 41"><span class="flag-emoji">🇿🇦</span><p class="flag-name">South Africa</p></div>
+                    <div class="flag-item" style="--index: 42"><span class="flag-emoji">🇰🇷</span><p class="flag-name">South Korea</p></div>
+                    <div class="flag-item" style="--index: 43"><span class="flag-emoji">🇪🇸</span><p class="flag-name">Spain</p></div>
+                    <div class="flag-item" style="--index: 44"><span class="flag-emoji">🇸🇪</span><p class="flag-name">Sweden</p></div>
+                    <div class="flag-item" style="--index: 45"><span class="flag-emoji">🇨🇭</span><p class="flag-name">Switzerland</p></div>
+                    <div class="flag-item" style="--index: 46"><span class="flag-emoji">🇹🇼</span><p class="flag-name">Taiwan</p></div>
+                    <div class="flag-item" style="--index: 47"><span class="flag-emoji">🇹🇭</span><p class="flag-name">Thailand</p></div>
+                    <div class="flag-item" style="--index: 48"><span class="flag-emoji">🇹🇷</span><p class="flag-name">Turkey</p></div>
+                    <div class="flag-item" style="--index: 49"><span class="flag-emoji">🇺🇦</span><p class="flag-name">Ukraine</p></div>
+                    <div class="flag-item" style="--index: 50"><span class="flag-emoji">🇬🇧</span><p class="flag-name">United Kingdom</p></div>
+                    <div class="flag-item" style="--index: 51"><span class="flag-emoji">🇺🇸</span><p class="flag-name">USA</p></div>
+                    <div class="flag-item" style="--index: 52"><span class="flag-emoji">🇻🇳</span><p class="flag-name">Vietnam</p></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>International Society for Precision Health</strong> | Connecting Global Expertise in Precision Medicine</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flagItems = document.querySelectorAll('.flag-item');
+            const totalCount = flagItems.length;
+            document.getElementById('country-count').textContent = totalCount;
+        });
+    </script>
+</body>
+</html>
