@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 👇 這兩行是新增加的HTTPS安全標頭 -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <!-- 👆 新增加的部分結束 -->
+    <title>Country Representation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 0;
+            font-size: 2rem;
+            color: #333;
+        }
+        .flag-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .flag-item {
+            text-align: center;
+        }
+        .flag-emoji {
+            font-size: 80px;
+            line-height: 1;
+            display: block;
+        }
+        .flag-item p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .flag-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            .flag-grid {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 10px;
+            }
+        }
+        nav {
+            background-color: #003366;
+            padding: 1rem 0;
+            position: relative;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+        }
+        nav ul li a:hover {
+            background-color: #00539C;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #003366;
+                position: absolute;
+                top: 50px;
+                width: 100%;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+        
+        /* 新增統計區域樣式 */
+        .statistics-section {
+            background-color: #003366;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .stats-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stats-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .stat-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-title {
+                font-size: 1.5rem;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>International Society for Precision Health</h1>
+        <p>Welcome to the Annual Conference</p>
+    </header>
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul id="nav-menu">
+            <li><a href="Annual2025.html">Home</a></li>
+            <li><a href="Invited_Speakers.html">Invited Speakers</a></li>
+            <li><a href="session_schedule.html">Session Schedule</a></li>
+            <li><a href="Sponsors.html">Sponsors</a></li>
+            <li><a href="Join us.html">Join ISPH</a></li>
+            <li><a href="Contact.html">Follow Us</a></li>
+        </ul>
+    </nav>
+    
+    <h1>Country Representation</h1>  
+    <div class="flag-grid">
+        <div class="flag-item">
+            <span class="flag-emoji">🇦🇺</span>
+            <p>Australia</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇧🇷</span>
+            <p>Brazil</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇧🇬</span>
+            <p>Bulgaria</p>
+        </div>
+ 
+        <div class="flag-item">
+            <span class="flag-emoji">🇨🇲</span>
+            <p>Cameroon</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇨🇦</span>
+            <p>Canada</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇨🇱</span>
+            <p>Chile</p>
+        </div>
+       
+        <div class="flag-item">
+            <span class="flag-emoji">🇨🇳</span>
+            <p>China</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇨🇷</span>
+            <p>Costa Rica</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇪🇨</span>
+            <p>Ecuador</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇫🇷</span>
+            <p>France</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇩🇪</span>
+            <p>Germany</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇬🇭</span>
+            <p>Ghana</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇭🇺</span>
+            <p>Hungary</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇮🇳</span>
+            <p>India</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇮🇩</span>
+            <p>Indonesia</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇮🇪</span>
+            <p>Ireland</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇮🇱</span>
+            <p>Israel</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇮🇹</span>
+            <p>Italy</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇯🇵</span>
+            <p>Japan</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇰🇪</span>
+            <p>Kenya</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇱🇧</span>
+            <p>Lebanon</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇱🇹</span>
+            <p>Lithuania</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇱🇺</span>
+            <p>Luxembourg</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇲🇾</span>
+            <p>Malaysia</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇲🇰</span>
+            <p>Macedonia</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇲🇽</span>
+            <p>Mexico</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇳🇱</span>
+            <p>Netherlands</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇳🇿</span>
+            <p>New Zealand</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇳🇬</span>
+            <p>Nigeria</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇵🇰</span>
+            <p>Pakistan</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇵🇸</span>
+            <p>Palestine</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇵🇭</span>
+            <p>Philippines</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇵🇱</span>
+            <p>Poland</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇵🇹</span>
+            <p>Portugal</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇵🇪</span>
+            <p>Peru</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇷🇴</span>
+            <p>Romania</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇷🇺</span>
+            <p>Russia</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇷🇸</span>
+            <p>Serbia</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇸🇬</span>
+            <p>Singapore</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇸🇮</span>
+            <p>Slovenia</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇿🇦</span>
+            <p>South Africa</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇰🇷</span>
+            <p>South Korea</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇪🇸</span>
+            <p>Spain</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇸🇪</span>
+            <p>Sweden</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇨🇭</span>
+            <p>Switzerland</p>
+        </div>
+        
+        <div class="flag-item">
+            <span class="flag-emoji">🇹🇼</span>
+            <p>Taiwan</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇹🇭</span>
+            <p>Thailand</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇹🇷</span>
+            <p>Turkey</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇺🇦</span>
+            <p>Ukraine</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇬🇧</span>
+            <p>United Kingdom</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇺🇸</span>
+            <p>USA</p>
+        </div>
+
+        <div class="flag-item">
+            <span class="flag-emoji">🇻🇳</span>
+            <p>Vietnam</p>
+        </div>
+    </div>
+
+    <!-- 修正後的統計區域 -->
+    <section class="statistics-section">
+        <div class="stats-container">
+            <h2 class="stats-title">Global Participation Statistics</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-countries">44+</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // 動態計算國家數量並驗證分布
+        function countCountries() {
+            const flagItems = document.querySelectorAll('.flag-item');
+            const totalCount = flagItems.length;
+            
+           
+            // 更新總數(保持+號)
+            document.getElementById('total-countries').textContent = totalCount + '+';
+            
+            console.log(`總計:${totalCount}+ 個國家/地區`);
+        }
+
+        // 頁面載入時執行計算
+        document.addEventListener('DOMContentLoaded', countCountries);
+    </script>
+</body>
+</html>
