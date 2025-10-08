@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISPH 2025 Invited Speakers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .page {
+            width: 1200px;
+            height: 1600px;
+            background: white;
+            margin: 20px auto;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            page-break-after: always;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid #0056a6;
+        }
+
+        .header h1 {
+            color: #0056a6;
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .page-number {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .speaker-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .speaker-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 4px solid #0056a6;
+        }
+
+        .speaker-name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            min-height: 40px;
+        }
+
+        .speaker-country {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .controls button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin: 5px 0;
+            background: #0056a6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .controls button:hover {
+            background: #003d7a;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+            .controls {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button onclick="window.print()">🖨️ Print All Pages</button>
+        <button onclick="downloadAllPages()">💾 Download Info</button>
+    </div>
+
+    <!-- Page 1: A-C (28 speakers) -->
+    <div class="page">
+        <div class="header">
+            <h1>ISPH 2025 Invited Speakers</h1>
+            <div class="page-number">Page 1 of 5</div>
+        </div>
+        <div class="speakers-grid">
+            <div class="speaker-card">
+                <img src="speakers/christina_l_addison.jpg" alt="Dr. Christina L. Addison" class="speaker-photo">
+                <div class="speaker-name">Dr. Christina L. Addison</div>
+                <div class="speaker-country">Canada</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/sirichai_adisakwattana.jpg" alt="Dr. Sirichai Adisakwattana" class="speaker-photo">
+                <div class="speaker-name">Dr. Sirichai Adisakwattana</div>
+                <div class="speaker-country">Thailand</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/rotimi_aluko.jpg" alt="Dr. Rotimi Aluko" class="speaker-photo">
+                <div class="speaker-name">Dr. Rotimi Aluko</div>
+                <div class="speaker-country">Canada</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/azrina_azlan.jpg" alt="Dr. Azrina Azlan" class="speaker-photo">
+                <div class="speaker-name">Dr. Azrina Azlan</div>
+                <div class="speaker-country">Malaysia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/ardiansyah_michwan.jpg" alt="Dr. Ardiansyah" class="speaker-photo">
+                <div class="speaker-name">Dr. Ardiansyah</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/thierry_astruc.jpg" alt="Dr. Thierry Astruc" class="speaker-photo">
+                <div class="speaker-name">Dr. Thierry Astruc</div>
+                <div class="speaker-country">France</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/taejin_ahn.jpg" alt="Dr. TaeJin Ahn" class="speaker-photo">
+                <div class="speaker-name">Dr. TaeJin Ahn</div>
+                <div class="speaker-country">Korea</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi" class="speaker-photo">
+                <div class="speaker-name">Dr. Debasis Bagchi</div>
+                <div class="speaker-country">USA</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/samudra_prosad_banik.jpg" alt="Dr. Samudra Prosad Banik" class="speaker-photo">
+                <div class="speaker-name">Dr. Samudra Prosad Banik</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/darshee_baxi.jpg" alt="Dr. Darshee Baxi" class="speaker-photo">
+                <div class="speaker-name">Dr. Darshee Baxi</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/ly_nguyen_binh.jpg" alt="Dr. Ly Nguyen Binh" class="speaker-photo">
+                <div class="speaker-name">Dr. Ly Nguyen Binh</div>
+                <div class="speaker-country">Vietnam</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/diana_bogueva.jpg" alt="Dr. Diana Bogueva" class="speaker-photo">
+                <div class="speaker-name">Dr. Diana Bogueva</div>
+                <div class="speaker-country">Australia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/nadiya_boyko.jpg" alt="Dr. Nadiya Boyko" class="speaker-photo">
+                <div class="speaker-name">Dr. Nadiya Boyko</div>
+                <div class="speaker-country">Ukraine</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/christelle_bou_mitri.jpg" alt="Dr. Christelle Bou-Mitri" class="speaker-photo">
+                <div class="speaker-name">Dr. Christelle Bou-Mitri</div>
+                <div class="speaker-country">Lebanon</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/sarah_s_comstock.jpg" alt="Dr. Sarah S.Comstock" class="speaker-photo">
+                <div class="speaker-name">Dr. Sarah S. Comstock</div>
+                <div class="speaker-country">USA</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/claudia_cerella.jpg" alt="Dr. Claudia Cerella" class="speaker-photo">
+                <div class="speaker-name">Dr. Claudia Cerella</div>
+                <div class="speaker-country">Luxembourg</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/ngwang_erick_chuye.jpg" alt="Mr. Ngwang Erick Chuye" class="speaker-photo">
+                <div class="speaker-name">Mr. Ngwang Erick Chuye</div>
+                <div class="speaker-country">Cameroon</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/kuan_chen_cheng.png" alt="Dr. Kuan-Chen Cheng" class="speaker-photo">
+                <div class="speaker-name">Dr. Kuan-Chen Cheng</div>
+                <div class="speaker-country">Taiwan</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: D-I (28 speakers) -->
+    <div class="page">
+        <div class="header">
+            <h1>ISPH 2025 Invited Speakers</h1>
+            <div class="page-number">Page 2 of 5</div>
+        </div>
+        <div class="speakers-grid">
+            <div class="speaker-card">
+                <img src="speakers/corina_danciu.jpg" alt="Dr. Corina Danciu" class="speaker-photo">
+                <div class="speaker-name">Dr. Corina Danciu</div>
+                <div class="speaker-country">Romania</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/wirawan_dony _dahana.jpg" alt="Dr. Wirawan Dony Dahana" class="speaker-photo">
+                <div class="speaker-name">Dr. Wirawan Dony Dahana</div>
+                <div class="speaker-country">Japan</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/danny_dhanasekaran.jpg" alt="Dr. Danny N. Dhanasekaran" class="speaker-photo">
+                <div class="speaker-name">Dr. Danny N. Dhanasekaran</div>
+                <div class="speaker-country">USA</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/marc_diederich.jpg" alt="Dr. Marc Diederich" class="speaker-photo">
+                <div class="speaker-name">Dr. Marc Diederich</div>
+                <div class="speaker-country">South Korea</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/jaqueline_doumit.jpg" alt="Dr. Jaqueline Doumit" class="speaker-photo">
+                <div class="speaker-name">Dr. Jaqueline Doumit</div>
+                <div class="speaker-country">Lebanon</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/elfahmi.jpg" alt="Dr. Elfahmi" class="speaker-photo">
+                <div class="speaker-name">Dr. Elfahmi</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/anat_elmann.jpg" alt="Dr. Anat Elmann" class="speaker-photo">
+                <div class="speaker-name">Dr. Anat Elmann</div>
+                <div class="speaker-country">Israel</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/indah_epriliati.jpg" alt="Dr. Indah Epriliati" class="speaker-photo">
+                <div class="speaker-name">Dr. Indah Epriliati</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/lotis_francisco.jpg" alt="Dr. Lotis Francisco" class="speaker-photo">
+                <div class="speaker-name">Dr. Lotis Francisco</div>
+                <div class="speaker-country">Philippines</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/liviu_gaceu.jpg" alt="Dr. Liviu Gaceu" class="speaker-photo">
+                <div class="speaker-name">Dr. Liviu Gaceu</div>
+                <div class="speaker-country">Romania</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/maya_georgieva.jpg" alt="Dr. Maya B. Georgieva" class="speaker-photo">
+                <div class="speaker-name">Dr. Maya B. Georgieva</div>
+                <div class="speaker-country">Bulgaria</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/elvira_gille.jpg" alt="Dr. Elvira Gille" class="speaker-photo">
+                <div class="speaker-name">Dr. Elvira Gille</div>
+                <div class="speaker-country">Romania</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/eni_harmayani.jpg" alt="Dr. Eni Harmayani" class="speaker-photo">
+                <div class="speaker-name">Dr. Eni Harmayani</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/folake_idowu_adebayo.jpg" alt="Dr. Folake Idowu-Adebayo" class="speaker-photo">
+                <div class="speaker-name">Dr. Folake Idowu-Adebayo</div>
+                <div class="speaker-country">Nigeria</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/johji_inazawa.jpg" alt="Dr. Johji Inazawa" class="speaker-photo">
+                <div class="speaker-name">Dr. Johji Inazawa</div>
+                <div class="speaker-country">Japan</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro" class="speaker-photo">
+                <div class="speaker-name">Dr. Ciro Isidoro</div>
+                <div class="speaker-country">Italy</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/wan_rosli_wan_ishak.jpg" alt="Dr. Wan Rosli Wan Ishak" class="speaker-photo">
+                <div class="speaker-name">Dr. Wan Rosli Wan Ishak</div>
+                <div class="speaker-country">Malaysia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/amin_bin_ismail.jpg" alt="Dr. Amin Bin Ismail" class="speaker-photo">
+                <div class="speaker-name">Dr. Amin Bin Ismail</div>
+                <div class="speaker-country">Malaysia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/aline_issa.jpg" alt="Dr. Aline Issa" class="speaker-photo">
+                <div class="speaker-name">Dr. Aline Issa</div>
+                <div class="speaker-country">Lebanon</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: J-N (28 speakers) -->
+    <div class="page">
+        <div class="header">
+            <h1>ISPH 2025 Invited Speakers</h1>
+            <div class="page-number">Page 3 of 5</div>
+        </div>
+        <div class="speakers-grid">
+            <div class="speaker-card">
+                <img src="speakers/ignasius_radix_ap_jati.jpg" alt="Dr. Ignasius Radix AP Jati" class="speaker-photo">
+                <div class="speaker-name">Dr. Ignasius Radix AP Jati</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/hao_jing.jpg" alt="Dr. Hao Jing" class="speaker-photo">
+                <div class="speaker-name">Dr. Hao Jing</div>
+                <div class="speaker-country">China</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/richard_khaw.jpg" alt="Dr. Richard Khaw" class="speaker-photo">
+                <div class="speaker-name">Dr. Richard Khaw</div>
+                <div class="speaker-country">Singapore</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/dae_young_kwon.jpg" alt="Dr. Dae Young Kwon" class="speaker-photo">
+                <div class="speaker-name">Dr. Dae Young Kwon</div>
+                <div class="speaker-country">South Korea</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/irina_lazarova.jpg" alt="Dr. Irina Lazarova" class="speaker-photo">
+                <div class="speaker-name">Dr. Irina Lazarova</div>
+                <div class="speaker-country">Bulgaria</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/yong_li.jpg" alt="Dr. Yong Li" class="speaker-photo">
+                <div class="speaker-name">Dr. Yong Li</div>
+                <div class="speaker-country">Australia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/jian_kang_liu.jpg" alt="Dr. Jian Kang Liu" class="speaker-photo">
+                <div class="speaker-name">Dr. Jian Kang Liu</div>
+                <div class="speaker-country">China</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/mari_maeda_yamamoto.jpg" alt="Dr. Mari Maeda-Yamamoto" class="speaker-photo">
+                <div class="speaker-name">Dr. Mari Maeda-Yamamoto</div>
+                <div class="speaker-country">Japan</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/dora_marinova.jpg" alt="Dr. Dora Marinova" class="speaker-photo">
+                <div class="speaker-name">Dr. Dora Marinova</div>
+                <div class="speaker-country">Australia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/adam_matkowski.jpg" alt="Dr. Adam Matkowski" class="speaker-photo">
+                <div class="speaker-name">Dr. Adam Matkowski</div>
+                <div class="speaker-country">Poland</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/natalya_mikhailichenko.jpg" alt="Dr. Natalya Mikhailichenko" class="speaker-photo">
+                <div class="speaker-name">Dr. Natalya Mikhailichenko</div>
+                <div class="speaker-country">Russia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/anca_miron.jpg" alt="Dr. Anca Miron" class="speaker-photo">
+                <div class="speaker-name">Dr. Anca Miron</div>
+                <div class="speaker-country">Romania</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/camelia_munteanu.jpg" alt="Dr. Camelia Munteanu" class="speaker-photo">
+                <div class="speaker-name">Dr. Camelia Munteanu</div>
+                <div class="speaker-country">Romania</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/hye_kyung_na.jpg" alt="Dr. Hye-Kyung Na" class="speaker-photo">
+                <div class="speaker-name">Dr. Hye-Kyung Na</div>
+                <div class="speaker-country">South Korea</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/jie_ni.jpg" alt="Dr. Jie Ni" class="speaker-photo">
+                <div class="speaker-name">Dr. Jie Ni</div>
+                <div class="speaker-country">Australia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/mohd_esa_norhaizan.jpg" alt="Dr. Mohd-Esa Norhaizan" class="speaker-photo">
+                <div class="speaker-name">Dr. Mohd-Esa Norhaizan</div>
+                <div class="speaker-country">Malaysia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/perry_ng.jpg" alt="Dr. Perry Ng" class="speaker-photo">
+                <div class="speaker-name">Dr. Perry Ng</div>
+                <div class="speaker-country">USA</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/jun_nishihira.jpg" alt="Dr. Jun-Nishihira" class="speaker-photo">
+                <div class="speaker-name">Dr. Jun-Nishihira</div>
+                <div class="speaker-country">Japan</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: O-S (28 speakers) -->
+    <div class="page">
+        <div class="header">
+            <h1>ISPH 2025 Invited Speakers</h1>
+            <div class="page-number">Page 4 of 5</div>
+        </div>
+        <div class="speakers-grid">
+            <div class="speaker-card">
+                <img src="speakers/indrawati_oey.jpg" alt="Dr. Indrawati Oey" class="speaker-photo">
+                <div class="speaker-name">Dr. Indrawati Oey</div>
+                <div class="speaker-country">New Zealand</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/kunle_oni.jpg" alt="Dr. Kunle Oni" class="speaker-photo">
+                <div class="speaker-name">Dr. Kunle Oni</div>
+                <div class="speaker-country">Nigeria</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/yashshvini_paterl.jpg" alt="Miss. Yashshvini Paterl" class="speaker-photo">
+                <div class="speaker-name">Miss. Yashshvini Paterl</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/loh_su_peng.jpg" alt="Dr. Loh Su Peng" class="speaker-photo">
+                <div class="speaker-name">Dr. Loh Su Peng</div>
+                <div class="speaker-country">Malaysia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/mona_elena_ popa.jpg" alt="Dr. Mona Elena Popa" class="speaker-photo">
+                <div class="speaker-name">Dr. Mona Elena Popa</div>
+                <div class="speaker-country">Romania</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/abdel_qader_qawasmeh.jpg" alt="Dr. Abdel Qader Qawasmeh" class="speaker-photo">
+                <div class="speaker-name">Dr. Abdel Qader Qawasmeh</div>
+                <div class="speaker-country">Palestine</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/m_rajalakshmi.jpg" alt="Dr. M. Rajalakshmi" class="speaker-photo">
+                <div class="speaker-name">Dr. M. Rajalakshmi</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/koilmani_emmanuvel_rajan.jpg" alt="Dr. Koilmani Emmanuvel Rajan" class="speaker-photo">
+                <div class="speaker-name">Dr. Koilmani Emmanuvel Rajan</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/david_mary_rajathei.jpg" alt="Dr. David Mary Rajathei" class="speaker-photo">
+                <div class="speaker-name">Dr. David Mary Rajathei</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/gokare_ravishankar.jpg" alt="Dr. Gokare Ravishankar" class="speaker-photo">
+                <div class="speaker-name">Dr. Gokare Ravishankar</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/p_rajakumari.jpg" alt="Dr. P. Rajakumari" class="speaker-photo">
+                <div class="speaker-name">Dr. P. Rajakumari</div>
+                <div class="speaker-country">India</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/mathoto_thaoge.jpg" alt="Dr. Mathoto Thaoge" class="speaker-photo">
+                <div class="speaker-name">Dr. Mathoto Thaoge</div>
+                <div class="speaker-country">South Africa</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier" class="speaker-photo">
+                <div class="speaker-name">Dr. Thierry J.C. Regnier</div>
+                <div class="speaker-country">South Africa</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/rumiyati.jpg" alt="Dr.Rumiyati" class="speaker-photo">
+                <div class="speaker-name">Dr. Rumiyati</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/sri_raharjo.jpg" alt="Dr.Sri Raharjo" class="speaker-photo">
+                <div class="speaker-name">Dr. Sri Raharjo</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/yoshiro_saito.jpg" alt="Dr. Yoshiro Saito" class="speaker-photo">
+                <div class="speaker-name">Dr. Yoshiro Saito</div>
+                <div class="speaker-country">Japan</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/livia_simon_sarkadi.jpg" alt="Dr. Livia Simon Sarkadi" class="speaker-photo">
+                <div class="speaker-name">Dr. Livia Simon Sarkadi</div>
+                <div class="speaker-country">Hungary</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/zita_letviany_sarungallo.jpg" alt="Dr. Zita Letviany Sarungallo" class="speaker-photo">
+                <div class="speaker-name">Dr. Zita Letviany Sarungallo</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/kenji_sato.jpg" alt="Dr. Kenji Sato" class="speaker-photo">
+                <div class="speaker-name">Dr. Kenji Sato</div>
+                <div class="speaker-country">Japan</div>
+            </div>
+            <div class="speaker-card">
+                <img src="speakers/widiastuti_ setyaningsih.jpg" alt="Dr. Widiastuti Setyaningsih" class="speaker-photo">
+                <div class="speaker-name">Dr. Widiastuti Setyaningsih</div>
+                <div class="speaker-country">Indonesia</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 5: S-Z (remaining speakers) -->
+    <div
