@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2025 Joint Meeting - Conference Program (Updated)</title>
+  <title>2025 Joint Meeting - Conference Program (Final)</title>
   <style>
     :root{
       --bg1:#667eea; --bg2:#764ba2; --ink:#222; --muted:#6b7280; --brand:#2563eb;
@@ -54,39 +54,40 @@
     .nav{position:fixed;top:50%;right:18px;transform:translateY(-50%);background:rgba(255,255,255,.94);padding:10px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
     .nav a{display:block;text-decoration:none;color:#111827;padding:.4rem .6rem;border-radius:6px}
     .nav a:hover{background:var(--brand);color:#fff}
-/* === NEW: mobile nav button === */
-.mobile-nav-toggle{
-  position: fixed; top: 12px; left: 12px; z-index: 1100;
-  padding: .55rem .8rem; border: 1px solid #e5e7eb; border-radius: 10px;
-  background:#fff; box-shadow:0 4px 12px rgba(0,0,0,.08);
-  font-size: 1rem; line-height:1; cursor:pointer; display:none;
-}
 
-/* === NEW: overlay & drawer === */
-.mobile-nav{
-  position: fixed; inset: 0; z-index: 1090;
-  background: rgba(0,0,0,.35);
-  opacity: 0; pointer-events: none; transition: opacity .25s ease;
-}
-.mobile-nav.active{ opacity:1; pointer-events:auto; }
-.mobile-nav-content{
-  position: absolute; top:0; left:0; height:100%;
-  width: 82vw; max-width: 360px; background:#fff;
-  padding: 16px; box-shadow: 6px 0 20px rgba(0,0,0,.12);
-  transform: translateX(-100%); transition: transform .25s ease;
-  display: flex; gap: 8px; flex-direction: column;
-}
+    /* === NEW: mobile nav button === */
+    .mobile-nav-toggle{
+      position: fixed; top: 12px; left: 12px; z-index: 1100;
+      padding: .55rem .8rem; border: 1px solid #e5e7eb; border-radius: 10px;
+      background:#fff; box-shadow:0 4px 12px rgba(0,0,0,.08);
+      font-size: 1rem; line-height:1; cursor:pointer; display:none;
+    }
 
-/* === NEW: drawer slide-in when active === */
-.mobile-nav.active .mobile-nav-content{ transform: translateX(0); }
+    /* === NEW: overlay & drawer === */
+    .mobile-nav{
+      position: fixed; inset: 0; z-index: 1090;
+      background: rgba(0,0,0,.35);
+      opacity: 0; pointer-events: none; transition: opacity .25s ease;
+    }
+    .mobile-nav.active{ opacity:1; pointer-events:auto; }
+    .mobile-nav-content{
+      position: absolute; top:0; left:0; height:100%;
+      width: 82vw; max-width: 360px; background:#fff;
+      padding: 16px; box-shadow: 6px 0 20px rgba(0,0,0,.12);
+      transform: translateX(-100%); transition: transform .25s ease;
+      display: flex; gap: 8px; flex-direction: column;
+    }
 
-/* === NEW: links bigger touch targets, not squeezed === */
-.mobile-nav-content a{
-  display:block; text-decoration:none; color:#111827;
-  padding: 14px 16px; border: 1px solid #e5e7eb; border-radius:12px;
-  font-size: 1.05rem; min-height: 44px; /* iOS/Android tap size */
-}
-.mobile-nav-content a:active{ background:#f3f4f6; }
+    /* === NEW: drawer slide-in when active === */
+    .mobile-nav.active .mobile-nav-content{ transform: translateX(0); }
+
+    /* === NEW: links bigger touch targets, not squeezed === */
+    .mobile-nav-content a{
+      display:block; text-decoration:none; color:#111827;
+      padding: 14px 16px; border: 1px solid #e5e7eb; border-radius:12px;
+      font-size: 1.05rem; min-height: 44px; /* iOS/Android tap size */
+    }
+    .mobile-nav-content a:active{ background:#f3f4f6; }
 
     @media (max-width: 860px){
       .nav{display:none}
@@ -101,24 +102,24 @@
 </head>
 <body>
   <div class="container">
-<!-- Mobile Navigation Button (UPDATED) -->
-<button class="mobile-nav-toggle"
-        aria-label="Open menu"
-        aria-controls="mobileNav"
-        aria-expanded="false"
-        onclick="toggleMobileNav()">
-  ☰ Menu
-</button>
+    <!-- Mobile Navigation Button (UPDATED) -->
+    <button class="mobile-nav-toggle"
+            aria-label="Open menu"
+            aria-controls="mobileNav"
+            aria-expanded="false"
+            onclick="toggleMobileNav()">
+      ☰ Menu
+    </button>
 
-<!-- Mobile Navigation Overlay (UPDATED) -->
-<div id="mobileNav" class="mobile-nav" role="dialog" aria-modal="true" onclick="closeMobileNav()">
-  <div class="mobile-nav-content" onclick="event.stopPropagation()">
-    <a href="#sessions">All Sessions</a>
-    <a href="Annual2025.html">Home</a>
-    <a href="Registration.html">Register (TW)</a>
-    <a href="Registration1.html">Registration</a>
-  </div>
-</div>
+    <!-- Mobile Navigation Overlay (UPDATED) -->
+    <div id="mobileNav" class="mobile-nav" role="dialog" aria-modal="true" onclick="closeMobileNav()">
+      <div class="mobile-nav-content" onclick="event.stopPropagation()">
+        <a href="#sessions">All Sessions</a>
+        <a href="Annual2025.html">Home</a>
+        <a href="Registration.html">Register (TW)</a>
+        <a href="Registration1.html">Registration</a>
+      </div>
+    </div>
 
     <header class="hero">
       <h1>2025 Joint Meeting</h1>
@@ -138,7 +139,9 @@
         <span class="badge time">🕘 Time zone: Taipei (UTC+8)</span>
       </div>
     </section>
-    <img src="images/program.jpg" alt="Prpgram" style="width:100%; height:auto; image-rendering:-webkit-optimize-contrast; image-rendering: crisp-edges;">
+
+    <img src="images/program.jpg" alt="Program" style="width:100%; height:auto; image-rendering:-webkit-optimize-contrast; image-rendering: crisp-edges;">
+
     <!-- Tabs -->
     <div class="tabs">
       <button class="tab-btn" data-tab="fri" aria-selected="true">Friday · Oct 17</button>
@@ -256,11 +259,10 @@
         </tbody>
       </table>
     </section>
-    </section>
 
     <section id="sessions" class="grid">
       <!-- Spotlight Event (Fri) -->
-      <details class="session" open>
+      <details class="session" data-day="fri" open>
         <summary class="session-h">Friday Spotlight Event — 14F VIP Lounge Howard Civil Service International House</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairs:</strong> Dr. Chin‑Kun Wang, Dr. Fereidoon Shahidi, Dr. Perry Ng</div>
@@ -283,9 +285,8 @@
         </div>
       </details>
 
-      <!-- Session blocks for Saturday -->
-       <!-- Session 2 -->
-      <details class="session">
+      <!-- Session N1 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session N1 (R602) — Nutrition Fortification, Strategy and Application 1</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Gow‑Chin Yen, Dr. Chin‑Kun Wang</div>
@@ -307,8 +308,9 @@
           </table>
         </div>
       </details>
-<!-- Session 6 -->
-      <details class="session">
+
+      <!-- Session N2 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session N2 (R602) — Nutrition Fortification, Strategy and Application 2</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Khaw MC Richard, Dr. Mari Maeda Yamamoto</div>
@@ -327,8 +329,8 @@
         </div>
       </details>
 
-       <!-- Session 10 -->
-      <details class="session">
+      <!-- Session N3 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session N3 (R602) — Nutrition Fortification, Strategy and Application 3</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Anca Miron, Dr. Gokare Ravishankar</div>
@@ -349,9 +351,8 @@
         </div>
       </details>
 
-      
-      <!-- Session 1 -->
-      <details class="session">
+      <!-- Session J1 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J1 (R601) — Food, Microbes, and Mood: Integrative Approach to Depression and Anxiety</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Anat Elmann, Dr. Marx Wolfgang</div>
@@ -370,10 +371,8 @@
         </div>
       </details>
 
-     
-
-      <!-- Session 3 -->
-      <details class="session">
+      <!-- Session J2 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J2 (R603) — Precision Health / Precision Medicine</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Yong Sang Song, Dr. Mona Elena Popa</div>
@@ -394,8 +393,8 @@
         </div>
       </details>
 
-      <!-- Session 4 -->
-      <details class="session">
+      <!-- Session J3 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J3 (R605) — Functional Foods</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Wan Rosli Wan Ishak, Dr. Darshee Baxi</div>
@@ -416,8 +415,8 @@
         </div>
       </details>
 
-      <!-- Session 5 -->
-      <details class="session">
+      <!-- Session J4 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J4 (R601) — Nutrition, Aging and Cognitive Health</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Shizuo Yamada, Dr. Tsuo‑Hung Lan</div>
@@ -435,10 +434,8 @@
         </div>
       </details>
 
-      
-
-      <!-- Session 7 (R604) -->
-      <details class="session">
+      <!-- Session J5 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J5 (R603) — Precision Functional Foods</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Christofora Hanny Wijaya, Dr. Amin Bin Ismail</div>
@@ -457,8 +454,8 @@
         </div>
       </details>
 
-      <!-- Session 8 -->
-      <details class="session">
+      <!-- Session J6 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J6 (R605) — Phytotherapy / Pharmacology 1</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Ardiansyah, Dr. Rotimi E. Aluko</div>
@@ -477,8 +474,8 @@
         </div>
       </details>
 
-      <!-- Session 9 -->
-      <details class="session">
+      <!-- Session J7 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J7 (R601) — Nutrition From the Moleculars and Cells</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Young Joon Surh, Dr. Wei‑Che Chiu</div>
@@ -497,9 +494,8 @@
         </div>
       </details>
 
-     
-      <!-- Session 11 -->
-      <details class="session">
+      <!-- Session J8 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J8 (R603) — Precision Cancer Medicine</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Benjamin K Tsang, Dr. Danny N. Dhanasekaran</div>
@@ -521,8 +517,8 @@
         </div>
       </details>
 
-      <!-- Session 12 -->
-      <details class="session">
+      <!-- Session J9 (Sat) -->
+      <details class="session" data-day="sat">
         <summary class="session-h">Session J9 (R605) — Phytochemistry / Pharmacology 2</summary>
         <div class="session-body">
           <div class="chair"><strong>Chairpersons:</strong> Dr. Johji Inazawa, Dr. Ly Nguyen Binh</div>
@@ -555,68 +551,72 @@
   </nav>
 
   <script>
-    // Tabs logic
-    const btns = document.querySelectorAll('.tab-btn');
+    // Tabs logic (UPDATED: also filter detailed sessions)
+    const btns   = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('[data-panel]');
-    btns.forEach(btn => btn.addEventListener('click', () => {
-      const tab = btn.dataset.tab;
-      btns.forEach(b=>b.setAttribute('aria-selected','false'));
-      btn.setAttribute('aria-selected','true');
-      panels.forEach(p=>{ p.hidden = (p.dataset.panel !== tab); });
-    }));
+    const sessionsSection = document.getElementById('sessions');
+    const details = document.querySelectorAll('details.session[data-day]');
 
-    // Smooth show animation for sessions
+    function showDay(day){
+      // 切換上方 overview 表格
+      panels.forEach(p => { p.hidden = (p.dataset.panel !== day); });
+
+      // 切換下方詳細 Sessions
+      if(day === 'sun'){
+        // 週日不顯示任何 Session 區塊
+        sessionsSection.style.display = 'none';
+      } else {
+        sessionsSection.style.display = '';
+        details.forEach(d => {
+          d.style.display = (d.dataset.day === day) ? 'block' : 'none';
+        });
+      }
+
+      // 更新 aria-selected
+      btns.forEach(b => b.setAttribute('aria-selected','false'));
+      const currentBtn = Array.from(btns).find(b => b.dataset.tab === day);
+      if(currentBtn) currentBtn.setAttribute('aria-selected','true');
+    }
+
+    btns.forEach(btn => {
+      if(!btn.dataset.tab) return; // 跳過超連結那個 "Jump to Detailed Sessions"
+      btn.addEventListener('click', () => {
+        showDay(btn.dataset.tab);
+      });
+    });
+
+    // 初始狀態依照第一顆被選到的 tab
+    const defaultBtn = document.querySelector('.tab-btn[aria-selected="true"][data-tab]') || document.querySelector('.tab-btn[data-tab]');
+    showDay(defaultBtn ? defaultBtn.dataset.tab : 'fri');
+
+    // Smooth show animation for sessions (保留你的動畫)
     document.querySelectorAll('details.session').forEach((d,i)=>{
       d.style.opacity = 0; d.style.transform = 'translateY(18px)';
       setTimeout(()=>{ d.style.transition = 'all .5s ease'; d.style.opacity = 1; d.style.transform = 'translateY(0)'; }, 80*i);
     });
-// === UPDATED: Mobile navigation functions ===
-const bodyEl = document.body;
-const navEl  = document.getElementById('mobileNav');
-const btnEl  = document.querySelector('.mobile-nav-toggle');
 
-function toggleMobileNav(){
-  const active = navEl.classList.toggle('active');
-  btnEl.setAttribute('aria-expanded', active ? 'true' : 'false');
-  bodyEl.style.overflow = active ? 'hidden' : '';
-}
+    // === UPDATED: Mobile navigation functions ===
+    const bodyEl = document.body;
+    const navEl  = document.getElementById('mobileNav');
+    const btnEl  = document.querySelector('.mobile-nav-toggle');
 
-function closeMobileNav(){
-  if(!navEl.classList.contains('active')) return;
-  navEl.classList.remove('active');
-  btnEl.setAttribute('aria-expanded','false');
-  bodyEl.style.overflow = '';
-}
+    function toggleMobileNav(){
+      const active = navEl.classList.toggle('active');
+      btnEl.setAttribute('aria-expanded', active ? 'true' : 'false');
+      bodyEl.style.overflow = active ? 'hidden' : '';
+    }
 
-// ESC 關閉
-window.addEventListener('keydown', (e)=>{
-  if(e.key === 'Escape') closeMobileNav();
-});
+    function closeMobileNav(){
+      if(!navEl.classList.contains('active')) return;
+      navEl.classList.remove('active');
+      btnEl.setAttribute('aria-expanded','false');
+      bodyEl.style.overflow = '';
+    }
 
+    // ESC 關閉
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeMobileNav();
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
