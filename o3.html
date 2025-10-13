@@ -1,170 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISPH Organization Structure</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISPH Organization Structure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      padding: 20px;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    .container {
-      max-width: 1600px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
 
-    .header { text-align: center; margin-bottom: 30px; }
-    .header h1 { color: #00539C; font-size: 2.5em; margin-bottom: 10px; }
-    .header p { color: #666; font-size: 1.2em; }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    /* Navigation Buttons */
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-      padding: 20px;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      border-radius: 15px;
-    }
+        .header h1 {
+            color: #00539C;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
 
-    .nav-btn {
-      padding: 12px 24px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border: none;
-      border-radius: 25px;
-      font-size: 0.95em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+        }
 
-    /* Back to Top Button */
-    .back-to-top {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      padding: 10px 20px;
-      background: rgba(102, 126, 234, 0.9);
-      color: white;
-      border: none;
-      border-radius: 20px;
-      font-size: 0.85em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
-    .back-to-top:hover { background: rgba(102, 126, 234, 1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+        }
 
-    .org-chart { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-    .connector { width: 3px; height: 40px; background: linear-gradient(to bottom, #667eea, #764ba2); }
+        .nav-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
 
-    .level { display: flex; justify-content: center; gap: 20px; width: 100%; flex-wrap: wrap; position: relative; scroll-margin-top: 100px; }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
 
-    .box {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white; padding: 25px; border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transition: all 0.3s ease; position: relative;
-    }
-    .box:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        .back-to-top {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            padding: 10px 20px;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
 
-    .box-title { font-weight: bold; font-size: 1.3em; margin-bottom: 15px; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
+        .back-to-top:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
 
-    .person {
-      background: rgba(255,255,255,0.15);
-      padding: 12px; margin: 8px 0; border-radius: 8px; font-size: 0.95em;
-      backdrop-filter: blur(10px); display: flex; align-items: center; gap: 12px;
-    }
-    .person img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.5); }
-    .person-info { flex: 1; }
-    .person-name { font-weight: bold; margin-bottom: 3px; }
-    .person-country, .person-role { font-size: 0.85em; opacity: 0.95; }
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
 
-    .badge { display:inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,0.2); font-size: 0.78em; margin-left: 6px; }
+        .connector {
+            width: 3px;
+            height: 40px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
 
-    .president { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-width: 350px; }
-    .secretary { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); min-width: 400px; }
+        .level {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            flex-wrap: wrap;
+            position: relative;
+            scroll-margin-top: 100px;
+        }
 
-    .advisors { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); min-width: 400px; max-width: 520px; }
-    .directors { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); flex: 1; min-width: 480px; max-width: 640px; }
-    .supervisors { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); flex: 1; min-width: 420px; max-width: 520px; }
+        .box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-    .councils { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); width: 100%; max-width: 1400px; padding: 30px; }
-    .council-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
-    .council-item { background: white; color: #333; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 12px; transition: all .3s; }
-    .council-item:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-    .council-item img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #00539C; }
-    .council-info { flex: 1; }
-    .council-name { font-weight: bold; color: #00539C; margin-bottom: 5px; font-size: 1.1em; }
-    .council-chair { font-size: 0.9em; color: #555; }
+        .box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
 
-    .councilors { background: linear-gradient(135deg, #eef2ff 0%, #e0f7fa 100%); width: 100%; max-width: 1400px; padding: 30px; color: #1f2937; }
-    .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
-    .country-card { background: #fff; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); padding: 14px 16px; }
-    .country-name { font-weight: 700; color: #0f172a; margin-bottom: 8px; border-bottom: 2px solid #e5e7eb; padding-bottom: 6px; }
-    .country-list { list-style: none; margin: 0; padding: 0; }
-    .country-list li { margin: 6px 0; }
-    .council-person { display:flex; align-items:center; gap:12px; padding:8px 10px; background: #f8fafc; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-    .council-person img { width:50px; height:50px; border-radius:50%; object-fit:cover; border:2px solid #00539C; }
-    .council-person span{ font-weight:600; color:#0f172a; font-size: 0.9em; }
+        .box-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
 
-    /* HIDE helper */
-    .hidden { display: none !important; }
+        .person {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            font-size: 0.95em;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    @media (max-width: 768px) {
-      .container { padding: 20px; }
-      .header h1 { font-size: 1.8em; }
-      .box { min-width: 100% !important; max-width: 100% !important; }
-      .council-grid { grid-template-columns: 1fr; }
-      .person { flex-direction: column; text-align: center; }
-      .person img { width: 60px; height: 60px; }
-      .nav-buttons { gap: 8px; }
-      .nav-btn { padding: 10px 16px; font-size: 0.85em; }
-    }
-  </style>
+        .person img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .person-info {
+            flex: 1;
+        }
+
+        .person-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .person-country {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .person-role {
+            font-size: 0.85em;
+            opacity: 0.95;
+            margin-top: 2px;
+        }
+
+        .president {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-width: 350px;
+        }
+
+        .secretary {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            min-width: 400px;
+        }
+
+        .advisors {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            min-width: 400px;
+            max-width: 520px;
+        }
+
+        .directors {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            flex: 1;
+            min-width: 480px;
+            max-width: 640px;
+        }
+
+        .supervisors {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            flex: 1;
+            min-width: 420px;
+            max-width: 520px;
+        }
+
+        .councils {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            width: 100%;
+            max-width: 1400px;
+            padding: 30px;
+        }
+
+        .council-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .council-item {
+            background: white;
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .council-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .council-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00539C;
+        }
+
+        .council-info {
+            flex: 1;
+        }
+
+        .council-name {
+            font-weight: bold;
+            color: #00539C;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .council-chair {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .councilors {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0f7fa 100%);
+            width: 100%;
+            max-width: 1400px;
+            padding: 30px;
+            color: #1f2937;
+        }
+
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .country-card {
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            padding: 14px 16px;
+        }
+
+        .country-name {
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 6px;
+        }
+
+        .country-list {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .country-list li {
+            margin: 6px 0;
+            padding-left: 0;
+        }
+
+        .council-person {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 10px;
+            background: #f8fafc;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06);
+        }
+
+        .council-person img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00539C;
+        }
+
+        .council-person span {
+            font-weight: 600;
+            color: #0f172a;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .box {
+                min-width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .council-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .person {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .person img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .nav-buttons {
+                gap: 8px;
+            }
+
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>🏛️ International Society for Precision Health</h1>
-      <p>Organization Structure</p>
-    </div>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ International Society for Precision Health</h1>
+            <p>Organization Structure</p>
+        </div>
 
-    <!-- Navigation Buttons -->
-    <div class="nav-buttons" id="section-president">
-      <a href="index.html" class="nav-btn" style="text-decoration: none;">🏠 Home</a>
-      <button class="nav-btn" onclick="scrollToSection('section-president')">👤 President</button>
-      <button class="nav-btn" onclick="scrollToSection('section-boards')">📋 Boards</button>
-      <button class="nav-btn" onclick="scrollToSection('section-secretary')">📝 Secretary</button>
-      <button class="nav-btn" onclick="scrollToSection('section-councils')">🏛️ Councils</button>
-      <button class="nav-btn" onclick="scrollToSection('section-councilors')">🌍 Councilors</button>
-    </div>
+        <div class="nav-buttons" id="section-president">
+            <a href="index.html" class="nav-btn" style="text-decoration: none;">🏠 Home</a>
+            <button class="nav-btn" onclick="scrollToSection('section-president')">👤 President</button>
+            <button class="nav-btn" onclick="scrollToSection('section-boards')">📋 Boards</button>
+            <button class="nav-btn" onclick="scrollToSection('section-secretary')">📝 Secretary</button>
+            <button class="nav-btn" onclick="scrollToSection('section-councils')">🏛️ Councils</button>
+            <button class="nav-btn" onclick="scrollToSection('section-councilors')">🌍 Councilors</button>
+        </div>
 
-    <div class="org-chart">
-      <!-- President -->
-      <div class="level">
-        <div class="box president">
-          <div class="box-title">President</div>
-          <div class="person">
-            <img src="speakers/WCK.jpg" alt="Chin-Kun Wang">
-            <div class="person-info">
-              <div class="person-name">Dr. Chin-Kun Wang</div>
-              <div class="person-country">🇹🇼 Taiwan</div>
+        <div class="org-chart">
+            <!-- President -->
+            <div class="level">
+                <div class="box president">
+                    <div class="box-title">President</div>
+                    <div class="person">
+                        <img src="speakers/WCK.jpg" alt="Chin-Kun Wang">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Chin-Kun Wang</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="connector"></div>
+
+            <div class="level" id="section-boards">
+                <div class="box advisors">
+                    <div class="box-title">Advisory Board</div>
+                    <div class="person">
+                        <img src="speakers/fereidoon_shahidi.jpg" alt="Fereidoon Shahidi">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Fereidoon Shahidi</div>
+                            <div class="person-role">Advisor</div>
+                            <div class="person-country">🇨🇦 Canada</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/Ramachandran.jpg" alt="A.V. Ramachandran">
+                        <div class="person-info">
+                            <div class="person-name">Dr. A.V. Ramachandran</div>
+                            <div class="person-role">Advisor</div>
+                            <div class="person-country">🇮🇳 India</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/shizuo_yamada.jpg" alt="Shizuo Yamada">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Shizuo Yamada</div>
+                            <div class="person-role">Advisor</div>
+                            <div class="person-country">🇯🇵 Japan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/mona_elena_ popa.jpg" alt="Mona Elena Popa">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Mona Elena Popa</div>
+                            <div class="person-role">Advisor</div>
+                            <div class="person-country">🇷🇴 Romania</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/james_swi_bea_wu.png" alt="James Swi-Bea Wu">
+                        <div class="person-info">
+                            <div class="person-name">Dr. James Swi-Bea Wu</div>
+                            <div class="person-role">Advisor</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/perry_ng.jpg" alt="Perry Ng">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Perry Ng</div>
+                            <div class="person-role">Advisor</div>
+                            <div class="person-country">🇺🇸 USA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box directors">
+                    <div class="box-title">Headquarter Board of Directors</div>
+                    <div class="person">
+                        <img src="speakers/gow_chin_yen.jpeg" alt="Gow-Chin Yen">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Gow-Chin Yen</div>
+                            <div class="person-role">Standing Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/Linyi.jpg" alt="Linyi Chen">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Linyi Chen</div>
+                            <div class="person-role">Standing Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/chia_jui_weng.jpg" alt="Chia-Jui Weng">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Chia-Jui Weng</div>
+                            <div class="person-role">Standing Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/arthr_tsao.jpg" alt="Arthr Tsao">
+                        <div class="person-info">
+                            <div class="person-name">Mr. Arthr Tsao</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/Chin-Chu.jpg" alt="Chin-Chu Chen">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Chin-Chu Chen</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/scarlett_ho.jpeg" alt="Scarlett Ho">
+                        <div class="person-info">
+                            <div class="person-name">Ms. Scarlett Ho</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/Shih-Liang.jpg" alt="Shih-Liang Yang">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Shih-Liang Yang</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/shih_pei_yang.jpg" alt="Shih-Pei Yang">
+                        <div class="person-info">
+                            <div class="person-name">Mr. Shih-Pei Yang</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/kuan_pin_su.jpeg" alt="Kuan-Pin Su">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Kuan-Pin Su</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/hsin_tang_lin.jpg" alt="Hsin-Tang Lin">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Hsin-Tang Lin</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/Hsi-Min.jpg" alt="Hsi-Min Chen">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Hsi-Min Chen</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/shu_ru_jhuang.jpg" alt="Shu-Ru Zhuang">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Shu-Ru Zhuang</div>
+                            <div class="person-role">Director</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box supervisors">
+                    <div class="box-title">Headquarter Supervisory Board</div>
+                    <div class="person">
+                        <img src="speakers/shun_hsiang_weng.jpeg" alt="Shun-Hsiang Weng">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Shun-Hsiang Weng</div>
+                            <div class="person-role">Standing Supervisor</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/charles_chu.jpg" alt="Charles Chu">
+                        <div class="person-info">
+                            <div class="person-name">Mr. Charles Chu</div>
+                            <div class="person-role">Supervisor</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/szu_chuan_shen.JPG" alt="Szu-Chuan Shen">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Szu-Chuan Shen</div>
+                            <div class="person-role">Supervisor</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/Chi-Hua.jpg" alt="Chi-Hua Yen">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Chi-Hua Yen</div>
+                            <div class="person-role">Supervisor</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top</button>
+            </div>
+
+            <div class="connector"></div>
+
+            <div class="level" id="section-secretary">
+                <div class="box secretary">
+                    <div class="box-title">Secretary General & Deputies</div>
+                    <div class="person">
+                        <img src="speakers/kuan_chen_cheng.png" alt="Kuan-Chen Cheng">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Kuan-Chen Cheng</div>
+                            <div class="person-role">Secretary-General</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/you_cheng_shen.jpg" alt="You-Cheng Shen">
+                        <div class="person-info">
+                            <div class="person-name">Dr. You-Cheng Shen</div>
+                            <div class="person-role">Deputy Secretary-General</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="speakers/Cheng-Che.jpg" alt="Cheng-Che Hsieh">
+                        <div class="person-info">
+                            <div class="person-name">Dr. Cheng-Che Hsieh</div>
+                            <div class="person-role">Deputy Secretary-General</div>
+                            <div class="person-country">🇹🇼 Taiwan</div>
+                        </div>
+                    </div>
+                    <button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top</button>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <div class="level" id="section-councilors">
+                <div class="box councilors">
+                    <div class="box-title" style="color:#0f172a; font-size:1.5em;">Councilor Board (by Country)</div>
+                    <div class="country-grid">
+                        <div class="country-card">
+                            <div class="country-name">🇦🇺 Australia</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/dora_marinova.jpg" alt="Dr. Dora Marinova"><span>Dr. Dora Marinova</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇨🇦 Canada</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/rotimi_aluko.jpg" alt="Dr. Rotimi E. Aluko"><span>Dr. Rotimi E. Aluko</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇨🇳 China</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/hao_jing.jpg" alt="Dr. Hao Jing"><span>Dr. Hao Jing</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇫🇷 France</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/thierry_astruc.jpg" alt="Dr. Thierry Astruc"><span>Dr. Thierry Astruc</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇬🇭 Ghana</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/Sandra.jpg" alt="Ms. Sandra Asante"><span>Ms. Sandra Asante</span></li>
+                                <li class="council-person"><img src="speakers/Michael.jpg" alt="Dr. Michael Nortey"><span>Dr. Michael Nortey</span></li>
+                                <li class="council-person"><img src="speakers/Sherifah.jpg" alt="Dr. Sherifah Zakariah"><span>Dr. Sherifah Zakariah</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇭🇺 Hungary</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/livia_simon_sarkadi.jpg" alt="Dr. Livia Simon Sarkadi"><span>Dr. Livia Simon Sarkadi</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇮🇳 India</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/gokare_ravishankar.jpg" alt="Dr. Gokare Ravishankar"><span>Dr. Gokare Ravishankar</span></li>
+                                <li class="council-person"><img src="speakers/darshee_baxi.jpg" alt="Dr. Darshee Baxi"><span>Dr. Darshee Baxi</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇮🇩 Indonesia</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/christofora_hanny_wijaya.jpg" alt="Dr. Christofora Hanny Wijaya"><span>Dr. Christofora Hanny Wijaya</span></li>
+                                <li class="council-person"><img src="speakers/indah_epriliati.jpg" alt="Dr. Indah Epriliati"><span>Dr. Indah Epriliati</span></li>
+                                <li class="council-person"><img src="speakers/yaman_elfahmi.jpg" alt="Dr. Yaman Elfahmi"><span>Dr. Yaman Elfahmi</span></li>
+                                <li class="council-person"><img src="speakers/ardiansyah_michwan.jpg" alt="Dr. Ardiansyah"><span>Dr. Ardiansyah</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇯🇵 Japan</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/johji_inazawa.jpg" alt="Dr. Johji Inazawa"><span>Dr. Johji Inazawa</span></li>
+                                <li class="council-person"><img src="speakers/kenji_sato.jpg" alt="Dr. Kenji Sato"><span>Dr. Kenji Sato</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇱🇧 Lebanon</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/christelle_bou_mitri.jpg" alt="Dr. Christelle Bou-Mitri"><span>Dr. Christelle Bou-Mitri</span></li>
+                                <li class="council-person"><img src="speakers/aline_issa.jpg" alt="Dr. Aline Issa"><span>Dr. Aline Issa</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇱🇺 Luxembourg</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/claudia_cerella.jpg" alt="Dr. Claudia Cerella"><span>Dr. Claudia Cerella</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇱🇹 Lithuania</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/petras_rimantas_venskutonis.jpg" alt="Dr. Petras Rimantas Venskutonis"><span>Dr. Petras Rimantas Venskutonis</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇲🇾 Malaysia</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/amin_bin_ismail.jpg" alt="Dr. Amin Bin Ismail"><span>Dr. Amin Bin Ismail</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇳🇿 New Zealand</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/indrawati_oey.jpg" alt="Dr. Indrawati Oey"><span>Dr. Indrawati Oey</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇳🇬 Nigeria</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/folake_idowu_adebayo.jpg" alt="Dr. Folake Idowu Adebayo"><span>Dr. Folake Idowu Adebayo</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇵🇸 Palestine</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/abdel_qader_qawasmeh.jpg" alt="Dr. Abdel Qader Qawasmeh"><span>Dr. Abdel Qader Qawasmeh</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇵🇱 Poland</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/katarzyna_swiader.jpg" alt="Dr. Katarzyna Świąder"><span>Dr. Katarzyna Świąder</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇷🇴 Romania</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/liviu_gaceu.jpg" alt="Dr. Liviu Gaceu"><span>Dr. Liviu Gaceu</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇷🇺 Russia</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/mark_shamtsyan.jpg" alt="Dr. Mark Shamtsyan"><span>Dr. Mark Shamtsyan</span></li>
+                                <li class="council-person"><img src="speakers/natalya_mikhailichenko.jpg" alt="Dr. Natalia Mikhailichenko"><span>Dr. Natalia Mikhailichenko</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇸🇬 Singapore</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/richard_khaw.jpg" alt="Dr. Richard Khaw"><span>Dr. Richard Khaw</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇿🇦 South Africa</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier"><span>Dr. Thierry J.C. Regnier</span></li>
+                                <li class="council-person"><img src="speakers/mathoto_thaoge.jpg" alt="Dr. Mathoto Thaoge"><span>Dr. Mathoto Thaoge</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇰🇷 South Korea</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/hye_kyung_na.jpg" alt="Dr. Hye-Kyung Na"><span>Dr. Hye-Kyung Na</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇹🇼 Taiwan</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/min_hsiung_pan.jpeg" alt="Dr. Min-Hsiung Pan"><span>Dr. Min-Hsiung Pan</span></li>
+                                <li class="council-person"><img src="speakers/patrick_ck_lo.jpeg" alt="Dr. Patrick Chih Kang Lo"><span>Dr. Patrick Chih Kang Lo</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇹🇭 Thailand</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/sirichai_adisakwattana.jpg" alt="Dr. Sirichai Adisa Wattana"><span>Dr. Sirichai Adisa Wattana</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇹🇷 Türkiye</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/mukerrem_betul_yerer_aycan.jpg" alt="Dr. M. Betül Yerer Aycan"><span>Dr. M. Betül Yerer Aycan</span></li>
+                            </ul>
+                        </div>
+                        <div class="country-card">
+                            <div class="country-name">🇻🇳 Vietnam</div>
+                            <ul class="country-list">
+                                <li class="council-person"><img src="speakers/binh_ly_nguyen.jpg" alt="Dr. Binh Ly Nguyen"><span>Dr. Binh Ly Nguyen</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid #eee; color: #666;">
+            <p>© 2025 International Society for Precision Health. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+</body>
+</html></button>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <div class="level" id="section-councils">
+                <div class="box councils">
+                    <div class="box-title" style="color: #333; font-size: 1.5em;">Council Chairs, Councilor Board - 10 Councils</div>
+                    <div class="council-grid">
+                        <div class="council-item">
+                            <img src="speakers/benjamin_tsang.jpg" alt="Benjamin K. Tsang">
+                            <div class="council-info">
+                                <div class="council-name">🎓 Education council</div>
+                                <div class="council-chair">Dr. Benjamin K. Tsang<br>🇨🇦 Canada</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/diana_bogueva.jpg" alt="Diana Bogueva">
+                            <div class="council-info">
+                                <div class="council-name">📢 Promotion council</div>
+                                <div class="council-chair">Dr. Diana Bogueva<br>🇦🇺 Australia</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/jun_nishihira.jpg" alt="Jun Nishihira">
+                            <div class="council-info">
+                                <div class="council-name">💾 Bigdata council</div>
+                                <div class="council-chair">Dr. Jun Nishihira<br>🇯🇵 Japan</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/anca_miron.jpg" alt="Anca Miron">
+                            <div class="council-info">
+                                <div class="council-name">💊 Pharmacy & Phytochemical council</div>
+                                <div class="council-chair">Dr. Anca Miron<br>🇷🇴 Romania</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/sarah_s_comstock.jpg" alt="Sarah S. Comstock">
+                            <div class="council-info">
+                                <div class="council-name">🦠 Microbiota council</div>
+                                <div class="council-chair">Dr. Sarah S. Comstock<br>🇺🇸 USA</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/danny_dhanasekaran.jpg" alt="Danny N. Dhanasekaran">
+                            <div class="council-info">
+                                <div class="council-name">🎗️ Cancer council</div>
+                                <div class="council-chair">Dr. Danny N. Dhanasekaran<br>🇺🇸 USA</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi">
+                            <div class="council-info">
+                                <div class="council-name">🥗 Nutrition council</div>
+                                <div class="council-chair">Dr. Debasis Bagchi<br>🇺🇸 USA</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/young_joon_surh.jpg" alt="Young Joon Surh">
+                            <div class="council-info">
+                                <div class="council-name">🧬 Molecular approaches council</div>
+                                <div class="council-chair">Dr. Young Joon Surh<br>🇰🇷 South Korea</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/anat_elmann.jpg" alt="Anat Elmann">
+                            <div class="council-info">
+                                <div class="council-name">🧠 Mental and Neuroscience council</div>
+                                <div class="council-chair">Dr. Anat Elmann<br>🇮🇱 Israel</div>
+                            </div>
+                        </div>
+                        <div class="council-item">
+                            <img src="speakers/yong_sang_song.jpg" alt="Yong Sang Song">
+                            <div class="council-info">
+                                <div class="council-name">⚕️ Disease Intervention council</div>
+                                <div class="council-chair">Dr. Yong Sang Song<br>🇰🇷 South Korea</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top
