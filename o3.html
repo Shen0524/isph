@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISPH Organization Structure</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { color: #00539C; font-size: 2.5em; margin-bottom: 10px; }
+    .header p { color: #666; font-size: 1.2em; }
+
+    /* Navigation Buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+    }
+
+    .nav-btn {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      padding: 10px 20px;
+      background: rgba(102, 126, 234, 0.9);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .back-to-top:hover { background: rgba(102, 126, 234, 1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+    .org-chart { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+    .connector { width: 3px; height: 40px; background: linear-gradient(to bottom, #667eea, #764ba2); }
+
+    .level { display: flex; justify-content: center; gap: 20px; width: 100%; flex-wrap: wrap; position: relative; scroll-margin-top: 100px; }
+
+    .box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white; padding: 25px; border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: all 0.3s ease; position: relative;
+    }
+    .box:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+
+    .box-title { font-weight: bold; font-size: 1.3em; margin-bottom: 15px; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
+
+    .person {
+      background: rgba(255,255,255,0.15);
+      padding: 12px; margin: 8px 0; border-radius: 8px; font-size: 0.95em;
+      backdrop-filter: blur(10px); display: flex; align-items: center; gap: 12px;
+    }
+    .person img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.5); }
+    .person-info { flex: 1; }
+    .person-name { font-weight: bold; margin-bottom: 3px; }
+    .person-country, .person-role { font-size: 0.85em; opacity: 0.95; }
+
+    .badge { display:inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,0.2); font-size: 0.78em; margin-left: 6px; }
+
+    .president { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-width: 350px; }
+    .secretary { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); min-width: 400px; }
+
+    .advisors { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); min-width: 400px; max-width: 520px; }
+    .directors { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); flex: 1; min-width: 480px; max-width: 640px; }
+    .supervisors { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); flex: 1; min-width: 420px; max-width: 520px; }
+
+    .councils { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); width: 100%; max-width: 1400px; padding: 30px; }
+    .council-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
+    .council-item { background: white; color: #333; padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 12px; transition: all .3s; }
+    .council-item:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+    .council-item img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #00539C; }
+    .council-info { flex: 1; }
+    .council-name { font-weight: bold; color: #00539C; margin-bottom: 5px; font-size: 1.1em; }
+    .council-chair { font-size: 0.9em; color: #555; }
+
+    .councilors { background: linear-gradient(135deg, #eef2ff 0%, #e0f7fa 100%); width: 100%; max-width: 1400px; padding: 30px; color: #1f2937; }
+    .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
+    .country-card { background: #fff; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); padding: 14px 16px; }
+    .country-name { font-weight: 700; color: #0f172a; margin-bottom: 8px; border-bottom: 2px solid #e5e7eb; padding-bottom: 6px; }
+    .country-list { list-style: none; margin: 0; padding: 0; }
+    .country-list li { margin: 6px 0; }
+    .council-person { display:flex; align-items:center; gap:12px; padding:8px 10px; background: #f8fafc; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+    .council-person img { width:50px; height:50px; border-radius:50%; object-fit:cover; border:2px solid #00539C; }
+    .council-person span{ font-weight:600; color:#0f172a; font-size: 0.9em; }
+
+    /* HIDE helper */
+    .hidden { display: none !important; }
+
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      .header h1 { font-size: 1.8em; }
+      .box { min-width: 100% !important; max-width: 100% !important; }
+      .council-grid { grid-template-columns: 1fr; }
+      .person { flex-direction: column; text-align: center; }
+      .person img { width: 60px; height: 60px; }
+      .nav-buttons { gap: 8px; }
+      .nav-btn { padding: 10px 16px; font-size: 0.85em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🏛️ International Society for Precision Health</h1>
+      <p>Organization Structure</p>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons" id="section-president">
+      <a href="index.html" class="nav-btn" style="text-decoration: none;">🏠 Home</a>
+      <button class="nav-btn" onclick="scrollToSection('section-president')">👤 President</button>
+      <button class="nav-btn" onclick="scrollToSection('section-boards')">📋 Boards</button>
+      <button class="nav-btn" onclick="scrollToSection('section-secretary')">📝 Secretary</button>
+      <button class="nav-btn" onclick="scrollToSection('section-councils')">🏛️ Councils</button>
+      <button class="nav-btn" onclick="scrollToSection('section-councilors')">🌍 Councilors</button>
+    </div>
+
+    <div class="org-chart">
+      <!-- President -->
+      <div class="level">
+        <div class="box president">
+          <div class="box-title">President</div>
+          <div class="person">
+            <img src="speakers/WCK.jpg" alt="Chin-Kun Wang">
+            <div class="person-info">
+              <div class="person-name">Dr. Chin-Kun Wang</div>
+              <div class="person-country">🇹🇼 Taiwan</div>
+            </div>
+          </div>
