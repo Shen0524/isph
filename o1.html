@@ -23,9 +23,62 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
 
-    .header { text-align: center; margin-bottom: 50px; }
+    .header { text-align: center; margin-bottom: 30px; }
     .header h1 { color: #00539C; font-size: 2.5em; margin-bottom: 10px; }
     .header p { color: #666; font-size: 1.2em; }
+
+    /* Navigation Buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+    }
+
+    .nav-btn {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      padding: 10px 20px;
+      background: rgba(102, 126, 234, 0.9);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top:hover {
+      background: rgba(102, 126, 234, 1);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
     .org-chart {
       display: flex; flex-direction: column; align-items: center; gap: 30px;
@@ -38,6 +91,8 @@
 
     .level {
       display: flex; justify-content: center; gap: 20px; width: 100%; flex-wrap: wrap;
+      position: relative;
+      scroll-margin-top: 100px;
     }
 
     .box {
@@ -45,6 +100,7 @@
       color: white; padding: 25px; border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
+      position: relative;
     }
     .box:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
 
@@ -100,7 +156,6 @@
     .council-name { font-weight: bold; color: #00539C; margin-bottom: 5px; font-size: 1.1em; }
     .council-chair { font-size: 0.9em; color: #555; }
 
-    /* Councilor Board by Country */
     .councilors {
       background: linear-gradient(135deg, #eef2ff 0%, #e0f7fa 100%);
       width: 100%; max-width: 1400px; padding: 30px; color: #1f2937;
@@ -121,16 +176,6 @@
     .country-list li::marker { content: none; }
     .country-list li { padding-left: 0; margin: 4px 0; }
 
-    @media (max-width: 768px) {
-      .container { padding: 20px; }
-      .header h1 { font-size: 1.8em; }
-      .box { min-width: 100% !important; max-width: 100% !important; }
-      .council-grid { grid-template-columns: 1fr; }
-      .person { flex-direction: column; text-align: center; }
-      .person img { width: 60px; height: 60px; }
-    }
-
-    /* Councilor avatars in country list */
     .country-list { list-style: none; margin-left: 0; padding-left: 0; }
     .country-list li { margin: 6px 0; padding-left: 0; }
     .council-person{
@@ -139,12 +184,21 @@
       box-shadow: 0 1px 3px rgba(0,0,0,.06);
     }
     .council-person img{
-      /* 調整為與 Council Chairs 一致的 60x60 並加 2px 外框 */
       width:50px; height:50px; border-radius:50%; object-fit:cover;
       border:2px solid #00539C;
     }
     .council-person span{ font-weight:600; color:#0f172a; font-size: 0.9em; }
 
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      .header h1 { font-size: 1.8em; }
+      .box { min-width: 100% !important; max-width: 100% !important; }
+      .council-grid { grid-template-columns: 1fr; }
+      .person { flex-direction: column; text-align: center; }
+      .person img { width: 60px; height: 60px; }
+      .nav-buttons { gap: 8px; }
+      .nav-btn { padding: 10px 16px; font-size: 0.85em; }
+    }
   </style>
 </head>
 <body>
@@ -152,6 +206,16 @@
     <div class="header">
       <h1>🏛️ International Society for Precision Health</h1>
       <p>Organization Structure</p>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons" id="section-president">
+      <a href="index.html" class="nav-btn" style="text-decoration: none;">🏠 Home</a>
+      <button class="nav-btn" onclick="scrollToSection('section-president')">👤 President</button>
+      <button class="nav-btn" onclick="scrollToSection('section-boards')">📋 Boards</button>
+      <button class="nav-btn" onclick="scrollToSection('section-secretary')">📝 Secretary</button>
+      <button class="nav-btn" onclick="scrollToSection('section-councils')">🏛️ Councils</button>
+      <button class="nav-btn" onclick="scrollToSection('section-councilors')">🌍 Councilors</button>
     </div>
 
     <div class="org-chart">
@@ -172,9 +236,9 @@
       <div class="connector"></div>
 
       <!-- Advisory Board + Board of Directors + Supervisory Board (同層) -->
-      <div class="level">
+      <div class="level" id="section-boards">
      
-<!-- Advisory Board -->
+<!-- 這裡貼上原本的 Advisory Board, Board of Directors, Supervisory Board 完整內容 -->
 <div class="box advisors">
   <div class="box-title">Advisory Board</div>
   <div class="person">
@@ -243,10 +307,8 @@
   </div>
 </div>
 
- <!-- Board of Directors -->
 <div class="box directors">
   <div class="box-title">Headquarter Board of Directors</div>
-
   <div class="person">
     <img src="speakers/ming_shiang_wu.jpeg" alt="Ming-Shiang Wu">
     <div class="person-info">
@@ -255,7 +317,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/gow_chin_yen.jpeg" alt="Gow-Chin Yen">
     <div class="person-info">
@@ -264,7 +325,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/Linyi.jpg" alt="Linyi Chen">
     <div class="person-info">
@@ -273,7 +333,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/chia_jui_weng.jpg" alt="Chia-Jui Weng">
     <div class="person-info">
@@ -282,7 +341,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/arthr_tsao.jpg" alt="Arthr Tsao">
     <div class="person-info">
@@ -291,7 +349,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/Chin-Chu.jpg" alt="Chin-Chu Chen">
     <div class="person-info">
@@ -300,7 +357,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/scarlett_ho.jpeg" alt="Scarlett Ho">
     <div class="person-info">
@@ -309,7 +365,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/Shih-Liang.jpg" alt="Shih-Liang Yang">
     <div class="person-info">
@@ -318,7 +373,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/shih_pei_yang.jpg" alt="Shih-Pei Yang">
     <div class="person-info">
@@ -327,7 +381,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/kuan_pin_su.jpeg" alt="Kuan-Pin Su">
     <div class="person-info">
@@ -336,7 +389,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/hsin_tang_lin.jpg" alt="Hsin-Tang Lin">
     <div class="person-info">
@@ -345,7 +397,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/Hsi-Min.jpg" alt="Hsi-Min Chen">
     <div class="person-info">
@@ -354,7 +405,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/shu_ru_jhuang.jpg" alt="Shu-Ru Zhuang">
     <div class="person-info">
@@ -363,7 +413,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/shih_yu_chang.jpg" alt="Shih-Yu Chang">
     <div class="person-info">
@@ -373,11 +422,9 @@
     </div>
   </div>
 </div>
-        
-<!-- Supervisory Board -->
+
 <div class="box supervisors">
   <div class="box-title">Headquarter Supervisory Board</div>
-
   <div class="person">
     <img src="speakers/shun_hsiang_weng.jpeg" alt="Shun-Hsiang Weng">
     <div class="person-info">
@@ -386,7 +433,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/charles_chu.jpg" alt="Charles Chu">
     <div class="person-info">
@@ -395,7 +441,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/szu_chuan_shen.JPG" alt="Szu-Chuan Shen">
     <div class="person-info">
@@ -404,7 +449,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/Chi-Hua.jpg" alt="Chi-Hua Yen">
     <div class="person-info">
@@ -413,7 +457,6 @@
       <div class="person-country">🇹🇼 Taiwan</div>
     </div>
   </div>
-
   <div class="person">
     <img src="speakers/Yung-Po.jpg" alt="Yung-Po Liaw">
     <div class="person-info">
@@ -423,9 +466,14 @@
     </div>
   </div>
 </div>
+
+        <button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top</button>
+      </div>
+
       <div class="connector"></div>
+
       <!-- Secretary General -->
-      <div class="level">
+      <div class="level" id="section-secretary">
         <div class="box secretary">
           <div class="box-title">Secretary General & Deputies</div>
           <div class="person">
@@ -452,94 +500,111 @@
               <div class="person-country">🇹🇼 Taiwan</div>
             </div>
           </div>
+          <button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top</button>
         </div>
       </div>
 
       <div class="connector"></div>
 
-      <!-- Council Chairs, Councilor Board - 10 Councils -->
-      <div class="level">
+      <!-- Council Chairs -->
+      <div class="level" id="section-councils">
         <div class="box councils">
           <div class="box-title" style="color: #333; font-size: 1.5em;">Council Chairs, Councilor Board - 10 Councils</div>
           <div class="council-grid">
+<!-- 這裡貼上原本的 10 個 council-item 完整內容 -->
             <div class="council-item">
-              <img src="speakers/benjamin_tsang.jpg" alt="Benjamin K. Tsang">
-              <div class="council-info">
-                <div class="council-name">🎓 Education council</div>
-                 <div class="council-chair">Dr. Benjamin K. Tsang<br>🇨🇦 Canada</div>
-              </div>
-            </div>
-            <div class="council-item">
-               <img src="speakers/diana_bogueva.jpg" alt="Diana Bogueva">
-              <div class="council-info">
-                <div class="council-name">📢 Promotion council</div>
-               <div class="council-chair">Dr. Diana Bogueva<br>🇦🇺 Australia</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/jun_nishihira.jpg" alt="Jun Nishihira">
-              <div class="council-info">
-                <div class="council-name">💾 Bigdata council</div>
-                <div class="council-chair">Dr. Jun Nishihira<br>🇯🇵 Japan</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/anca_miron.jpg" alt="Anca Miron">
-              <div class="council-info">
-                <div class="council-name">💊 Pharmacy & Phytochemical council</div>
-                <div class="council-chair">Dr. Anca Miron<br>🇷🇴 Romania</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/sarah_s_comstock.jpg" alt="Sarah S. Comstock">
-              <div class="council-info">
-                <div class="council-name">🦠 Microbiota council</div>
-                <div class="council-chair">Dr. Sarah S. Comstock<br>🇺🇸 USA</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/danny_dhanasekaran.jpg" alt="Danny N. Dhanasekaran">
-              <div class="council-info">
-                <div class="council-name">🎗️ Cancer council</div>
-                <div class="council-chair">Dr. Danny N. Dhanasekaran<br>🇺🇸 USA</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi">
-              <div class="council-info">
-                <div class="council-name">🥗 Nutrition council</div>
-                <div class="council-chair">Dr. Debasis Bagchi<br>🇺🇸 USA</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/young_joon_surh.jpg" alt="Young Joon Surh">
-              <div class="council-info">
-                <div class="council-name">🧬 Molecular approaches council</div>
-                <div class="council-chair">Dr. Young Joon Surh<br>🇰🇷 South Korea</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/anat_elmann.jpg" alt="Anat Elmann">
-              <div class="council-info">
-                <div class="council-name">🧠 Mental and Neuroscience council</div>
-                <div class="council-chair">Dr. Anat Elmann<br>🇮🇱 Israel</div>
-              </div>
-            </div>
-            <div class="council-item">
-              <img src="speakers/yong_sang_song.jpg" alt="Yong Sang Song">
-              <div class="council-info">
-                <div class="council-name">⚕️ Disease Intervention council</div>
-                <div class="council-chair">Dr. Yong Sang Song<br>🇰🇷 South Korea</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <img src="speakers/jun_nishihira.jpg" alt="Jun Nishihira">
+  <div class="council-info">
+    <div class="council-name">💾 Bigdata council</div>
+    <div class="council-chair">Dr. Jun Nishihira<br>🇯🇵 Japan</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/danny_dhanasekaran.jpg" alt="Danny N. Dhanasekaran">
+  <div class="council-info">
+    <div class="council-name">🎗️ Cancer council</div>
+    <div class="council-chair">Dr. Danny N. Dhanasekaran<br>🇺🇸 USA</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/ciro_isidoro.jpg" alt="Ciro Isidoro">
+  <div class="council-info">
+    <div class="council-name">🌿 Complementary and Alternative Medicine council</div>
+    <div class="council-chair">Dr. Ciro Isidoro<br>🇮🇹 Italy</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/yong_sang_song.jpg" alt="Yong Sang Song">
+  <div class="council-info">
+    <div class="council-name">⚕️ Disease Intervention council</div>
+    <div class="council-chair">Dr. Yong Sang Song<br>🇰🇷 South Korea</div>
+  </div>
+</div>
+ <div class="council-item">
+  <img src="speakers/benjamin_tsang.jpg" alt="Benjamin K. Tsang">
+  <div class="council-info">
+    <div class="council-name">🎓 Education council</div>
+    <div class="council-chair">Dr. Benjamin K. Tsang<br>🇨🇦 Canada</div>
+  </div>
+</div>           
+<div class="council-item">
+  <img src="speakers/thierry_regnier.jpg" alt="Thierry JC Regnier">
+  <div class="council-info">
+    <div class="council-name">🍽️ Food Science council</div>
+    <div class="council-chair">Dr. Thierry JC Regnier<br>🇿🇦 South Africa</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/anat_elmann.jpg" alt="Anat Elmann">
+  <div class="council-info">
+    <div class="council-name">🧠 Mental and Neuroscience council</div>
+    <div class="council-chair">Dr. Anat Elmann<br>🇮🇱 Israel</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/sarah_s_comstock.jpg" alt="Sarah S. Comstock">
+  <div class="council-info">
+    <div class="council-name">🦠 Microbiota council</div>
+    <div class="council-chair">Dr. Sarah S. Comstock<br>🇺🇸 USA</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/young_joon_surh.jpg" alt="Young Joon Surh">
+  <div class="council-info">
+    <div class="council-name">🧬 Molecular approaches council</div>
+    <div class="council-chair">Dr. Young Joon Surh<br>🇰🇷 South Korea</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi">
+  <div class="council-info">
+    <div class="council-name">🥗 Nutrition council</div>
+    <div class="council-chair">Dr. Debasis Bagchi<br>🇺🇸 USA</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/anca_miron.jpg" alt="Anca Miron">
+  <div class="council-info">
+    <div class="council-name">💊 Pharmacy & Phytochemical council</div>
+    <div class="council-chair">Dr. Anca Miron<br>🇷🇴 Romania</div>
+  </div>
+</div>
+<div class="council-item">
+  <img src="speakers/diana_bogueva.jpg" alt="Diana Bogueva">
+  <div class="council-info">
+    <div class="council-name">📢 Promotion council</div>
+    <div class="council-chair">Dr. Diana Bogueva<br>🇦🇺 Australia</div>
+  </div>
+</div>
+</div>
+<button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top</button>
+</div>
+</div>
 
       <div class="connector"></div>
 
       <!-- Councilor Board (By Country) -->
-      <div class="level">
+      <div class="level" id="section-councilors">
         <div class="box councilors">
           <div class="box-title" style="color:#0f172a; font-size:1.5em;">Councilor Board (by Country)</div>
           <div class="country-grid">
@@ -547,7 +612,6 @@
             <div class="country-card">
               <div class="country-name">🇦🇺 Australia</div>
               <ul class="country-list">
-                <!--<li class="council-person"><img src="speakers/diana_bogueva.jpg" alt="Dr. Diana Bogueva"><span>Dr. Diana Bogueva</span></li>-->
                 <li class="council-person"><img src="speakers/dora_marinova.jpg" alt="Dr. Dora Marinova"><span>Dr. Dora Marinova</span></li>
               </ul>
             </div>
@@ -573,11 +637,9 @@
               </ul>
             </div>
 
-            
             <div class="country-card">
               <div class="country-name">🇨🇦 Canada</div>
               <ul class="country-list">
-                <!--<li class="council-person"><img src="speakers/benjamin_tsang.jpg" alt="Dr. Benjamin K. Tsang"><span>Dr. Benjamin K. Tsang</span></li>-->
                 <li class="council-person"><img src="speakers/rotimi_aluko.jpg" alt="Dr. Rotimi E. Aluko"><span>Dr. Rotimi E. Aluko</span></li>
               </ul>
             </div>
@@ -625,7 +687,7 @@
                 <li class="council-person"><img src="speakers/klaus_lange.jpg" alt="Dr. Klaus W. Lange"><span>Dr. Klaus W. Lange</span></li>
               </ul>
             </div>
-            <!-- Ghana -->
+
             <div class="country-card">
               <div class="country-name">🇬🇭 Ghana</div>
               <ul class="country-list">
@@ -634,7 +696,6 @@
                 <li class="council-person"><img src="speakers/Sherifah.jpg" alt="Dr. Sherifah Zakariah"><span>Dr. Sherifah Zakariah</span></li>
               </ul>
             </div>
-            <!-- End Ghana -->
 
             <div class="country-card">
               <div class="country-name">🇭🇺 Hungary</div>
@@ -668,17 +729,10 @@
               </ul>
             </div>
 
-            <!--<div class="country-card">
-              <div class="country-name">🇮🇱 Israel</div>
-              <ul class="country-list">
-                <li class="council-person"><img src="speakers/anat_elmann.jpg" alt="Dr. Anat Elmann"><span>Dr. Anat Elmann</span></li>
-              </ul>
-            </div>-->
-
             <div class="country-card">
               <div class="country-name">🇮🇹 Italy</div>
               <ul class="country-list">
-                <li class="council-person"><img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro"><span>Dr. Ciro Isidoro</span></li>
+               <!-- <li class="council-person"><img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro"><span>Dr. Ciro Isidoro</span></li>-->
                 <li class="council-person"><img src="speakers/Lammi.jpg" alt="Dr. Carmen Lammi"><span>Dr. Carmen Lammi</span></li>
               </ul>
             </div>
@@ -687,7 +741,6 @@
               <div class="country-name">🇯🇵 Japan</div>
               <ul class="country-list">
                 <li class="council-person"><img src="speakers/johji_inazawa.jpg" alt="Dr. Johji Inazawa"><span>Dr. Johji Inazawa</span></li>
-                <!--<li class="council-person"><img src="speakers/jun_nishihira.jpg" alt="Dr. Jun Nishihira"><span>Dr. Jun Nishihira</span></li>-->
                 <li class="council-person"><img src="speakers/kenji_sato.jpg" alt="Dr. Kenji Sato"><span>Dr. Kenji Sato</span></li>
               </ul>
             </div>
@@ -794,7 +847,6 @@
             <div class="country-card">
               <div class="country-name">🇷🇴 Romania</div>
               <ul class="country-list">
-                <!--<li class="council-person"><img src="speakers/anca_miron.jpg" alt="Dr. Anca Miron"><span>Dr. Anca Miron</span></li>-->
                 <li class="council-person"><img src="speakers/liviu_gaceu.jpg" alt="Dr. Liviu Gaceu"><span>Dr. Liviu Gaceu</span></li>
               </ul>
             </div>
@@ -831,7 +883,7 @@
             <div class="country-card">
               <div class="country-name">🇿🇦 South Africa</div>
               <ul class="country-list">
-                <li class="council-person"><img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier"><span>Dr. Thierry J.C. Regnier</span></li>
+                <!--<li class="council-person"><img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier"><span>Dr. Thierry J.C. Regnier</span></li>-->
                 <li class="council-person"><img src="speakers/mathoto_thaoge.jpg" alt="Dr. Mathoto Thaoge"><span>Dr. Mathoto Thaoge</span></li>
               </ul>
             </div>
@@ -840,11 +892,8 @@
               <div class="country-name">🇰🇷 South Korea</div>
               <ul class="country-list">
                 <li class="council-person"><img src="speakers/hye_kyung_na.jpg" alt="Dr. Hye-Kyung Na"><span>Dr. Hye-Kyung Na</span></li>
-                <!--<li class="council-person"><img src="speakers/yong_sang_song.jpg" alt="Dr. Yong Sang Song"><span>Dr. Yong Sang Song</span></li>-->
-                <!--<li class="council-person"><img src="speakers/young_joon_surh.jpg" alt="Dr. Young Joon Surh"><span>Dr. Young Joon Surh</span></li>-->
               </ul>
             </div>
-
 
             <div class="country-card">
               <div class="country-name">🇸🇪 Sweden</div>
@@ -902,9 +951,6 @@
             <div class="country-card">
               <div class="country-name">🇺🇸 USA</div>
               <ul class="country-list">
-                <!--<li class="council-person"><img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi"><span>Dr. Debasis Bagchi</span></li>-->
-                <!--<li class="council-person"><img src="speakers/danny_dhanasekaran.jpg" alt="Dr. Danny N. Dhanasekaran"><span>Dr. Danny N. Dhanasekaran</span></li>-->
-                <!--<li class="council-person"><img src="speakers/sarah_s_comstock.jpg" alt="Dr. Sarah S. Comstock"><span>Dr. Sarah S. Comstock</span></li>-->
                 <li class="council-person"><img src="speakers/Bolling.jpg" alt="Dr. Bradley Bolling"><span>Dr. Bradley Bolling</span></li>
               </ul>
             </div>
@@ -917,6 +963,7 @@
             </div>
 
           </div>
+          <button class="back-to-top" onclick="scrollToSection('section-president')">⬆️ Back to Top</button>
         </div>
       </div>
 
@@ -926,26 +973,14 @@
       <p>© 2025 International Society for Precision Health. All rights reserved.</p>
     </div>
   </div>
+
+  <script>
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
