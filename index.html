@@ -126,28 +126,29 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>International Society for Precision Health</h1>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="nav-menu">
-            <ul>
-                <div class="dropdown">
-                <li><a href="#">About Us &#9662;</a></li>
-                <div class="dropdown-content">
-                    <a href="about.html">President Message</a>
-                    <a href="bylaws.html">Bylaws</a>
-                    ><a href="o1.html">Organization Structure</a>
-                </div>
-            </div>
-                <!--<li><a href="about.html">About Us</a></li>
-                <li><a href="bylaws.html">Bylaws</a></li>
-                <li><a href="o1.html">Organization Structure</a></li>-->
-                <li><a href="Join us.html">Join ISPH</a></li>
-                <li><a href="Annual2025.html">Annual Meeting</a></li>
-                <li><a href="Contact1.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <h1>International Society for Precision Health</h1>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+        <span>☰</span>
+    </button>
+    <nav id="nav-menu" aria-label="Main navigation">
+        <ul>
+            <li class="dropdown">
+                <a href="#" aria-haspopup="true" aria-expanded="false">
+                    About Us <span class="dropdown-icon">&#9662;</span>
+                </a>
+                <ul class="dropdown-content">
+                    <li><a href="about.html">President Message</a></li>
+                    <li><a href="bylaws.html">Bylaws</a></li>
+                    <li><a href="o1.html">Organization Structure</a></li>
+                </ul>
+            </li>
+            <li><a href="join-us.html">Join ISPH</a></li>
+            <li><a href="annual-2025.html">Annual Meeting</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
         <img src="LOGO.PNG" alt="ISPH Logo" style="display: block; margin-left: auto; margin-right: auto;">
@@ -190,6 +191,7 @@
     </script>
 </body>
 </html>
+
 
 
 
