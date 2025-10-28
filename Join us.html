@@ -55,12 +55,53 @@
 
         nav ul li {
             margin: 0 10px;
+            position: relative;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 1rem;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        /* 下拉選單樣式 */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #0056a6;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #003d7a;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: " ▼";
+            font-size: 0.7rem;
         }
 
         /* 手機和平板導航 */
@@ -89,6 +130,18 @@
             nav ul li {
                 text-align: right;
                 margin: 10px 20px;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: #003d7a;
+                margin-top: 5px;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
             }
 
             .menu-toggle {
@@ -141,7 +194,7 @@
         <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
+                <li class="dropdown" onclick="toggleDropdown(event)">
                     <a href="about.html">About Us</a>
                     <div class="dropdown-content">
                         <a href="about.html">President Message</a>
@@ -196,13 +249,19 @@
             }
         }
 
+        function toggleDropdown(event) {
+            // 只在手機版時使用
+            if (window.innerWidth <= 768) {
+                event.preventDefault();
+                event.stopPropagation();
+                var dropdown = event.currentTarget;
+                dropdown.classList.toggle('active');
+            }
+        }
+
         function redirectToGoogleForm() {
             window.location.href = "https://forms.gle/BRV9zVUSjDYNLPM89";
         }
     </script>
 </body>
 </html>
-
-
-
-
