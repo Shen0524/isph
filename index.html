@@ -257,6 +257,23 @@
             padding: 1rem;
         }
 
+        .visitor-counter {
+            display: inline-block;
+            margin-left: 20px;
+            background-color: #000;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            border: 2px solid #666;
+        }
+
+        .visitor-counter span {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
         @media screen and (max-width: 768px) {
             #about .president-info {
                 flex-direction: column;
@@ -275,8 +292,13 @@
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav id="nav-menu">
         <ul>
-            <li><a href="bylaws.html">Bylaws</a></li>
-            <li><a href="o1.html">Organization Structure</a></li>
+            <li class="dropdown">
+                <a href="about.html">About Us</a>
+                <div class="dropdown-content">
+                    <a href="bylaws.html">Bylaws</a>
+                    <a href="o1.html">Organization Structure</a>
+                </div>
+            </li>
             <li><a href="Join us.html">Join ISPH</a></li>
             <li><a href="Annual2025.html">Annual Meeting</a></li>
             <li><a href="Contact1.html">Contact</a></li>
@@ -293,7 +315,7 @@
         <div class="hero-item">
             <h3>9health</h3>
             <div class="ninhealth-content">
-                <img src="9health.jpg" alt="9health Logo">
+                <img src="9health.png" alt="9health Logo">
                 <a href="9health_guide.png" class="button" target="_blank">How to Use</a>
             </div>
             <p>Advanced AI-powered precision health platform for personalized wellness solutions.</p>
@@ -351,7 +373,10 @@
 </div>
 
 <footer>
-    <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+    <p>
+        &copy; 2025 International Society for Precision Health. All rights reserved.
+        <span class="visitor-counter">Visitors: <span id="counter">00000</span></span>
+    </p>
 </footer>
 
 <script>
@@ -359,6 +384,31 @@
         var nav = document.getElementById("nav-menu");
         nav.classList.toggle("menu-active");
     }
+
+    // Visitor counter with persistent storage
+    async function updateCounter() {
+        try {
+            // 獲取當前計數
+            let result = await window.storage.get('visitor_count', true);
+            let count = result ? parseInt(result.value) : 5000;
+            
+            // 檢查是否為新訪客（使用 sessionStorage 確保同一次會話不重複計數）
+            if (!sessionStorage.getItem('counted')) {
+                count += 1;
+                await window.storage.set('visitor_count', count.toString(), true);
+                sessionStorage.setItem('counted', 'true');
+            }
+            
+            // 格式化為5位數顯示
+            document.getElementById('counter').textContent = count.toString().padStart(5, '0');
+        } catch (error) {
+            console.error('Counter error:', error);
+            // 如果出錯，顯示預設值
+            document.getElementById('counter').textContent = '00000';
+        }
+    }
+
+    updateCounter();
 </script>
 </body>
 </html>
