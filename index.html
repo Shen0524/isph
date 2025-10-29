@@ -55,6 +55,8 @@
             .menu-active {display: block;}
             .hero-grid {grid-template-columns: 1fr !important;}
             .ninhealth-content {flex-direction: column;}
+            #about .president-info {flex-direction: column; align-items: center;}
+            #about .president-photo img {max-width: 120px !important;}
         }
         .hero {text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;}
         .hero-grid {
@@ -66,7 +68,13 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .hero-item h3 {color: #00539C; margin-bottom: 15px; font-size: 1.5rem;}
-        .hero-item img {max-width: 100%; height: auto; max-height: 300px; object-fit: contain; margin-bottom: 15px;}
+        .hero-item img {
+            max-width: 100%; 
+            height: auto; 
+            max-height: 200px;
+            object-fit: contain; 
+            margin-bottom: 15px;
+        }
         .hero-item .button {
             display: inline-block;
             background-color: #0056a6;
@@ -81,6 +89,9 @@
         .ninhealth-content {
             display: flex; align-items: center; gap: 20px; justify-content: center;
         }
+        .ninhealth-content img {
+            max-height: 100px !important;
+        }
         #about {
             text-align: left;
             border: 1px solid #ddd;
@@ -94,11 +105,19 @@
         }
         #about h2 {color: #00539C; text-align: center; margin-bottom: 20px;}
         #about .president-info {display: flex; align-items: flex-start; gap: 30px; margin-bottom: 30px;}
-        #about .president-photo img {max-width: 200px; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+        #about .president-photo img {
+            max-width: 150px;
+            height: auto; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
         #about .president-content {flex: 1;}
         #about p {margin-bottom: 15px; text-align: justify;}
         #about .signature {text-align: center; margin-top: 20px;}
-        #about .signature img {max-width: 300px; height: auto;}
+        #about .signature img {
+            max-width: 250px;
+            height: auto;
+        }
         .main-content {max-width: 1200px; margin: 20px auto; padding: 20px; text-align: center;}
         .button {
             display: inline-block;
@@ -129,10 +148,6 @@
             border: 2px solid #666;
         }
         .visitor-counter span {color: #00ff00; font-weight: bold;}
-        @media screen and (max-width: 768px) {
-            #about .president-info {flex-direction: column; align-items: center;}
-            #about .president-photo img {max-width: 150px;}
-        }
     </style>
 </head>
 <body>
@@ -170,26 +185,38 @@
 <section id="about">
     <h2>About Us</h2>
     <h2>PRESIDENT MESSAGE</h2>
-    <div class="container">
-        <h2>About Us</h2>
-        <h2>PRESIDENT MESSAGE</h2>
-        <img src="WCK.jpg" alt="Dr. Prof. Chin-Kun Wang">
-        <p>Based on the trend and real application, precision health is now at the leading position in the world. Big data collection and analysis, together the molecular approaches are critical for precision health. I am very glad to establish the International Society for Precision Health (ISPH). This is a very good beginning and time being on the way to personalized health.</p>
-        <p>Appropriate nutritional intervention is essential for growth, development and resilience, preventing diseases and their impacts. Ingested nutrients transit through metabolic pathways influenced by genetics, epigenetics, the microbiome and environmental factors, contributing to heterogeneity in individual needs and responses.</p>
-        <p>These factors also underlie differences in disease susceptibility and response to therapy. Thus, they have the potential to inform recommendations for different segments of populations in precision health approaches. Precision health combined with spatially resolved data could help the target populations of interventions where resources are limited.</p>
-        <p>Integration of big data related to genetic, epigenetic, microbiome, lifestyle, and environmental factors is required to expand our understanding of the diversity of human metabolism in response to diet, medicine and life style. Precision health encompasses utilizing a group or an individual's characteristics to optimize interventions. It is rapidly gaining traction, largely because of new 'omics' tools and consequent insights into the roles of the intestinal microbiome in metabolic and hormonal processes, and their association with diet.</p>
-        <p>ISPH is based on the global impact to advance diversity, equity, and inclusion within the life-related sciences through international activities. We are very pleased to have all international initiators around the world to kick off this global society under the support of the United Nations. This society could be the platform to provide available support and real assistance to the request of world health.</p>
-        <p>ISPH is guided by the sustainable development goals of United Nations by our VISION, MISSION, STRATEGIC PLAN AND CORE VALUES.</p>
-        <p><strong>VISION:</strong> A world where science and innovation are well connected and universally accepted as essential to improving health for all individuals.</p>
-        <p><strong>MISSION:</strong> Connecting all kinds of scientific communities to promote and advance the application on health by using AI and big data analysis.</p>
-        <p><strong>STRATEGIC PLAN:</strong> Committed to provide the useful AI tools to all population to providing the exact suggestion and comments on the health issues.</p>
-        <p><strong>VALUE:</strong> working together to advance the health promotion and one another through shared values.</p>
-        <p><strong>Dr. Prof. Chin-Kun Wang</strong><br>
-        President, International Society for Precision Health<br>
-        United Nations Goodwill Ambassador</p>
-        <div class="signature">
-            <img src="Sign.jpg" alt="Signature of Dr. Prof. Chin-Kun Wang">
+    <div class="president-info">
+        <div class="president-photo">
+            <img src="WCK.jpg" alt="Dr. Prof. Chin-Kun Wang">
         </div>
+        <div class="president-content">
+            <p>Based on the trend and real application, precision health is now at the leading position in the world. Big data collection and analysis, together the molecular approaches are critical for precision health. I am very glad to establish the International Society for Precision Health (ISPH). This is a very good beginning and time being on the way to personalized health.</p>
+            <p>Appropriate nutritional intervention is essential for growth, development and resilience, preventing diseases and their impacts. Ingested nutrients transit through metabolic pathways influenced by genetics, epigenetics, the microbiome and environmental factors, contributing to heterogeneity in individual needs and responses.</p>
+        </div>
+    </div>
+    
+    <p>These factors also underlie differences in disease susceptibility and response to therapy. Thus, they have the potential to inform recommendations for different segments of populations in precision health approaches. Precision health combined with spatially resolved data could help the target populations of interventions where resources are limited.</p>
+    
+    <p>Integration of big data related to genetic, epigenetic, microbiome, lifestyle, and environmental factors is required to expand our understanding of the diversity of human metabolism in response to diet, medicine and life style. Precision health encompasses utilizing a group or an individual's characteristics to optimize interventions. It is rapidly gaining traction, largely because of new 'omics' tools and consequent insights into the roles of the intestinal microbiome in metabolic and hormonal processes, and their association with diet.</p>
+    
+    <p>ISPH is based on the global impact to advance diversity, equity, and inclusion within the life-related sciences through international activities. We are very pleased to have all international initiators around the world to kick off this global society under the support of the United Nations. This society could be the platform to provide available support and real assistance to the request of world health.</p>
+    
+    <p>ISPH is guided by the sustainable development goals of United Nations by our VISION, MISSION, STRATEGIC PLAN AND CORE VALUES.</p>
+    
+    <p><strong>VISION:</strong> A world where science and innovation are well connected and universally accepted as essential to improving health for all individuals.</p>
+    
+    <p><strong>MISSION:</strong> Connecting all kinds of scientific communities to promote and advance the application on health by using AI and big data analysis.</p>
+    
+    <p><strong>STRATEGIC PLAN:</strong> Committed to provide the useful AI tools to all population to providing the exact suggestion and comments on the health issues.</p>
+    
+    <p><strong>VALUE:</strong> working together to advance the health promotion and one another through shared values.</p>
+    
+    <p><strong>Dr. Prof. Chin-Kun Wang</strong><br>
+    President, International Society for Precision Health<br>
+    United Nations Goodwill Ambassador</p>
+    
+    <div class="signature">
+        <img src="Sign.jpg" alt="Signature of Dr. Prof. Chin-Kun Wang">
     </div>
 </section>
 
@@ -203,58 +230,43 @@
     <p>
         &copy; 2025 International Society for Precision Health. All rights reserved.
         <span class="visitor-counter">
-            Total: <span id="total-counter">00000</span> |
-            Today: <span id="today-counter">000</span>
+            <!-- StatCounter 訪客計數器將顯示在這裡 -->
+            <a href="https://statcounter.com/" target="_blank" style="color: #00ff00; text-decoration: none;">
+                Visitors
+            </a>
         </span>
     </p>
 </footer>
 
+<!-- StatCounter 追蹤代碼 - 請替換為您的專屬代碼 -->
+<!-- 步驟：
+1. 前往 https://statcounter.com/ 註冊免費帳號
+2. 建立新專案 (New Project)
+3. 選擇 "Invisible Counter" 或 "Visible Counter"
+4. 複製生成的代碼並貼到下方區域
+5. 刪除此註解區塊
+-->
+
+<!-- 範例 StatCounter 代碼格式（請用您自己的代碼替換）: -->
+<!--
+<script type="text/javascript">
+var sc_project=12345678; 
+var sc_invisible=0; 
+var sc_security="abcd1234"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12345678/0/abcd1234/0/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+-->
+
 <script>
 function toggleMenu() {
-    var nav = document.getElementById("nav-menu");
+    const nav = document.getElementById("nav-menu");
     nav.classList.toggle("menu-active");
 }
-
-// === 訪客計數（CountAPI） ===
-async function updateCounters() {
-    const namespace = "isph-website-2025";
-    const totalKey = "total_visits";
-    const todayKey = `today_${new Date().toISOString().slice(0,10)}`;
-
-    try {
-        // 更新總訪客數 (+1)
-        const totalRes = await fetch(`https://api.countapi.xyz/hit/${namespace}/${totalKey}`);
-        const totalData = await totalRes.json();
-
-        // 取得今日訪客數（不自動 +1，需手動更新）
-        const todayRes = await fetch(`https://api.countapi.xyz/get/${namespace}/${todayKey}`);
-        const todayData = await todayRes.json();
-
-        let todayCount = todayData.value || 0;
-
-        // 每位訪客本地記錄，防止重複+1
-        const lastVisit = localStorage.getItem('lastVisitDate');
-        const todayDate = new Date().toISOString().slice(0,10);
-
-        if (lastVisit !== todayDate) {
-            // 第一次訪問今天 → 今日+1
-            await fetch(`https://api.countapi.xyz/hit/${namespace}/${todayKey}`);
-            todayCount += 1;
-            localStorage.setItem('lastVisitDate', todayDate);
-        }
-
-        // 顯示結果
-        document.getElementById('total-counter').textContent = totalData.value.toString().padStart(5, '0');
-        document.getElementById('today-counter').textContent = todayCount.toString().padStart(3, '0');
-
-    } catch (err) {
-        console.error("Counter Error:", err);
-        document.getElementById('total-counter').textContent = '-----';
-        document.getElementById('today-counter').textContent = '---';
-    }
-}
-
-updateCounters();
 </script>
 </body>
 </html>
