@@ -392,19 +392,16 @@
             let result = await window.storage.get('visitor_count', true);
             let count = result ? parseInt(result.value) : 5000;
             
-            // 檢查是否為新訪客（使用 sessionStorage 確保同一次會話不重複計數）
-            if (!sessionStorage.getItem('counted')) {
-                count += 1;
-                await window.storage.set('visitor_count', count.toString(), true);
-                sessionStorage.setItem('counted', 'true');
-            }
+            // 每次訪問都計數
+            count += 1;
+            await window.storage.set('visitor_count', count.toString(), true);
             
             // 格式化為5位數顯示
             document.getElementById('counter').textContent = count.toString().padStart(5, '0');
         } catch (error) {
             console.error('Counter error:', error);
             // 如果出錯，顯示預設值
-            document.getElementById('counter').textContent = '00000';
+            document.getElementById('counter').textContent = '-----';
         }
     }
 
