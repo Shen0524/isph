@@ -98,6 +98,119 @@
             .menu-active {
                 display: block;
             }
+
+            .hero-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .hero {
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #f9f9f9;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .hero-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-item h3 {
+            color: #00539C;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .hero-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .hero-item .button {
+            display: inline-block;
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .hero-item .button:hover {
+            background-color: #003d7a;
+        }
+
+        #about {
+            text-align: left;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #about h2 {
+            color: #00539C;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #about .president-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        #about .president-photo {
+            flex-shrink: 0;
+        }
+
+        #about .president-photo img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        #about .president-content {
+            flex: 1;
+        }
+
+        #about p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        #about .signature {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #about .signature img {
+            max-width: 300px;
+            height: auto;
         }
 
         .main-content {
@@ -115,6 +228,11 @@
             text-decoration: none;
             border-radius: 5px;
             margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #003d7a;
         }
 
         footer {
@@ -123,88 +241,112 @@
             text-align: center;
             padding: 1rem;
         }
+
+        @media screen and (max-width: 768px) {
+            #about .president-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #about .president-photo img {
+                max-width: 150px;
+            }
+        }
     </style>
 </head>
 <body>
 <header>
-        <h1>International Society for Precision Health</h1>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav id="nav-menu">
-            <ul>
-                <li class="dropdown">
-                    <a href="about.html">About Us</a>
-                    <div class="dropdown-content">
-			            <a href="bylaws.html">Bylaws</a>
-                        <a href="o1.html">Organization Structure</a>
-                       <!-- <a href="advisory-board.html">Advisory Board</a>
-                        <a href="group_member.html">Group Member</a>
-                        <a href="councilor-board.html">Councilor Board</a>-->
-                    </div>
-                </li>
-                <li><a href="Join us.html">Join ISPH</a></li>
-                <li><a href="Annual2025.html">Annual Meeting</a></li>
-                <!--<li><a href="#research">Research</a></li>-->
-                <li><a href="Contact1.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>International Society for Precision Health</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
+        <ul>
+            <li class="dropdown">
+                <a href="about.html">About Us</a>
+                <div class="dropdown-content">
+                    <a href="bylaws.html">Bylaws</a>
+                    <a href="o1.html">Organization Structure</a>
+                </div>
+            </li>
+            <li><a href="Join us.html">Join ISPH</a></li>
+            <li><a href="Annual2025.html">Annual Meeting</a></li>
+            <li><a href="Contact1.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section class="hero" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
-        <img src="LOGO.PNG" alt="ISPH Logo" style="display: block; margin-left: auto; margin-right: auto;">
-    </section>
+<section class="hero">
+    <div class="hero-grid">
+        <div class="hero-item">
+            <h3>ISPH</h3>
+            <img src="LOGO.PNG" alt="ISPH Logo">
+        </div>
+        <div class="hero-item">
+            <h3>9health</h3>
+            <img src="9health.jpg" alt="9health Logo">
+            <p>Advanced AI-powered precision health platform for personalized wellness solutions.</p>
+            <a href="9health_guide.png" class="button" target="_blank">How to Use</a>
+        </div>
+    </div>
+</section>
 
-    <section id="about" style="text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;">
-            <div class="container">
+<section id="about">
+    <div class="container">
         <h2>About Us</h2>
         <h2>PRESIDENT MESSAGE</h2>
-        <img src="WCK.jpg" alt="Dr. Prof. Chin-Kun Wang">
-        <p>Based on the trend and real application, precision health is now at the leading position in the world. Big data collection and analysis, together the molecular approaches are critical for precision health. I am very glad to establish the International Society for Precision Health (ISPH). This is a very good beginning and time being on the way to personalized health.</p>
-        <p>Appropriate nutritional intervention is essential for growth, development and resilience, preventing diseases and their impacts. Ingested nutrients transit through metabolic pathways influenced by genetics, epigenetics, the microbiome and environmental factors, contributing to heterogeneity in individual needs and responses.</p>
+        
+        <div class="president-info">
+            <div class="president-photo">
+                <img src="WCK.jpg" alt="Dr. Prof. Chin-Kun Wang">
+            </div>
+            <div class="president-content">
+                <p>Based on the trend and real application, precision health is now at the leading position in the world. Big data collection and analysis, together the molecular approaches are critical for precision health. I am very glad to establish the International Society for Precision Health (ISPH). This is a very good beginning and time being on the way to personalized health.</p>
+                
+                <p>Appropriate nutritional intervention is essential for growth, development and resilience, preventing diseases and their impacts. Ingested nutrients transit through metabolic pathways influenced by genetics, epigenetics, the microbiome and environmental factors, contributing to heterogeneity in individual needs and responses.</p>
+            </div>
+        </div>
+
         <p>These factors also underlie differences in disease susceptibility and response to therapy. Thus, they have the potential to inform recommendations for different segments of populations in precision health approaches. Precision health combined with spatially resolved data could help the target populations of interventions where resources are limited.</p>
+
         <p>Integration of big data related to genetic, epigenetic, microbiome, lifestyle, and environmental factors is required to expand our understanding of the diversity of human metabolism in response to diet, medicine and life style. Precision health encompasses utilizing a group or an individual's characteristics to optimize interventions. It is rapidly gaining traction, largely because of new 'omics' tools and consequent insights into the roles of the intestinal microbiome in metabolic and hormonal processes, and their association with diet.</p>
+
         <p>ISPH is based on the global impact to advance diversity, equity, and inclusion within the life-related sciences through international activities. We are very pleased to have all international initiators around the world to kick off this global society under the support of the United Nations. This society could be the platform to provide available support and real assistance to the request of world health.</p>
+
         <p>ISPH is guided by the sustainable development goals of United Nations by our VISION, MISSION, STRATEGIC PLAN AND CORE VALUES.</p>
+
         <p><strong>VISION:</strong> A world where science and innovation are well connected and universally accepted as essential to improving health for all individuals.</p>
+
         <p><strong>MISSION:</strong> Connecting all kinds of scientific communities to promote and advance the application on health by using AI and big data analysis.</p>
+
         <p><strong>STRATEGIC PLAN:</strong> Committed to provide the useful AI tools to all population to providing the exact suggestion and comments on the health issues.</p>
+
         <p><strong>VALUE:</strong> working together to advance the health promotion and one another through shared values.</p>
+
         <p><strong>Dr. Prof. Chin-Kun Wang</strong><br>
         President, International Society for Precision Health<br>
         United Nations Goodwill Ambassador</p>
+
         <div class="signature">
             <img src="Sign.jpg" alt="Signature of Dr. Prof. Chin-Kun Wang">
         </div>
     </div>
-    </section>
+</section>
 
-    <div class="main-content">
-        <a href="Join us.html" class="button">Join ISPH</a>
-        <a href="Annual2025.html" class="button">Annual Meeting</a>
-        <a href="https://drive.google.com/drive/folders/18txAIBY2haJ7SYv8j_GrrgGCn1kn4SU2?usp=sharing" target="_blank" style="padding: 8px 16px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px;">Photo Gallery</a>
-        <a href="https://drive.google.com/drive/folders/1BDuCqjlQksZoUzCKtEY_WvLqzrzEFOOm?usp=sharing" target="_blank" style="padding: 8px 16px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px;">Photo Gallery_1</a>
-		<!--<a href="Registration1.html" class="button">Register Now </a>
-        <a href="Registration.html" class="button">Register Now <span style="color: #ff0000;">(Taiwanese Only)</span></a>-->
-    </div>
+<div class="main-content">
+    <a href="Join us.html" class="button">Join ISPH</a>
+    <a href="Annual2025.html" class="button">Annual Meeting</a>
+    <a href="https://drive.google.com/drive/folders/18txAIBY2haJ7SYv8j_GrrgGCn1kn4SU2?usp=sharing" target="_blank" class="button" style="background-color: #4CAF50;">Photo Gallery</a>
+    <a href="https://drive.google.com/drive/folders/1BDuCqjlQksZoUzCKtEY_WvLqzrzEFOOm?usp=sharing" target="_blank" class="button" style="background-color: #4CAF50;">Photo Gallery_1</a>
+</div>
 
-    <footer>
-        <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+</footer>
 
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("nav-menu");
-            nav.classList.toggle("menu-active");
-        }
-    </script>
+<script>
+    function toggleMenu() {
+        var nav = document.getElementById("nav-menu");
+        nav.classList.toggle("menu-active");
+    }
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
