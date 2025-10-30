@@ -1,0 +1,271 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTTPS 安全標頭 -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>International Society for Precision Health - Annual 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+
+        /* LOGO */
+        .logo-container { position: fixed; top: 80px; left: 20px; z-index: 10; }
+        .logo-container img { max-width: 100px; height: auto; border-radius: 5px; }
+
+        /* 標頭 */
+        header { background-color: #2E7D32; color: #fff; padding: 1rem; text-align: center; }
+        header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
+
+        /* 導航 - 新顏色 */
+        nav { background-color: #1B5E20; padding: 0.5rem; position: relative; }
+        .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; padding: 0.5rem; cursor: pointer; }
+        nav a { text-decoration: none; color: #fff; padding: 0.5rem 1rem; display: inline-block; font-weight: bold; }
+        .nav-links { display: flex; justify-content: center; flex-wrap: wrap; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 200px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: #333; padding: 0.8rem 1rem; display: block; text-align: left; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* 主要內容 */
+        main { padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
+
+        /* 大標題區塊 */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            animation: fadeIn 1.5s ease forwards;
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        .hero-subtitle {
+            font-size: 2.5rem;
+            color: #E8F5E9;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .hero-message {
+            font-size: 2rem;
+            color: #FFF9C4;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 倒數 */
+        .countdown-wrap { text-align: center; margin: 3rem 0; }
+        .countdown-wrap h2 { color: #2E7D32; font-size: 1.8rem; margin-bottom: 1rem; font-weight: bold; }
+        #countdown {
+            font-size: 2.5em; font-weight: bold; color: #2E7D32; background: #fff; display: inline-block;
+            padding: 30px 40px; border-radius: 15px; border: 4px solid #4CAF50; box-shadow: 0 6px 20px rgba(46,125,50,0.3);
+        }
+
+        /* 資訊卡片 */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 5px solid #4CAF50;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .info-card h3 {
+            color: #2E7D32;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .info-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* 主題區塊 */
+        .theme-container {
+            border: 3px solid #4CAF50; border-radius: 10px; padding: 2rem; margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(46,125,50,0.05) 0%, rgba(76,175,80,0.05) 100%);
+        }
+        .theme-title { color: #2E7D32; font-size: 1.6rem; font-weight: bold; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 3px solid #4CAF50; }
+        .sub-theme-title { color: #1B5E20; font-size: 1.2rem; font-weight: 600; line-height: 1.6; }
+
+        .button {
+            display: inline-block; padding: 1rem 2rem; margin: 0.5rem; color: #fff;
+            background-color: #2E7D32; text-decoration: none; border-radius: 8px; 
+            transition: all 0.3s; font-weight: bold; font-size: 1.1rem;
+        }
+        .button:hover { background-color: #4CAF50; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(46,125,50,0.3); }
+
+        footer { background-color: #1B5E20; color: #fff; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+
+        /* 響應式 */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.5rem; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .hero-message { font-size: 1.3rem; }
+            .menu-toggle { display: block; width: 100%; text-align: left; }
+            .nav-links { display: none; flex-direction: column; width: 100%; }
+            .nav-links.active { display: flex; }
+            nav a { width: 100%; padding: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; width: 100%; box-shadow: none; background-color: #2E7D32; }
+            .dropdown-content a { color: #fff; padding-left: 2rem; }
+            .button { display: block; margin: 0.8rem auto; max-width: 280px; }
+            #countdown { font-size: 1.5em; padding: 15px 20px; }
+            .countdown-wrap h2 { font-size: 1.3rem; }
+            .hero-section { padding: 2rem 1rem; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.2rem; }
+            main { padding: 1rem; }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .hero-message { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGO -->
+    <div class="logo-container">
+        <img src="LOGO.PNG" alt="Society Logo">
+    </div>
+
+    <header>
+        <h1>International Society for Precision Health</h1>
+        <p>Annual Conference 2026</p>
+    </header>
+
+    <nav>
+        <button class="menu-toggle">☰ Menu</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html">2025 Conference</a>
+            <div class="dropdown">
+                <a href="#">About &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Organizing_Committees.html">Organizing Committees</a>
+                    <a href="country.html">Country Representation</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">General Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Transportation_Guide.html">Transportation Guide</a>
+                    <a href="FAQ.html">FAQs</a>
+                </div>
+            </div>
+            <a href="Contact.html">Follow Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 主要英雄區塊 -->
+        <div class="hero-section">
+            <div class="hero-title">2026</div>
+            <div class="hero-subtitle">October 21-23 in Taiwan</div>
+            <div class="hero-message">See You Soon!</div>
+        </div>
+
+        <!-- 倒數計時 -->
+        <div class="countdown-wrap" aria-live="polite">
+            <h2>Countdown to October 21, 2026</h2>
+            <div id="countdown">Calculating...</div>
+        </div>
+
+        <!-- 主題區塊 -->
+        <div class="theme-container">
+            <div class="theme-title">Save the Date!</div>
+            <div class="sub-theme-title">
+                Join us for the 2026 Annual Conference of the International Society for Precision Health. 
+                Three days of cutting-edge research, networking opportunities, and collaborative discussions 
+                on the future of precision health and nutrition.
+            </div>
+        </div>
+
+        <!-- 資訊卡片 -->
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>📅 When</h3>
+                <p>October 21-23, 2026<br>Mark your calendars for three days of exciting scientific exchange and innovation.</p>
+            </div>
+            <div class="info-card">
+                <h3>📍 Where</h3>
+                <p>Taiwan<br>Experience world-class research presentations in one of Asia's most vibrant locations.</p>
+            </div>
+            <div class="info-card">
+                <h3>🎯 Focus Areas</h3>
+                <p>Health, Precision, Nutrition<br>Disease Prevention • Nutrition Intervention • Big Data Application</p>
+            </div>
+            <div class="info-card">
+                <h3>🌏 Global Community</h3>
+                <p>Connect with leading researchers, clinicians, and industry experts from around the world.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-size: 1.3rem; color: #2E7D32; font-weight: 600; margin-bottom: 1.5rem;">
+                Stay tuned for more updates!
+            </p>
+            <a href="Contact.html" class="button">Follow Us for Updates</a>
+            <a href="index.html" class="button" style="background-color: #388E3C;">View 2025 Conference</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 手機選單
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // 倒數計時
+        function updateCountdown() {
+            const eventDate = new Date("2026-10-21T00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeRemaining = eventDate - now;
+
+            const el = document.getElementById("countdown");
+            if (!el) return;
+
+            if (timeRemaining <= 0) {
+                el.textContent = "The event has started!";
+                return;
+            }
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            el.textContent = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
