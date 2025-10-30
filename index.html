@@ -26,13 +26,53 @@
         header h1 {font-size: 1.8rem; margin: 0;}
         nav {display: flex;}
         nav ul {list-style: none; display: flex; margin: 0; padding: 0;}
-        nav ul li {margin: 0 10px;}
+        nav ul li {margin: 0 10px; position: relative;}
         nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
             padding: 0.5rem 1rem;
+            display: block;
         }
+        
+        /* 下拉選單樣式 */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #003366;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            font-weight: normal;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #00539C;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
         .menu-toggle {display: none; font-size: 1.8rem; cursor: pointer;}
         @media screen and (max-width: 768px) {
             .menu-toggle {display: block;}
@@ -57,6 +97,19 @@
             .ninhealth-content {flex-direction: column;}
             #about .president-info {flex-direction: column; align-items: center;}
             #about .president-photo img {max-width: 120px !important;}
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: #002244;
+                margin-top: 5px;
+                border-radius: 0;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
         }
         .hero {text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;}
         .hero-grid {
@@ -159,14 +212,13 @@
             <li><a href="bylaws.html">Bylaws</a></li>
             <li><a href="o1.html">Organization Structure</a></li>
             <li><a href="Join us.html">Join ISPH</a></li>
-            <div class="dropdown">
-                <a href="#">Events &#9662;</a>
+            <li class="dropdown" onclick="toggleDropdown(event)">
+                <a href="#">Events ▼</a>
                 <div class="dropdown-content">
-                    <a href="html">Annual2026</a>
-                    <a href="Annual2025..html">Annual2025.</a>
+                    <a href="Annual2026.html">Annual2026</a>
+                    <a href="Annual2025.html">Annual2025</a>
                 </div>
-            </div>
-            <li><a href="Annual2025.html">Annual Meeting</a></li>
+            </li>
             <li><a href="Contact1.html">Contact</a></li>
         </ul>
     </nav>
@@ -177,16 +229,16 @@
         <div class="hero-item">
             <h3>ISPH</h3>
             <img src="LOGO.PNG" alt="ISPH Logo" style="margin-bottom: 40px;">
-             <h3>International Society for Precision Health</h3>
+            <h3>International Society for Precision Health</h3>
         </div>
-   <div class="hero-item">
-    <h3>9health</h3>
-        <div style="text-align: center; margin: 20px 0;">
-        <img src="9health.jpg" alt="9health QR Code" style="max-width: 150px; display: block; margin: 0 auto 10px auto;">
-        <a href="9health_guide.png" class="button" target="_blank">How to Use</a>
-    </div>
-    <p>Advanced AI-powered precision health platform for personalized wellness solutions.</p>
-</div>
+        <div class="hero-item">
+            <h3>9health</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="9health.jpg" alt="9health QR Code" style="max-width: 150px; display: block; margin: 0 auto 10px auto;">
+                <a href="9health_guide.png" class="button" target="_blank">How to Use</a>
+            </div>
+            <p>Advanced AI-powered precision health platform for personalized wellness solutions.</p>
+        </div>
     </div>
 </section>
 
@@ -269,16 +321,16 @@ function toggleMenu() {
     const nav = document.getElementById("nav-menu");
     nav.classList.toggle("menu-active");
 }
+
+function toggleDropdown(event) {
+    // 只在手機版時使用
+    if (window.innerWidth <= 768) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = event.currentTarget;
+        dropdown.classList.toggle('active');
+    }
+}
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
