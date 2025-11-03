@@ -44,6 +44,12 @@
             cursor: pointer;
         }
 
+        .dropdown > a::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -69,48 +75,92 @@
             background-color: #00539C;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* 電腦版 hover 效果 */
+        @media screen and (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
         
         .menu-toggle {display: none; font-size: 1.8rem; cursor: pointer;}
+        
         @media screen and (max-width: 768px) {
+            header h1 {font-size: 1.2rem;}
+            
             .menu-toggle {display: block;}
+            
             nav {
                 display: none;
                 position: absolute;
-                top: 60px; right: 20px;
+                top: 60px; 
+                right: 20px;
                 background-color: #003366;
                 border-radius: 8px;
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                width: 200px;
+                width: 220px;
+                z-index: 1000;
             }
-            nav ul {display: block; text-align: right; padding: 0;}
-            nav ul li {margin: 10px;}
+            
+            nav ul {
+                display: block; 
+                text-align: right; 
+                padding: 10px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
             nav ul li a {
                 display: block;
-                padding: 10px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 12px 20px;
             }
-            .menu-active {display: block;}
-            .hero-grid {grid-template-columns: 1fr !important;}
-            .ninhealth-content {flex-direction: column;}
-            #about .president-info {flex-direction: column; align-items: center;}
-            #about .president-photo img {max-width: 120px !important;}
+            
+            .menu-active {
+                display: block;
+            }
+            
+            /* 手機版下拉選單 */
+            .dropdown {
+                position: relative;
+            }
+            
+            .dropdown > a {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
             
             .dropdown-content {
                 position: static;
                 display: none;
                 box-shadow: none;
                 background-color: #002244;
-                margin-top: 5px;
+                margin: 0;
                 border-radius: 0;
+                min-width: 100%;
             }
 
             .dropdown.active .dropdown-content {
                 display: block;
             }
+            
+            .dropdown-content a {
+                padding: 10px 30px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .hero-grid {grid-template-columns: 1fr !important;}
+            .ninhealth-content {flex-direction: column;}
+            #about .president-info {flex-direction: column; align-items: center;}
+            #about .president-photo img {max-width: 120px !important;}
         }
+        
         .hero {text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;}
         .hero-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
@@ -212,8 +262,8 @@
             <li><a href="bylaws.html">Bylaws</a></li>
             <li><a href="o1.html">Organization Structure</a></li>
             <li><a href="Join us.html">Join ISPH</a></li>
-            <li class="dropdown" onclick="toggleDropdown(event)">
-                <a href="#">Events</a>
+            <li class="dropdown" id="dropdown-events">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">Events</a>
                 <div class="dropdown-content">
                     <a href="Annual2026.html">Annual2026</a>
                     <a href="Annual2025.html">Annual2025</a>
@@ -291,7 +341,6 @@
     <p>
         &copy; 2025 International Society for Precision Health. All rights reserved.
         <span class="visitor-counter">
-            <!-- StatCounter 訪客計數器將顯示在這裡 -->
             <a href="https://statcounter.com/" target="_blank" style="color: #00ff00; text-decoration: none;">
                 Visitors
             </a>
@@ -299,7 +348,6 @@
     </p>
 </footer>
 
-<!-- StatCounter 追蹤代碼 - 請替換為您的專屬代碼 -->
 <!-- Default Statcounter code for ISPH Website http://www.isfph.org -->
 <script type="text/javascript">
 var sc_project=13180046; 
@@ -323,15 +371,46 @@ function toggleMenu() {
 }
 
 function toggleDropdown(event) {
-    // 只在手機版時使用
-    if (window.innerWidth <= 768) {
-        event.preventDefault();
-        event.stopPropagation();
-        var dropdown = event.currentTarget;
-        dropdown.classList.toggle('active');
-    }
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const dropdown = event.currentTarget.parentElement;
+    
+    // 關閉其他下拉選單
+    const allDropdowns = document.querySelectorAll('.dropdown');
+    allDropdowns.forEach(item => {
+        if (item !== dropdown) {
+            item.classList.remove('active');
+        }
+    });
+    
+    // 切換當前下拉選單
+    dropdown.classList.toggle('active');
 }
+
+// 點擊外部關閉下拉選單
+document.addEventListener('click', function(event) {
+    if (window.innerWidth <= 768) {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+});
+
+// 點擊下拉選單內的連結後關閉選單
+document.querySelectorAll('.dropdown-content a').forEach(link => {
+    link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            document.getElementById('nav-menu').classList.remove('menu-active');
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+});
 </script>
 </body>
 </html>
-
