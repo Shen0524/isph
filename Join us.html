@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 👇 這兩行是新增加的HTTPS安全標頭 -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <!-- 👆 新增加的部分結束 -->
     <title>Join ISPH</title>
     <style>
         body {
@@ -71,10 +69,14 @@
             position: relative;
         }
 
+        .dropdown > a {
+            cursor: pointer;
+        }
+
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #0056a6;
+            background-color: #003d7a;
             min-width: 200px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
@@ -92,16 +94,19 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #003d7a;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+            background-color: #0056a6;
         }
 
         .dropdown > a::after {
             content: " ▼";
             font-size: 0.7rem;
+        }
+
+        /* 電腦版 hover 效果 */
+        @media screen and (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
         /* 手機和平板導航 */
@@ -112,40 +117,75 @@
         }
 
         @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 1.1rem;
+            }
+
+            header .logo img {
+                max-height: 40px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
             nav {
                 display: none;
                 position: absolute;
                 top: 60px;
                 right: 20px;
-                background-color: #0056a6;
+                background-color: #003366;
                 border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                width: 220px;
+                z-index: 1000;
             }
 
             nav ul {
                 display: block;
-                padding: 0;
+                padding: 10px 0;
             }
 
             nav ul li {
                 text-align: right;
-                margin: 10px 20px;
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            nav ul li a {
+                padding: 12px 20px;
+            }
+
+            .dropdown > a {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
             }
 
             .dropdown-content {
                 position: static;
                 display: none;
                 box-shadow: none;
-                background-color: #003d7a;
-                margin-top: 5px;
+                background-color: #002244;
+                margin: 0;
+                border-radius: 0;
             }
 
             .dropdown.active .dropdown-content {
                 display: block;
             }
 
-            .menu-toggle {
-                display: block;
+            .dropdown-content a {
+                padding: 10px 30px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .dropdown-content a:last-child {
+                border-bottom: none;
             }
 
             .menu-active {
@@ -168,6 +208,16 @@
             margin-bottom: 20px;
         }
 
+        .container h2 {
+            color: #0056a6;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .container ul {
+            margin: 15px 0;
+        }
+
         .submit-btn {
             background-color: #0056a6;
             color: #fff;
@@ -177,6 +227,7 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 15px;
+            transition: background-color 0.3s;
         }
 
         .submit-btn:hover {
@@ -194,21 +245,21 @@
         <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li class="dropdown" onclick="toggleDropdown(event)">
-                    <a href="about.html">About Us</a>
+                <li class="dropdown" id="dropdown-about">
+                    <a href="javascript:void(0)" onclick="toggleDropdown(event)">About Us</a>
                     <div class="dropdown-content">
                         <a href="about.html">President Message</a>
                         <a href="bylaws.html">Bylaws</a>
                         <a href="o1.html">Organization Structure</a>
                     </div>
                 </li>
-                <li class="dropdown" onclick="toggleDropdown(event)">
-                <a href="#">Events</a>
-                <div class="dropdown-content">
-                    <a href="Annual2026.html">Annual2026</a>
-                    <a href="Annual2025.html">Annual2025</a>
-                </div>
-            </li>
+                <li class="dropdown" id="dropdown-events">
+                    <a href="javascript:void(0)" onclick="toggleDropdown(event)">Events</a>
+                    <div class="dropdown-content">
+                        <a href="Annual2026.html">Annual2026</a>
+                        <a href="Annual2025.html">Annual2025</a>
+                    </div>
+                </li>
                 <li><a href="Contact1.html">Contact</a></li>
             </ul>
         </nav>
@@ -219,48 +270,74 @@
         <p>Click the button below to proceed with your membership registration.</p>
         <button type="button" class="submit-btn" onclick="redirectToGoogleForm()">Proceed to Registration</button>
     </div>
-    <!-- Payment Information -->
-  <div class="container card" id="payment">
-    <h2 style="text-align: center;">💳 Payment Information</h2>
-    <p style="text-align: left;">Please complete your bank transfer <strong style="color:red;">within 3 days</strong> after submitting the form.</p>
-    <ul style="line-height: 1.8; text-align: left;">
-      <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
-      <li><strong>Bank Address:</strong> 1F., No.78, Sec. 2, Fuxing Rd., South Dist., Taichung City 40245, Taiwan</li>
-      <li><strong>Swift Code:</strong> CCBCTWTP405</li>
-      <li><strong>Account No.:</strong> 4059 86 13181 800</li>
-      <li><strong>Beneficiary's Name:</strong>International Society for Precision Health</li>
-    </ul>
 
-    <h2 style="text-align: center;">🛠️ Technical Support</h2>
-    <p style="text-align: left;">If you encounter issues with form submission, please contact us directly or try an alternative registration method.</p>
-  </div>
+    <!-- Payment Information -->
+    <div class="container" id="payment">
+        <h2 style="text-align: center;">💳 Payment Information</h2>
+        <p style="text-align: left;">Please complete your bank transfer <strong style="color:red;">within 3 days</strong> after submitting the form.</p>
+        <ul style="line-height: 1.8; text-align: left;">
+            <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
+            <li><strong>Bank Address:</strong> 1F., No.78, Sec. 2, Fuxing Rd., South Dist., Taichung City 40245, Taiwan</li>
+            <li><strong>Swift Code:</strong> CCBCTWTP405</li>
+            <li><strong>Account No.:</strong> 4059 86 13181 800</li>
+            <li><strong>Beneficiary's Name:</strong> International Society for Precision Health</li>
+        </ul>
+
+        <h2 style="text-align: center;">🛠️ Technical Support</h2>
+        <p style="text-align: left;">If you encounter issues with form submission, please contact us directly or try an alternative registration method.</p>
+    </div>
     
     <script>
         function toggleMenu() {
-            var nav = document.getElementById("nav-menu");
-            if (nav.classList.contains("menu-active")) {
-                nav.classList.remove("menu-active");
-            } else {
-                nav.classList.add("menu-active");
-            }
+            const nav = document.getElementById("nav-menu");
+            nav.classList.toggle("menu-active");
         }
 
         function toggleDropdown(event) {
-            // 只在手機版時使用
-            if (window.innerWidth <= 768) {
-                event.preventDefault();
-                event.stopPropagation();
-                var dropdown = event.currentTarget;
-                dropdown.classList.toggle('active');
-            }
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const dropdown = event.currentTarget.parentElement;
+            
+            // 關閉其他下拉選單
+            const allDropdowns = document.querySelectorAll('.dropdown');
+            allDropdowns.forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // 切換當前下拉選單
+            dropdown.classList.toggle('active');
         }
 
         function redirectToGoogleForm() {
             window.location.href = "https://forms.gle/BRV9zVUSjDYNLPM89";
         }
+
+        // 點擊外部關閉下拉選單
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 768) {
+                const dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(dropdown => {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // 點擊下拉選單內的連結後關閉選單
+        document.querySelectorAll('.dropdown-content a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('nav-menu').classList.remove('menu-active');
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
-
-
-
