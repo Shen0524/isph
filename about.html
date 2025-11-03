@@ -51,12 +51,55 @@
 
         nav ul li {
             margin: 0 10px;
+            position: relative;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-size: 1rem;
+            display: block;
+            padding: 5px 10px;
+        }
+
+        /* 下拉選單樣式 */
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #003366;
+            min-width: 150px;
+            border-radius: 4px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0056a6;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: ' ▼';
+            font-size: 0.7rem;
         }
 
         /* 手機和平板導航 */
@@ -67,6 +110,10 @@
         }
 
         @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 1rem;
+            }
+
             .menu-toggle {
                 display: block;
             }
@@ -80,6 +127,7 @@
                 border-radius: 8px;
                 width: 200px;
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
             }
 
             nav ul {
@@ -89,11 +137,33 @@
 
             nav ul li {
                 text-align: right;
-                margin: 10px;
+                margin: 0;
+            }
+
+            nav ul li a {
+                padding: 12px 15px;
             }
 
             .menu-active {
                 display: block;
+            }
+
+            /* 手機版下拉選單 */
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #002244;
+                box-shadow: none;
+                margin: 0;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content a {
+                padding: 10px 25px;
+                font-size: 0.9rem;
             }
         }
 
@@ -141,11 +211,11 @@
                 <li><a href="o1.html">Organization Structure</a></li>
                 <li><a href="Join us.html">Join ISPH</a></li>
                 <li class="dropdown" onclick="toggleDropdown(event)">
-                <a href="#">Events</a>
-                <div class="dropdown-content">
-                    <a href="Annual2026.html">Annual2026</a>
-                    <a href="Annual2025.html">Annual2025</a>
-                </div>
+                    <a href="javascript:void(0)">Events</a>
+                    <div class="dropdown-content">
+                        <a href="Annual2026.html">Annual2026</a>
+                        <a href="Annual2025.html">Annual2025</a>
+                    </div>
                 </li>
                 <!--<li><a href="#research">Research</a></li>-->
                 <li><a href="Contact1.html">Contact</a></li>
@@ -178,6 +248,22 @@
         function toggleMenu() {
             document.getElementById("nav-menu").classList.toggle("menu-active");
         }
+
+        function toggleDropdown(event) {
+            event.stopPropagation();
+            const dropdown = event.currentTarget;
+            dropdown.classList.toggle("active");
+        }
+
+        // 點擊其他地方關閉下拉選單
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
