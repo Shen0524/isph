@@ -1,0 +1,399 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ISPH Newsletter Vol. 1</title>
+    <style type="text/css">
+      /* Reset */
+      html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+      * { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; box-sizing: border-box; }
+      table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
+      table { border-collapse:collapse !important; }
+      img { -ms-interpolation-mode:bicubic; border:0; outline:none; text-decoration:none; max-width:100%; height:auto; display:block; }
+      a { text-decoration: none; }
+      
+      /* Typography */
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif; }
+      .h1 { font-size:28px; line-height:1.3; font-weight:800; margin:0 0 8px; }
+      .h2 { font-size:20px; line-height:1.4; font-weight:700; margin:0 0 12px; }
+      .lead { font-size:16px; line-height:1.7; }
+      .small { font-size:13px; line-height:1.6; color:#6b7a86; }
+      
+      /* Buttons - Enhanced */
+      .btn { 
+        display:inline-block; 
+        padding:14px 24px; 
+        border-radius:8px; 
+        font-weight:600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-size: 15px;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      }
+      .btn-primary { background:#0B6A8C; color:#ffffff !important; }
+      .btn-primary:hover { background:#095873; }
+      .btn-secondary { background:#256B4A; color:#ffffff !important; }
+      .btn-secondary:hover { background:#1d5439; }
+      .btn-success { background:#28a745; color:#ffffff !important; }
+      .btn-success:hover { background:#218838; }
+      .btn-info { background:#17a2b8; color:#ffffff !important; }
+      .btn-info:hover { background:#138496; }
+      .btn-light { background:#F0F3F5; color:#0B6A8C !important; }
+      .btn-light:hover { background:#e1e8ec; }
+      
+      /* Cards and Sections */
+      .card { 
+        background:#ffffff; 
+        border-radius:16px; 
+        overflow:hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      .section-box {
+        background:#f0f6f7;
+        border:1px solid #e2eef2;
+        border-radius:12px;
+        padding:20px;
+        margin-bottom:16px;
+      }
+      
+      /* Image Gallery */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+      .gallery-item:hover {
+        transform: scale(1.02);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      figcaption {
+        margin-top: 8px;
+        font-size: 13px;
+        color: #6b7a86;
+        font-style: italic;
+      }
+      
+      /* Button Group */
+      .btn-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 16px 0;
+      }
+      
+      /* Responsive Tablet (iPad) */
+      @media screen and (max-width: 768px) and (min-width: 601px) {
+        .container { width:95% !important; max-width:700px !important; }
+        .h1 { font-size:26px; }
+        .h2 { font-size:19px; }
+        .gallery-grid { gap: 10px; }
+        .btn { padding:12px 20px; font-size:14px; }
+      }
+      
+      /* Mobile */
+      @media screen and (max-width:600px) {
+        .container { width:100% !important; }
+        .px { padding-left:16px !important; padding-right:16px !important; }
+        .py { padding-top:16px !important; padding-bottom:16px !important; }
+        .stack { display:block !important; width:100% !important; }
+        .center { text-align:center !important; }
+        
+        .h1 { font-size:24px; }
+        .h2 { font-size:18px; }
+        .lead, p { font-size:15px !important; }
+        
+        .btn { 
+          display:block; 
+          width:100%; 
+          text-align:center;
+          padding:12px 18px;
+          font-size:14px;
+          margin-bottom:10px;
+        }
+        .btn-group {
+          flex-direction: column;
+          gap: 8px;
+        }
+        
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        
+        .mobile-hide { display:none !important; }
+        .section-box { padding:16px; }
+        
+        /* Header logo adjustment */
+        .header-logo { 
+          width:70px !important; 
+          height:70px !important;
+          margin-top:12px;
+        }
+      }
+      
+      /* Dark mode */
+      @media (prefers-color-scheme: dark) {
+        body, .bg-body { background:#0f141a !important; color:#e6eef5 !important; }
+        .card { background:#16212a !important; }
+        .section-box { background:#1a2730 !important; border-color:#26323c !important; }
+        .btn-light { background:#26323c !important; color:#e6eef5 !important; }
+        hr { border-top-color:#26323c !important; }
+      }
+    </style>
+  </head>
+  <body style="margin:0; padding:0; background:#f6f8fa;">
+    <!-- Preheader -->
+    <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden;">
+      Thank you for joining ISPH 2025 in Taipei — photos, proceedings, 9Health, membership, and 2026 save-the-date inside.
+    </div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f6f8fa;">
+      <tr>
+        <td align="center" style="padding:10px;">
+          <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" class="container" style="width:640px; max-width:100%;">
+            
+            <!-- Header -->
+            <tr>
+              <td class="px py" style="padding:20px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="card">
+                  <tr>
+                    <td style="background:linear-gradient(135deg, #0B6A8C 0%, #094d66 100%); padding:28px;">
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td style="vertical-align:middle;">
+                            <h1 class="h1" style="color:#ffffff; margin:0; font-weight:800;">ISPH Newsletter Vol. 1</h1>
+                            <p style="color:#d9f0f7; font-size:14px; line-height:1.6; margin:8px 0 0;">Thank you for joining us in Taipei<br class="mobile-hide"> · October 18, 2025 · 52 countries represented</p>
+                          </td>
+                          <td align="right" class="stack mobile-hide" style="width:96px; vertical-align:middle;">
+                            <img src="LOGO.PNG" width="88" height="88" alt="ISPH" class="header-logo" style="border-radius:12px; background:#ffffff; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Intro -->
+                  <tr>
+                    <td style="padding:28px; color:#1e2a32;">
+                      <p class="lead" style="margin:0 0 16px; font-size:16px; line-height:1.8;">
+                        Dear Esteemed Speakers, Members, and Distinguished Guests,
+                      </p>
+                      <p class="lead" style="margin:0 0 16px; font-size:16px; line-height:1.8;">
+                        On behalf of the <strong>International Society for Precision Health (ISPH)</strong>, we extend our sincerest appreciation for your participation in the <strong>ISPH 2025 Annual Conference</strong>, held on <strong>October 18, 2025</strong>, in <strong>Taipei, Taiwan</strong>. With delegates from <strong>52 countries</strong>, your expertise, insightful discussions, and enthusiasm made the event a great success and a milestone for global collaboration in precision health.
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- Action Buttons -->
+                  <tr>
+                    <td style="padding:0 28px 20px;">
+                      <div class="btn-group">
+                        <a class="btn btn-primary" href="https://drive.google.com/drive/folders/18txAIBY2haJ7SYv8j_GrrgGCn1kn4SU2?usp=sharing" target="_blank">📸 Photo Album</a>
+                        <a class="btn btn-success" href="https://drive.google.com/drive/folders/1BDuCqjlQksZoUzCKtEY_WvLqzrzEFOOm?usp=sharing" target="_blank">📸 Photo Album 2</a>
+                        <a class="btn btn-info" href="https://www.bio-conferences.org/articles/bioconf/abs/2025/38/contents/contents.html#section_10.1051/bioconf/202518704001" target="_blank">📘 Proceedings</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Photo Gallery -->
+                  <tr>
+                    <td style="padding:0 28px 28px;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">📸 Photo Highlights</p>
+                      <div class="gallery-grid">
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n101.jpg" alt="Opening ceremony">
+                          <figcaption>President Chin-Kun Wang and guests perform the opening drum ceremony.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n102.jpg" alt="Group photo">
+                          <figcaption>Group photo at the opening ceremony.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n103.jpg" alt="Joint symposium">
+                          <figcaption>Lively exchanges at the joint symposium.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n104.jpg" alt="Parallel sessions">
+                          <figcaption>Engaging presentations in parallel sessions.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n105.jpg" alt="Gala performance">
+                          <figcaption>President Chin-Kun Wang performs on the saxophone at the gala dinner.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n106.jpg" alt="Gala group photo">
+                          <figcaption>Memorable gala dinner group photo.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n107.jpg" alt="Gala highlights">
+                          <figcaption>Gala dinner highlights.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n108.jpg" alt="Cultural exchange">
+                          <figcaption>Group photo before departure for cultural exchange.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n109.jpg" alt="Yehliu Geopark">
+                          <figcaption>Cultural exchange at Yehliu Geopark.</figcaption>
+                        </figure>
+                        <figure class="gallery-item" style="margin:0;">
+                          <img src="News/n110.jpg" alt="Yehliu Geopark 2">
+                          <figcaption>Cultural exchange at Yehliu Geopark.</figcaption>
+                        </figure>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Content Sections -->
+                  <tr>
+                    <td style="padding:0 28px 20px; color:#1e2a32;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">🎉 ISPH Inauguration and Opening Ceremony</p>
+                      <p style="margin:0 0 14px; font-size:15px; line-height:1.8;">The International Society for Precision Health (ISPH) held its inaugural ceremony at the Chang Yung-Fa Foundation International Convention Center in Taipei, alongside the joint ISPH–ISNPR 2025 International Conference. The event brought together distinguished scholars and experts from around the world, creating an atmosphere of vibrant exchange and scientific enthusiasm.</p>
+                      <p style="margin:0 0 14px; font-size:15px; line-height:1.8;">During the ceremony, President Chin-Kun Wang delivered the opening address, highlighting that the establishment of ISPH represents a milestone in advancing global research exchange. He emphasized the Society's mission to serve as a bridge for international collaboration and knowledge sharing in the fields of precision nutrition, mental health, and functional food science.</p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td style="padding:0 28px 20px; color:#1e2a32;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">📊 Overview of the Joint Annual Conference</p>
+                      <p style="margin:0 0 14px; font-size:15px; line-height:1.8;">The ISPH–ISNPR Joint Annual Conference centered on the theme <em>"Health, Precision, and Nutrition: From Prevention to Innovation."</em> The program focused on key topics such as nutritional enhancement strategies, disease prevention, data-driven health management, and the interconnection between psychiatry and nutrition. Researchers from Europe, the Americas, Asia, and Oceania engaged in cross-disciplinary discussions across clinical nutrition, gut microbiota, metabolic health, and AI applications in nutrition science.</p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td style="padding:0 28px 20px; color:#1e2a32;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">💡 Parallel Sessions Highlights</p>
+                      <ul style="margin:0 0 14px 20px; font-size:15px; line-height:1.8; padding:0;">
+                        <li style="margin-bottom:8px;"><strong>Nutrient Fortification and Strategy:</strong> Supplementation, dietary policy, and sustainability.</li>
+                        <li style="margin-bottom:8px;"><strong>Precision Nutrition and Functional Foods:</strong> Metabolomics and microbiome applications for personalized nutrition.</li>
+                        <li style="margin-bottom:8px;"><strong>Phytotherapy and Natural Pharmacology:</strong> Phytochemicals and mechanisms in oxidative stress and glucose metabolism.</li>
+                        <li style="margin-bottom:8px;"><strong>Nutrition and Mental Health:</strong> Gut–brain axis and dietary effects on mood and cognition.</li>
+                        <li style="margin-bottom:8px;"><strong>Chronic Disease and Clinical Nutrition:</strong> Diet's role in prevention and biomarker discovery.</li>
+                      </ul>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td style="padding:0 28px 20px; color:#1e2a32;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">🍽️ Gala Dinner and Cultural Activities</p>
+                      <p style="margin:0 0 14px; font-size:15px; line-height:1.8;">A welcome banquet offered an opportunity for informal networking and continued academic exchange in a relaxed atmosphere. The evening was filled with lively conversations and camaraderie. Post-conference cultural excursions showcased local landscapes and landmarks, allowing international participants to appreciate the host region's culture and heritage.</p>
+                    </td>
+                  </tr>
+
+                  <!-- 9Health Section -->
+                  <tr>
+                    <td style="padding:0 28px 24px;">
+                      <div class="section-box">
+                        <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">🤖 AI-Driven Platform — 9Health</p>
+                        <p style="margin:0 0 16px; font-size:15px; line-height:1.8;">Jointly developed by Chung Shan Medical University and Feng Chia University, the <strong>9Health Smart Nutrition Platform</strong> integrates AI with personalized health management. Upload meal photos to instantly estimate calories and key nutrients, and receive tailored dietary suggestions.</p>
+                        
+                        <div class="gallery-grid" style="margin-top:16px;">
+                          <figure style="margin:0;">
+                            <img src="News/n112.jpg" alt="9Health app" style="border-radius:10px;">
+                            <figcaption>9Health provides real-time nutrition estimation.</figcaption>
+                          </figure>
+                          <figure style="margin:0;">
+                            <img src="News/n111.jpg" alt="QR Code" style="border-radius:10px;">
+                            <figcaption>Scan to join the official LINE account.</figcaption>
+                          </figure>
+                        </div>
+                        
+                        <div style="margin-top:16px;">
+                          <a class="btn btn-light" href="9health_guide.png" target="_blank">📱 How to Use 9Health</a>
+                        </div>
+                        <p class="small" style="margin:12px 0 0; font-style:italic;">WhatsApp version coming soon — stay tuned.</p>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Membership Section -->
+                  <tr>
+                    <td style="padding:0 28px 24px;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#256B4A;">💳 Membership Renewal (2025–2026)</p>
+                      <div class="section-box" style="background:#f7fbf8; border-color:#e4efe8;">
+                        <p style="margin:0 0 14px; font-size:15px; line-height:1.8;">If you have not yet renewed your membership, please complete payment by bank transfer:</p>
+                        <ul style="margin:0 0 16px 20px; padding:0; font-size:14px; line-height:1.8;">
+                          <li><strong>Membership Fee:</strong> USD 60 (first year)</li>
+                          <li><strong>Bank:</strong> Chang Hwa Bank, Taichung Branch</li>
+                          <li><strong>Account Name:</strong> International Society for Precision Health</li>
+                          <li><strong>Account No.:</strong> 4059-86-131818-00</li>
+                          <li><strong>SWIFT Code:</strong> CCBCTWTP405</li>
+                        </ul>
+                        <a class="btn btn-secondary" href="mailto:isfph2025@gmail.com" target="_blank">✉️ Confirm/Send Receipt</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- 2026 Save the Date -->
+                  <tr>
+                    <td style="padding:0 28px 24px;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">📅 Save the Date — ISPH 2026</p>
+                      <p style="margin:0 0 14px; font-size:15px; line-height:1.8;">We are delighted to announce that the <strong>ISPH 2026 Conference</strong> will be held on <strong>October 21–23, 2026</strong>, in conjunction with the <strong>IUFoST Congress</strong>. We look forward to welcoming you back to Taiwan!</p>
+                      <p style="margin:0 0 16px; font-size:15px; line-height:1.8;">We also invite proposals to host the <strong>2027 ISPH Annual Meeting</strong> — please contact us if your institution is interested.</p>
+                      <div class="btn-group">
+                        <a class="btn btn-secondary" href="mailto:isfph2025@gmail.com" target="_blank">🏛️ Propose to Host 2027</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Online Activities -->
+                  <tr>
+                    <td style="padding:0 28px 20px;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#256B4A;">💻 Upcoming Online Activities</p>
+                      <p style="margin:0 0 14px; font-size:15px; line-height:1.8;">ISPH will continue to host <strong>Council Meetings</strong> and <strong>Online Symposia</strong> throughout the year to foster collaboration and share cutting-edge research.</p>
+                    </td>
+                  </tr>
+
+                  <!-- Closing -->
+                  <tr>
+                    <td style="padding:0 28px 28px; color:#1e2a32;">
+                      <p class="h2" style="font-size:20px; font-weight:800; margin:0 0 12px; color:#0B6A8C;">🙏 Closing Remarks</p>
+                      <p style="margin:0 0 16px; font-size:15px; line-height:1.8;">It was an honor to welcome you to Taiwan. We hope your experience at <strong>ISPH 2025</strong> was as inspiring and rewarding as it was for us. Thank you once again for being an essential part of our international community. We look forward to our continued collaboration and to seeing you again soon.</p>
+                      <p style="margin:0; font-weight:700; font-size:15px;">With warm regards and appreciation,</p>
+                      <p style="margin:6px 0 0; font-size:15px;">The ISPH Executive Committee<br><em>International Society for Precision Health</em></p>
+                    </td>
+                  </tr>
+
+                  <!-- Divider -->
+                  <tr>
+                    <td style="padding:0 28px;">
+                      <hr style="border:0; border-top:1px solid #e6edf2; margin:0;">
+                    </td>
+                  </tr>
+
+                  <!-- Footer -->
+                  <tr>
+                    <td style="padding:24px 28px; color:#6b7a86; font-size:13px; line-height:1.7;">
+                      <p style="margin:0 0 12px; font-weight:600; color:#1e2a32;">ISPH — International Society for Precision Health</p>
+                      <p style="margin:0 0 16px;">Jengshin Hall, Room 1252D, Chung Shan Medical University<br>No. 110, Sec. 1, Jianguo N. Rd., Taichung City 40201, Taiwan<br>+886 4 2473 0022 ext. 12206 · <a href="mailto:isfph2025@gmail.com" style="color:#0B6A8C;">isfph2025@gmail.com</a></p>
+                      <a href="https://isfph.org" target="_blank" class="btn btn-light">🌐 Visit ISPH Website</a>
+                      <p style="margin:16px 0 0; font-size:12px; color:#8a9aa6;">You are receiving this message because you attended ISPH 2025 or subscribed to ISPH communications.</p>
+                      <p style="margin:8px 0 0; font-size:12px; color:#8a9aa6;">To unsubscribe: <a href="mailto:isfph2025@gmail.com" style="color:#0B6A8C;">isfph2025@gmail.com</a></p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
