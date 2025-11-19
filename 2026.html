@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISPH 2026 Taiwan | International Society for Precision Health</title>
+    <style>
+        :root {
+            /* Color Palette: Deep Navy, Scientific Blue, Neon Cyan */
+            --primary-dark: #0b1c3c;
+            --primary-blue: #0052cc;
+            --tech-cyan: #00e5ff;
+            --accent-purple: #7c4dff;
+            --text-light: #f4f7f6;
+            --text-dark: #1a2a3a;
+            --bg-white: #ffffff;
+            --bg-gray: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        /* Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-nav-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            color: white !important;
+            padding: 0.6rem 1.8rem;
+            border-radius: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Background: Abstract DNA/Data visualization */
+            background: linear-gradient(135deg, rgba(11, 28, 60, 0.9), rgba(11, 28, 60, 0.7)), 
+                        url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: var(--text-light);
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tech-cyan), var(--accent-purple));
+        }
+
+        .hero-content {
+            max-width: 850px;
+            z-index: 2;
+        }
+
+        .tagline {
+            color: var(--tech-cyan);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 650px;
+            font-weight: 300;
+        }
+
+        .hero-date-location {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            border-left: 4px solid var(--tech-cyan);
+            padding-left: 1.5rem;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background-color: var(--tech-cyan);
+            color: var(--primary-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-right: 1rem;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+        
+        .btn-hero-outline {
+            display: inline-block;
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            padding: 0.9rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-hero-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: var(--tech-cyan);
+            color: var(--tech-cyan);
+        }
+
+        /* Sections General */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Topics Grid */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: var(--bg-white);
+            border: 1px solid #e0e0e0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .topic-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        /* Timeline / Dates */
+        .dates-section {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .dates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .date-item {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .date-item h4 {
+            color: var(--tech-cyan);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Venue & Taiwan */
+        .venue-container {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .venue-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .venue-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .venue-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .venue-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .venue-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050f22;
+            color: #889bbc;
+            padding: 4rem 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: #889bbc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--tech-cyan);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-date-location { flex-direction: column; gap: 0.5rem; border: none; padding: 0; }
+            .nav-links { display: none; }
+            .venue-container { flex-direction: column-reverse; }
+            .btn-hero, .btn-hero-outline { width: 100%; margin-bottom: 1rem; text-align: center;}
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">ISPH <span>2026</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#tracks">Tracks</a>
+                <a href="#dates">Key Dates</a>
+                <a href="#venue">Destination</a>
+                <a href="#contact">Contact</a>
+                <a href="#register" class="btn-nav-cta">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <span class="tagline">International Society for Precision Health</span>
+            <h1>The Future of <br>Precision Medicine</h1>
+            
+            <div class="hero-date-location">
+                <div>📅 October 21 - 23, 2026</div>
+                <div>📍 Taipei, Taiwan</div>
+            </div>
+
+            <p>Join global pioneers in genomics, data science, and healthcare to shape the next decade of personalized medicine.</p>
+            
+            <div>
+                <a href="#submit" class="btn-hero">Call for Abstracts</a>
+                <a href="#about" class="btn-hero-outline">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>Bridging Data, Genomics, and Care</h2>
+            <p>Welcome to ISPH 2026 in Taiwan. We are gathering the world's leading minds to accelerate the implementation of precision health strategies globally.</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; color: #444; font-size: 1.1rem;">
+            <p>Taiwan, a global hub for semiconductor technology and advanced healthcare, offers the perfect backdrop for discussing the intersection of technology and biology. From Biobanking to AI-driven diagnostics, ISPH 2026 will cover the entire spectrum of precision health.</p>
+        </div>
+    </section>
+
+    <section id="tracks" style="background-color: var(--bg-gray);">
+        <div class="section-header">
+            <h2>Conference Tracks</h2>
+            <p>Comprehensive sessions designed for researchers, clinicians, and policymakers.</p>
+        </div>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <span class="icon">🧬</span>
+                <h3>Genomics & Multi-omics</h3>
+                <p>From Whole Genome Sequencing (WGS) to Proteomics: Decoding the blueprint of life for personalized interventions.</p>
+            </div>
+            <div class="topic-card">
+                <span class="icon">🤖</span>
+                <h3>AI & Clinical Informatics</h3>
+                <p>Leveraging Machine Learning and Large Language Models (LLMs) to transform clinical decision support systems.</p>
+            </div>
+            <div class="topic-card">
+                <span class="icon">⌚</span>
+                <h3>Digital Biomarkers</h3>
+                <p>Utilizing wearables and IoT devices for continuous health monitoring and preventative care strategies.</p>
+            </div>
+            <div class="topic-card">
+                <span class="icon">⚖️</span>
+                <h3>Policy, Ethics & Equity</h3>
+                <p>Addressing health disparities, data privacy, and the ethical challenges of implementing precision medicine globally.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="dates" class="dates-section">
+        <div class="section-header" style="margin-bottom: 3rem;">
+            <h2 style="color: white;">Important Dates</h2>
+            <p style="color: rgba(255,255,255,0.7);">Mark your calendar for ISPH 2026</p>
+        </div>
+        <div class="dates-grid" style="max-width: 1000px; margin: 0 auto;">
+            <div class="date-item">
+                <h4>March 1, 2026</h4>
+                <p>Abstract Submission Opens</p>
+            </div>
+            <div class="date-item">
+                <h4>June 15, 2026</h4>
+                <p>Early Bird Registration Ends</p>
+            </div>
+            <div class="date-item">
+                <h4>July 30, 2026</h4>
+                <p>Notification of Acceptance</p>
+            </div>
+            <div class="date-item">
+                <h4 style="color: #fff;">Oct 21-23, 2026</h4>
+                <p style="color: var(--tech-cyan); font-weight: bold;">Conference Dates</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="venue">
+        <div class="venue-container">
+            <div class="venue-text">
+                <span style="color: var(--primary-blue); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Host City</span>
+                <h2>Destination: Taiwan</h2>
+                <p>The conference will be held in <strong>Taipei</strong>, a vibrant metropolis where cutting-edge technology meets rich cultural heritage.</p>
+                <p>Participants will enjoy world-class conference facilities, convenient transportation (including the High-Speed Rail), and Taiwan's renowned hospitality and cuisine. Taipei is also home to the National Biotechnology Research Park, symbolizing the country's commitment to the future of biomedicine.</p>
+                
+                <ul style="margin-left: 1.2rem; margin-bottom: 2rem; color: #444;">
+                    <li><strong>Venue:</strong> Taipei Nangang Exhibition Center, Hall 2 (TaiNEX 2)</li>
+                    <li><strong>Airport:</strong> Taoyuan International Airport (TPE)</li>
+                    <li><strong>Climate:</strong> Pleasant autumn weather (22°C - 26°C)</li>
+                </ul>
+
+                <a href="#" style="color: var(--primary-blue); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--tech-cyan);">View Travel & Hotel Info &rarr;</a>
+            </div>
+            <div class="venue-img">
+                <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Taipei Skyline with Taipei 101">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4 style="font-size: 1.5rem; color: white;">ISPH 2026</h4>
+                <p>International Society for Precision Health</p>
+                <br>
+                <p>Advancing science. Improving care. Transforming lives.</p>
+            </div>
+            <div class="footer-col">
+                <h4>For Attendees</h4>
+                <ul>
+                    <li><a href="#">Registration Guidelines</a></li>
+                    <li><a href="#">Visa Requirements</a></li>
+                    <li><a href="#">Accommodation</a></li>
+                    <li><a href="#">Code of Conduct</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Secretariat</h4>
+                <ul>
+                    <li>Email: isfph2025@gmail.com</li>
+                    <li>Phone: +886-4-24730022-12206</li>
+                    <li>Address: Jengshin Hall, Room 1252D
+Chung Shan Medical University
+No. 110, Sec. 1, Jianguo N. Rd.
+Taichung City 40201, Taiwan</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; opacity: 0.6; font-size: 0.8rem;">
+            &copy; 2026 International Society for Precision Health. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
