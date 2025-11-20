@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>International Society for Precision Health</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #00539C;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {font-size: 1.8rem; margin: 0;}
+        nav {display: flex;}
+        nav ul {list-style: none; display: flex; margin: 0; padding: 0;}
+        nav ul li {margin: 0 10px; position: relative;}
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+        
+        /* 下拉選單樣式 */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            cursor: pointer;
+        }
+
+        .dropdown > a::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #003366;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            font-weight: normal;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #00539C;
+        }
+
+        /* 電腦版 hover 效果 */
+        @media screen and (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+        
+        .menu-toggle {display: none; font-size: 1.8rem; cursor: pointer;}
+        
+        @media screen and (max-width: 768px) {
+            header h1 {font-size: 1.2rem;}
+            
+            .menu-toggle {display: block;}
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px; 
+                right: 20px;
+                background-color: #003366;
+                border-radius: 8px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                width: 220px;
+                z-index: 1000;
+            }
+            
+            nav ul {
+                display: block; 
+                text-align: right; 
+                padding: 10px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+            }
+            
+            .menu-active {
+                display: block;
+            }
+            
+            /* 手機版下拉選單 */
+            .dropdown {
+                position: relative;
+            }
+            
+            .dropdown > a {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: #002244;
+                margin: 0;
+                border-radius: 0;
+                min-width: 100%;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+            
+            .dropdown-content a {
+                padding: 10px 30px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .hero-grid {grid-template-columns: 1fr !important;}
+            .ninhealth-content {flex-direction: column;}
+            #about .president-info {flex-direction: column; align-items: center;}
+            #about .president-photo img {max-width: 120px !important;}
+        }
+        
+        .hero {text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;}
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+            max-width: 1200px; margin: 0 auto; align-items: start;
+        }
+        .hero-item {
+            background: white; padding: 20px; border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .hero-item h3 {color: #00539C; margin-bottom: 15px; font-size: 1.5rem;}
+        .hero-item img {
+            max-width: 100%; 
+            height: auto; 
+            max-height: 200px;
+            object-fit: contain; 
+            margin-bottom: 15px;
+        }
+        .hero-item .button {
+            display: inline-block;
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .hero-item .button:hover {background-color: #003d7a;}
+        .ninhealth-content {
+            display: flex; align-items: center; gap: 20px; justify-content: center;
+        }
+        .ninhealth-content img {
+            max-height: 100px !important;
+        }
+        #about {
+            text-align: left;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #about h2 {color: #00539C; text-align: center; margin-bottom: 20px;}
+        #about .president-info {display: flex; align-items: flex-start; gap: 30px; margin-bottom: 30px;}
+        #about .president-photo img {
+            max-width: 150px;
+            height: auto; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        #about .president-content {flex: 1;}
+        #about p {margin-bottom: 15px; text-align: justify;}
+        #about .signature {text-align: center; margin-top: 20px;}
+        #about .signature img {
+            max-width: 250px;
+            height: auto;
+        }
+        .main-content {max-width: 1200px; margin: 20px auto; padding: 20px; text-align: center;}
+        .button {
+            display: inline-block;
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {background-color: #003d7a;}
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        .visitor-counter {
+            display: inline-block;
+            margin-left: 20px;
+            background-color: #000;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            border: 2px solid #666;
+        }
+        .visitor-counter span {color: #00ff00; font-weight: bold;}
+        
+        /* 列印專用樣式 */
+        @media print {
+            /* 隱藏不需要列印的元素 */
+            header nav,
+            .menu-toggle,
+            .button,
+            footer script,
+            .statcounter,
+            .visitor-counter {
+                display: none !important;
+            }
+            
+            /* 優化頁面佈局 */
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+            
+            /* 簡化 header */
+            header {
+                background-color: white;
+                color: black;
+                border-bottom: 2px solid #00539C;
+                padding: 20px 0;
+            }
+            
+            header h1 {
+                color: #00539C;
+                text-align: center;
+            }
+            
+            /* 優化內容區塊 */
+            .hero,
+            #about {
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+                background-color: white;
+            }
+            
+            /* 優化圖片 */
+            img {
+                max-width: 100%;
+                page-break-inside: avoid;
+            }
+            
+            /* 優化網格佈局 */
+            .hero-grid {
+                display: block;
+            }
+            
+            .hero-item {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            /* 優化總統致詞區塊 */
+            #about .president-info {
+                page-break-inside: avoid;
+            }
+            
+            /* 優化段落 */
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+            
+            /* 優化 footer */
+            footer {
+                background-color: white;
+                color: black;
+                border-top: 2px solid #00539C;
+                margin-top: 30px;
+                padding: 20px 0;
+            }
+            
+            /* 確保連結顯示網址 */
+            a[href^="http"]:after {
+                content: " (" attr(href) ")";
+                font-size: 10pt;
+                color: #666;
+            }
+            
+            /* 但是圖片連結不顯示網址 */
+            a[href^="http"] img {
+                display: inline;
+            }
+            
+            a[href^="http"] img:after {
+                content: "";
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>International Society for Precision Health</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="bylaws.html">Bylaws</a></li>
+            <li><a href="o1.html">Organization Structure</a></li>
+            <li><a href="Join us.html">Join ISPH</a></li>
+            <li class="dropdown" id="dropdown-events">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">Events</a>
+                <div class="dropdown-content">
+                    <a href="Annual2026.html">Annual2026</a>
+                    <a href="Annual2025.html">Annual2025</a>
+                </div>
+            </li>
+            <li class="dropdown" id="dropdown-Newsletters">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">Newsletters</a>
+                <div class="dropdown-content">
+                    <a href="N1.html">Newsletters No.1</a>
+                   
+                </div>
+            </li>
+            <li><a href="Contact1.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-grid">
+        <div class="hero-item">
+            <h3>ISPH</h3>
+            <img src="LOGO.PNG" alt="ISPH Logo" style="margin-bottom: 40px;">
+            <h3>International Society for Precision Health</h3>
+        </div>
+        <div class="hero-item">
+            <h3>9health</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="9health.jpg" alt="9health QR Code" style="max-width: 150px; display: block; margin: 0 auto 10px auto;">
+                <a href="9health_guide.png" class="button" target="_blank">How to Use</a>
+            </div>
+            <p>Advanced AI-powered precision health platform for personalized wellness solutions.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <h2>PRESIDENT MESSAGE</h2>
+    <div class="president-info">
+        <div class="president-photo">
+            <img src="WCK.jpg" alt="Dr. Prof. Chin-Kun Wang">
+        </div>
+        <div class="president-content">
+            <p>Based on the trend and real application, precision health is now at the leading position in the world. Big data collection and analysis, together the molecular approaches are critical for precision health. I am very glad to establish the International Society for Precision Health (ISPH). This is a very good beginning and time being on the way to personalized health.</p>
+            <p>Appropriate nutritional intervention is essential for growth, development and resilience, preventing diseases and their impacts. Ingested nutrients transit through metabolic pathways influenced by genetics, epigenetics, the microbiome and environmental factors, contributing to heterogeneity in individual needs and responses.</p>
+        </div>
+    </div>
+    
+    <p>These factors also underlie differences in disease susceptibility and response to therapy. Thus, they have the potential to inform recommendations for different segments of populations in precision health approaches. Precision health combined with spatially resolved data could help the target populations of interventions where resources are limited.</p>
+    
+    <p>Integration of big data related to genetic, epigenetic, microbiome, lifestyle, and environmental factors is required to expand our understanding of the diversity of human metabolism in response to diet, medicine and life style. Precision health encompasses utilizing a group or an individual's characteristics to optimize interventions. It is rapidly gaining traction, largely because of new 'omics' tools and consequent insights into the roles of the intestinal microbiome in metabolic and hormonal processes, and their association with diet.</p>
+    
+    <p>ISPH is based on the global impact to advance diversity, equity, and inclusion within the life-related sciences through international activities. We are very pleased to have all international initiators around the world to kick off this global society under the support of the United Nations. This society could be the platform to provide available support and real assistance to the request of world health.</p>
+    
+    <p>ISPH is guided by the sustainable development goals of United Nations by our VISION, MISSION, STRATEGIC PLAN AND CORE VALUES.</p>
+    
+    <p><strong>VISION:</strong> A world where science and innovation are well connected and universally accepted as essential to improving health for all individuals.</p>
+    
+    <p><strong>MISSION:</strong> Connecting all kinds of scientific communities to promote and advance the application on health by using AI and big data analysis.</p>
+    
+    <p><strong>STRATEGIC PLAN:</strong> Committed to provide the useful AI tools to all population to providing the exact suggestion and comments on the health issues.</p>
+    
+    <p><strong>VALUE:</strong> working together to advance the health promotion and one another through shared values.</p>
+    
+    <p><strong>Dr. Prof. Chin-Kun Wang</strong><br>
+    President, International Society for Precision Health<br>
+    United Nations Goodwill Ambassador</p>
+    
+    <div class="signature">
+        <img src="Sign.jpg" alt="Signature of Dr. Prof. Chin-Kun Wang">
+    </div>
+</section>
+
+<div class="main-content">
+    <a href="Join us.html" class="button">Join ISPH</a>
+    <a href="Annual2025.html" class="button">Annual Meeting</a>
+    <a href="https://drive.google.com/drive/folders/18txAIBY2haJ7SYv8j_GrrgGCn1kn4SU2?usp=sharing" target="_blank" class="button" style="background-color: #4CAF50;">Photo Gallery</a>
+    <a href="https://drive.google.com/drive/folders/1BDuCqjlQksZoUzCKtEY_WvLqzrzEFOOm?usp=sharing" target="_blank" class="button" style="background-color: #4CAF50;">Photo Gallery_1</a>
+</div>
+
+<footer>
+    <p>
+        &copy; 2025 International Society for Precision Health. All rights reserved.
+        <span class="visitor-counter">
+            <a href="https://statcounter.com/" target="_blank" style="color: #00ff00; text-decoration: none;">
+                Visitors
+            </a>
+        </span>
+    </p>
+</footer>
+
+<!-- Default Statcounter code for ISPH Website http://www.isfph.org -->
+<script type="text/javascript">
+var sc_project=13180046; 
+var sc_invisible=0; 
+var sc_security="1b3aebeb"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics Made Easy -
+Statcounter" href="https://statcounter.com/" target="_blank"><img
+class="statcounter" src="https://c.statcounter.com/13180046/0/1b3aebeb/0/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+<script>
+function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("menu-active");
+}
+
+function toggleDropdown(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const dropdown = event.currentTarget.parentElement;
+    
+    // 關閉其他下拉選單
+    const allDropdowns = document.querySelectorAll('.dropdown');
+    allDropdowns.forEach(item => {
+        if (item !== dropdown) {
+            item.classList.remove('active');
+        }
+    });
+    
+    // 切換當前下拉選單
+    dropdown.classList.toggle('active');
+}
+
+// 點擊外部關閉下拉選單
+document.addEventListener('click', function(event) {
+    if (window.innerWidth <= 768) {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+});
+
+// 點擊下拉選單內的連結後關閉選單
+document.querySelectorAll('.dropdown-content a').forEach(link => {
+    link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            document.getElementById('nav-menu').classList.remove('menu-active');
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>
