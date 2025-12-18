@@ -149,13 +149,20 @@
       }
       
       /* Dark mode */
-      @media (prefers-color-scheme: dark) {
-        body, .bg-body { background:#0f141a !important; color:#e6eef5 !important; }
-        .card { background:#16212a !important; }
-        .section-box { background:#1a2730 !important; border-color:#26323c !important; }
-        .btn-light { background:#26323c !important; color:#e6eef5 !important; }
-        hr { border-top-color:#26323c !important; }
-      }
+/* Improved contrast for all modes */
+body { background:#f6f8fa; }
+
+/* Dark mode - better contrast */
+@media (prefers-color-scheme: dark) {
+  body { background:#1a1a1a !important; }
+  .card { background:#ffffff !important; }
+  .section-box { background:#f0f6f7 !important; border-color:#e2eef2 !important; }
+  .btn-light { background:#F0F3F5 !important; color:#0B6A8C !important; }
+  hr { border-top-color:#e6edf2 !important; }
+  /* Keep text dark on white cards for readability */
+  .card * { color:#1e2a32 !important; }
+  .h2 { color:#0B6A8C !important; }
+}
     </style>
   </head>
   <body style="margin:0; padding:0; background:#f6f8fa;">
@@ -398,6 +405,7 @@
   </body>
 
 </html>
+
 
 
 
