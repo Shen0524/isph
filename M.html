@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISPH Scientific Councils & Global Structure</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d2c56;
+            --accent-color: #20c997;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        .hero-section .lead {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+        
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.6;
+            filter: invert(1);
+            margin: 20px 0;
+        }
+
+        @media (min-width: 768px) {
+            .map-container {
+                height: 500px;
+            }
+        }
+
+        .map-pin {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(32, 201, 151, 0.8);
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .map-pin {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .map-pin:hover {
+            transform: scale(1.5);
+            background-color: #fff;
+        }
+
+        /* Pin positions */
+        .pin-usa { top: 38%; left: 22%; }
+        .pin-canada { top: 25%; left: 22%; }
+        .pin-japan { top: 38%; left: 86%; }
+        .pin-korea { top: 38%; left: 82%; }
+        .pin-italy { top: 35%; left: 51%; }
+        .pin-turkey { top: 37%; left: 55%; }
+        .pin-romania { top: 34%; left: 54%; }
+        .pin-israel { top: 40%; left: 56%; }
+        .pin-safrica { top: 75%; left: 53%; }
+        .pin-australia { top: 75%; left: 86%; }
+
+        /* Group Title */
+        .group-title {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            margin-top: 40px;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        /* Council Cards */
+        .council-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            background: white;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .council-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-header-custom {
+            background: var(--bg-light);
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-header-custom h5 {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            margin-top: 10px;
+        }
+
+        .chair-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .chair-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .flag-icon {
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+
+        .taiwan-team {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+        }
+        
+        .taiwan-team strong {
+            display: block;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+
+        /* Webinar Section */
+        .webinar-section {
+            background-color: #f0f4f8;
+            padding: 40px 0;
+        }
+
+        .webinar-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .timeline-item {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item {
+                padding-left: 20px;
+            }
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item h4 {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        }
+
+        .timeline-item .small {
+            font-size: 0.85rem;
+        }
+
+        /* Meeting Details - Better Mobile Layout */
+        .meeting-details {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .meeting-details .small {
+            font-size: 0.8rem;
+            word-break: break-all;
+        }
+
+        @media (min-width: 576px) {
+            .meeting-details .small {
+                font-size: 0.85rem;
+                word-break: normal;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), #1a4a8d);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.3rem, 4vw, 2rem);
+        }
+
+        .cta-section .lead {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        .cta-section .btn {
+            margin: 5px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* Responsive Grid Adjustments */
+        @media (max-width: 767px) {
+            .col-md-6, .col-lg-4, .col-lg-3, .col-md-4 {
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        /* Navbar improvements */
+        .navbar-brand {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">ISPH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Scientific Councils</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="fw-bold mb-3">International Society for Precision Health (ISPH)</h1>
+            <p class="lead mb-4">Connect the World with Precision Health: 13 Councils, 10 Countries, One Mission.</p>
+            
+            <div class="map-container position-relative mx-auto" style="max-width: 900px;">
+                <div class="map-pin pin-usa" data-bs-toggle="tooltip" data-bs-html="true" title="<b>USA 🇺🇸</b><br>Cancer, Microbiota, Nutrition"></div>
+                <div class="map-pin pin-canada" data-bs-toggle="tooltip" title="Canada 🇨🇦: Education Council"></div>
+                <div class="map-pin pin-japan" data-bs-toggle="tooltip" title="Japan 🇯🇵: Bigdata Council"></div>
+                <div class="map-pin pin-korea" data-bs-toggle="tooltip" data-bs-html="true" title="<b>South Korea 🇰🇷</b><br>Disease Intervention, Molecular Approaches"></div>
+                <div class="map-pin pin-italy" data-bs-toggle="tooltip" title="Italy 🇮🇹: CAM Council"></div>
+                <div class="map-pin pin-turkey" data-bs-toggle="tooltip" title="Türkiye 🇹🇷: Pharmaceutical Sciences"></div>
+                <div class="map-pin pin-romania" data-bs-toggle="tooltip" title="Romania 🇷🇴: Phytochemical"></div>
+                <div class="map-pin pin-israel" data-bs-toggle="tooltip" title="Israel 🇮🇱: Mental & Neuroscience"></div>
+                <div class="map-pin pin-safrica" data-bs-toggle="tooltip" title="South Africa 🇿🇦: Food Science"></div>
+                <div class="map-pin pin-australia" data-bs-toggle="tooltip" title="Australia 🇦🇺: Promotion"></div>
+            </div>
+            <p class="mt-3 small text-white-50"><i class="fas fa-mouse-pointer"></i> Hover over the dots to see our global presence</p>
+        </div>
+    </section>
+
+   <section class="container py-4">
+    
+    <h3 class="group-title">Group A: Nutrition & Food Science</h3>
+    <div class="row g-3 g-md-4">
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry JC Regnier" class="chair-img">
+                    <h5 class="card-title mt-2">Food Science Council</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Thierry JC Regnier <span class="flag-icon">🇿🇦</span></p>
+                    <small class="text-secondary">South Africa</small>
+                </div>
+                <div class="card-body">
+                    <p class="card-text text-secondary small">Focusing on food safety, processing, and functional food development.</p>
+                    <div class="taiwan-team">
+                        <strong>Taiwan Team:</strong>
+                        Cheng, Weng, Lin, Yen, Tsao
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi" class="chair-img">
+                    <h5 class="card-title mt-2">Nutrition Council</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Debasis Bagchi <span class="flag-icon">🇺🇸</span></p>
+                    <small class="text-secondary">USA</small>
+                </div>
+                <div class="card-body">
+                    <p class="card-text text-secondary small">Advancing nutritional science for precision health outcomes.</p>
+                    <div class="taiwan-team">
+                        <strong>Taiwan Team:</strong>
+                        Ho, Yang, Yen
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/anca_miron.jpg" alt="Dr. Anca Miron" class="chair-img">
+                    <h5 class="card-title mt-2">Phytochemical & Pharmacy</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Anca Miron <span class="flag-icon">🇷🇴</span></p>
+                    <small class="text-secondary">Romania</small>
+                </div>
+                <div class="card-body">
+                    <p class="card-text text-secondary small">Researching plant-based compounds for medical applications.</p>
+                    <div class="taiwan-team">
+                        <strong>Taiwan Team:</strong>
+                        Linyi Chen, Weng, Yang
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="group-title">Group B: Medicine & Disease Intervention</h3>
+    <div class="row g-3 g-md-4">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/danny_dhanasekaran.jpg" alt="Dr. Danny N. Dhanasekaran" class="chair-img">
+                    <h5 class="card-title mt-2">Cancer Council</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Danny N. Dhanasekaran <span class="flag-icon">🇺🇸</span></p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team">
+                        <strong>Taiwan Team:</strong> Liao
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/yong_sang_song.jpg" alt="Dr. Yong Sang Song" class="chair-img">
+                    <h5 class="card-title mt-2">Disease Intervention</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Yong Sang Song <span class="flag-icon">🇰🇷</span></p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team">
+                        <strong>Taiwan Team:</strong> Wu
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro" class="chair-img">
+                    <h5 class="card-title mt-2">Complementary & Alternative Med.</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Ciro Isidoro <span class="flag-icon">🇮🇹</span></p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team">
+                        <strong>Taiwan Team:</strong>
+                        Ho, Yang, Yang, Chu, Yen
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/mukerrem_betul_yerer_aycan.jpg" alt="Dr. M. Betül Yerer Aycan" class="chair-img">
+                    <h5 class="card-title mt-2">Pharm. Sciences</h5>
+                    <p class="text-muted mb-0">Chair: Dr. M. Betül Yerer Aycan <span class="flag-icon">🇹🇷</span></p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team">
+                        <strong>Taiwan Team:</strong> Linyi Chen
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="group-title">Group C: Body-Mind & Microbiota</h3>
+    <div class="row g-3 g-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/anat_elmann.jpg" alt="Chair" class="chair-img">
+                    <h5 class="card-title mt-2">Mental & Neuroscience</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Anat Elmann 🇮🇱</p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team"><strong>Taiwan Team:</strong> Chen, Su</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/sarah_s_comstock.jpg" alt="Chair" class="chair-img">
+                    <h5 class="card-title mt-2">Microbiota Council</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Sarah S. Comstock 🇺🇸</p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team"><strong>Taiwan Team:</strong> Yen</div>
+                </div>
+            </div>
+        </div>
+         <div class="col-12 col-md-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/diana_bogueva.jpg" alt="Chair" class="chair-img">
+                    <h5 class="card-title mt-2">Promotion Council</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Diana Bogueva 🇦🇺</p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team"><strong>Taiwan Team:</strong> Weng, Yang</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="group-title">Group D: Tech & Education</h3>
+    <div class="row g-3 g-md-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/jun_nishihira.jpg" alt="Chair" class="chair-img">
+                    <h5 class="card-title mt-2">Bigdata Council</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Jun Nishihira 🇯🇵</p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team"><strong>Taiwan Team:</strong> Lin, Chen, Chu, Tsao</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/young_joon_surh.jpg" alt="Chair" class="chair-img">
+                    <h5 class="card-title mt-2">Molecular Approaches</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Young Joon Surh 🇰🇷</p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team"><strong>Taiwan Team:</strong> Weng</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="council-card">
+                <div class="card-header-custom">
+                    <img src="speakers/benjamin_tsang.jpg" alt="Chair" class="chair-img">
+                    <h5 class="card-title mt-2">Education Council</h5>
+                    <p class="text-muted mb-0">Chair: Dr. Benjamin K. Tsang 🇨🇦</p>
+                </div>
+                <div class="card-body">
+                    <div class="taiwan-team"><strong>Taiwan Team:</strong> Cheng, Lin, Chen</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="webinar-section">
+    <div class="container">
+        <h2 class="text-center mb-4 fw-bold">Upcoming Council Webinars</h2>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8">
+                <div class="timeline-item bg-white p-3 p-md-4 rounded shadow-sm">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-2 gap-2">
+                        <span class="badge bg-success rounded-pill">JAN 23, 2026</span>
+                        <span class="text-muted small">ISPH General Meeting</span>
+                    </div>
+                    <h4 class="mb-2">ISPH Network & Future Planning</h4>
+                    <p class="mb-2 text-secondary small"><i class="fas fa-clock me-2"></i>19:00 Taiwan Time</p>
+                    <p class="mb-3 text-secondary small"><i class="fas fa-info-circle me-2"></i>Future plans discussion & member suggestions</p>
+                    <div class="meeting-details">
+                        <div class="small text-muted mb-1">
+                            <strong>Meeting ID:</strong> 419 618 700 647 64
+                        </div>
+                        <div class="small text-muted">
+                            <strong>Password:</strong> Xp2tS3z7
+                        </div>
+                    </div>
+                    <a href="https://teams.microsoft.com/meet/41961870064764?p=2PDde7Nt0mXbV7LrzN" target="_blank" class="btn btn-success mt-3 w-100 w-sm-auto">
+                        <i class="fab fa-microsoft me-2"></i>Join via Microsoft Teams
+                    </a>
+                </div>
+                
+                <div class="timeline-item bg-white p-3 p-md-4 rounded shadow-sm">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-2 gap-2">
+                        <span class="badge bg-primary rounded-pill">FEB 2026</span>
+                        <span class="text-muted small">Bigdata Council</span>
+                    </div>
+                    <h4 class="mb-2">AI Applications in Precision Health</h4>
+                    <p class="mb-2 text-secondary small"><i class="fas fa-user-tie me-2"></i>Speaker: Dr. Jun Nishihira (Japan)</p>
+					<button class="btn btn-secondary mt-2 w-100 w-sm-auto" disabled>Registration Opens Soon</button>
+                    <!--<button class="btn btn-outline-primary mt-2 w-100 w-sm-auto">Register Now</button>-->
+                </div>
+                
+                <div class="timeline-item bg-white p-3 p-md-4 rounded shadow-sm">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-2 gap-2">
+                        <span class="badge bg-secondary rounded-pill">APR 2026</span>
+                        <span class="text-muted small">Mental & Neuroscience Council</span>
+                    </div>
+                    <h4 class="mb-2">Stress, Immunity, and Aging</h4>
+                    <p class="mb-2 text-secondary small"><i class="fas fa-user-tie me-2"></i>Speaker: Dr. Anat Elmann (Israel)</p>
+                    <button class="btn btn-secondary mt-2 w-100 w-sm-auto" disabled>Registration Opens Soon</button>
+                </div>
+
+                <div class="timeline-item bg-white p-3 p-md-4 rounded shadow-sm">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-2 gap-2">
+                        <span class="badge bg-secondary rounded-pill">JUN 2026</span>
+                        <span class="text-muted small">Nutrition Council</span>
+                    </div>
+                    <h4 class="mb-2">Global Trends in Functional Foods</h4>
+                    <p class="mb-2 text-secondary small">Council Lead Discussion</p>
+                    <button class="btn btn-secondary mt-2 w-100 w-sm-auto" disabled>Coming Soon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="mb-3">Ready to Join the Global Network?</h2>
+            <p class="lead mb-4 px-2">Become a member today to access exclusive webinars, research resources, and connect with council leaders.</p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 gap-sm-3">
+                <button class="btn btn-light btn-lg text-primary fw-bold">Join ISPH</button>
+                <button class="btn btn-outline-light btn-lg">Contact Secretariat</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <p class="mb-0 px-2">&copy; 2026 International Society for Precision Health (ISPH). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+</body>
+</html>
