@@ -7,12 +7,18 @@
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <title>Join ISPH</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0056a6 0%, #003d7a 100%);
             color: #333;
             line-height: 1.6;
-            margin: 0;
+            min-height: 100vh;
         }
 
         header {
@@ -23,6 +29,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         header .logo {
@@ -39,7 +46,6 @@
             font-size: 1.5rem;
         }
 
-        /* 電腦版導航 */
         nav {
             display: flex;
         }
@@ -62,9 +68,14 @@
             font-size: 1rem;
             padding: 10px 15px;
             display: block;
+            transition: background-color 0.3s;
         }
 
-        /* 下拉選單樣式 */
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
         .dropdown {
             position: relative;
         }
@@ -102,18 +113,406 @@
             font-size: 0.7rem;
         }
 
-        /* 電腦版 hover 效果 */
         @media screen and (min-width: 769px) {
             .dropdown:hover .dropdown-content {
                 display: block;
             }
         }
 
-        /* 手機和平板導航 */
         .menu-toggle {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .admission-fee {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .admission-fee h2 {
+            color: #0056a6;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .admission-fee .price {
+            font-size: 3rem;
+            color: #003d7a;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .admission-fee p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .membership-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0056a6, #003d7a);
+        }
+
+        .membership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .membership-card.featured {
+            border: 3px solid #ffd700;
+        }
+
+        .membership-card.featured::before {
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+            height: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-price {
+            font-size: 2.2rem;
+            color: #0056a6;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .card-period {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .card-benefits {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .card-benefits li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: start;
+        }
+
+        .card-benefits li:last-child {
+            border-bottom: none;
+        }
+
+        .card-benefits li::before {
+            content: '✓';
+            color: #0056a6;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .corporate-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+
+        .corporate-section h2 {
+            color: #0056a6;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .corporate-card {
+            background: linear-gradient(135deg, #0056a6 0%, #003d7a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .corporate-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .corporate-card .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .corporate-benefits {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .corporate-benefits li {
+            padding: 8px 0;
+            display: flex;
+            align-items: start;
+        }
+
+        .corporate-benefits li::before {
+            content: '★';
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .registration-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .registration-section h2 {
+            color: #0056a6;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .submit-btn {
+            background-color: #0056a6;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,86,166,0.3);
+        }
+
+        .submit-btn:hover {
+            background-color: #003d7a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,86,166,0.4);
+        }
+
+        .payment-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .payment-section h2 {
+            color: #0056a6;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .payment-box {
+            background: #f8f9fa;
+            border-left: 4px solid #0056a6;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .payment-box h3 {
+            color: #0056a6;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .payment-box p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .payment-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .payment-box ul li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .payment-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .payment-box ul li strong {
+            color: #0056a6;
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .alert strong {
+            color: #856404;
+        }
+
+        .payment-split {
+            background: white;
+            border-left: none;
+            padding: 0;
+        }
+
+        .payment-split h3 {
+            padding: 25px 25px 20px;
+            margin: 0;
+            border-bottom: 2px solid #0056a6;
+        }
+
+        .payment-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .payment-column {
+            padding: 25px;
+        }
+
+        .payment-column:first-child {
+            border-right: 2px solid #e9ecef;
+        }
+
+        .payment-column h4 {
+            color: #0056a6;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .payment-column p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .payment-column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .payment-column ul li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .payment-column ul li:last-child {
+            border-bottom: none;
+        }
+
+        .payment-column ul li strong {
+            color: #0056a6;
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .payment-flexible {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .flexible-payment-btn {
+            background: linear-gradient(135deg, #0056a6 0%, #003d7a 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,86,166,0.3);
+            margin-top: 10px;
+        }
+
+        .flexible-payment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,86,166,0.4);
         }
 
         @media screen and (max-width: 768px) {
@@ -160,12 +559,6 @@
                 padding: 12px 20px;
             }
 
-            .dropdown > a {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-            }
-
             .dropdown-content {
                 position: static;
                 display: none;
@@ -184,54 +577,36 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
 
-            .dropdown-content a:last-child {
-                border-bottom: none;
-            }
-
             .menu-active {
                 display: block;
             }
-        }
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+            .page-header h1 {
+                font-size: 2rem;
+            }
 
-        .container h1 {
-            color: #0056a6;
-            margin-bottom: 20px;
-        }
+            .membership-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .container h2 {
-            color: #0056a6;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
+            .payment-box ul li strong {
+                display: block;
+                margin-bottom: 5px;
+            }
 
-        .container ul {
-            margin: 15px 0;
-        }
+            .payment-columns {
+                grid-template-columns: 1fr;
+            }
 
-        .submit-btn {
-            background-color: #0056a6;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background-color 0.3s;
-        }
+            .payment-column:first-child {
+                border-right: none;
+                border-bottom: 2px solid #e9ecef;
+            }
 
-        .submit-btn:hover {
-            background-color: #003d7a;
+            .payment-column ul li strong {
+                display: block;
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
@@ -256,7 +631,7 @@
                 <li class="dropdown" id="dropdown-events">
                     <a href="javascript:void(0)" onclick="toggleDropdown(event)">Events</a>
                     <div class="dropdown-content">
-                        <a href="M.html">Council Webinars</a>
+					     <a href="M.html">Council Webinars</a>
                         <a href="Annual2026.html">Annual2026</a>
                         <a href="Annual2025.html">Annual2025</a>
                     </div>
@@ -266,46 +641,150 @@
         </nav>
     </header>
     
-    <div class="container">
-        <h1>Join ISPH</h1>
-        <p>Click the button below to proceed with your membership registration.</p>
-        <button type="button" class="submit-btn" onclick="redirectToGoogleForm()">Proceed to Registration</button>
+    <div class="main-content">
+        <div class="page-header">
+            <h1>Join ISPH</h1>
+            <p>Become a member of the International Society for Precision Health</p>
+        </div>
+
+        <div class="admission-fee">
+            <h2>Admission Fee</h2>
+            <div class="price">US$10</div>
+            <p>One-time application fee for all new members</p>
+        </div>
+
+        <div class="membership-grid">
+            <div class="membership-card">
+                <div class="card-header">
+                    <h3 class="card-title">Full Member</h3>
+                    <div class="card-price">US$50</div>
+                    <div class="card-period">per year</div>
+                </div>
+                <ul class="card-benefits">
+                    <li>Full voting rights</li>
+                    <li>Access to society newsletter</li>
+                    <li>Annual meeting discounts</li>
+                    <li>Networking opportunities</li>
+                </ul>
+            </div>
+
+            <div class="membership-card">
+                <div class="card-header">
+                    <h3 class="card-title">Student Member</h3>
+                    <div class="card-price">US$10</div>
+                    <div class="card-period">per year</div>
+                </div>
+                <ul class="card-benefits">
+                    <li>No voting rights</li>
+                    <li>All other Full Member benefits</li>
+                    <li>Special student rates</li>
+                    <li>Requires verification of student status</li>
+                    <li>Must provide expected graduation year</li>
+                </ul>
+            </div>
+
+            <div class="membership-card featured">
+                <span class="badge">BEST VALUE</span>
+                <div class="card-header">
+                    <h3 class="card-title">Lifetime Member</h3>
+                    <div class="card-price">US$1,000</div>
+                    <div class="card-period">one-time payment</div>
+                </div>
+                <ul class="card-benefits">
+                    <li>Full voting rights</li>
+                    <li>All Full Member benefits</li>
+                    <li>Lifetime access - no renewal needed</li>
+                    <li>Priority registration for events</li>
+                </ul>
+            </div>
+
+            <div class="membership-card">
+                <div class="card-header">
+                    <h3 class="card-title">Honorary Member</h3>
+                    <div class="card-price">FREE</div>
+                    <div class="card-period">by invitation</div>
+                </div>
+                <ul class="card-benefits">
+                    <li>No voting rights</li>
+                    <li>Complimentary membership</li>
+                    <li>Recognition of outstanding contributions</li>
+                    <li>All other Full Member benefits</li>
+                    <li>Awarded by board approval</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="corporate-section">
+            <h2>Corporate Membership</h2>
+            <div class="corporate-card">
+                <h3>Full Corporate Membership</h3>
+                <div class="price">US$1,000</div>
+                <div style="opacity: 0.9; margin-bottom: 10px;">annually</div>
+                <ul class="corporate-benefits">
+                    <li>Full voting rights (1 vote per representative)</li>
+                    <li>Logo display on society website</li>
+                    <li>2 individual memberships included</li>
+                    <li>Recognition in conference materials</li>
+                    <li>Networking opportunities with members</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="registration-section">
+            <h2>Ready to Join?</h2>
+            <p style="color: #666; margin-bottom: 20px;">Click the button below to proceed with your membership registration</p>
+            <button type="button" class="submit-btn" onclick="redirectToGoogleForm()">Proceed to Registration</button>
+        </div>
+
+        <div class="payment-section">
+            <h2>💳 Payment Information</h2>
+            
+            <div class="alert">
+                <strong>Important:</strong> Please complete your bank transfer within 3 days after submitting the registration form.
+            </div>
+
+            <div class="payment-box">
+                <h3>International Bank Transfer</h3>
+                <p>For participants transferring from banks outside of Taiwan:</p>
+                <ul>
+                    <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
+                    <li><strong>Bank Address:</strong> 1F., No.78, Sec. 2, Fuxing Rd., South Dist., Taichung City 40245, Taiwan</li>
+                    <li><strong>Swift Code:</strong> CCBCTWTP405</li>
+                    <li><strong>Account No.:</strong> 4059 86 13181 800</li>
+                    <li><strong>Beneficiary's Name:</strong> International Society for Precision Health</li>
+                </ul>
+            </div>
+
+            <div class="payment-box payment-split">
+                <h3>Local Transfer in Taiwan</h3>
+                <div class="payment-columns">
+                    <div class="payment-column">
+                        <h4>Bank Transfer</h4>
+                        <p>For participants transferring from Taiwan banks:</p>
+                        <ul>
+                            <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
+                            <li><strong>Chang Hwa Bank Code:</strong> 009</li>
+                            <li><strong>Account No.:</strong> 4059 86 13181 800</li>
+                            <li><strong>Beneficiary's Name:</strong> International Society for Precision Health</li>
+                        </ul>
+                    </div>
+                    <div class="payment-column payment-flexible">
+                        <p>More convenient payment methods available</p>
+                        <button type="button" class="flexible-payment-btn" onclick="window.location.href='pay.html'">
+                            💳 Flexible Payment Options
+                        </button>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">Credit card, Apple Pay, and other digital payment methods</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-box">
+                <h3>🛠️ Technical Support</h3>
+                <p>If you encounter issues with form submission, please contact us directly or try an alternative registration method.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Payment Information -->
-  <div class="container">
-    <!-- International Bank Transfer Section -->
-    <div id="payment-international" style="margin-bottom: 2rem;">
-        <h2 style="text-align: center;">💳 Payment Information (International Bank Transfer)</h2>
-        <p style="text-align: left;">For participants transferring from banks outside of Taiwan, please use the following details:</p>
-        <p style="text-align: left;">Please complete your bank transfer <strong style="color: red;">within 3 days</strong> after submitting the form.</p>
-        <ul style="line-height: 1.8; text-align: left;">
-            <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
-            <li><strong>Bank Address:</strong> 1F., No.78, Sec. 2, Fuxing Rd., South Dist., Taichung City 40245, Taiwan</li>
-            <li><strong>Swift Code:</strong> CCBCTWTP405</li>
-            <li><strong>Account No.:</strong> 4059 86 13181 800</li>
-            <li><strong>Beneficiary's Name:</strong> International Society for Precision Health</li>
-        </ul>
-    </div>
-
-    <!-- Local Transfer Section -->
-    <div id="payment-local" style="margin-bottom: 2rem;">
-        <h2 style="text-align: center;">💳 Payment Information (Local Transfer in Taiwan)</h2>
-        <p style="text-align: left;">Please complete your bank transfer <strong style="color: red;">within 3 days</strong> after submitting the form.</p>
-        <ul style="line-height: 1.8; text-align: left;">
-            <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
-            <li><strong>Chang Hwa Bank Code:</strong> 009</li>
-            <li><strong>Account No.:</strong> 4059 86 13181 800</li>
-            <li><strong>Beneficiary's Name:</strong> International Society for Precision Health</li>
-        </ul>
-    </div>
-
-    <!-- Technical Support Section -->
-    <div id="technical-support">
-        <h2 style="text-align: center;">🛠️ Technical Support</h2>
-        <p style="text-align: left;">If you encounter issues with form submission, please contact us directly or try an alternative registration method.</p>
-    </div>
-</div>
     <script>
         function toggleMenu() {
             const nav = document.getElementById("nav-menu");
@@ -317,16 +796,12 @@
             event.stopPropagation();
             
             const dropdown = event.currentTarget.parentElement;
-            
-            // 關閉其他下拉選單
             const allDropdowns = document.querySelectorAll('.dropdown');
             allDropdowns.forEach(item => {
                 if (item !== dropdown) {
                     item.classList.remove('active');
                 }
             });
-            
-            // 切換當前下拉選單
             dropdown.classList.toggle('active');
         }
 
@@ -334,7 +809,6 @@
             window.location.href = "https://forms.gle/BRV9zVUSjDYNLPM89";
         }
 
-        // 點擊外部關閉下拉選單
         document.addEventListener('click', function(event) {
             if (window.innerWidth <= 768) {
                 const dropdowns = document.querySelectorAll('.dropdown');
@@ -346,7 +820,6 @@
             }
         });
 
-        // 點擊下拉選單內的連結後關閉選單
         document.querySelectorAll('.dropdown-content a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
@@ -360,6 +833,3 @@
     </script>
 </body>
 </html>
-
-
-
