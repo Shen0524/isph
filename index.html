@@ -159,6 +159,7 @@
             .ninhealth-content {flex-direction: column;}
             #about .president-info {flex-direction: column; align-items: center;}
             #about .president-photo img {max-width: 120px !important;}
+            #latest-news .news-item {margin-bottom: 20px;}
         }
         
         .hero {text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;}
@@ -195,6 +196,53 @@
         .ninhealth-content img {
             max-height: 100px !important;
         }
+        
+        /* Latest News Section Styles */
+        #latest-news {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        #latest-news h2 {
+            color: #00539C;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .news-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #00539C;
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .news-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0, 83, 156, 0.1);
+        }
+        
+        .news-item h3 {
+            color: #00539C;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .news-item p {
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
         #about {
             text-align: left;
             border: 1px solid #ddd;
@@ -296,6 +344,37 @@
                 <a href="9health_guide.png" class="button" target="_blank">How to Use</a>
             </div>
             <p>Advanced AI-powered precision health platform for personalized wellness solutions.</p>
+        </div>
+    </div>
+</section>
+
+<section id="latest-news">
+    <h2>Latest News</h2>
+    
+    <div class="news-item">
+        <h3>🎉 ISPH India Chapter Launches</h3>
+        <p>
+            International Society for Precision Health - India just launches. ISPH President Dr. Chin-Kun Wang is very happy to attend the launching ceremony in person. This is a very exciting news after the establishment of ISPH in Taiwan 3 months ago (October 2025).
+        </p>
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="images/india_4.jpg" alt="ISPH India Launch Ceremony" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+			<img src="images/india_5.jpg" alt="ISPH India Launch Ceremony2" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <div>
+                <a href="ISPH_India.html" class="button" style="background-color: #00539C; display: inline-block;">View Details</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="news-item">
+        <h3>📅 ISPH Annual Conference 2025</h3>
+        <p>
+            President Chin-Kun Wang announced that the ISPH annual conference will be held from <strong>October 21st to 23rd</strong> in Taiwan, specifically at <strong>National Ilan University in Ilan County</strong>. This location has been chosen for its scenic beauty and convenient facilities, including hot spring hotels and proximity to local attractions, providing an ideal setting for both academic exchange and relaxation.
+        </p>
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="images/2026_DM.jpg" alt="ISPH Annual Conference 2026" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <div>
+                <a href="Annual2026.html" class="button" style="background-color: #00539C; display: inline-block;">View Details</a>
+            </div>
         </div>
     </div>
 </section>
@@ -422,6 +501,3 @@ document.querySelectorAll('.dropdown-content a').forEach(link => {
 </script>
 </body>
 </html>
-
-
-
