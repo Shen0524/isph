@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Sponsorship - ISPH 2026 Annual Conference</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Source Sans 3', Arial, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+
+        /* LOGO */
+        .logo-container { position: fixed; top: 80px; left: 20px; z-index: 10; }
+        .logo-container img { max-width: 100px; height: auto; border-radius: 5px; }
+
+        /* Header */
+        header { background-color: #2E7D32; color: #fff; padding: 1rem; text-align: center; }
+        header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
+
+        /* Nav */
+        nav { background-color: #1B5E20; padding: 0.5rem; position: relative; }
+        .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; padding: 0.5rem; cursor: pointer; }
+        nav a { text-decoration: none; color: #fff; padding: 0.5rem 1rem; display: inline-block; font-weight: bold; }
+        .nav-links { display: flex; justify-content: center; flex-wrap: wrap; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 200px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: #333; padding: 0.8rem 1rem; display: block; text-align: left; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        main { padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
+
+        /* Hero */
+        .sponsor-hero {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 40%, #43A047 100%);
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(27,94,32,0.3);
+        }
+        .sponsor-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,249,196,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .sponsor-hero::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: repeating-conic-gradient(rgba(255,255,255,0.01) 0deg 10deg, transparent 10deg 20deg);
+            animation: subtleRotate 120s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes subtleRotate { to { transform: rotate(360deg); } }
+        .sponsor-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            position: relative;
+            letter-spacing: 1px;
+            animation: fadeSlideUp 1s ease forwards;
+        }
+        .sponsor-hero .hero-sub {
+            font-size: 1.4rem;
+            color: #C8E6C9;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: fadeSlideUp 1s 0.15s ease both;
+        }
+        .sponsor-hero .hero-date {
+            display: inline-block;
+            background: rgba(255,249,196,0.15);
+            border: 1px solid rgba(255,249,196,0.3);
+            padding: 0.6rem 1.8rem;
+            border-radius: 30px;
+            color: #FFF9C4;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            animation: fadeSlideUp 1s 0.3s ease both;
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Intro Section */
+        .intro-section {
+            background: #fff;
+            padding: 3rem 2.5rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+            border-left: 5px solid #4CAF50;
+            animation: fadeIn 0.8s ease both;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .intro-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2E7D32;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+        .intro-section p {
+            color: #444;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+        .intro-section p:last-child { margin-bottom: 0; }
+
+        /* Sponsorship Tiers */
+        .tiers-section {
+            margin-bottom: 3rem;
+        }
+        .tiers-section > h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2E7D32;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 0.4rem;
+        }
+        .tiers-section > p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .tier-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .tier-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.14);
+        }
+
+        .tier-header {
+            padding: 2rem 1.8rem 1.4rem;
+            text-align: center;
+            position: relative;
+        }
+        .tier-badge {
+            font-size: 2.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .tier-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+        .tier-header .tier-en {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .tier-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .tier-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+
+        .tier-body {
+            padding: 0 1.8rem 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .tier-body ul {
+            list-style: none;
+            padding: 0;
+            flex: 1;
+        }
+        .tier-body ul li {
+            padding: 0.55rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+            color: #444;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            line-height: 1.5;
+        }
+        .tier-body ul li:last-child { border-bottom: none; }
+        .tier-body ul li .check {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #fff;
+            margin-top: 2px;
+        }
+
+        /* Tier color themes */
+        .tier-diamond .tier-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; }
+        .tier-diamond .tier-header h3 { color: #e0e0ff; }
+        .tier-diamond .tier-price { color: #a8d0ff; }
+        .tier-diamond .check { background: #1a1a2e; }
+        .tier-diamond { border-top: 4px solid #1a1a2e; }
+
+        .tier-gold .tier-header { background: linear-gradient(135deg, #5c4300 0%, #7a5a00 100%); color: #fff; }
+        .tier-gold .tier-header h3 { color: #ffe082; }
+        .tier-gold .tier-price { color: #ffecb3; }
+        .tier-gold .check { background: #5c4300; }
+        .tier-gold { border-top: 4px solid #5c4300; }
+
+        .tier-silver .tier-header { background: linear-gradient(135deg, #424242 0%, #616161 100%); color: #fff; }
+        .tier-silver .tier-header h3 { color: #e0e0e0; }
+        .tier-silver .tier-price { color: #bdbdbd; }
+        .tier-silver .check { background: #424242; }
+        .tier-silver { border-top: 4px solid #616161; }
+
+        .tier-bronze .tier-header { background: linear-gradient(135deg, #4e342e 0%, #6d4c41 100%); color: #fff; }
+        .tier-bronze .tier-header h3 { color: #d7ccc8; }
+        .tier-bronze .tier-price { color: #bcaaa4; }
+        .tier-bronze .check { background: #4e342e; }
+        .tier-bronze { border-top: 4px solid #6d4c41; }
+
+        .tier-general .tier-header { background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%); color: #fff; }
+        .tier-general .tier-header h3 { color: #C8E6C9; }
+        .tier-general .tier-price { color: #A5D6A7; }
+        .tier-general .check { background: #2E7D32; }
+        .tier-general { border-top: 4px solid #2E7D32; }
+
+        /* Highlight the top tier */
+        .tier-diamond {
+            box-shadow: 0 8px 32px rgba(26,26,46,0.18);
+        }
+        .tier-diamond .tier-header::after {
+            content: '⭐ PREMIER';
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Benefits comparison */
+        .benefits-section {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            padding: 3rem 2rem;
+            border-radius: 14px;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 24px rgba(27,94,32,0.2);
+        }
+        .benefits-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .benefits-table-wrap {
+            overflow-x: auto;
+            border-radius: 10px;
+        }
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.97);
+            border-radius: 10px;
+            overflow: hidden;
+            font-size: 0.92rem;
+        }
+        .benefits-table th {
+            padding: 1rem 0.8rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        .benefits-table th:first-child {
+            text-align: left;
+            min-width: 200px;
+        }
+        .benefits-table thead th {
+            color: #fff;
+        }
+        .benefits-table thead th:nth-child(2) { background: #1a1a2e; }
+        .benefits-table thead th:nth-child(3) { background: #5c4300; }
+        .benefits-table thead th:nth-child(4) { background: #424242; }
+        .benefits-table thead th:nth-child(5) { background: #4e342e; }
+        .benefits-table thead th:nth-child(6) { background: #2E7D32; }
+        .benefits-table thead th:first-child { background: #fff; color: #333; }
+
+        .benefits-table td {
+            padding: 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+        }
+        .benefits-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+        }
+        .benefits-table tbody tr:hover { background: #f9fff9; }
+        .benefits-table .yes { color: #2E7D32; font-weight: 700; font-size: 1.1rem; }
+        .benefits-table .no { color: #ccc; }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2E7D32;
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+        .cta-section p {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        .cta-contact {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: #E8F5E9;
+            padding: 1.8rem 2.5rem;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        .cta-contact strong { color: #1B5E20; }
+        .cta-contact a { color: #2E7D32; text-decoration: none; font-weight: 600; }
+        .cta-contact a:hover { text-decoration: underline; }
+
+        .button {
+            display: inline-block; padding: 1rem 2rem; margin: 0.5rem; color: #fff;
+            background-color: #2E7D32; text-decoration: none; border-radius: 8px;
+            transition: all 0.3s; font-weight: bold; font-size: 1.1rem;
+        }
+        .button:hover { background-color: #4CAF50; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(46,125,50,0.3); }
+
+        footer { background-color: #1B5E20; color: #fff; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.5rem; }
+            .sponsor-hero h1 { font-size: 2.2rem; }
+            .sponsor-hero .hero-sub { font-size: 1.1rem; }
+            .menu-toggle { display: block; width: 100%; text-align: left; }
+            .nav-links { display: none; flex-direction: column; width: 100%; }
+            .nav-links.active { display: flex; }
+            nav a { width: 100%; padding: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; width: 100%; box-shadow: none; background-color: #2E7D32; }
+            .dropdown-content a { color: #fff; padding-left: 2rem; }
+            .tiers-grid { grid-template-columns: 1fr; }
+            .button { display: block; margin: 0.8rem auto; max-width: 280px; }
+            .benefits-table { font-size: 0.8rem; }
+            .benefits-table th, .benefits-table td { padding: 0.5rem 0.4rem; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.2rem; }
+            main { padding: 1rem; }
+            .sponsor-hero { padding: 3rem 1.2rem 2.5rem; }
+            .sponsor-hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGO -->
+    <div class="logo-container">
+        <img src="LOGO.PNG" alt="Society Logo">
+    </div>
+
+    <header>
+        <h1>International Society for Precision Health</h1>
+        <p>Annual Conference 2026</p>
+    </header>
+
+    <nav>
+        <button class="menu-toggle">☰ Menu</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Annual2026.html">2026 Conference</a>
+            <div class="dropdown">
+                <a href="#">General Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Transportation_Guide2026.html">Transportation Guide</a>
+                    <a href="FAQ2026.html">FAQs</a>
+                </div>
+            </div>
+            <a href="Contact1.html">Follow Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <div class="sponsor-hero">
+            <h1>Become a Sponsor</h1>
+            <div class="hero-sub">Support the Future of Precision Health</div>
+            <div class="hero-date">📅 October 21–23, 2026 &nbsp;|&nbsp; 📍 Yilan, Taiwan</div>
+        </div>
+
+        <!-- About ISPH -->
+        <div class="intro-section">
+            <h2>About ISPH</h2>
+            <p>Health matters to everyone — yet because of differences in genetics, microbiome, culture, and lifestyle, no single set of health principles works for all. Nutrition, diet, and individual constitution profoundly influence wellness and treatment outcomes.</p>
+            <p><strong>Precision Health</strong> integrates medicine, food science, nutrition, biotechnology, and artificial intelligence to deliver tailored health solutions for individuals and communities. This approach also helps the agriculture, food, and health industries allocate resources more effectively.</p>
+            <p>The <strong>International Society for Precision Health (ISPH)</strong> leverages its global network and big-data platforms to drive cross-disciplinary collaboration and promote health worldwide. <strong>ISPH 2026</strong> will hold its annual conference from October 21 to 23 at National Ilan University, Taiwan. We welcome you to join us.</p>
+            <p style="text-align:center; margin-top:1rem;">
+                <a href="https://www.isfph.org" target="_blank" style="color:#2E7D32; font-weight:700; font-size:1.1rem;">🌐 www.isfph.org</a>
+            </p>
+        </div>
+
+        <!-- Sponsorship Tiers -->
+        <div class="tiers-section">
+            <h2>Sponsorship Packages</h2>
+            <p>Choose a level of partnership that fits your organization</p>
+
+            <div class="tiers-grid">
+                <!-- Super Gold / Diamond -->
+                <div class="tier-card tier-diamond">
+                    <div class="tier-header">
+                        <div class="tier-badge">🌟</div>
+                        <h3>Super Gold Sponsor</h3>
+                        <div class="tier-en">Diamond Level</div>
+                        <div class="tier-price">NT$ 300,000</div>
+                    </div>
+                    <div class="tier-body">
+                        <ul>
+                            <li><span class="check" style="background:#1a1a2e;">✓</span> Award trophy of appreciation</li>
+                            <li><span class="check" style="background:#1a1a2e;">✓</span> Company logo &amp; link on ISPH website</li>
+                            <li><span class="check" style="background:#1a1a2e;">✓</span> One exhibition booth at the conference</li>
+                            <li><span class="check" style="background:#1a1a2e;">✓</span> <strong>6</strong> complimentary full conference passes</li>
+                            <li><span class="check" style="background:#1a1a2e;">✓</span> <strong>6</strong> Welcome Dinner invitations (Oct 21)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Gold -->
+                <div class="tier-card tier-gold">
+                    <div class="tier-header">
+                        <div class="tier-badge">🥇</div>
+                        <h3>Gold Sponsor</h3>
+                        <div class="tier-en">Gold Level</div>
+                        <div class="tier-price">NT$ 200,000</div>
+                    </div>
+                    <div class="tier-body">
+                        <ul>
+                            <li><span class="check" style="background:#5c4300;">✓</span> Award trophy of appreciation</li>
+                            <li><span class="check" style="background:#5c4300;">✓</span> Company logo &amp; link on ISPH website</li>
+                            <li><span class="check" style="background:#5c4300;">✓</span> One exhibition booth at the conference</li>
+                            <li><span class="check" style="background:#5c4300;">✓</span> <strong>5</strong> complimentary full conference passes</li>
+                            <li><span class="check" style="background:#5c4300;">✓</span> <strong>5</strong> Welcome Dinner invitations (Oct 21)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Silver -->
+                <div class="tier-card tier-silver">
+                    <div class="tier-header">
+                        <div class="tier-badge">🥈</div>
+                        <h3>Silver Sponsor</h3>
+                        <div class="tier-en">Silver Level</div>
+                        <div class="tier-price">NT$ 100,000</div>
+                    </div>
+                    <div class="tier-body">
+                        <ul>
+                            <li><span class="check" style="background:#424242;">✓</span> Award trophy of appreciation</li>
+                            <li><span class="check" style="background:#424242;">✓</span> Company logo &amp; link on ISPH website</li>
+                            <li><span class="check" style="background:#424242;">✓</span> One exhibition booth at the conference</li>
+                            <li><span class="check" style="background:#424242;">✓</span> <strong>4</strong> complimentary full conference passes</li>
+                            <li><span class="check" style="background:#424242;">✓</span> <strong>4</strong> Welcome Dinner invitations (Oct 21)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bronze -->
+                <div class="tier-card tier-bronze">
+                    <div class="tier-header">
+                        <div class="tier-badge">🥉</div>
+                        <h3>Bronze Sponsor</h3>
+                        <div class="tier-en">Bronze Level</div>
+                        <div class="tier-price">NT$ 50,000</div>
+                    </div>
+                    <div class="tier-body">
+                        <ul>
+                            <li><span class="check" style="background:#4e342e;">✓</span> Award trophy of appreciation</li>
+                            <li><span class="check" style="background:#4e342e;">✓</span> Company logo &amp; link on ISPH website</li>
+                            <li><span class="check" style="background:#4e342e;">✓</span> <strong>2</strong> complimentary full conference passes</li>
+                            <li><span class="check" style="background:#4e342e;">✓</span> <strong>2</strong> Welcome Dinner invitations (Oct 21)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- General -->
+                <div class="tier-card tier-general">
+                    <div class="tier-header">
+                        <div class="tier-badge">🤝</div>
+                        <h3>General Sponsor</h3>
+                        <div class="tier-en">General Level</div>
+                        <div class="tier-price">NT$ 30,000</div>
+                    </div>
+                    <div class="tier-body">
+                        <ul>
+                            <li><span class="check" style="background:#2E7D32;">✓</span> Certificate of appreciation</li>
+                            <li><span class="check" style="background:#2E7D32;">✓</span> Company logo &amp; link on ISPH website</li>
+                            <li><span class="check" style="background:#2E7D32;">✓</span> <strong>1</strong> complimentary full conference pass</li>
+                            <li><span class="check" style="background:#2E7D32;">✓</span> <strong>1</strong> Welcome Dinner invitation (Oct 21)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="benefits-section">
+            <h2>Benefits at a Glance</h2>
+            <div class="benefits-table-wrap">
+                <table class="benefits-table">
+                    <thead>
+                        <tr>
+                            <th>Benefit</th>
+                            <th>🌟 Super Gold<br><small>NT$300K</small></th>
+                            <th>🥇 Gold<br><small>NT$200K</small></th>
+                            <th>🥈 Silver<br><small>NT$100K</small></th>
+                            <th>🥉 Bronze<br><small>NT$50K</small></th>
+                            <th>🤝 General<br><small>NT$30K</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Trophy / Certificate</td>
+                            <td><span class="yes">🏆 Trophy</span></td>
+                            <td><span class="yes">🏆 Trophy</span></td>
+                            <td><span class="yes">🏆 Trophy</span></td>
+                            <td><span class="yes">🏆 Trophy</span></td>
+                            <td><span class="yes">📜 Certificate</span></td>
+                        </tr>
+                        <tr>
+                            <td>Logo &amp; Link on ISPH Website</td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Exhibition Booth</td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="yes">✓</span></td>
+                            <td><span class="no">—</span></td>
+                            <td><span class="no">—</span></td>
+                        </tr>
+                        <tr>
+                            <td>Complimentary Passes</td>
+                            <td><span class="yes">6</span></td>
+                            <td><span class="yes">5</span></td>
+                            <td><span class="yes">4</span></td>
+                            <td><span class="yes">2</span></td>
+                            <td><span class="yes">1</span></td>
+                        </tr>
+                        <tr>
+                            <td>Welcome Dinner (Oct 21)</td>
+                            <td><span class="yes">6 seats</span></td>
+                            <td><span class="yes">5 seats</span></td>
+                            <td><span class="yes">4 seats</span></td>
+                            <td><span class="yes">2 seats</span></td>
+                            <td><span class="yes">1 seat</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Contact / CTA -->
+        <div class="cta-section">
+            <h2>Become a Sponsor Today</h2>
+            <p>Partner with ISPH 2026 to showcase your brand before a global audience of researchers, clinicians, and industry leaders in precision health.</p>
+
+            <div class="cta-contact">
+                <div><strong>International Society for Precision Health</strong></div>
+                <div>📍 Room 1252D, Jengshin Hall, No. 110, Sec. 1, Jianguo N. Rd., South Dist., Taichung City 402, Taiwan</div>
+                <div>📞 +886-972-231774 &nbsp;/&nbsp; 04-36097687</div>
+                <div>📧 <a href="mailto:isfph2025@gmail.com">isfph2025@gmail.com</a></div>
+                <div>🌐 <a href="https://www.isfph.org" target="_blank">www.isfph.org</a></div>
+            </div>
+
+            <a href="mailto:isfph2025@gmail.com?subject=ISPH%202026%20Sponsorship%20Inquiry" class="button">📩 Contact Us for Sponsorship</a>
+            <a href="Annual2026.html" class="button" style="background-color:#388E3C;">Conference Details</a>
+            <a href="index.html" class="button" style="background-color:#1B5E20;">Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
