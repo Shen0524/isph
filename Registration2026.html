@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>2026 ISPH 年度大會｜報名註冊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --text: #111827;
+      --bg: #f8fafc;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Microsoft JhengHei", "PingFang TC", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .nav .wrap {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      font-size: 15px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--primary);
+    }
+    iframe {
+      width: 100%;
+      height: 1800px;
+      border: none;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 40px;
+    }
+    .card h2 {
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    /* Payment Section Styles */
+    .pay-alert {
+      background: #FFF3E0;
+      border-left: 4px solid #E65100;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      color: #BF360C;
+    }
+    .payment-step {
+      background: #f0fdf4;
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .step-number {
+      background: #2563eb;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-weight: bold;
+      color: #1e40af;
+      font-size: 1.1rem;
+    }
+    .step-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) {
+      .step-split { grid-template-columns: 1fr; }
+    }
+    .step-left, .step-right {
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .step-left h4, .step-right h4 {
+      color: #1e40af;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .step-left ul {
+      list-style: none;
+      padding: 0;
+    }
+    .step-left ul li {
+      padding: 0.2rem 0;
+      line-height: 1.5;
+      margin-bottom: 2px;
+    }
+    .btn-pay {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+      margin: 0.5rem 0;
+    }
+    .btn-pay:hover {
+      background: #3b82f6;
+    }
+    .small-note {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.3rem;
+    }
+    .support-box {
+      background: #eff6ff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .support-box h4 {
+      color: #1e40af;
+      margin-bottom: 0.4rem;
+    }
+    .support-box a {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <nav class="nav">
+    <div class="wrap">
+      <a class="brand" href="#">
+        <img src="LOGO.PNG" alt="ISPH Logo" style="width: 36px; height: 36px;" />
+        <span>ISPH 2026</span>
+      </a>
+      <div class="nav-links">
+        <a href="#register">線上報名</a>
+        <a href="#payment">繳費資訊</a>
+        <a href="Join us.html">加入 ISPH</a>
+        <a href="Annual2026.html">首頁</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 報名表單 -->
+  <div class="container" id="register">
+    <h1>2026 ISPH 年度大會｜線上報名</h1>
+    <iframe src="https://forms.gle/LSBRvHyTQkmVA3yC9">載入中…</iframe>
+  </div>
+
+  <!-- 繳費資訊 -->
+  <div class="container card" id="payment">
+    <h2>💳 繳費方式</h2>
+
+    <div class="pay-alert">
+      <strong>重要提醒：</strong>請於送出報名表後 <strong>3 日內</strong> 完成繳費。
+    </div>
+
+  
+
+    <!-- 方式：國內匯款 -->
+    <div class="payment-step">
+      <div class="step-header">
+       
+        <div class="step-title">國內匯款（臺灣參加者適用）</div>
+      </div>
+      <div class="step-split">
+        <div class="step-left">
+          <h4>銀行轉帳</h4>
+          <p>適用於從臺灣國內銀行轉帳之參加者：</p>
+          <ul>
+            <li><strong>銀行名稱：</strong>彰化銀行 台中分行</li>
+            <li><strong>銀行代碼：</strong>009</li>
+            <li><strong>帳號：</strong>4059 86 13181 800</li>
+            <li><strong>戶名：</strong>International Society for Precision Health</li>
+          </ul>
+        </div>
+        <div class="step-right">
+          <h4>更多付款方式</h4>
+          <p>提供多元便利的繳費管道</p>
+          <a href="https://p.ecpay.com.tw/8C09F27" class="btn-pay">💳 多元付款（綠界科技）</a>
+          <p class="small-note">支援信用卡、Apple Pay 及其他電子支付方式</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="support-box">
+      <h4>🛠️ 技術支援</h4>
+      <p>若您在繳費過程中遇到任何問題，請來信 <a href="mailto:isfph2025@gmail.com">isfph2025@gmail.com</a>，或改用其他付款方式。</p>
+    </div>
+
+    <h2 style="margin-top: 24px;">💡 退費政策</h2>
+    <ul style="line-height: 1.8;">
+      <li>✅ 全額退費（扣除手續費）：活動前 14 天以上取消</li>
+      <li>🔁 退還 50%：活動前 7～13 天取消</li>
+      <li>🚫 不予退費：活動前 6 天內取消（可轉讓他人參加）</li>
+    </ul>
+
+    <h2 style="margin-top: 24px;">📮 收據資訊</h2>
+    <p>活動當日將提供臨時收據，正式收據將於活動結束後 30 個工作天內寄出。</p>
+  </div>
+</body>
+</html>

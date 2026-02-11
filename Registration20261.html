@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>2026 ISPH Annual Meeting｜Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --text: #111827;
+      --bg: #f8fafc;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .nav .wrap {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      font-size: 15px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--primary);
+    }
+    iframe {
+      width: 100%;
+      height: 1800px;
+      border: none;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 40px;
+    }
+    .card h2 {
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    /* Payment Section Styles */
+    .pay-alert {
+      background: #FFF3E0;
+      border-left: 4px solid #E65100;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      color: #BF360C;
+    }
+    .payment-step {
+      background: #f0fdf4;
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .step-number {
+      background: #2563eb;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-weight: bold;
+      color: #1e40af;
+      font-size: 1.1rem;
+    }
+    .step-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) {
+      .step-split { grid-template-columns: 1fr; }
+    }
+    .step-left, .step-right {
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .step-left h4, .step-right h4 {
+      color: #1e40af;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+    .step-left ul {
+      list-style: none;
+      padding: 0;
+    }
+    .step-left ul li {
+      padding: 0.2rem 0;
+      line-height: 1.5;
+      margin-bottom: 2px;
+    }
+    .btn-pay {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+      margin: 0.5rem 0;
+    }
+    .btn-pay:hover {
+      background: #3b82f6;
+    }
+    .small-note {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.3rem;
+    }
+    .support-box {
+      background: #eff6ff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .support-box h4 {
+      color: #1e40af;
+      margin-bottom: 0.4rem;
+    }
+    .support-box a {
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrap">
+      <a class="brand" href="#">
+        <img src="LOGO.PNG" alt="ISPH Logo" style="width: 36px; height: 36px;" />
+        <span>ISPH 2026</span>
+      </a>
+      <div class="nav-links">
+        <a href="#register">Register</a>
+        <a href="#payment">Payment Info</a>
+        <a href="Join us.html">Join ISPH</a>
+        <a href="Annual2026.html">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Registration Form -->
+  <div class="container" id="register">
+    <h1>2026 ISPH Annual Meeting｜Online Registration</h1>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzKJdJcnNONVT_KDkCePwv1_-S9CsYkL_pit5XoEZR2ygscg/viewform?embedded=true">Loading…</iframe>
+  </div>
+
+  <!-- Payment Information -->
+  <div class="container card" id="payment">
+    <h2>💳 Payment Methods</h2>
+
+    <div class="pay-alert">
+      <strong>Important:</strong> Please complete your payment <strong>within 3 days</strong> after submitting the registration form.
+    </div>
+
+    <!-- Step 1: International -->
+    <div class="payment-step">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <div class="step-title">International</div>
+      </div>
+      <div class="step-split">
+        <div class="step-left">
+          <h4>Bank Transfer</h4>
+          <p>For participants transferring from banks outside of Taiwan:</p>
+          <ul>
+            <li><strong>Bank:</strong> Chang Hwa Bank Taichung Branch</li>
+            <li><strong>Bank Address:</strong> 1F., No.78, Sec. 2, Fuxing Rd., South Dist., Taichung City 40245, Taiwan</li>
+            <li><strong>Swift Code:</strong> CCBCTWTP405</li>
+            <li><strong>Account No.:</strong> 4059 86 13181 800</li>
+            <li><strong>Beneficiary:</strong> International Society for Precision Health</li>
+          </ul>
+        </div>
+        <div class="step-right">
+          <h4>PayPal Payment</h4>
+          <p>Quick and secure international payment</p>
+          <a href="https://www.paypal.com/ncp/payment/HF69B6Q6QV2PW" class="btn-pay" target="_blank">💳 Pay with PayPal</a>
+          <p class="small-note">Accepts credit cards and PayPal balance</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Taiwan -->
+    <div class="payment-step">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <div class="step-title">Taiwan</div>
+      </div>
+      <div class="step-split">
+        <div class="step-left">
+          <h4>Bank Transfer</h4>
+          <p>For participants transferring from Taiwan banks:</p>
+          <ul>
+            <li><strong>Bank:</strong> Chang Hwa Bank Taichung Branch</li>
+            <li><strong>Bank Code:</strong> 009</li>
+            <li><strong>Account No.:</strong> 4059 86 13181 800</li>
+            <li><strong>Beneficiary:</strong> International Society for Precision Health</li>
+          </ul>
+        </div>
+        <div class="step-right">
+          <h4>More Payment Options</h4>
+          <p>More convenient payment methods available</p>
+          <a href="https://p.ecpay.com.tw/8C09F27" class="btn-pay">💳 Multiple Payment Options</a>
+          <p class="small-note">Credit card, Apple Pay, and other digital payment methods</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="support-box">
+      <h4>🛠️ Technical Support</h4>
+      <p>If you encounter issues with payment, please contact us at <a href="mailto:isfph2025@gmail.com">isfph2025@gmail.com</a> or try an alternative payment method.</p>
+    </div>
+
+    <h2 style="margin-top: 24px;">💡 Refund Policy</h2>
+    <ul style="line-height: 1.8;">
+      <li>✅ Full refund (less processing fee): Canceled 14+ days before event</li>
+      <li>🔁 50% refund: Canceled 7–13 days before event</li>
+      <li>🚫 No refund: Within 6 days (but participant substitution allowed)</li>
+    </ul>
+
+    <h2 style="margin-top: 24px;">📮 Receipt Information</h2>
+    <p>A temporary receipt will be provided on-site. The official receipt will be mailed within 30 working days after the event.</p>
+  </div>
+</body>
+</html>
