@@ -75,9 +75,48 @@
             background-color: #00539C;
         }
 
+        /* 二層下拉選單樣式 */
+        .dropdown-content .sub-dropdown {
+            position: relative;
+        }
+
+        .dropdown-content .sub-dropdown > a::after {
+            content: ' ▶';
+            font-size: 0.7rem;
+            margin-left: 5px;
+            float: right;
+        }
+
+        .sub-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #002244;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .sub-dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .sub-dropdown-content a:hover {
+            background-color: #00539C;
+        }
+
         /* 電腦版 hover 效果 */
         @media screen and (min-width: 769px) {
             .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            
+            .sub-dropdown:hover .sub-dropdown-content {
                 display: block;
             }
         }
@@ -152,6 +191,24 @@
             
             .dropdown-content a {
                 padding: 10px 30px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            /* 手機版二層下拉選單 */
+            .sub-dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: #001a33;
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .sub-dropdown.active .sub-dropdown-content {
+                display: block;
+            }
+            
+            .sub-dropdown-content a {
+                padding: 10px 40px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
             
@@ -309,7 +366,6 @@
         <ul>
             <li><a href="bylaws.html">Bylaws</a></li>
             <li><a href="o1.html">Organization Structure</a></li>
-            <li><a href="Join us.html">Join ISPH</a></li>
             <li class="dropdown" id="dropdown-events">
                 <a href="javascript:void(0)" onclick="toggleDropdown(event)">Events</a>
                 <div class="dropdown-content">
@@ -321,12 +377,24 @@
             <li class="dropdown" id="dropdown-News">
                 <a href="javascript:void(0)" onclick="toggleDropdown(event)">News</a>
                 <div class="dropdown-content">
-					<a href="N1.html">Hot News </a>
-                    <a href="N1.html">Newsletters No.1</a>
-                   
+                    <div class="sub-dropdown">
+                        <a href="javascript:void(0)" onclick="toggleSubDropdown(event)">Hot News</a>
+                        <div class="sub-dropdown-content">
+                            <a href="hot-news-1.pdf">1st Annouce ISNFF2026</a>
+                           <!-- <a href="hot-news-2.html">Hot News 2</a>-->
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a href="javascript:void(0)" onclick="toggleSubDropdown(event)">Newsletters</a>
+                        <div class="sub-dropdown-content">
+                            <a href="N1.html">Newsletters No.1</a>
+                            <!--<a href="N2.html">Newsletters No.2</a>-->
+                        </div>
+                    </div>
                 </div>
             </li>
-            <li><a href="Contact1.html">Contact</a></li>
+            <li><a href="Join us.html">Join ISPH</a></li>
+			<li><a href="Contact1.html">Contact</a></li>
         </ul>
     </nav>
 </header>
@@ -476,6 +544,26 @@ function toggleDropdown(event) {
     dropdown.classList.toggle('active');
 }
 
+function toggleSubDropdown(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    if (window.innerWidth <= 768) {
+        const subDropdown = event.currentTarget.parentElement;
+        
+        // 關閉其他二層下拉選單
+        const allSubDropdowns = document.querySelectorAll('.sub-dropdown');
+        allSubDropdowns.forEach(item => {
+            if (item !== subDropdown) {
+                item.classList.remove('active');
+            }
+        });
+        
+        // 切換當前二層下拉選單
+        subDropdown.classList.toggle('active');
+    }
+}
+
 // 點擊外部關閉下拉選單
 document.addEventListener('click', function(event) {
     if (window.innerWidth <= 768) {
@@ -499,9 +587,21 @@ document.querySelectorAll('.dropdown-content a').forEach(link => {
         }
     });
 });
+
+// 點擊二層下拉選單內的連結後關閉選單
+document.querySelectorAll('.sub-dropdown-content a').forEach(link => {
+    link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            document.getElementById('nav-menu').classList.remove('menu-active');
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+            document.querySelectorAll('.sub-dropdown').forEach(subDropdown => {
+                subDropdown.classList.remove('active');
+            });
+        }
+    });
+});
 </script>
 </body>
 </html>
-
-
-
