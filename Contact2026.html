@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Contact - ISPH 2026</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Header - ISPH 2026 green */
+        header {
+            background-color: #2E7D32;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            max-height: 50px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        /* Desktop Navigation */
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #A5D6A7;
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #1B5E20;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul {
+                display: block;
+                padding: 0;
+            }
+
+            nav ul li {
+                text-align: right;
+                margin: 10px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-active {
+                display: block;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .container section {
+            border: 1px solid #E8F5E9;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            background-color: #fff;
+            border-left: 5px solid #4CAF50;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.15);
+        }
+
+        .container h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .container p {
+            margin-bottom: 12px;
+            color: #444;
+        }
+
+        .container a {
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .container a:hover {
+            color: #4CAF50;
+            text-decoration: underline;
+        }
+
+        /* Footer - ISPH 2026 */
+        footer {
+            background-color: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="LOGO.PNG" alt="ISPH Logo">
+            <h1>ISPH 2026</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="Annual2026.html">Home</a></li>
+                <li><a href="Join us.html">Join ISPH</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <section>
+            <h2>📧 CONTACT US</h2>
+            <p><strong>Conference Secretariat</strong><br>
+            ISPH2026 Secretariat Office<br>
+            Department of Nutrition, Chung Shan Medical University, Taichung, Taiwan<br>
+            110, Sec.1, Jianguo N. Rd., Taichung City 40201, Taiwan<br>
+            Tel: +886-4-2473-0022 ext. 11751<br>
+            E-MAIL: <a href="mailto:isfph2025@gmail.com">isfph2025@gmail.com</a></p>
+        </section>
+
+<!--
+        <section>
+            <h2>📝 ABSTRACT SUBMISSION</h2>
+            <p>Oral Abstract submission deadline: TBA<br>
+            Please submit abstracts to the ISPH2026 Secretary<br>
+            E-MAIL: <a href="mailto:isfph2025@gmail.com">isfph2025@gmail.com</a></p>
+        </section>
+-->
+
+        <section>
+            <h2>📍 CONFERENCE VENUE</h2>
+            <p><strong>National Ilan University (NIU)</strong><br>
+            No.1, Sec. 1, Shennong Rd., Yilan City, Yilan County 260, Taiwan<br>
+            Phone: +886-3-935-7400<br>
+            October 21-23, 2026</p>
+        </section>
+
+        <section>
+            <h2>🏨 HOTEL</h2>
+            <p><strong>Kilin Hotel Jiaoxi (礁溪麒麟大飯店)</strong><br>
+            No. 116, Sec. 5, Jiaoxi Rd., Jiaoxi Township, Yilan County 262, Taiwan<br>
+            Phone: +886-3-988-8570<br>
+            <a href="https://www.kilinhotel.com" target="_blank">kilinhotel.com</a></p>
+        </section>
+
+<!--
+        <section>
+            <h2>🍽️ GALA DINNER</h2>
+            <p>Gala dinner details will be announced soon.</p>
+        </section>
+-->
+    </div>
+
+    <footer>
+        <p>&copy; 2026 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-menu");
+            if (nav.classList.contains("menu-active")) {
+                nav.classList.remove("menu-active");
+            } else {
+                nav.classList.add("menu-active");
+            }
+        }
+    </script>
+</body>
+</html>
