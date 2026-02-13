@@ -7,13 +7,18 @@
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <title>Invited Speakers - ISPH 2026</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             text-align: center;
             background-color: #f9f9f9;
             margin: 0;
             color: #333;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Header - ISPH 2026 green */
@@ -24,22 +29,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         header .logo {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
 
         header .logo img {
             max-height: 50px;
-            margin-right: 15px;
+            height: auto;
+            width: auto;
         }
 
         header h1 {
             font-size: 1.5rem;
             color: #fff;
+            margin: 0;
         }
 
         /* Desktop Navigation */
@@ -52,20 +63,25 @@
             display: flex;
             margin: 0;
             padding: 0;
+            gap: 20px;
         }
 
         nav ul li {
-            margin: 0 10px;
+            margin: 0;
         }
 
         nav ul li a {
             text-decoration: none;
             color: white;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
 
         nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
             color: #A5D6A7;
         }
 
@@ -75,70 +91,58 @@
             font-size: 1.8rem;
             cursor: pointer;
             color: #fff;
-        }
-
-        @media screen and (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                background-color: #1B5E20;
-                border-radius: 8px;
-                width: 200px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul {
-                display: block;
-                padding: 0;
-            }
-
-            nav ul li {
-                text-align: right;
-                margin: 10px;
-            }
-
-            .menu-active {
-                display: block;
-            }
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Main Content */
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: auto;
-            padding: 20px;
+            padding: 30px 20px;
+        }
+
+        .keynote-section {
+            margin-bottom: 50px;
         }
 
         .page-title {
             color: #2E7D32;
-            font-size: 2.2rem;
-            margin-bottom: 5px;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .text-center {
             color: #666;
             font-size: 1rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .keynote-speaker-img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+            margin: 20px auto;
+            display: block;
         }
 
         .speakers {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
             justify-content: center;
         }
 
         .speaker {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             text-align: center;
             border-left: 4px solid #4CAF50;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -146,49 +150,236 @@
 
         .speaker:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.2);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.2);
         }
 
         .speaker img {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
             object-fit: cover;
             border: 3px solid #E8F5E9;
+            margin: 0 auto 15px;
+            display: block;
         }
 
         .name {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px 0 5px 0;
             color: #1B5E20;
+            line-height: 1.4;
         }
 
         .country {
             color: #4CAF50;
-            font-size: 14px;
+            font-size: 0.95rem;
             font-style: italic;
+            margin-top: 5px;
         }
 
-        @media (max-width: 768px) {
-            .speakers {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .speakers {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-
-        /* Footer - ISPH 2026 */
+        /* Footer */
         footer {
             background-color: #1B5E20;
             color: white;
             text-align: center;
             padding: 1.5rem;
-            margin-top: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Tablet Optimization (iPad) */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 25px 30px;
+            }
+
+            .speakers {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li a {
+                font-size: 0.95rem;
+                padding: 6px 10px;
+            }
+        }
+
+        /* Mobile Optimization */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 12px 15px;
+                position: relative;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            header .logo img {
+                max-height: 40px;
+            }
+
+            header .logo {
+                gap: 10px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background-color: #1B5E20;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+                animation: slideDown 0.3s ease;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            nav ul {
+                display: block;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                text-align: center;
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+
+            .menu-active {
+                display: block;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .page-title {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+
+            .text-center {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+            .keynote-speaker-img {
+                max-width: 250px;
+            }
+
+            .speakers {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .speaker {
+                padding: 15px;
+            }
+
+            .speaker img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 0.95rem;
+            }
+
+            .country {
+                font-size: 0.85rem;
+            }
+
+            footer {
+                padding: 1.2rem;
+                margin-top: 30px;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 1rem;
+            }
+
+            header .logo img {
+                max-height: 35px;
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .speakers {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .speaker {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .speaker img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .name {
+                font-size: 1rem;
+            }
+
+            .keynote-speaker-img {
+                max-width: 220px;
+            }
+        }
+
+        /* Large screens optimization */
+        @media screen and (min-width: 1400px) {
+            .speakers {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
     </style>
 </head>
@@ -199,23 +390,23 @@
             <img src="LOGO.PNG" alt="ISPH Logo">
             <h1>ISPH 2026</h1>
         </div>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
         <nav id="nav-menu">
             <ul>
                 <li><a href="Annual2026.html">Home</a></li>
                 <li><a href="Join us.html">Join ISPH</a></li>
                 <li><a href="Sponsorship2026.html">Sponsorship</a></li>
-                <!--<li><a href="Sponsors2026.html">Sponsors</a></li>-->
                 <li><a href="Organizing_Committees2026.html">Organizing Committees</a></li>
                 <li><a href="Contact2026.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
     <!-- Keynote Speaker -->
-	<div class="container">
+    <div class="container keynote-section">
         <h1 class="page-title">Keynote Speaker</h1>
-		<img src="speakers/wu.jpg" alt="Dr. Ming-Shiang Wu">
-	</div>
+        <img src="speakers/wu.jpg" alt="Dr. Ming-Shiang Wu" class="keynote-speaker-img">
+    </div>
 
     <div class="container">
         <h1 class="page-title">Invited Speakers</h1>
@@ -225,61 +416,12 @@
             <!-- Speakers ordered by family name -->
 
 <!-- A -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/christina_l_addison.jpg" alt="Dr. Christina L. Addison">
-    <div class="name">Dr. Christina L. Addison</div>
-    <div class="country">(Canada)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/sirichai_adisakwattana.jpg" alt="Dr. Sirichai Adisakwattana">
-    <div class="name">Dr. Sirichai Adisakwattana</div>
-    <div class="country">(Thailand)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/rotimi_aluko.jpg" alt="Dr. Rotimi Aluko">
-    <div class="name">Dr. Rotimi Aluko</div>
-    <div class="country">(Canada)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/azrina_azlan.jpg" alt="Dr. Azrina Azlan">
-    <div class="name">Dr. Azrina Azlan</div>
-    <div class="country">(Malaysia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/ardiansyah_michwan.jpg" alt="Dr. Ardiansyah">
-    <div class="name">Dr. Ardiansyah</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
 <!-- Confirmed #26 -->
 <div class="speaker">
     <img src="speakers/thierry_astruc.jpg" alt="Dr. Thierry Astruc">
     <div class="name">Dr. Thierry Astruc</div>
     <div class="country">(France)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/taejin_ahn.jpg" alt="Dr. TaeJin Ahn">
-    <div class="name">Dr. TaeJin Ahn</div>
-    <div class="country">(Korea)</div>
-</div>
--->
-<!-- HIDDEN - NEW speaker, not yet revealed
-<div class="speaker">
-    <img src="speakers/kiri_andrew_amegovu.jpg" alt="Dr. Kiri Andrew Amegovu">
-    <div class="name">Dr. Kiri Andrew Amegovu</div>
-    <div class="country">(Uganda)</div>
-</div>
--->
 
 <!-- B -->
 <!-- Confirmed #10 -->
@@ -288,93 +430,14 @@
     <div class="name">Dr. Debasis Bagchi</div>
     <div class="country">(USA)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/samudra_prosad_banik.jpg" alt="Dr. Samudra Prosad Banik">
-    <div class="name">Dr. Samudra Prosad Banik</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/darshee_baxi.jpg" alt="Dr. Darshee Baxi">
-    <div class="name">Dr. Darshee Baxi</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/ly_nguyen_binh.jpg" alt="Dr. Ly Nguyen Binh">
-    <div class="name">Dr. Ly Nguyen Binh</div>
-    <div class="country">(Vietnam)</div>
-</div>
--->
 <!-- Confirmed #11 -->
 <div class="speaker">
     <img src="speakers/diana_bogueva.jpg" alt="Dr. Diana Bogueva">
     <div class="name">Dr. Diana Bogueva</div>
     <div class="country">(Australia)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/nadiya_boyko.jpg" alt="Dr. Nadiya Boyko">
-    <div class="name">Dr. Nadiya Boyko</div>
-    <div class="country">(Ukraine)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/christelle_bou_mitri.jpg" alt="Dr. Christelle Bou-Mitri">
-    <div class="name">Dr. Christelle Bou-Mitri</div>
-    <div class="country">(Lebanon)</div>
-</div>
--->
-
-<!-- C -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/sarah_s_comstock.jpg" alt="Dr. Sarah S. Comstock">
-    <div class="name">Dr. Sarah S. Comstock</div>
-    <div class="country">(USA)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/claudia_cerella.jpg" alt="Dr. Claudia Cerella">
-    <div class="name">Dr. Claudia Cerella</div>
-    <div class="country">(Luxembourg)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/ngwang_erick_chuye.jpg" alt="Mr. Ngwang Erick Chuye">
-    <div class="name">Mr. Ngwang Erick Chuye</div>
-    <div class="country">(Cameroon)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/kuan_chen_cheng.png" alt="Dr. Kuan-Chen Cheng">
-    <div class="name">Dr. Kuan-Chen Cheng</div>
-    <div class="country">(Taiwan)</div>
-</div>
--->
 
 <!-- D -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/corina_danciu.jpg" alt="Dr. Corina Danciu">
-    <div class="name">Dr. Corina Danciu</div>
-    <div class="country">(Romania)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/wirawan_dony _dahana.jpg" alt="Dr. Wirawan Dony Dahana">
-    <div class="name">Dr. Wirawan Dony Dahana</div>
-    <div class="country">(Japan)</div>
-</div>
--->
 <!-- Confirmed #9 -->
 <div class="speaker">
     <img src="speakers/danny_dhanasekaran.jpg" alt="Dr. Danny N. Dhanasekaran">
@@ -387,13 +450,6 @@
     <div class="name">Dr. Marc Diederich</div>
     <div class="country">(South Korea)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/jaqueline_doumit.jpg" alt="Dr. Jaqueline Doumit">
-    <div class="name">Dr. Jaqueline Doumit</div>
-    <div class="country">(Lebanon)</div>
-</div>
--->
 
 <!-- E -->
 <!-- Confirmed #13 -->
@@ -402,29 +458,6 @@
     <div class="name">Dr. Elfahmi</div>
     <div class="country">(Indonesia)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/anat_elmann.jpg" alt="Dr. Anat Elmann">
-    <div class="name">Dr. Anat Elmann</div>
-    <div class="country">(Israel)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/indah_epriliati.jpg" alt="Dr. Indah Epriliati">
-    <div class="name">Dr. Indah Epriliati</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
-
-<!-- F -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/lotis_francisco.jpg" alt="Dr. Lotis Francisco">
-    <div class="name">Dr. Lotis Francisco</div>
-    <div class="country">(Philippines)</div>
-</div>
--->
 
 <!-- G -->
 <!-- Confirmed #18 -->
@@ -439,95 +472,16 @@
     <div class="name">Dr. Milen I. Georgiev</div>
     <div class="country">(Bulgaria)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/maya_georgieva.jpg" alt="Dr. Maya B. Georgieva">
-    <div class="name">Dr. Maya B. Georgieva</div>
-    <div class="country">(Bulgaria)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/elvira_gille.jpg" alt="Dr. Elvira Gille">
-    <div class="name">Dr. Elvira Gille</div>
-    <div class="country">(Romania)</div>
-</div>
--->
-<!-- HIDDEN - NEW speaker, not yet revealed
-<div class="speaker">
-    <img src="speakers/liviu_giurgiulescu.jpg" alt="Dr. Liviu Giurgiulescu">
-    <div class="name">Dr. Liviu Giurgiulescu</div>
-    <div class="country">(Romania)</div>
-</div>
--->
-<!-- HIDDEN - NEW speaker, not yet revealed
-<div class="speaker">
-    <img src="speakers/giuseppe_grosso.jpg" alt="Dr. Giuseppe Grosso">
-    <div class="name">Dr. Giuseppe Grosso</div>
-    <div class="country">(Italy)</div>
-</div>
--->
-
-<!-- H -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/eni_harmayani.jpg" alt="Dr. Eni Harmayani">
-    <div class="name">Dr. Eni Harmayani</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
 
 <!-- I -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/folake_idowu_adebayo.jpg" alt="Dr. Folake Idowu-Adebayo">
-    <div class="name">Dr. Folake Idowu-Adebayo</div>
-    <div class="country">(Nigeria)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/johji_inazawa.jpg" alt="Dr. Johji Inazawa">
-    <div class="name">Dr. Johji Inazawa</div>
-    <div class="country">(Japan)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro">
-    <div class="name">Dr. Ciro Isidoro</div>
-    <div class="country">(Italy)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/wan_rosli_wan_ishak.jpg" alt="Dr. Wan Rosli Wan Ishak">
-    <div class="name">Dr. Wan Rosli Wan Ishak</div>
-    <div class="country">(Malaysia)</div>
-</div>
--->
 <!-- Confirmed #2 -->
 <div class="speaker">
     <img src="speakers/amin_bin_ismail.jpg" alt="Dr. Amin Bin Ismail">
     <div class="name">Dr. Amin Bin Ismail</div>
     <div class="country">(Malaysia)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/aline_issa.jpg" alt="Dr. Aline Issa">
-    <div class="name">Dr. Aline Issa</div>
-    <div class="country">(Lebanon)</div>
-</div>
--->
 
 <!-- J -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/ignasius_radix_ap_jati.jpg" alt="Dr. Ignasius Radix AP Jati">
-    <div class="name">Dr. Ignasius Radix AP Jati</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
 <!-- Confirmed #15 -->
 <div class="speaker">
     <img src="speakers/hao_jing.jpg" alt="Dr. Hao Jing">
@@ -542,52 +496,8 @@
     <div class="name">Dr. Richard Khaw</div>
     <div class="country">(Singapore)</div>
 </div>
-<!-- HIDDEN - NEW speaker, not yet revealed
-<div class="speaker">
-    <img src="speakers/bonglee_kim.jpg" alt="Dr. Bonglee Kim">
-    <div class="name">Dr. Bonglee Kim</div>
-    <div class="country">(South Korea)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/dae_young_kwon.jpg" alt="Dr. Dae Young Kwon">
-    <div class="name">Dr. Dae Young Kwon</div>
-    <div class="country">(South Korea)</div>
-</div>
--->
-
-<!-- L -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/irina_lazarova.jpg" alt="Dr. Irina Lazarova">
-    <div class="name">Dr. Irina Lazarova</div>
-    <div class="country">(Bulgaria)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/yong_li.jpg" alt="Dr. Yong Li">
-    <div class="name">Dr. Yong Li</div>
-    <div class="country">(Australia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/jian_kang_liu.jpg" alt="Dr. Jian Kang Liu">
-    <div class="name">Dr. Jian Kang Liu</div>
-    <div class="country">(China)</div>
-</div>
--->
 
 <!-- M -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/mari_maeda_yamamoto.jpg" alt="Dr. Mari Maeda-Yamamoto">
-    <div class="name">Dr. Mari Maeda-Yamamoto</div>
-    <div class="country">(Japan)</div>
-</div>
--->
 <!-- Confirmed #12 -->
 <div class="speaker">
     <img src="speakers/dora_marinova.jpg" alt="Dr. Dora Marinova">
@@ -600,13 +510,6 @@
     <div class="name">Dr. Adam Matkowski</div>
     <div class="country">(Poland)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/natalya_mikhailichenko.jpg" alt="Dr. Natalya Mikhailichenko">
-    <div class="name">Dr. Natalya Mikhailichenko</div>
-    <div class="country">(Russia)</div>
-</div>
--->
 <!-- Confirmed #3 -->
 <div class="speaker">
     <img src="speakers/anca_miron.jpg" alt="Dr. Anca Miron">
@@ -621,34 +524,6 @@
 </div>
 
 <!-- N -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/hye_kyung_na.jpg" alt="Dr. Hye-Kyung Na">
-    <div class="name">Dr. Hye-Kyung Na</div>
-    <div class="country">(South Korea)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/jie_ni.jpg" alt="Dr. Jie Ni">
-    <div class="name">Dr. Jie Ni</div>
-    <div class="country">(Australia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/mohd_esa_norhaizan.jpg" alt="Dr. Mohd-Esa Norhaizan">
-    <div class="name">Dr. Mohd-Esa Norhaizan</div>
-    <div class="country">(Malaysia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/perry_ng.jpg" alt="Dr. Perry Ng">
-    <div class="name">Dr. Perry Ng</div>
-    <div class="country">(USA)</div>
-</div>
--->
 <!-- Confirmed #16 -->
 <div class="speaker">
     <img src="speakers/jun_nishihira.jpg" alt="Dr. Jun Nishihira">
@@ -656,209 +531,23 @@
     <div class="country">(Japan)</div>
 </div>
 
-<!-- O -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/indrawati_oey.jpg" alt="Dr. Indrawati Oey">
-    <div class="name">Dr. Indrawati Oey</div>
-    <div class="country">(New Zealand)</div>
-</div>
--->
-
 <!-- P -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/loh_su_peng.jpg" alt="Dr. Loh Su Peng">
-    <div class="name">Dr. Loh Su Peng</div>
-    <div class="country">(Malaysia)</div>
-</div>
--->
 <!-- Confirmed #22 -->
 <div class="speaker">
     <img src="speakers/mona_elena_ popa.jpg" alt="Dr. Mona Elena Popa">
     <div class="name">Dr. Mona Elena Popa</div>
     <div class="country">(Romania)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/yashshvini_paterl.jpg" alt="Miss. Yashshvini Paterl">
-    <div class="name">Miss. Yashshvini Paterl</div>
-    <div class="country">(India)</div>
-</div>
--->
-
-<!-- Q -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/abdel_qader_qawasmeh.jpg" alt="Dr. Abdel Qader Qawasmeh">
-    <div class="name">Dr. Abdel Qader Qawasmeh</div>
-    <div class="country">(Palestine)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/kunle_oni.jpg" alt="Dr. Kunle Oni">
-    <div class="name">Dr. Kunle Oni</div>
-    <div class="country">(Nigeria)</div>
-</div>
--->
 
 <!-- R -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/m_rajalakshmi.jpg" alt="Dr. M. Rajalakshmi">
-    <div class="name">Dr. M. Rajalakshmi</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/koilmani_emmanuvel_rajan.jpg" alt="Dr. Koilmani Emmanuvel Rajan">
-    <div class="name">Dr. Koilmani Emmanuvel Rajan</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/david_mary_rajathei.jpg" alt="Dr. David Mary Rajathei">
-    <div class="name">Dr. David Mary Rajathei</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/gokare_ravishankar.jpg" alt="Dr. Gokare Ravishankar">
-    <div class="name">Dr. Gokare Ravishankar</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/p_rajakumari.jpg" alt="Dr. P. Rajakumari">
-    <div class="name">Dr. P. Rajakumari</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/mathoto_thaoge.jpg" alt="Dr. Mathoto Thaoge">
-    <div class="name">Dr. Mathoto Thaoge</div>
-    <div class="country">(South Africa)</div>
-</div>
--->
 <!-- Confirmed #27 -->
 <div class="speaker">
     <img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier">
     <div class="name">Dr. Thierry J.C. Regnier</div>
     <div class="country">(South Africa)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/rumiyati.jpg" alt="Dr. Rumiyati">
-    <div class="name">Dr. Rumiyati</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/sri_raharjo.jpg" alt="Dr. Sri Raharjo">
-    <div class="name">Dr. Sri Raharjo</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
 
 <!-- S -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/yoshiro_saito.jpg" alt="Dr. Yoshiro Saito">
-    <div class="name">Dr. Yoshiro Saito</div>
-    <div class="country">(Japan)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/livia_simon_sarkadi.jpg" alt="Dr. Livia Simon Sarkadi">
-    <div class="name">Dr. Livia Simon Sarkadi</div>
-    <div class="country">(Hungary)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/zita_letviany_sarungallo.jpg" alt="Dr. Zita Letviany Sarungallo">
-    <div class="name">Dr. Zita Letviany Sarungallo</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/kenji_sato.jpg" alt="Dr. Kenji Sato">
-    <div class="name">Dr. Kenji Sato</div>
-    <div class="country">(Japan)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/widiastuti_ setyaningsih.jpg" alt="Dr. Widiastuti Setyaningsih">
-    <div class="name">Dr. Widiastuti Setyaningsih</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/nurul_husna_shafie.jpg" alt="Dr. Nurul Husna Shafie">
-    <div class="name">Dr. Nurul Husna Shafie</div>
-    <div class="country">(Malaysia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/siti_raihanah_shafie.jpg" alt="Dr. Siti Raihanah Shafie">
-    <div class="name">Dr. Siti Raihanah Shafie</div>
-    <div class="country">(Malaysia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/fereidoon_shahidi.jpg" alt="Dr. Fereidoon Shahidi">
-    <div class="name">Dr. Fereidoon Shahidi</div>
-    <div class="country">(Canada)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/mark_shamtsyan.jpg" alt="Dr. Mark Shamtsyan">
-    <div class="name">Dr. Mark Shamtsyan</div>
-    <div class="country">(Russia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/szu_chuan_shen.jpeg" alt="Dr. Szu-Chuan Shen">
-    <div class="name">Dr. Szu-Chuan Shen</div>
-    <div class="country">(Taiwan)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/sheng_luen_shih.jpg" alt="Mr. Sheng-Luen (Kevin) Shih">
-    <div class="name">Mr. Sheng-Luen (Kevin) Shih</div>
-    <div class="country">(USA)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/katarzyna_swiader.jpg" alt="Dr. Katarzyna Świąder">
-    <div class="name">Dr. Katarzyna Świąder</div>
-    <div class="country">(Poland)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/yong_sang_song.jpg" alt="Dr. Yong Sang Song">
-    <div class="name">Dr. Yong Sang Song</div>
-    <div class="country">(South Korea)</div>
-</div>
--->
 <!-- Confirmed #28 -->
 <div class="speaker">
     <img src="speakers/young_joon_surh.jpg" alt="Dr. Young Joon Surh">
@@ -880,50 +569,13 @@
     <div class="country">(Canada)</div>
 </div>
 
-<!-- V -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/rutvi_vaja.jpg" alt="Miss. Rutvi Vaja">
-    <div class="name">Miss. Rutvi Vaja</div>
-    <div class="country">(India)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/petras_rimantas_venskutonis.jpg" alt="Dr. Petras Rimantas Venskutonis">
-    <div class="name">Dr. Petras Rimantas Venskutonis</div>
-    <div class="country">(Lithuania)</div>
-</div>
--->
-
 <!-- W -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/bing_wang.jpg" alt="Dr. Bing Wang">
-    <div class="name">Dr. Bing Wang</div>
-    <div class="country">(Australia)</div>
-</div>
--->
 <!-- Confirmed #8 -->
 <div class="speaker">
     <img src="speakers/christofora_hanny_wijaya.jpg" alt="Dr. Christofora Hanny Wijaya">
     <div class="name">Dr. Christofora Hanny Wijaya</div>
     <div class="country">(Indonesia)</div>
 </div>
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/kuncoro_harto_widodo.jpg" alt="Dr. Kuncoro Harto Widodo">
-    <div class="name">Dr. Kuncoro Harto Widodo</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/yuli_witono.jpg" alt="Dr. Yuli Witono">
-    <div class="name">Dr. Yuli Witono</div>
-    <div class="country">(Indonesia)</div>
-</div>
--->
 
 <!-- Y -->
 <!-- Confirmed #5 -->
@@ -939,21 +591,6 @@
     <div class="country">(Japan)</div>
 </div>
 
-<!-- Z -->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/zhizhuang_joe_zhao.jpg" alt="Dr. Zhizhuang Joe Zhao">
-    <div class="name">Dr. Zhizhuang Joe Zhao</div>
-    <div class="country">(USA)</div>
-</div>
--->
-<!-- HIDDEN - not in confirmed list
-<div class="speaker">
-    <img src="speakers/sylwia_zielinska.jpg" alt="Dr. Sylwia Zielinska">
-    <div class="name">Dr. Sylwia Zielinska</div>
-    <div class="country">(Poland)</div>
-</div>
--->
         </div>
     </div>
 
@@ -963,11 +600,27 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById("nav-menu").classList.toggle("menu-active");
+            const nav = document.getElementById("nav-menu");
+            nav.classList.toggle("menu-active");
         }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById("nav-menu");
+            const toggle = document.querySelector(".menu-toggle");
+            
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove("menu-active");
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById("nav-menu").classList.remove("menu-active");
+            });
+        });
     </script>
 
 </body>
-
 </html>
-
