@@ -121,9 +121,7 @@
         .intro-section p:last-child { margin-bottom: 0; }
 
         /* Sponsorship Tiers */
-        .tiers-section {
-            margin-bottom: 3rem;
-        }
+        .tiers-section { margin-bottom: 3rem; }
         .tiers-section > h2 {
             font-family: 'Playfair Display', serif;
             color: #2E7D32;
@@ -164,10 +162,7 @@
             text-align: center;
             position: relative;
         }
-        .tier-badge {
-            font-size: 2.4rem;
-            margin-bottom: 0.3rem;
-        }
+        .tier-badge { font-size: 2.4rem; margin-bottom: 0.3rem; }
         .tier-header h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
@@ -185,11 +180,7 @@
             font-weight: 800;
             letter-spacing: -0.5px;
         }
-        .tier-price span {
-            font-size: 1rem;
-            font-weight: 500;
-            opacity: 0.7;
-        }
+        .tier-price span { font-size: 1rem; font-weight: 500; opacity: 0.7; }
 
         .tier-body {
             padding: 0 1.8rem 2rem;
@@ -197,11 +188,7 @@
             display: flex;
             flex-direction: column;
         }
-        .tier-body ul {
-            list-style: none;
-            padding: 0;
-            flex: 1;
-        }
+        .tier-body ul { list-style: none; padding: 0; flex: 1; }
         .tier-body ul li {
             padding: 0.55rem 0;
             border-bottom: 1px solid #f0f0f0;
@@ -257,10 +244,7 @@
         .tier-general .check { background: #2E7D32; }
         .tier-general { border-top: 4px solid #2E7D32; }
 
-        /* Highlight the top tier */
-        .tier-diamond {
-            box-shadow: 0 8px 32px rgba(26,26,46,0.18);
-        }
+        .tier-diamond { box-shadow: 0 8px 32px rgba(26,26,46,0.18); }
         .tier-diamond .tier-header::after {
             content: '⭐ PREMIER';
             position: absolute;
@@ -289,10 +273,7 @@
             text-align: center;
             margin-bottom: 2rem;
         }
-        .benefits-table-wrap {
-            overflow-x: auto;
-            border-radius: 10px;
-        }
+        .benefits-table-wrap { overflow-x: auto; border-radius: 10px; }
         .benefits-table {
             width: 100%;
             border-collapse: collapse;
@@ -308,36 +289,28 @@
             font-size: 0.85rem;
             letter-spacing: 0.5px;
         }
-        .benefits-table th:first-child {
-            text-align: left;
-            min-width: 200px;
-        }
-        .benefits-table thead th {
-            color: #fff;
-        }
+        .benefits-table th:first-child { text-align: left; min-width: 200px; }
+        .benefits-table thead th { color: #fff; }
         .benefits-table thead th:nth-child(2) { background: #1a1a2e; }
         .benefits-table thead th:nth-child(3) { background: #5c4300; }
         .benefits-table thead th:nth-child(4) { background: #424242; }
         .benefits-table thead th:nth-child(5) { background: #4e342e; }
         .benefits-table thead th:nth-child(6) { background: #2E7D32; }
         .benefits-table thead th:first-child { background: #fff; color: #333; }
-
         .benefits-table td {
             padding: 0.8rem;
             text-align: center;
             border-bottom: 1px solid #f0f0f0;
             color: #444;
         }
-        .benefits-table td:first-child {
-            text-align: left;
-            font-weight: 500;
-            color: #333;
-        }
+        .benefits-table td:first-child { text-align: left; font-weight: 500; color: #333; }
         .benefits-table tbody tr:hover { background: #f9fff9; }
         .benefits-table .yes { color: #2E7D32; font-weight: 700; font-size: 1.1rem; }
         .benefits-table .no { color: #ccc; }
 
-        /* CTA */
+        /* =====================================================
+           CTA Section — 修正：三按鈕同一行
+           ===================================================== */
         .cta-section {
             text-align: center;
             padding: 4rem 2rem;
@@ -352,7 +325,7 @@
             font-size: 2rem;
             margin-bottom: 0.8rem;
         }
-        .cta-section p {
+        .cta-section > p {
             color: #555;
             font-size: 1.05rem;
             margin-bottom: 2rem;
@@ -377,12 +350,34 @@
         .cta-contact a { color: #2E7D32; text-decoration: none; font-weight: 600; }
         .cta-contact a:hover { text-decoration: underline; }
 
-        .button {
-            display: inline-block; padding: 1rem 2rem; margin: 0.5rem; color: #fff;
-            background-color: #2E7D32; text-decoration: none; border-radius: 8px;
-            transition: all 0.3s; font-weight: bold; font-size: 1.1rem;
+        /* 按鈕容器：flex 同一行，居中，允許換行 */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
         }
-        .button:hover { background-color: #4CAF50; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(46,125,50,0.3); }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.8rem;
+            color: #fff;
+            background-color: #2E7D32;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+        .button:hover {
+            background-color: #4CAF50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+        }
 
         footer { background-color: #1B5E20; color: #fff; text-align: center; padding: 1.5rem; margin-top: 3rem; }
 
@@ -399,7 +394,8 @@
             .dropdown-content { position: static; width: 100%; box-shadow: none; background-color: #2E7D32; }
             .dropdown-content a { color: #fff; padding-left: 2rem; }
             .tiers-grid { grid-template-columns: 1fr; }
-            .button { display: block; margin: 0.8rem auto; max-width: 280px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .button { width: 100%; max-width: 280px; }
             .benefits-table { font-size: 0.8rem; }
             .benefits-table th, .benefits-table td { padding: 0.5rem 0.4rem; }
         }
@@ -463,7 +459,6 @@
             <p>Choose a level of partnership that fits your organization</p>
 
             <div class="tiers-grid">
-                <!-- Super Gold / Diamond -->
                 <div class="tier-card tier-diamond">
                     <div class="tier-header">
                         <div class="tier-badge">🌟</div>
@@ -482,7 +477,6 @@
                     </div>
                 </div>
 
-                <!-- Gold -->
                 <div class="tier-card tier-gold">
                     <div class="tier-header">
                         <div class="tier-badge">🥇</div>
@@ -501,7 +495,6 @@
                     </div>
                 </div>
 
-                <!-- Silver -->
                 <div class="tier-card tier-silver">
                     <div class="tier-header">
                         <div class="tier-badge">🥈</div>
@@ -520,7 +513,6 @@
                     </div>
                 </div>
 
-                <!-- Bronze -->
                 <div class="tier-card tier-bronze">
                     <div class="tier-header">
                         <div class="tier-badge">🥉</div>
@@ -538,7 +530,6 @@
                     </div>
                 </div>
 
-                <!-- General -->
                 <div class="tier-card tier-general">
                     <div class="tier-header">
                         <div class="tier-badge">🤝</div>
@@ -632,9 +623,12 @@
                 <div>🌐 <a href="https://www.isfph.org" target="_blank">www.isfph.org</a></div>
             </div>
 
-            <a href="mailto:isfph2025@gmail.com?subject=ISPH%202026%20Sponsorship%20Inquiry" class="button">📩 Contact Us for Sponsorship</a>
-            <a href="Annual2026.html" class="button" style="background-color:#388E3C;">Conference Details</a>
-            <a href="index.html" class="button" style="background-color:#1B5E20;">Home</a>
+            <!-- ✅ 三個按鈕同一行 -->
+            <div class="cta-buttons">
+                <a href="mailto:isfph2025@gmail.com?subject=ISPH%202026%20Sponsorship%20Inquiry" class="button">📩 Contact Us for Sponsorship</a>
+                <a href="Annual2026.html" class="button" style="background-color:#388E3C;">Conference Details</a>
+                <a href="index.html" class="button" style="background-color:#1B5E20;">Home</a>
+            </div>
         </div>
     </main>
 
@@ -648,5 +642,4 @@
         });
     </script>
 </body>
-
 </html>
