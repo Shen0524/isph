@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Sponsors - ISPH 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A1628;
+            --deep-blue: #0D2B55;
+            --royal: #1A4A8A;
+            --accent: #00A8E8;
+            --gold: #C9A84C;
+            --gold-light: #F0D080;
+            --diamond: #A8EDFF;
+            --super-gold: #DAA520;
+            --silver: #B8C8D8;
+            --bronze: #CD7F32;
+            --white: #F8FAFF;
+            --text-muted: #8899AA;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background mesh */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 10%, rgba(26,74,138,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 80% 90%, rgba(0,168,232,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 40% at 60% 40%, rgba(201,168,76,0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* LOGO */
+        .logo-container {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 100;
+        }
+        .logo-container img {
+            max-width: 90px;
+            height: auto;
+            border-radius: 6px;
+            filter: drop-shadow(0 4px 12px rgba(0,168,232,0.3));
+        }
+
+        /* HEADER */
+        header {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--deep-blue) 50%, #0E1F3D 100%);
+            padding: 2.5rem 1rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,168,232,0.25);
+            overflow: hidden;
+        }
+        header::after {
+            content: '2026';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(0,168,232,0.04);
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #0078B8);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 0.8rem;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* NAV */
+        nav {
+            background-color: rgba(10,22,40,0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem;
+            position: relative;
+            z-index: 50;
+            border-bottom: 1px solid rgba(0,168,232,0.15);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--deep-blue);
+            min-width: 200px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            z-index: 200;
+            border: 1px solid rgba(0,168,232,0.2);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .dropdown-content a {
+            color: rgba(255,255,255,0.8);
+            padding: 0.8rem 1rem;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* MAIN */
+        main {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Section heading */
+        .sponsors-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .sponsors-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--white) 30%, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+        }
+        .sponsors-heading p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 520px;
+            margin: 0 auto 1.5rem;
+        }
+
+
+
+
+
+        /* CO-ORGANIZER BANNER */
+        .co-banner-wrapper {
+            margin-bottom: 3rem;
+        }
+        .co-banner-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(0,168,232,0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .co-banner-item a { display: inline-block; }
+        .co-banner-item img {
+            max-width: 500px;
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .co-banner-item img:hover { transform: scale(1.04); }
+
+        /* TIER SECTION */
+        .sponsor-tier {
+            margin-bottom: 3.5rem;
+        }
+
+        .tier-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tier-label::before, .tier-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+        }
+        .tier-label h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .tier-label.diamond h3    { color: var(--diamond); }
+        .tier-label.diamond::before, .tier-label.diamond::after { background: rgba(168,237,255,0.3); }
+
+        .tier-label.super-gold h3 { color: var(--super-gold); }
+        .tier-label.super-gold::before, .tier-label.super-gold::after { background: rgba(218,165,32,0.3); }
+
+        .tier-label.gold h3       { color: var(--gold-light); }
+        .tier-label.gold::before, .tier-label.gold::after { background: rgba(240,208,128,0.25); }
+
+        .tier-label.silver h3     { color: var(--silver); }
+        .tier-label.silver::before, .tier-label.silver::after { background: rgba(184,200,216,0.25); }
+
+        .tier-label.bronze h3     { color: var(--bronze); }
+        .tier-label.bronze::before, .tier-label.bronze::after { background: rgba(205,127,50,0.25); }
+
+        .tier-label.general h3    { color: var(--text-muted); }
+        .tier-label.general::before, .tier-label.general::after { background: rgba(136,153,170,0.2); }
+
+        .tier-label.fixed h3      { color: var(--accent); }
+        .tier-label.fixed::before, .tier-label.fixed::after { background: rgba(0,168,232,0.2); }
+
+        /* GRID */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* SPONSOR CARD */
+        .sponsor-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .sponsor-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,168,232,0.06), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,168,232,0.35);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,168,232,0.15);
+        }
+        .sponsor-card:hover::before { opacity: 1; }
+
+        .sponsor-card img {
+            width: 180px;
+            height: 120px;
+            object-fit: contain;
+            filter: brightness(0.9) saturate(0.95);
+            transition: filter 0.3s;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px;
+        }
+        .sponsor-card:hover img {
+            filter: brightness(1.05) saturate(1.1);
+        }
+
+        .sponsor-name {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .link-hint {
+            font-size: 0.72rem;
+            color: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .sponsor-card:hover .link-hint { opacity: 0.8; }
+
+        /* Diamond card special glow */
+        .tier-diamond .sponsor-card {
+            border-color: rgba(168,237,255,0.15);
+        }
+        .tier-diamond .sponsor-card:hover {
+            border-color: rgba(168,237,255,0.4);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px rgba(168,237,255,0.1);
+        }
+
+        /* FOOTER */
+        footer {
+            position: relative;
+            z-index: 1;
+            background: rgba(10,22,40,0.9);
+            border-top: 1px solid rgba(0,168,232,0.15);
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; }
+            .nav-links.active { display: flex; }
+            nav a { width: 100%; padding: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; width: 100%; box-shadow: none; background-color: rgba(255,255,255,0.05); border-radius: 0; }
+            .sponsors-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="LOGO.PNG" alt="ISPH Logo">
+    </div>
+
+    <header>
+        <div class="header-badge">ISPH 2026 Annual Conference</div>
+        <h1>International Society for Precision Health</h1>
+        <p>Sponsors 2026</p>
+    </header>
+
+    <nav>
+        <button class="menu-toggle">☰ Menu</button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">Scientific Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Organizing_Committees2026.html">Organizing Committees</a>
+                    <a href="Invited_Speakers2026.html">Invited Speakers</a>
+                    <!--<a href="country2026.html">Country Representation</a>-->
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Registrations &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Registration20261.html"><span style="color:#00A8E8">Register Now</span></a>
+                    <a href="Registration2026.html">Register Now <span style="color:#FF6B6B">(Taiwanese Only)</span></a>
+                </div>
+            </div>
+            <!--<a href="session_schedule.html">Session Schedule</a>-->
+            <a href="Invited_Speakers2026.html">Invited Speakers</a>
+                <div class="dropdown">
+                <a href="#">Social Events &#9662;</a>
+                    <!-- <div class="dropdown-content">
+                    <a href="One-Day Tour.html">Cultural Visit</a>
+                    <a href="Gala.html">Gala Dinner</a>
+                </div>-->
+            </div>
+            <div class="dropdown">
+                <a href="#">General Info &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="Transportation_Guide2026.html">Transportation Guide</a>
+                    <a href="FAQ2026.html">FAQs</a>
+                </div>
+            </div>
+            <a href="Contact1.html">Follow Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="sponsors-heading">
+            <h2>Our Sponsors</h2>
+            <p>ISPH 2026 is grateful for the continued support of our sponsors.</p>
+        </div>
+
+        <!-- CO-ORGANIZER BANNER -->
+          <div class="co-banner-wrapper">
+            <div class="co-banner-item">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="images/Co-Organizer.jpg" alt="Co-Organizer">
+                </a>
+            </div>
+        </div>
+
+        <!-- Supporting Organizations -->
+        <div class="sponsor-tier">
+            <div class="tier-label fixed">
+                <h3>Supporting Organizations</h3>
+            </div>
+            <div class="sponsors-grid">
+                <!--
+                <a class="sponsor-card" href="https://www.isnpr.org" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/ISNPR.png" alt="ISNPR">
+                    <div class="sponsor-name">International Society for Nutritional Psychiatry Research</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/chungte.JPG" alt="Chung Te Foundation">
+                    <div class="sponsor-name">Chung Te Foundation</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="https://www.csmu.edu.tw" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/csmu_logo.png" alt="Chung Shan Medical University">
+                    <div class="sponsor-name">Chung Shan Medical University</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+            </div>
+        </div>
+
+        <!-- 💎 Diamond Sponsors -->
+        <div class="sponsor-tier tier-diamond">
+            <div class="tier-label diamond">
+                <h3>💎 Diamond Sponsors</h3>
+            </div>
+            <div class="sponsors-grid">
+                <!--
+                <a class="sponsor-card" href="https://www.standardfoods.com.tw" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Standard Foods Corporation.png" alt="Standard Foods Corporation">
+                    <div class="sponsor-name">Standard Foods Corporation</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="https://www.imei.com.tw" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/I-Mei_logo.png" alt="I-MEI Foods Co., Ltd.">
+                    <div class="sponsor-name">I-MEI Foods Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+            </div>
+        </div>
+
+        <!-- 🌟 Super Gold Sponsors -->
+        <div class="sponsor-tier">
+            <div class="tier-label super-gold">
+                <h3>🌟 Super Gold Sponsors</h3>
+            </div>
+            <div class="sponsors-grid">
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Yun_Ding_logo.png" alt="Yun Ding Food & Beverage">
+                    <div class="sponsor-name">Yun Ding Food &amp; Beverage</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+            </div>
+        </div>
+
+        <!-- 🥇 Gold Sponsors -->
+        <div class="sponsor-tier">
+            <div class="tier-label gold">
+                <h3>🥇 Gold Sponsors</h3>
+            </div>
+            <div class="sponsors-grid">
+                <!--
+                <a class="sponsor-card" href="https://www.heysong.com.tw" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/HeySong_logo.png" alt="HeySong Corporation">
+                    <div class="sponsor-name">HeySong Corporation</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Hughes_logo.png" alt="Hughes Biotechnology Co., Ltd.">
+                    <div class="sponsor-name">Hughes Biotechnology Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="https://www.herbalife.com.tw" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Herbalife_logo.png" alt="Herbalife Taiwan Branch Inc.">
+                    <div class="sponsor-name">Herbalife Taiwan Branch Inc.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+            </div>
+        </div>
+
+        <!-- 🥈 Silver Sponsors -->
+        <div class="sponsor-tier">
+            <div class="tier-label silver">
+                <h3>🥈 Silver Sponsors</h3>
+            </div>
+            <div class="sponsors-grid">
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/6.png" alt="Yoke Chuan Biotechnology Co., Ltd.">
+                    <div class="sponsor-name">Yoke Chuan Biotechnology Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/toong_logo.png" alt="Toong Yeuan Enterprise Co., Ltd.">
+                    <div class="sponsor-name">Toong Yeuan Enterprise Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+            </div>
+        </div>
+
+        <!-- 🥉 Bronze Sponsors -->
+        <div class="sponsor-tier">
+            <div class="tier-label bronze">
+                <h3>🥉 Bronze Sponsors</h3>
+            </div>
+            <div class="sponsors-grid">
+                <!--
+                <a class="sponsor-card" href="https://www.sinphar.com.tw" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Sinphar_logo.png" alt="Sinphar Pharmaceutical Co., Ltd.">
+                    <div class="sponsor-name">Sinphar Pharmaceutical Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Protison.png" alt="SMAD Biotechnology Co., Ltd.">
+                    <div class="sponsor-name">SMAD Biotechnology Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Jiun_logo.png" alt="Jiun Chiuan Co., Ltd.">
+                    <div class="sponsor-name">Jiun Chiuan Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/no26_logo.png" alt="Zhuang Cafe">
+                    <div class="sponsor-name">Zhuang Cafe</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Efione_logo.png" alt="Nutritec-Enjoy Corporation">
+                    <div class="sponsor-name">Nutritec-Enjoy Corporation</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="https://www.weichuan.com.tw" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Wei_logo.png" alt="Wei Chuan Foods Corporation">
+                    <div class="sponsor-name">Wei Chuan Foods Corporation</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Nutrisense_logo.png" alt="Nutrisense Co., Ltd.">
+                    <div class="sponsor-name">Nutrisense Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/Jerosse_logo.png" alt="Jerosse Biotech Inc.">
+                    <div class="sponsor-name">Jerosse Biotech Inc.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+            </div>
+        </div>
+
+        <!-- General Sponsors -->
+        <div class="sponsor-tier">
+            <div class="tier-label general">
+                <h3>General Sponsors</h3>
+            </div>
+            <div class="sponsors-grid">
+                <!--
+                <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="sponsors/CHIMEI_logo.png" alt="CHIMEI Frozen Food Co., Ltd.">
+                    <div class="sponsor-name">CHIMEI Frozen Food Co., Ltd.</div>
+                    <div class="link-hint">↗ Visit Website</div>
+                </a>
+                -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
