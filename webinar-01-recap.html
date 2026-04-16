@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISPH Webinar Symposium No.1 — Recap | International Society for Precision Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#1b4d22;
+    --green-800:#2E7D32;
+    --green-600:#43a047;
+    --green-50:#f1f8f2;
+    --gold:#c9a227;
+    --ink:#1a1f1b;
+    --ink-soft:#4a524c;
+    --paper:#fbfaf5;
+    --line:#e4e6e0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter','Noto Sans TC',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--green-800);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,var(--green-900) 0%,var(--green-800) 60%,var(--green-600) 100%);
+    color:#fff;
+    padding:80px 24px 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 0%,transparent 40%),
+                     radial-gradient(circle at 80% 70%,rgba(201,162,39,.15) 0%,transparent 50%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+  .eyebrow{
+    font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:clamp(2.2rem,5vw,3.8rem);
+    line-height:1.1;
+    margin-bottom:18px;
+    max-width:900px;
+  }
+  .hero .subtitle{
+    font-size:1.15rem;
+    opacity:1;
+    max-width:700px;
+    font-weight:300;
+    color:rgba(255,255,255,.78);
+  }
+  .sub-opening{color:#fff;font-weight:500;background:rgba(255,255,255,.12);border-radius:4px;padding:0 5px}
+  .sub-speaker{color:#fde68a;font-weight:500}
+  .sub-affil{color:#6ee7b7;font-style:italic}
+  .sub-topic{color:#fcd34d;font-weight:500}
+  .sub-subject{color:#a7f3d0;font-style:italic}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:28px;
+    margin-top:36px;padding-top:28px;
+    border-top:1px solid rgba(255,255,255,.2);
+    font-size:.92rem;
+  }
+  .hero-meta div{display:flex;flex-direction:column;gap:4px}
+  .hero-meta .label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
+  .hero-meta .value{font-weight:500}
+
+  /* Container */
+  .container{max-width:1100px;margin:0 auto;padding:0 24px}
+  section{padding:64px 0}
+  h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;font-weight:600;
+    color:var(--green-900);
+    margin-bottom:24px;
+    position:relative;padding-bottom:12px;
+  }
+  h2::after{
+    content:"";position:absolute;bottom:0;left:0;
+    width:60px;height:3px;background:var(--gold);
+  }
+  h3{
+    font-size:1.15rem;font-weight:600;color:var(--green-800);
+    margin:24px 0 10px;
+  }
+  p{margin-bottom:14px;color:var(--ink-soft)}
+
+  /* Resources card */
+  .resources{
+    margin-top:-60px;position:relative;z-index:2;
+    background:#fff;border-radius:12px;
+    box-shadow:0 20px 60px rgba(27,77,34,.15);
+    padding:40px;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:40px;
+  }
+  @media(max-width:768px){.resources{grid-template-columns:1fr;padding:28px}}
+  .video-link{
+    display:flex;align-items:center;gap:14px;
+    background:var(--green-50);
+    border:1px solid var(--green-600);
+    border-left:4px solid var(--green-800);
+    padding:18px 22px;border-radius:8px;
+    transition:all .2s;
+    text-decoration:none;color:var(--ink);
+  }
+  .video-link:hover{
+    background:#fff;
+    transform:translateX(4px);
+    box-shadow:0 8px 20px rgba(46,125,50,.15);
+    text-decoration:none;
+  }
+  .video-link .icon{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--green-800);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;font-size:1.2rem;
+  }
+  .video-link .txt strong{display:block;font-size:1rem;color:var(--green-900)}
+  .video-link .txt span{font-size:.85rem;color:var(--ink-soft)}
+  .nav-links{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+  .nav-links a{
+    font-size:.9rem;padding:8px 0;
+    border-bottom:1px dashed var(--line);
+    display:flex;justify-content:space-between;
+  }
+  .nav-links a::after{content:"→";color:var(--gold)}
+
+  /* Speaker */
+  .speaker-card{
+    background:#fff;border:1px solid var(--line);
+    border-radius:12px;padding:32px;
+    display:grid;grid-template-columns:120px 1fr;gap:28px;
+  }
+  @media(max-width:640px){.speaker-card{grid-template-columns:1fr}}
+  .avatar{
+    width:120px;height:120px;border-radius:50%;
+    background:linear-gradient(135deg,var(--green-800),var(--green-600));
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;
+  }
+  .speaker-card h3{margin-top:0;font-size:1.4rem;color:var(--green-900)}
+  .speaker-card .affil{font-size:.9rem;color:var(--ink-soft);margin-bottom:14px;font-style:italic}
+
+  /* Abstract / highlights */
+  .highlights{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;
+  }
+  @media(max-width:768px){.highlights{grid-template-columns:1fr}}
+  .highlight{
+    background:#fff;border-top:3px solid var(--green-800);
+    padding:24px;border-radius:4px;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+  .highlight .num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;color:var(--gold);font-weight:600;line-height:1;
+  }
+  .highlight h4{font-size:1rem;color:var(--green-900);margin:8px 0 6px}
+  .highlight p{font-size:.88rem;margin-bottom:0}
+
+  /* Transcript */
+  .transcript{
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    max-height:600px;overflow-y:auto;
+    padding:8px 0;
+  }
+  .transcript details{border-bottom:1px solid var(--line)}
+  .transcript details:last-child{border-bottom:none}
+  .transcript summary{
+    padding:18px 24px;cursor:pointer;font-weight:600;
+    color:var(--green-900);font-size:.95rem;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;
+    transition:background .2s;
+  }
+  .transcript summary::-webkit-details-marker{display:none}
+  .transcript summary:hover{background:var(--green-50)}
+  .transcript summary::after{content:"+";font-size:1.4rem;color:var(--gold);font-weight:400}
+  .transcript details[open] summary::after{content:"−"}
+  .transcript .content{padding:0 24px 22px;font-size:.92rem;line-height:1.75}
+  .transcript .content p{margin-bottom:12px}
+  .speaker-tag{
+    display:inline-block;font-size:.72rem;font-weight:600;
+    color:var(--green-800);letter-spacing:.05em;
+    margin-right:6px;
+  }
+
+  /* Q&A */
+  .qa{background:var(--green-50);padding:64px 0;margin-top:20px}
+  .qa-item{
+    background:#fff;border-left:4px solid var(--gold);
+    padding:22px 26px;margin-bottom:16px;border-radius:0 6px 6px 0;
+  }
+  .qa-item .q{font-weight:600;color:var(--green-900);margin-bottom:10px;font-size:.98rem}
+  .qa-item .q::before{content:"Q  ";color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700}
+  .qa-item .a{font-size:.92rem}
+  .qa-item .a::before{content:"A  ";color:var(--green-800);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700}
+
+  /* Footer */
+  footer{
+    background:var(--green-900);color:#fff;
+    padding:40px 24px;text-align:center;
+    font-size:.85rem;
+  }
+  footer .gold{color:var(--gold)}
+  footer a{color:#fff;opacity:.85}
+  .footer-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .footer-home{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:6px;padding:9px 22px;
+    color:#fff;font-size:.85rem;font-weight:500;
+    text-decoration:none;letter-spacing:.03em;
+
+    transition:background .2s,border-color .2s;
+  }
+  .footer-home:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6);text-decoration:none}
+  .footer-home svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .footer-register{display:inline-flex;align-items:center;gap:8px;border-radius:6px;padding:9px 22px;background:var(--gold);color:var(--green-900);font-size:.85rem;font-weight:600;text-decoration:none;letter-spacing:.03em;transition:opacity .2s,transform .15s;}
+  .footer-register:hover{opacity:.88;transform:translateY(-1px);text-decoration:none;color:var(--green-900)}
+  .footer-register svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .footer-series{color:rgba(255,255,255,.75)}
+  .footer-series .sep{color:var(--gold);margin:0 4px}
+  .footer-series .sess{color:#fff;font-weight:500}
+  .footer-series .date-val{color:#a7f3d0}
+  .footer-next{color:rgba(255,255,255,.7)}
+  .footer-next .label{color:rgba(255,255,255,.5)}
+  .footer-next .webinar-id{color:var(--gold);font-weight:600}
+  .footer-next .speaker{color:#fde68a}
+  .footer-next .topic{color:#a7f3d0;font-style:italic}
+  .footer-next .next-date{color:#fcd34d}
+  .footer-copy{color:rgba(255,255,255,.45);font-size:.78rem}
+  .footer-copy .org{color:rgba(255,255,255,.65)}
+  .footer-copy a{color:var(--gold);opacity:1}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">ISPH Webinar Symposium · Session 01</div>
+    <h1>Application of Nanotechnology to Improve Bioavailability of Dietary Phytochemicals</h1>
+    <p class="subtitle"><span class="sub-opening">Opening session</span> of the ISPH Webinar Symposium Series — a <span class="sub-topic">keynote lecture</span> by <span class="sub-speaker">Prof. Anna Rita Bilia</span>, <span class="sub-affil">University of Florence</span>, on <span class="sub-topic">engineering nano-formulations</span> for <span class="sub-subject">natural products</span>.</p>
+    <div class="hero-meta">
+      <div><span class="label">Date</span><span class="value">10 April 2026</span></div>
+      <div><span class="label">Duration</span><span class="value">≈ 70 minutes</span></div>
+      <div><span class="label">Language</span><span class="value">English</span></div>
+      <div><span class="label">Format</span><span class="value">Online Webinar</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="resources">
+    <div>
+      <div class="eyebrow" style="color:var(--green-800);margin-bottom:14px">Recording & Materials</div>
+      <a class="video-link" href="https://reurl.cc/dpnkR6" target="_blank" rel="noopener">
+        <div class="icon">▶</div>
+        <div class="txt">
+          <strong>Watch Full Recording</strong>
+          <span>Keynote lecture, panel discussion & Q&amp;A</span>
+        </div>
+      </a>
+    </div>
+    <div>
+      <div class="eyebrow" style="color:var(--green-800);margin-bottom:14px">On this page</div>
+      <nav class="nav-links">
+        <a href="#speaker">About the Speaker</a>
+        <a href="#abstract">Lecture Overview</a>
+        <a href="#transcript">Full Transcript</a>
+        <a href="#qa">Panel Q&amp;A</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<section id="speaker">
+  <div class="container">
+    <h2>Speaker</h2>
+    <div class="speaker-card">
+      <div class="avatar">AB</div>
+      <div>
+        <h3>Prof. Anna Rita Bilia</h3>
+        <div class="affil">Department of Chemistry, University of Florence, Italy</div>
+        <p>Prof. Bilia has made significant contributions to the design and development of innovative formulations that enhance the stability and bioavailability of natural products. Her work is documented in more than 260 publications in reputed journals, with an h-index of 68 on Google Scholar.</p>
+        <p>She is the recipient of prestigious awards including the Claudio Delli Prize for outstanding young researchers in phytochemistry, the Egon Stahl Medal, and the Ki Huang International Prize for achievements in the analysis and innovative formulation of extracts from Chinese medicine. She serves as an expert of the European Pharmacopoeia and a member of its TCM group, is former President of the International Society for Medicinal Plant and Natural Product Research (GA), Italian delegate to its Board, and Vice Chair of ESCOP (European Scientific Cooperative on Phytotherapy).</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px">Session Chair & Panelist</h3>
+    <p><strong>Chair:</strong> Dr. Anca Miron &nbsp;·&nbsp; <strong>Panelist:</strong> Dr. Gow-Chin Yen, Executive Board Director, ISPH &nbsp;·&nbsp; <strong>Host:</strong> Prof. Chin-Kun Wang, President, ISPH</p>
+  </div>
+</section>
+
+<section id="abstract" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <h2>Lecture Overview</h2>
+    <p>Natural products, though abundant in the human diet and possessing remarkable biological activity, often face clinical limitations due to poor water solubility, chemical instability in the gastrointestinal tract, rapid metabolism, and consequently low bioavailability. Prof. Bilia's lecture surveyed how nanotechnology can be harnessed to overcome these barriers, turning phytochemicals into viable, clinically effective therapeutic agents.</p>
+    <p>The talk drew a vivid parallel between nature's own nano-scale structures — from the setae on gecko feet to the vibrant nano-cellulose fruit coatings of <em>Margaritaria nobilis</em> — and engineered nanomedicines such as liposomes, solid lipid nanoparticles, polymeric nanoparticles, and nano/micro-emulsions. Case studies included curcumin nanocrystals administered to patients with moderate-to-severe psoriasis vulgaris, liposomal resveratrol against head-and-neck squamous cell carcinoma, stabilised salvianolic acid and verbascoside formulations for neuropathic pain models, and nano-emulsions of <em>Vitex agnus-castus</em> and <em>Silybum marianum</em> extracts.</p>
+
+    <div class="highlights">
+      <div class="highlight">
+        <div class="num">01</div>
+        <h4>The Phytochemical Paradox</h4>
+        <p>High therapeutic potential is limited by poor solubility, instability, and rapid first-pass metabolism.</p>
+      </div>
+      <div class="highlight">
+        <div class="num">02</div>
+        <h4>Food-Grade Nano-Carriers</h4>
+        <p>Liposomes, solid lipid nanoparticles and nano-emulsions built from biocompatible dietary lipids.</p>
+      </div>
+      <div class="highlight">
+        <div class="num">03</div>
+        <h4>Clinical Translation</h4>
+        <p>Case: nano-curcumin + acitretin in ~50 psoriasis patients improved lesion clearance and prevented drug-induced hyperlipidemia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="transcript">
+  <div class="container">
+    <h2>Full Transcript</h2>
+    <p style="margin-bottom:24px">The following transcript has been lightly edited from the automated meeting recording for clarity. Speaker attributions and timestamps are preserved from the original recording.</p>
+
+    <div class="transcript">
+      <details open>
+        <summary>Opening Remarks — Prof. Jin-Kun Wang (ISPH President)</summary>
+        <div class="content">
+          <p>Welcome to the first webinar symposium of the International Society for Precision Health. I am very happy to have an excellent speaker with us today. To save time, I will give a very brief introduction.</p>
+          <p>Today we have keynote speaker Prof. Anna Rita Bilia, who will give an attractive talk on the application of nanotechnology. I believe many of you will be very interested. I must thank our chair Dr. Camelia Munteanu for her efforts in making today's symposium possible, and I also want to thank our panelist Dr. Gow-Chin Yen, Executive Board Director of ISPH. Any successful event is the result of teamwork.</p>
+          <p>I apologise that I will need to leave shortly to catch a flight to Europe — I will watch the recording afterwards. Please enjoy the symposium. I would like to note that this is the first of a regular webinar series. The second session will follow, and thereafter we will hold a webinar every two months.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Speaker Introduction — Dr. Camelia Munteanu (Chair)</summary>
+        <div class="content">
+          <p>Thank you, Prof. Wang. Good morning, good afternoon, good evening to everyone. It is a great pleasure for me to chair the first symposium organised by the International Society for Precision Health, and to introduce today's speaker, Prof. Anna Rita Bilia from the University of Florence, Italy — an expert in the field of nanotechnology.</p>
+          <p>Prof. Bilia has made significant contributions to the design and development of innovative formulations to increase stability and bioavailability of natural products. Her work is recognised internationally through more than 260 publications in reputed journals, an h-index of 68 on Google Scholar, and prestigious awards including the Claudio Delli Prize, the Egon Stahl Medal, and the Ki Huang International Prize for outstanding achievements in the analysis and innovative formulation of extracts from Chinese medicine.</p>
+          <p>Prof. Bilia is also an expert of the European Pharmacopoeia and a member of its TCM group, former President of the International Society for Medicinal Plant and Natural Product Research, Italian delegate to the Board of Directors, and Vice Chair of ESCOP. Prof. Bilia, thank you so much for accepting our invitation. We all look forward to your talk.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 1 — Natural Products: Potential and Limitations</summary>
+        <div class="content">
+          <p>Thank you so much for inviting me. I would like to thank the ISPH president, the chairs and the panelists. Today I will present some of our studies on natural products that are present in dietary products.</p>
+          <p>More than three hundred and fifty thousand natural product molecules have now been recognised, and interest in them continues to grow. Why? First, they possess unique structures linked to unique mechanisms of action. Taxol, for example, is one of the most important anti-tumour drugs, with a unique ability to stabilise microtubule polymers and prevent disassembly. Artemisinin possesses an endoperoxide that is unique in nature — it interacts with the iron of haemin to generate free radicals, the active species responsible for its anti-malarial and anti-tumour effects.</p>
+          <p>Another important aspect is the beneficial health effect of dietary compounds. According to Hippocrates, "our food should be our medicine." In Europe we say a glass of wine per day keeps the doctor away — depending of course on the size of the glass — because of resveratrol and the many polyphenols present in grape seeds and skin, including the colourful anthocyanidins whose hue depends on structure and pH.</p>
+          <p>Flavonoids are a very important class with well-recognised health properties. They are widespread in citrus fruits, berries, green tea and many other dietary plants. Flavonoids interact with a wide range of biochemical and molecular cascades — not merely as antioxidants — and this makes them a realistic approach to multifactorial, complex diseases such as cancer and diabetes. Of course, safety depends on the specific compound: many natural products can in fact be highly toxic if ingested.</p>
+          <p>Their main limitations are: poor water solubility, which reduces membrane permeability and lowers bioavailability at the target tissue; and chemical instability — including poor stability in gastric and enteric fluids, metabolism by gut microorganisms, and rapid first-pass metabolism — all of which limit their clinical efficacy.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 2 — Nature as Nanotechnology</summary>
+        <div class="content">
+          <p>Because of these limitations, for some years we have been formulating both isolated natural products and whole extracts into nano-formulations to improve stability, solubility and bioavailability. Nanomedicine is the application of nanotechnology at a size range between roughly 10 nanometres and several hundred nanometres. Most biological processes occur at the nanoscale, which is why nanomaterials can interact with cellular and molecular components with a very high degree of specificity.</p>
+          <p>Some may argue that nanomedicine is far from nature, but in fact nature is full of nanoscale structures. The feet of the gecko, for example, are characterised by arrays of setae and spatulae in the range of one hundred nanometres, which enhance adhesion so the animal can climb walls. Morpho butterflies use nano-structures to impart colour and, acting almost like solar cells, to raise body temperature in winter.</p>
+          <p>Plants use the same strategies. Fruit colour is a signal to birds that the fruit is ripe and ready to eat. <em>Margaritaria nobilis</em> and <em>Pollia</em> fruits turn brilliant blue because of a nano-structured cellulose surface. Essential oils are stored in supra-micron structures that preserve them, and carotenoids are held within nano-systems. More recently, exosomes — nanosized vesicles from both mammals and plants, carrying proteins, DNA and RNA — are being investigated as highly biocompatible drug delivery vehicles.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 3 — Nano-Carriers: Liposomes, SLN, Nano-Emulsions</summary>
+        <div class="content">
+          <p>Several nano-formulation products are already on the market — nanocrystals, nano-powders, and specialised vectors. Today I will focus on liposomes (vesicles composed of a bilayer of dietary-like lipids), polymeric nanoparticles, solid lipid nanoparticles, and nano-emulsions. We avoid inorganic materials in favour of systems with excellent biocompatibility and biodegradability, so that we can be confident about the safety profile — especially the long-term safety — of natural product formulations.</p>
+          <p>Nano-crystals and nano-suspensions are simple but powerful. Reducing a one-millimetre cube to 100 nm particles increases the total surface area by a factor of approximately ten thousand — without changing the volume. This surface-area enhancement dramatically improves oral dissolution, permeability and, ultimately, bioavailability.</p>
+          <p>Curcumin is a particularly instructive example. It is a powerful antioxidant and anti-inflammatory agent with activity against Alzheimer's disease and many other conditions, but it suffers from low water solubility, decomposition at physiological pH, low systemic bioavailability and rapid metabolism. Comparing crystalline curcumin with nano-emulsions, amorphous solid dispersions and nano-crystal solid dispersions, <em>in vivo</em> pharmacokinetic studies showed significant improvement in plasma levels — with the nano-crystal solid dispersion performing best, followed by the amorphous solid dispersion and the nano-emulsion.</p>
+          <p>Based on these data, we prepared curcumin nano-crystals and administered them (about 3 g per day) to roughly 50 patients with moderate-to-severe psoriasis vulgaris in combination with acitretin. We observed improved clearance of lesions, and — remarkably — prevention of the hyperlipidemia normally induced by acitretin. Curcumin in nano-crystal form is therefore a very promising adjunct for psoriasis.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 4 — Case Studies: Resveratrol, Salvianolic Acid, Verbascoside</summary>
+        <div class="content">
+          <p>Turning to nano-carriers: in a collaboration with the University of Utrecht, numerous unstable polyphenols were loaded into liposomes, with substantial gains in both solubility and stability. Resveratrol is a good example — it undergoes trans-cis isomerisation and is unstable under UV light. When administered as such to BALB/c mice inoculated with head-and-neck squamous cell carcinoma, resveratrol showed no activity beyond the vehicle. Formulated into long-circulating stealth liposomes decorated with polyethylene glycol, however, it became highly effective against the carcinoma.</p>
+          <p>Salvianolic acid, present in <em>Salvia</em> and other Lamiaceae, undergoes hydrolysis and loses activity. Free salvianolic acid showed no anti-hyperalgesic activity in a rat model of chronic constriction injury of the sciatic nerve, but in liposomal form it protected the molecule from hydrolysis and produced clear efficacy.</p>
+          <p>Verbascoside is another highly unstable polyphenol. In aqueous solution its sugars hydrolyse and the polyphenol rearranges, causing the solution to change colour. Liposomal verbascoside retained stability and demonstrated activity in two neuropathic-pain and tumour models, with prolonged duration of action — a smart formulation for neuropathic models.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 5 — Oral Absorption and Extract Formulation</summary>
+        <div class="content">
+          <p>When administered orally, nano-vectors access multiple absorption pathways. Polymeric and solid lipid nanoparticles can permeate enterocytes, reach macrophages, and enter the lymphatic circulation, providing activity in lymphatic vessels before reaching the systemic circulation. Chitosan nanoparticles — chitosan being itself a natural product derived from chitin — interact with tight junctions to increase paracellular permeation, are positively charged and therefore bioadhesive to the negatively charged mucus layer, and can down-modulate the P-glycoprotein efflux system.</p>
+          <p>Nano-vectors also protect cargo from gastric and intestinal fluids, and we routinely evaluate our formulations in simulated gastric and intestinal fluids. Nano- and micro-emulsions are particularly attractive because the internal droplets (50–250 nm) give a large interfacial area, the systems are transparent and stable, and loading can reach up to 20 percent. Self-microemulsifying drug delivery systems (SMEDDS) are a concentrate that forms a micro-emulsion on contact with physiological fluids — convenient for small-volume oral dosage forms.</p>
+          <p>Examples include <em>Vitex agnus-castus</em> (used for premenstrual syndrome) formulated as a nano-emulsion: PAMPA and Caco-2 permeability studies gave concordant results and demonstrated the superiority of the formulation over the simple extract for both flavonoid and iridoid constituents. A similar nano-emulsion of <em>Silybum marianum</em> (milk thistle) standardised on silybin, silibinin, silychristin and taxifolin was similarly superior to the aqueous solution.</p>
+          <p>A refined silymarin loaded into a nanostructured lipid carrier (encapsulation efficiency around 92%) showed a significant down-regulation of blood glucose and triglyceride levels in a type-2-diabetes and metabolic-syndrome model, outperforming the unformulated extract, along with a significant anti-hyperalgesic effect. A final example is a commercial blend of saw palmetto (supercritical CO₂ extract), nettle (hydro-alcoholic) and pineapple (aqueous) — a highly non-homogeneous mixture — which we reformulated as a SMEDDS to give a completely homogeneous preparation with improved permeability in PAMPA testing.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 6 — Concluding Remarks</summary>
+        <div class="content">
+          <p>Nano-carriers can overcome many of the limitations of natural products and deliver enhanced pharmacological activity, improved solubility, protection against physical and chemical degradation, improved bioavailability, sustained release, and — in some cases — improved tissue and macrophage distribution.</p>
+          <p>My take-home message is that natural products are pleiotropic molecules that influence numerous biochemical cascades, representing a realistic approach to complex multifactorial disease, and nano-carriers can optimise their solubility, stability and bio-efficacy. Natural products themselves can also contribute to the architecture of the carrier — ascorbic acid derivatives and certain saponins, for example, can modify structure and improve biopharmaceutical performance. Isolated constituents and simple extracts (three to four constituents) are relatively straightforward to formulate; hydro-alcoholic extracts with many constituents of different polarities are more challenging, while supercritical CO₂ extracts and essential oils are particularly easy to nano-formulate.</p>
+          <p>I would like to thank colleagues at the University of Florence, with whom almost all of these studies were carried out, and Prof. Thomas at the University of Utrecht. Thank you again for the kind invitation.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="qa" class="qa">
+  <div class="container">
+    <h2>Panel Discussion & Q&amp;A</h2>
+    <p style="margin-bottom:28px">Following the keynote, panelist <strong>Dr. Gow-Chin Yen</strong> and chair <strong>Dr. Camelia Munteanu</strong> discussed clinical translation, AI-assisted formulation design, nano-safety regulation, and the optimal nano-carrier format for oral administration of poorly water-soluble compounds.</p>
+
+    <div class="qa-item">
+      <div class="q">Dr. Yen — How close are we to fully automated formulation for complex phytochemical blends using AI and machine learning to predict optimal lipid-to-surfactant ratios?</div>
+      <div class="a">Preparation difficulty varies by system. Nano-crystals, nano-suspensions, micro- and nano-emulsions are very easy to prepare without specialised equipment — we prepared the psoriasis-trial nano-curcumin ourselves. Vesicles (liposomes) are easy in the laboratory in small quantities, but large-scale production requires dedicated instrumentation and process development. Solid lipid nanoparticles can be scaled from laboratory to industrial production and are already widely used in cosmetics. AI may indeed help accelerate this in the future.</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="q">Dr. Yen — What is the biggest hurdle in standardising nano-safety protocols for dietary supplements across international markets?</div>
+      <div class="a">The principal concern is nano-toxicity linked to structure. Inorganic vectors — containing iron, other metals, carbon or silica — can raise long-term toxicity questions because of limited biodegradability. For this reason we favour natural polymers, or polymers that degrade into safe monomers. If we use vesicles, nano-emulsions or solid lipid nanoparticles built from food-grade ingredients, safety concerns are largely resolved.</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="q">Dr. Miron — For a compound with low water solubility given orally, which nano-formulation offers the best balance between stability, controlled release and bioavailability?</div>
+      <div class="a">For oral administration, solid lipid nanoparticles and nano/micro-emulsions are the best. Vesicles can be degraded in the stomach and are better suited to parenteral or nose-to-brain routes. Solid lipid nanoparticles are particularly versatile: excipients can be chosen so that the carrier is solid at room temperature but converts to a micro-emulsion at 37 °C in the stomach. These systems also accommodate food-grade surfactants that further enhance permeability. They are especially advantageous for multi-constituent extracts, where liposomes would be unstable — vesicles work well for essential oils and supercritical CO₂ extracts, but not for complex hydro-alcoholic mixtures.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong class="gold">International Society for Precision Health (ISPH)</strong></p>
+  <p style="margin-top:10px" class="footer-series">
+    Webinar Symposium Series<span class="sep">·</span><span class="sess">Session 01</span><span class="sep">·</span><span class="date-val">10 April 2026</span>
+  </p>
+  <p style="margin-top:16px" class="footer-next">
+    <span class="label">Next session: </span><span class="webinar-id">ISPH Webinar No.2</span> — <span class="speaker">Dr. Camelia Munteanu</span> on <span class="topic">precision nutrition and cancer</span> · <span class="next-date">1 May 2026</span>
+  </p>
+  <p style="margin-top:20px" class="footer-copy">© 2026 <span class="org">International Society for Precision Health</span> · <a href="https://www.isfph.org">isfph.org</a></p>
+  <div class="footer-btns">
+    <a class="footer-home" href="index.html">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+      Home
+    </a>
+    <a class="footer-register" href="https://reurl.cc/8brR7b" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Register Now
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
