@@ -733,7 +733,7 @@
         <div class="registration-section">
             <h2>Ready to Join?</h2>
             <p style="color: #666; margin-bottom: 20px;">Click the button below to proceed with your membership registration</p>
-            <button type="button" class="submit-btn" onclick="redirectToGoogleForm()">Proceed to Registration</button>
+            <button type="button" class="submit-btn" onclick="redirectToForm()">Proceed to Registration</button>
         </div>
 
         <div class="payment-section">
@@ -818,8 +818,8 @@
             dropdown.classList.toggle('active');
         }
 
-        function redirectToGoogleForm() {
-            window.location.href = "https://forms.gle/BRV9zVUSjDYNLPM89";
+        function redirectToForm() {
+            window.location.href = "https://member.isfph.org/registration";
         }
 
         document.addEventListener('click', function(event) {
