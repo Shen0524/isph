@@ -515,6 +515,105 @@
             box-shadow: 0 6px 20px rgba(0,86,166,0.4);
         }
 
+        /* Two-column symmetric payment layout */
+        .payment-two-col {
+            background: white;
+            border-left: none;
+            padding: 0;
+        }
+
+        .payment-two-col > h3 {
+            padding: 25px 25px 20px;
+            margin: 0;
+            border-bottom: 2px solid #0056a6;
+            color: #0056a6;
+            font-size: 1.3rem;
+        }
+
+        .payment-two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .payment-col {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .payment-col:first-child {
+            border-right: 2px solid #e9ecef;
+        }
+
+        .payment-col-title {
+            color: #0056a6;
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #dee2e6;
+            font-weight: 600;
+        }
+
+        .payment-col-subtitle {
+            color: #444;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .payment-col-desc {
+            color: #555;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .payment-col-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .payment-col-list li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px dashed #ddd;
+            font-size: 0.9rem;
+        }
+
+        .payment-col-list li:last-child {
+            border-bottom: none;
+        }
+
+        .payment-col-list li strong {
+            color: #0056a6;
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .payment-col-method {
+            margin-top: auto;
+            padding-top: 20px;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .payment-col-method h4 {
+            color: #0056a6;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .payment-col-method p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
         @media screen and (max-width: 768px) {
             header h1 {
                 font-size: 1.1rem;
@@ -604,6 +703,20 @@
             }
 
             .payment-column ul li strong {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .payment-two-col-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-col:first-child {
+                border-right: none;
+                border-bottom: 2px solid #e9ecef;
+            }
+
+            .payment-col-list li strong {
                 display: block;
                 margin-bottom: 5px;
             }
@@ -743,51 +856,53 @@
                 <strong>Important:</strong> Please complete your bank transfer within 3 days after submitting the registration form.
             </div>
 
-            <div class="payment-box payment-split">
-                <h3>International Payment Options</h3>
-                <div class="payment-columns">
-                    <div class="payment-column">
-                        <h4>Bank Transfer</h4>
-                        <p>For participants transferring from banks outside of Taiwan:</p>
-                        <ul>
+            <div class="payment-box payment-two-col">
+                <h3>Payment Options</h3>
+                <div class="payment-two-col-grid">
+
+                    <!-- International / Foreign Visitors -->
+                    <div class="payment-col">
+                        <h4 class="payment-col-title">International</h4>
+                        <h5 class="payment-col-subtitle">Bank Transfer</h5>
+                        <p class="payment-col-desc">For participants transferring from banks outside of Taiwan:</p>
+                        <ul class="payment-col-list">
                             <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
                             <li><strong>Bank Address:</strong> 1F., No.78, Sec. 2, Fuxing Rd., South Dist., Taichung City 40245, Taiwan</li>
                             <li><strong>Swift Code:</strong> CCBCTWTP405</li>
                             <li><strong>Account No.:</strong> 4059 86 13181 800</li>
                             <li><strong>Beneficiary's Name:</strong> International Society for Precision Health</li>
                         </ul>
+                        <div class="payment-col-method">
+                            <h4>PayPal Payment</h4>
+                            <p>Quick and secure international payment</p>
+                            <button type="button" class="flexible-payment-btn" onclick="window.location.href='https://www.paypal.com/ncp/payment/UH5W7MW7LFTLN'">
+                                💳 Pay with PayPal
+                            </button>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Accepts credit cards and PayPal balance</p>
+                        </div>
                     </div>
-                    <div class="payment-column payment-flexible">
-                        <h4>PayPal Payment</h4>
-                        <p>Quick and secure international payment</p>
-                        <button type="button" class="flexible-payment-btn" onclick="window.location.href='https://www.paypal.com/ncp/payment/UH5W7MW7LFTLN'">
-                            💳 Pay with PayPal
-                        </button>
-                        <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">Accepts credit cards and PayPal balance</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="payment-box payment-split">
-                <h3>Local Transfer in Taiwan</h3>
-                <div class="payment-columns">
-                    <div class="payment-column">
-                        <h4>Bank Transfer</h4>
-                        <p>For participants transferring from Taiwan banks:</p>
-                        <ul>
+                    <!-- Local Taiwan -->
+                    <div class="payment-col">
+                        <h4 class="payment-col-title">Local Transfer in Taiwan</h4>
+                        <h5 class="payment-col-subtitle">Bank Transfer</h5>
+                        <p class="payment-col-desc">For participants transferring from Taiwan banks:</p>
+                        <ul class="payment-col-list">
                             <li><strong>Account With Bank:</strong> Chang Hwa Bank Taichung Branch</li>
                             <li><strong>Chang Hwa Bank Code:</strong> 009</li>
                             <li><strong>Account No.:</strong> 4059 86 13181 800</li>
                             <li><strong>Beneficiary's Name:</strong> International Society for Precision Health</li>
                         </ul>
+                        <div class="payment-col-method">
+                            <h4>More Payment Options</h4>
+                            <p>More convenient payment methods available</p>
+                            <button type="button" class="flexible-payment-btn" onclick="window.location.href='pay.html'">
+                                💳 Multiple Payment Options
+                            </button>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Credit card, Apple Pay, and other digital payment methods</p>
+                        </div>
                     </div>
-                    <div class="payment-column payment-flexible">
-                        <p>More convenient payment methods available</p>
-                        <button type="button" class="flexible-payment-btn" onclick="window.location.href='pay.html'">
-                            💳 Multiple Payment Options
-                        </button>
-                        <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">Credit card, Apple Pay, and other digital payment methods</p>
-                    </div>
+
                 </div>
             </div>
 
