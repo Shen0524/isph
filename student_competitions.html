@@ -1,383 +1,373 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISPH 2026 Annual Conference Student Competitions</title>
-  <style>
-    :root {
-      --primary: #0f4c81;
-      --primary-dark: #0a3558;
-      --accent: #d9edf9;
-      --highlight: #f4f9fc;
-      --gold: #c89b3c;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #dbe4ea;
-      --white: #ffffff;
-    }
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --primary: #0f4c81;
+  --primary-dark: #0a3558;
+  --gold: #b8860b;
+  --gold-bg: #fffbf0;
+  --gold-border: #e8d08a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans, Arial, sans-serif); }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: #f5f8fb;
-      line-height: 1.75;
-    }
+.nav-bar {
+  background: var(--color-background-secondary);
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.nav-back:hover { background: var(--color-background-secondary); }
+.nav-back svg { width: 14px; height: 14px; }
+.nav-title {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-    .hero {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: var(--white);
-      padding: 56px 20px 44px;
-      text-align: center;
-    }
+.hero {
+  background: linear-gradient(150deg, #0a3558 0%, #0f4c81 100%);
+  color: #fff;
+  padding: 32px 20px 28px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(1.1rem, 4vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+}
+.hero p {
+  font-size: clamp(0.82rem, 2.5vw, 0.95rem);
+  opacity: 0.88;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.hero-badge {
+  background: rgba(255,255,255,0.15);
+  border: 0.5px solid rgba(255,255,255,0.35);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: #fff;
+}
 
-    .hero .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+.page-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
 
-    .hero h1 {
-      margin: 0 0 12px;
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-    }
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.quick-box {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-left: 3px solid #0f4c81;
+  border-radius: var(--border-radius-md);
+  padding: 12px 14px;
+}
+.quick-box h3 {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.quick-box p {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+.quick-box strong { font-weight: 500; }
 
-    .hero p {
-      margin: 0 auto;
-      max-width: 900px;
-      font-size: 1.06rem;
-      opacity: 0.96;
-    }
+.section {
+  margin-bottom: 24px;
+}
+.section-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  padding-bottom: 8px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  margin-bottom: 14px;
+}
+.section-sub {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin: 14px 0 8px;
+}
 
-    .page-wrap {
-      max-width: 1100px;
-      margin: -24px auto 48px;
-      padding: 0 20px;
-    }
+.prose {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+ol.prose-list, ul.prose-list {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+ol.prose-list li, ul.prose-list li { margin-bottom: 6px; }
+.prose strong, ol.prose-list strong, ul.prose-list strong { font-weight: 500; }
 
-    .card {
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
-      overflow: hidden;
-      border: 1px solid #e8eef3;
-    }
+.spec-box {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.7;
+}
+.spec-box strong { font-weight: 500; color: var(--color-text-primary); }
 
-    .notice-bar {
-      background: #eef7fd;
-      border-bottom: 1px solid var(--border);
-      padding: 18px 28px;
-      font-size: 0.98rem;
-      color: var(--primary-dark);
-    }
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+.award-card {
+  background: var(--gold-bg);
+  border: 0.5px solid var(--gold-border);
+  border-top: 3px solid #c89b3c;
+  border-radius: var(--border-radius-lg);
+  padding: 14px 14px 12px;
+}
+.award-card h3 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #7a5c10;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.award-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 0.5px solid var(--gold-border);
+  font-size: 13px;
+}
+.award-row:last-child { border-bottom: none; }
+.award-label { color: #8a6620; font-size: 12px; }
+.award-amount { font-weight: 500; color: #5c3e09; font-size: 13px; }
 
-    .content {
-      padding: 30px 28px 36px;
-    }
+.note-box {
+  background: var(--color-background-secondary);
+  border: 0.5px dashed var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-top: 20px;
+}
+</style>
 
-    .intro {
-      font-size: 1.03rem;
-      margin-bottom: 24px;
-    }
+<div>
+  <nav class="nav-bar">
+    <a class="nav-back" href="Annual2026.html">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 12L6 8l4-4"/>
+      </svg>
+      Annual 2026
+    </a>
+    <span class="nav-title">Student Competitions</span>
+  </nav>
 
-    .quick-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin: 24px 0 32px;
-    }
-
-    .quick-box {
-      background: var(--highlight);
-      border: 1px solid var(--border);
-      border-left: 5px solid var(--primary);
-      border-radius: 12px;
-      padding: 18px 18px 16px;
-    }
-
-    .quick-box h3 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-      color: var(--primary-dark);
-    }
-
-    .quick-box p {
-      margin: 0;
-      color: var(--text);
-      font-size: 0.97rem;
-    }
-
-    h2 {
-      font-size: 1.45rem;
-      margin: 34px 0 16px;
-      color: var(--primary-dark);
-      padding-bottom: 8px;
-      border-bottom: 2px solid #edf3f8;
-    }
-
-    h3 {
-      margin: 24px 0 10px;
-      color: var(--primary);
-      font-size: 1.1rem;
-    }
-
-    p {
-      margin: 0 0 14px;
-    }
-
-    ul, ol {
-      margin: 10px 0 18px 22px;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .award-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin: 18px 0 12px;
-    }
-
-    .award-card {
-      background: #fffdf8;
-      border: 1px solid #f0e2bc;
-      border-top: 5px solid var(--gold);
-      border-radius: 14px;
-      padding: 20px;
-    }
-
-    .award-card h3 {
-      margin-top: 0;
-      color: #8a6620;
-    }
-
-    .award-card ul {
-      margin-left: 18px;
-    }
-
-    .poster-spec {
-      background: #f8fbfd;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin: 16px 0 22px;
-    }
-
-    .poster-spec strong {
-      color: var(--primary-dark);
-    }
-
-    .footer-note {
-      margin-top: 32px;
-      padding: 18px 20px;
-      background: #fafcfe;
-      border: 1px dashed #c9d9e6;
-      border-radius: 12px;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .small {
-      font-size: 0.94rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 640px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .content {
-        padding: 22px 18px 28px;
-      }
-
-      .notice-bar {
-        padding: 16px 18px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="hero">
-    <div class="container">
-      <h1>ISPH 2026 Annual Conference Student Competitions</h1>
-      <p>
-        To encourage graduate student participation and promote academic exchange in precision health,
-        the International Society for Precision Health (ISPH) will organize student competitions during the Annual Conference.
-      </p>
-    </div>
-  </section>
-
-  <div class="page-wrap">
-    <div class="card">
-      <div class="notice-bar">
-        <strong>Competition Categories:</strong> Doctoral Oral Presentation Competition &nbsp;|&nbsp; Master’s Poster Presentation Competition
-      </div>
-
-      <div class="content">
-        <p class="intro">
-          During the ISPH Annual Conference, two student competitions will be held to recognize outstanding research contributions by graduate students:
-        </p>
-
-        <ul>
-          <li><strong>Doctoral Oral Presentation Competition</strong></li>
-          <li><strong>Master’s Poster Presentation Competition</strong></li>
-        </ul>
-
-        <div class="quick-info">
-          <div class="quick-box">
-            <h3>Eligibility</h3>
-            <p>Master’s and doctoral students currently enrolled at accredited colleges or universities.</p>
-          </div>
-          <div class="quick-box">
-            <h3>Submission Requirement</h3>
-            <p>Participants must submit an abstract to the Annual Conference as the <strong>first author</strong>.</p>
-          </div>
-          <div class="quick-box">
-            <h3>Entry Limit</h3>
-            <p>Each participant may submit <strong>one entry only</strong>.</p>
-          </div>
-          <div class="quick-box">
-            <h3>Poster Display Dates</h3>
-            <p>Master’s posters must be displayed on <strong>October 21–22</strong>.</p>
-          </div>
-        </div>
-
-        <h2>1. Purpose</h2>
-        <p>
-          The Student Competitions are intended to encourage active participation by graduate students,
-          provide opportunities to present research and receive professional feedback,
-          and recognize outstanding young scholars in the field of precision health.
-        </p>
-
-        <h2>2. Organizer</h2>
-        <p><strong>International Society for Precision Health (ISPH)</strong></p>
-
-        <h2>3. Eligibility</h2>
-        <ol>
-          <li>The <strong>Doctoral Oral Presentation Competition</strong> is open to students currently enrolled in a doctoral program.</li>
-          <li>The <strong>Master’s Poster Presentation Competition</strong> is open to students currently enrolled in a master’s program.</li>
-          <li>All participants must submit an abstract to the ISPH Annual Conference as the <strong>first author</strong>.</li>
-          <li>Each participant may submit <strong>only one entry</strong>.</li>
-          <li>Proof of student status must be provided upon request.</li>
-          <li>The same work may not be submitted to more than one competition category.</li>
-        </ol>
-
-        <h2>4. Registration</h2>
-        <ol>
-          <li>Participants must complete both <strong>abstract submission</strong> and <strong>competition registration</strong> by the official Annual Conference deadline.</li>
-          <li>All required registration materials must be submitted according to conference instructions.</li>
-          <li>Incomplete applications or applications that do not meet the eligibility requirements will not be accepted.</li>
-          <li>Final acceptance is subject to review and approval by the organizer.</li>
-        </ol>
-
-        <h2>5. Competition Format</h2>
-
-        <h3>5.1 Doctoral Oral Presentation Competition</h3>
-        <ol>
-          <li>This competition will be conducted through <strong>on-site oral presentations and Q&amp;A</strong>.</li>
-          <li>Participants must present according to the official conference schedule, venue, and instructions announced by the organizer.</li>
-          <li>Presentation time and Q&amp;A time will be announced separately by the organizer.</li>
-          <li>Participants who fail to appear at the assigned time will be regarded as having withdrawn from the competition.</li>
-        </ol>
-
-        <h3>5.2 Master’s Poster Presentation Competition</h3>
-        <ol>
-          <li>This competition will be conducted through <strong>on-site poster display and oral explanation with Q&amp;A</strong>.</li>
-          <li>Poster size must be <strong>80 cm (W) × 100 cm (H)</strong>.</li>
-          <li>Posters must be displayed during <strong>October 21–22</strong> at the designated location assigned by the organizer.</li>
-          <li>Posters must remain on display throughout the required period and may not be removed early without permission.</li>
-          <li>Participants must be present during the assigned judging period to introduce their work and answer questions from the judges.</li>
-          <li>Participants who fail to post their poster on time or fail to appear during the assigned judging period will be regarded as having withdrawn from the competition.</li>
-        </ol>
-
-        <div class="poster-spec">
-          <strong>Poster Specification Reminder:</strong><br />
-          Poster size: <strong>80 cm width × 100 cm height</strong><br />
-          Display dates: <strong>October 21–22</strong>
-        </div>
-
-        <h2>6. Review Process</h2>
-        <ol>
-          <li>A review committee composed of experts and scholars in relevant fields will be appointed by ISPH.</li>
-          <li>All entries will be evaluated in a fair and professional manner.</li>
-          <li>The decisions of the review committee shall be final.</li>
-        </ol>
-
-        <h2>7. Evaluation Criteria</h2>
-
-        <h3>7.1 Doctoral Oral Presentation Competition</h3>
-        <ul>
-          <li>Significance and originality of the research topic</li>
-          <li>Rigor of study design and methodology</li>
-          <li>Completeness of results analysis and discussion</li>
-          <li>Quality of presentation and communication skills</li>
-          <li>Performance during Q&amp;A</li>
-        </ul>
-
-        <h3>7.2 Master’s Poster Presentation Competition</h3>
-        <ul>
-          <li>Academic or practical value of the research topic</li>
-          <li>Completeness of methods and results</li>
-          <li>Organization and visual quality of the poster</li>
-          <li>Clarity of on-site explanation</li>
-          <li>Performance during Q&amp;A</li>
-        </ul>
-
-        <h2>8. Awards</h2>
-
-        <div class="award-grid">
-          <div class="award-card">
-            <h3>Doctoral Oral Presentation Competition</h3>
-            <ul>
-              <li><strong>First Prize:</strong> USD 500</li>
-              <li><strong>Second Prize:</strong> USD 300</li>
-              <li><strong>Third Prize:</strong> USD 100</li>
-            </ul>
-          </div>
-
-          <div class="award-card">
-            <h3>Master’s Poster Presentation Competition</h3>
-            <ul>
-              <li><strong>First Prize:</strong> USD 300</li>
-              <li><strong>Second Prize:</strong> USD 200</li>
-              <li><strong>Third Prize:</strong> USD 100</li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="small">
-          Awards will be granted on a <strong>merit basis</strong>. The review committee reserves the right not to award a prize if no entry meets the required standard. Winners may also receive a certificate or award plaque. Award payments will be subject to applicable tax and administrative regulations.
-        </p>
-
-        <h2>9. Important Notes</h2>
-        <ol>
-          <li>Submitted work must be the original work of the participant. Any plagiarism, falsification, infringement of intellectual property rights, or other violation of academic ethics will result in disqualification.</li>
-          <li>If any false statement or ineligible status is identified, the organizer reserves the right to cancel participation or awards.</li>
-          <li>By registering for the competition, participants agree to comply with these Guidelines and all additional conference regulations announced by the organizer.</li>
-        </ol>
-
-        <h2>10. Final Provision</h2>
-        <p>
-          Any matters not specified in these Guidelines shall be interpreted and determined by the organizer.
-        </p>
-
-        <div class="footer-note">
-          For additional conference updates, registration details, and abstract submission information, please refer to the official ISPH Annual Conference website.
-        </div>
-      </div>
+  <div class="hero">
+    <h1>ISPH 2026 Annual Conference<br>Student Competitions</h1>
+    <p>To encourage graduate student participation and promote academic exchange in precision health, ISPH will organize student competitions during the Annual Conference.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">Doctoral Oral Presentation</span>
+      <span class="hero-badge">Master's Poster Presentation</span>
     </div>
   </div>
 
-</body>
-</html>
+  <div class="page-wrap">
+
+    <div class="quick-grid">
+      <div class="quick-box">
+        <h3>Eligibility</h3>
+        <p>Master's &amp; doctoral students at accredited universities</p>
+      </div>
+      <div class="quick-box">
+        <h3>Submission</h3>
+        <p>Must submit abstract as <strong>first author</strong></p>
+      </div>
+      <div class="quick-box">
+        <h3>Entry Limit</h3>
+        <p><strong>One entry only</strong> per participant</p>
+      </div>
+      <div class="quick-box">
+        <h3>Poster Dates</h3>
+        <p>Must be displayed <strong>Oct 21–22</strong></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">1. Purpose</div>
+      <p class="prose">The Student Competitions are intended to encourage active participation by graduate students, provide opportunities to present research and receive professional feedback, and recognize outstanding young scholars in the field of precision health.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">2. Organizer</div>
+      <p class="prose"><strong>International Society for Precision Health (ISPH)</strong></p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">3. Eligibility</div>
+      <ol class="prose-list">
+        <li>The <strong>Doctoral Oral Presentation Competition</strong> is open to students currently enrolled in a doctoral program.</li>
+        <li>The <strong>Master's Poster Presentation Competition</strong> is open to students currently enrolled in a master's program.</li>
+        <li>All participants must submit an abstract to the ISPH Annual Meeting as the <strong>first author</strong>.</li>
+        <li>Each participant may submit <strong>only one entry</strong>.</li>
+        <li>Proof of student status must be provided upon request.</li>
+        <li>The same work may not be submitted to more than one competition category.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-title">4. Registration</div>
+      <ol class="prose-list">
+        <li>Participants must complete both <strong>abstract submission</strong> and <strong>competition registration</strong> by the official Annual Meeting deadline.</li>
+        <li>All required registration materials must be submitted according to conference instructions.</li>
+        <li>Incomplete applications or applications that do not meet eligibility requirements will not be accepted.</li>
+        <li>Final acceptance is subject to review and approval by the organizer.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-title">5. Competition Format</div>
+
+      <div class="section-sub">5.1 Doctoral Oral Presentation Competition</div>
+      <ol class="prose-list">
+        <li>Conducted through <strong>on-site oral presentations and Q&amp;A</strong>.</li>
+        <li>Participants must present according to the official conference schedule, venue, and instructions.</li>
+        <li>Presentation time and Q&amp;A time will be announced separately by the organizer.</li>
+        <li>Participants who fail to appear at the assigned time will be regarded as having withdrawn.</li>
+      </ol>
+
+      <div class="section-sub">5.2 Master's Poster Presentation Competition</div>
+      <ol class="prose-list">
+        <li>Conducted through <strong>on-site poster display and oral explanation with Q&amp;A</strong>.</li>
+        <li>Poster size must be <strong>80 cm (W) × 100 cm (H)</strong>.</li>
+        <li>Posters must be displayed during <strong>October 21–22</strong> at the designated location.</li>
+        <li>Posters must remain on display throughout the required period and may not be removed early without permission.</li>
+        <li>Participants must be present during the assigned judging period to introduce their work and answer judges' questions.</li>
+        <li>Participants who fail to post on time or are absent during judging will be regarded as having withdrawn.</li>
+      </ol>
+
+      <div class="spec-box">
+        <strong>Poster specification:</strong> 80 cm width × 100 cm height &nbsp;·&nbsp; Display dates: <strong>October 21–22</strong>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">6. Review Process</div>
+      <ol class="prose-list">
+        <li>A review committee composed of experts in relevant fields will be appointed by ISPH.</li>
+        <li>All entries will be evaluated in a fair and professional manner.</li>
+        <li>The decisions of the review committee shall be final.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-title">7. Evaluation Criteria</div>
+
+      <div class="section-sub">7.1 Doctoral Oral Presentation</div>
+      <ul class="prose-list">
+        <li>Significance and originality of the research topic</li>
+        <li>Rigor of study design and methodology</li>
+        <li>Completeness of results analysis and discussion</li>
+        <li>Quality of presentation and communication skills</li>
+        <li>Performance during Q&amp;A</li>
+      </ul>
+
+      <div class="section-sub">7.2 Master's Poster Presentation</div>
+      <ul class="prose-list">
+        <li>Academic or practical value of the research topic</li>
+        <li>Completeness of methods and results</li>
+        <li>Organization and visual quality of the poster</li>
+        <li>Clarity of on-site explanation</li>
+        <li>Performance during Q&amp;A</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">8. Awards</div>
+      <div class="award-grid">
+        <div class="award-card">
+          <h3>Doctoral Oral Presentation</h3>
+          <div class="award-row"><span class="award-label">1st Prize</span><span class="award-amount">USD 500</span></div>
+          <div class="award-row"><span class="award-label">2nd Prize</span><span class="award-amount">USD 300</span></div>
+          <div class="award-row"><span class="award-label">3rd Prize</span><span class="award-amount">USD 100</span></div>
+        </div>
+        <div class="award-card">
+          <h3>Master's Poster Presentation</h3>
+          <div class="award-row"><span class="award-label">1st Prize</span><span class="award-amount">USD 300</span></div>
+          <div class="award-row"><span class="award-label">2nd Prize</span><span class="award-amount">USD 200</span></div>
+          <div class="award-row"><span class="award-label">3rd Prize</span><span class="award-amount">USD 100</span></div>
+        </div>
+      </div>
+      <p class="prose" style="font-size:13px; color: var(--color-text-secondary);">Awards granted on a merit basis. The review committee reserves the right not to award a prize if no entry meets the required standard. Winners may also receive a certificate or award plaque. Award payments are subject to applicable tax and administrative regulations.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">9. Important Notes</div>
+      <ol class="prose-list">
+        <li>Submitted work must be original. Plagiarism, falsification, or infringement of intellectual property rights will result in disqualification.</li>
+        <li>If any false statement or ineligible status is identified, the organizer reserves the right to cancel participation or awards.</li>
+        <li>By registering, participants agree to comply with these Guidelines and all additional conference regulations.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-title">10. Final Provision</div>
+      <p class="prose">Any matters not specified in these Guidelines shall be interpreted and determined by the organizer.</p>
+    </div>
+
+    <div class="note-box">
+      For additional conference updates, registration details, and abstract submission information, please refer to the official ISPH Annual Meeting website.
+    </div>
+
+  </div>
+</div>
