@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Corporate Members – ISPH</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0056a6 0%, #003d7a 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ── Header & Nav (from Join us.html) ── */
+        header {
+            background-color: #0056a6;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            max-height: 50px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav { display: flex; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .dropdown { position: relative; }
+        .dropdown > a { cursor: pointer; }
+        .dropdown > a::after { content: " ▼"; font-size: 0.7rem; }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #003d7a;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-content a:hover { background-color: #0056a6; }
+
+        @media screen and (min-width: 769px) {
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* ── Main Content ── */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Intro card */
+        .intro-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .intro-card h2 {
+            color: #0056a6;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-card p {
+            color: #555;
+            font-size: 1.05rem;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* Membership tier card */
+        .tier-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tier-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #0056a6, #003d7a);
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .tier-card.gold::before {
+            background: linear-gradient(90deg, #C9A227, #ffed4e);
+            height: 8px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: #C9A227;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-title {
+            font-size: 1.5rem;
+            color: #003d7a;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .tier-price {
+            font-size: 2.4rem;
+            color: #0056a6;
+            font-weight: bold;
+        }
+
+        .tier-period {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .tier-benefits {
+            list-style: none;
+            border-top: 1px solid #eee;
+            padding-top: 18px;
+        }
+
+        .tier-benefits li {
+            padding: 9px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.97rem;
+        }
+
+        .tier-benefits li:last-child { border-bottom: none; }
+
+        .tier-benefits li::before {
+            content: '★';
+            color: #0056a6;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Current members list */
+        .members-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .members-section h2 {
+            color: #0056a6;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Sponsor-style grid (from Sponsors.html) */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .member-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-top: 5px solid #0056a6;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,86,166,0.2);
+        }
+
+        .member-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .member-name {
+            font-size: 1rem;
+            color: #003d7a;
+            font-weight: bold;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .member-link-label {
+            font-size: 0.82rem;
+            color: #0056a6;
+            border: 1px solid #0056a6;
+            border-radius: 20px;
+            padding: 3px 12px;
+            margin-top: 4px;
+            display: inline-block;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .member-card:hover .member-link-label {
+            background: #0056a6;
+            color: white;
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+
+        .cta-section h2 {
+            color: #0056a6;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0056a6 0%, #003d7a 100%);
+            color: white;
+            padding: 15px 45px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,86,166,0.35);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,86,166,0.5);
+        }
+
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ── Mobile ── */
+        @media screen and (max-width: 768px) {
+            header h1 { font-size: 1.1rem; }
+            header .logo img { max-height: 40px; }
+
+            .menu-toggle { display: block; }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px; right: 20px;
+                background-color: #003366;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                width: 220px;
+                z-index: 1000;
+            }
+
+            nav ul { display: block; padding: 10px 0; }
+
+            nav ul li {
+                text-align: right;
+                margin: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            nav ul li:last-child { border-bottom: none; }
+            nav ul li a { padding: 12px 20px; }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: #002244;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .dropdown.active .dropdown-content { display: block; }
+
+            .dropdown-content a {
+                padding: 10px 30px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .menu-active { display: block; }
+
+            .page-header h1 { font-size: 1.9rem; }
+            .tier-section { grid-template-columns: 1fr; }
+            .members-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="LOGO.PNG" alt="ISPH Logo">
+        <h1>International Society for Precision Health</h1>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown" id="dropdown-about">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">About Us</a>
+                <div class="dropdown-content">
+                    <a href="bylaws.html">Bylaws</a>
+                    <a href="o1.html">Organization Structure</a>
+                    <a href="Corporate_Members.html">Corporate Members</a>
+                </div>
+            </li>
+            <li class="dropdown" id="dropdown-events">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">Events</a>
+                <div class="dropdown-content">
+                    <a href="M.html">Council Webinars</a>
+                    <a href="Annual2026.html">Annual2026</a>
+                    <a href="Annual2025.html">Annual2025</a>
+                </div>
+            </li>
+            <li><a href="Join us.html">Join ISPH</a></li>
+            <li><a href="Contact1.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-content">
+
+    <div class="page-header">
+        <h1>Corporate Members</h1>
+        <p>Organizations advancing precision health with ISPH</p>
+    </div>
+
+    <div class="intro-card">
+        <h2>Corporate Membership</h2>
+        <p>
+            ISPH corporate membership provides organizations — industry, institutions, and enterprises — with a platform to engage the global precision health community, gain visibility, and contribute to science-driven health innovation. Corporate members enjoy a suite of exclusive benefits and play a central role in shaping the future of precision health.
+        </p>
+    </div>
+
+    <div class="members-section">
+        <h2>Current Corporate Members</h2>
+        <div class="members-grid">
+
+            <a class="member-card" href="https://www.herbalife.com/" target="_blank" rel="noopener">
+                <div class="member-icon">🌿</div>
+                <div class="member-name">Herbalife Taiwan Branch Inc., Taiwan Branch</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <a class="member-card" href="https://hughesbiotech.com/" target="_blank" rel="noopener">
+                <div class="member-icon">🔬</div>
+                <div class="member-name">Hughes Biotechnology Co., Ltd.</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <a class="member-card" href="https://jerosse.com.tw/" target="_blank" rel="noopener">
+                <div class="member-icon">✨</div>
+                <div class="member-name">Jerosse Biotech Inc.</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <a class="member-card" href="https://lwhklab.com.tw/en/" target="_blank" rel="noopener">
+                <div class="member-icon">🧫</div>
+                <div class="member-name">Leeuwenhoek Biotech Inc.</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <a class="member-card" href="http://global.enutrition.com.tw/Home/About" target="_blank" rel="noopener">
+                <div class="member-icon">🥗</div>
+                <div class="member-name">Nutritec-Enjoy Corporation</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <!-- Nutrisense: hidden until ready to publish -->
+            <a class="member-card" href="https://www.nutrisense.com.tw/eng/" target="_blank" rel="noopener" style="display:none;">
+                <div class="member-icon">🧬</div>
+                <div class="member-name">Nutrisense Co., Ltd.</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <a class="member-card" href="https://www.smad.com.tw/en/" target="_blank" rel="noopener">
+                <div class="member-icon">💊</div>
+                <div class="member-name">SMAD Biotechnology Co., Ltd.</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <a class="member-card" href="https://www.weichuan.com.tw/en/home" target="_blank" rel="noopener">
+                <div class="member-icon">🏭</div>
+                <div class="member-name">Wei Chuan Foods Corporation</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+            <a class="member-card" href="https://www.ydfb.com.tw/en/" target="_blank" rel="noopener">
+                <div class="member-icon">🧃</div>
+                <div class="member-name">Yun Ding Food &amp; Beverage</div>
+                <span class="member-link-label">Visit Website</span>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Become a Corporate Member</h2>
+        <p>Join a global network of organizations committed to advancing precision health research and innovation.</p>
+        <a href="Join us.html" class="cta-btn">Apply for Corporate Membership</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 International Society for Precision Health. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById("nav-menu");
+        nav.classList.toggle("menu-active");
+    }
+
+    function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const dropdown = event.currentTarget.parentElement;
+        const allDropdowns = document.querySelectorAll('.dropdown');
+        allDropdowns.forEach(item => {
+            if (item !== dropdown) item.classList.remove('active');
+        });
+        dropdown.classList.toggle('active');
+    }
+
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                if (!dropdown.contains(event.target)) dropdown.classList.remove('active');
+            });
+        }
+    });
+
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('nav-menu').classList.remove('menu-active');
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+    });
+</script>
+</body>
+</html>

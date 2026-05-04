@@ -366,7 +366,13 @@
     <nav id="nav-menu">
         <ul>
             <li><a href="bylaws.html">Bylaws</a></li>
-            <li><a href="o1.html">Organization Structure</a></li>
+            <li class="dropdown" id="dropdown-org">
+                <a href="javascript:void(0)" onclick="toggleDropdown(event)">Organization</a>
+                <div class="dropdown-content">
+                    <a href="o1.html">Organization Structure</a>
+                    <a href="Corporate_Members.html">Corporate Members</a>
+                </div>
+            </li>
             <li class="dropdown" id="dropdown-events">
                 <a href="javascript:void(0)" onclick="toggleDropdown(event)">Events</a>
                 <div class="dropdown-content">
