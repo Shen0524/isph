@@ -7,21 +7,21 @@
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <title>Corporate Members – ISPH</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ── Reset & Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0056a6 0%, #003d7a 100%);
+            background: linear-gradient(160deg, #0056a6 0%, #003366 100%);
+            background-attachment: fixed;
             color: #333;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        /* ── Header & Nav (from Join us.html) ── */
+        /* ── Header ── */
         header {
             background-color: #0056a6;
             color: #fff;
@@ -29,410 +29,380 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.35);
         }
 
-        header .logo {
+        .logo {
             display: flex;
             align-items: center;
+            gap: 12px;
+            min-width: 0;
         }
 
-        header .logo img {
-            max-height: 50px;
-            margin-right: 15px;
+        .logo img {
+            height: 44px;
+            width: auto;
+            flex-shrink: 0;
         }
 
-        header h1 {
-            font-size: 1.5rem;
+        .logo h1 {
+            font-size: clamp(0.85rem, 2vw, 1.4rem);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        nav { display: flex; }
+        /* ── Nav ── */
+        nav { display: flex; flex-shrink: 0; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
+        nav ul { list-style: none; display: flex; gap: 2px; }
 
-        nav ul li {
-            margin: 0 10px;
-            position: relative;
-        }
+        nav ul li { position: relative; }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 1rem;
-            padding: 10px 15px;
+            font-size: 0.95rem;
+            padding: 10px 14px;
             display: block;
-            transition: background-color 0.3s;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            white-space: nowrap;
         }
 
-        nav ul li a:hover {
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
+        nav ul li a:hover { background-color: rgba(255,255,255,0.15); }
 
         .dropdown { position: relative; }
-        .dropdown > a { cursor: pointer; }
-        .dropdown > a::after { content: " ▼"; font-size: 0.7rem; }
+        .dropdown > a::after { content: " ▼"; font-size: 0.65rem; }
 
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #003d7a;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-            top: 100%;
+            min-width: 210px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            z-index: 200;
+            top: calc(100% + 4px);
             left: 0;
-            border-radius: 4px;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .dropdown-content a {
             color: #fff;
-            padding: 12px 16px;
-            text-decoration: none;
+            padding: 11px 16px;
+            font-size: 0.92rem;
             display: block;
-            font-size: 0.95rem;
+            transition: background-color 0.2s;
+            white-space: nowrap;
         }
 
         .dropdown-content a:hover { background-color: #0056a6; }
 
-        @media screen and (min-width: 769px) {
+        @media (min-width: 769px) {
             .dropdown:hover .dropdown-content { display: block; }
         }
 
         .menu-toggle {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             cursor: pointer;
+            padding: 4px 8px;
+            color: #fff;
+            flex-shrink: 0;
         }
 
-        /* ── Main Content ── */
+        /* ── Page wrapper ── */
         .main-content {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 48px 24px 60px;
         }
 
+        /* ── Page Header ── */
         .page-header {
             text-align: center;
             color: white;
-            margin-bottom: 50px;
+            margin-bottom: 44px;
         }
 
         .page-header h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .page-header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            opacity: 0.9;
         }
 
-        /* Intro card */
+        /* ── Intro card ── */
         .intro-card {
             background: white;
-            border-radius: 15px;
-            padding: 35px 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: clamp(20px, 4vw, 40px) clamp(20px, 5vw, 44px);
+            margin-bottom: 36px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
             text-align: center;
         }
 
         .intro-card h2 {
             color: #0056a6;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 14px;
         }
 
         .intro-card p {
             color: #555;
-            font-size: 1.05rem;
-            max-width: 780px;
+            font-size: clamp(0.92rem, 2vw, 1.05rem);
+            max-width: 760px;
             margin: 0 auto;
+            line-height: 1.8;
         }
 
-        /* Membership tier card */
-        .tier-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .tier-card {
-            background: white;
-            border-radius: 15px;
-            padding: 35px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .tier-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #0056a6, #003d7a);
-        }
-
-        .tier-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-
-        .tier-card.gold::before {
-            background: linear-gradient(90deg, #C9A227, #ffed4e);
-            height: 8px;
-        }
-
-        .tier-badge {
-            display: inline-block;
-            background: #C9A227;
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .tier-title {
-            font-size: 1.5rem;
-            color: #003d7a;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .tier-price {
-            font-size: 2.4rem;
-            color: #0056a6;
-            font-weight: bold;
-        }
-
-        .tier-period {
-            color: #888;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .tier-benefits {
-            list-style: none;
-            border-top: 1px solid #eee;
-            padding-top: 18px;
-        }
-
-        .tier-benefits li {
-            padding: 9px 0;
-            border-bottom: 1px solid #f0f0f0;
-            color: #555;
-            display: flex;
-            align-items: flex-start;
-            font-size: 0.97rem;
-        }
-
-        .tier-benefits li:last-child { border-bottom: none; }
-
-        .tier-benefits li::before {
-            content: '★';
-            color: #0056a6;
-            font-weight: bold;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        /* Current members list */
+        /* ── Members section ── */
         .members-section {
             background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: clamp(20px, 4vw, 44px) clamp(16px, 4vw, 40px);
+            margin-bottom: 36px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
         }
 
         .members-section h2 {
             color: #0056a6;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 28px;
             text-align: center;
         }
 
-        /* Sponsor-style grid (from Sponsors.html) */
+        /* ── Members grid ── */
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
+        /* Tablet */
+        @media (max-width: 900px) {
+            .members-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        }
+
+        /* Mobile */
+        @media (max-width: 500px) {
+            .members-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        }
+
+        /* ── Member card ── */
         .member-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-top: 5px solid #0056a6;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
+            padding: 20px 14px 16px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.09);
+            border-top: 4px solid #0056a6;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             text-align: center;
             text-decoration: none;
             color: inherit;
+            min-height: 200px;
         }
 
         .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,86,166,0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,86,166,0.18);
         }
 
-        .member-icon {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
+        /* Active state for touch devices */
+        .member-card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,86,166,0.18);
         }
 
+        /* ── Logo image ── */
         .member-logo {
-            width: 200px;
-            height: 150px;
+            width: 100%;
+            max-width: 160px;
+            height: 100px;
             object-fit: contain;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .member-card:hover .member-logo {
-            transform: scale(1.05);
-        }
-
-        .member-name {
-            font-size: 1rem;
-            color: #003d7a;
-            font-weight: bold;
-            line-height: 1.5;
             margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .member-card:hover .member-logo { transform: scale(1.06); }
+
+        /* Emoji fallback icon */
+        .member-icon {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        /* ── Name + label ── */
+        .member-name {
+            font-size: clamp(0.78rem, 1.6vw, 0.95rem);
+            color: #003d7a;
+            font-weight: 700;
+            line-height: 1.45;
+            margin-bottom: 10px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .member-link-label {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: #0056a6;
-            border: 1px solid #0056a6;
+            border: 1.5px solid #0056a6;
             border-radius: 20px;
-            padding: 3px 12px;
-            margin-top: 4px;
+            padding: 4px 14px;
             display: inline-block;
             transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        .member-card:hover .member-link-label {
+        .member-card:hover .member-link-label,
+        .member-card:active .member-link-label {
             background: #0056a6;
             color: white;
         }
 
-        /* CTA section */
+        /* ── CTA section ── */
         .cta-section {
             background: white;
-            border-radius: 15px;
-            padding: 40px;
+            border-radius: 16px;
+            padding: clamp(24px, 4vw, 44px) clamp(20px, 5vw, 40px);
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
             margin-bottom: 40px;
         }
 
         .cta-section h2 {
             color: #0056a6;
-            font-size: 1.8rem;
-            margin-bottom: 12px;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 10px;
         }
 
         .cta-section p {
             color: #666;
-            margin-bottom: 25px;
-            font-size: 1.05rem;
+            margin-bottom: 24px;
+            font-size: clamp(0.92rem, 2vw, 1.05rem);
         }
 
         .cta-btn {
             display: inline-block;
             background: linear-gradient(135deg, #0056a6 0%, #003d7a 100%);
             color: white;
-            padding: 15px 45px;
-            font-size: 1.1rem;
+            padding: 14px 40px;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
             border-radius: 8px;
             text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,86,166,0.35);
+            transition: all 0.25s;
+            box-shadow: 0 4px 16px rgba(0,86,166,0.35);
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,86,166,0.5);
+            box-shadow: 0 6px 22px rgba(0,86,166,0.5);
         }
 
+        /* ── Footer ── */
         footer {
-            background-color: #003366;
-            color: #fff;
+            background-color: #002952;
+            color: rgba(255,255,255,0.85);
             text-align: center;
-            padding: 1rem;
+            padding: 1.2rem 1rem;
+            font-size: 0.9rem;
         }
 
-        /* ── Mobile ── */
-        @media screen and (max-width: 768px) {
-            header h1 { font-size: 1.1rem; }
-            header .logo img { max-height: 40px; }
+        /* ── Mobile Nav ── */
+        @media (max-width: 768px) {
+            .logo img { height: 36px; }
+
+            .logo h1 { font-size: 0.9rem; }
 
             .menu-toggle { display: block; }
 
             nav {
                 display: none;
                 position: absolute;
-                top: 60px; right: 20px;
+                top: calc(100% + 4px);
+                right: 12px;
                 background-color: #003366;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                width: 220px;
+                border-radius: 10px;
+                box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+                width: 200px;
                 z-index: 1000;
             }
 
-            nav ul { display: block; padding: 10px 0; }
+            nav ul {
+                display: block;
+                padding: 8px 0;
+            }
 
             nav ul li {
-                text-align: right;
                 margin: 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                border-bottom: 1px solid rgba(255,255,255,0.08);
             }
 
             nav ul li:last-child { border-bottom: none; }
-            nav ul li a { padding: 12px 20px; }
+
+            nav ul li a {
+                padding: 12px 18px;
+                border-radius: 0;
+                font-size: 0.92rem;
+            }
 
             .dropdown-content {
                 position: static;
                 display: none;
                 box-shadow: none;
                 background-color: #002244;
-                margin: 0;
                 border-radius: 0;
+                min-width: unset;
             }
 
             .dropdown.active .dropdown-content { display: block; }
 
             .dropdown-content a {
-                padding: 10px 30px;
+                padding: 10px 28px;
                 border-bottom: 1px solid rgba(255,255,255,0.05);
+                font-size: 0.88rem;
             }
 
-            .menu-active { display: block; }
+            .menu-active { display: block !important; }
 
-            .page-header h1 { font-size: 1.9rem; }
-            .tier-section { grid-template-columns: 1fr; }
-            .members-grid { grid-template-columns: 1fr 1fr; }
+            /* Content spacing on mobile */
+            .main-content { padding: 28px 14px 48px; }
+
+            .page-header { margin-bottom: 28px; }
+
+            .member-card { min-height: 170px; padding: 14px 10px 12px; }
+
+            .member-logo { max-width: 120px; height: 80px; }
+
+            .member-name { font-size: 0.72rem; }
+
+            .member-link-label { font-size: 0.72rem; padding: 3px 10px; }
+        }
+
+        /* ── Extra small screens ── */
+        @media (max-width: 360px) {
+            .members-grid { grid-template-columns: 1fr; }
+            .member-logo { max-width: 140px; height: 90px; }
+            .member-name { font-size: 0.88rem; }
         }
     </style>
 </head>
@@ -488,26 +458,26 @@
         <div class="members-grid">
 
             <a class="member-card" href="https://www.herbalife.com/" target="_blank" rel="noopener">
-                <img class="member-logo" src="sponsors/Herbalife_logo.png" alt="Herbalife Taiwan Branch Inc., Taiwan Branch">
+                <img class="member-logo" src="sponsors/Herbalife_logo.png" alt="Herbalife">
                 <div class="member-name">Herbalife Taiwan Branch Inc., Taiwan Branch</div>
                 <span class="member-link-label">Visit Website</span>
             </a>
 
             <a class="member-card" href="https://hughesbiotech.com/" target="_blank" rel="noopener">
-                <img class="member-logo" src="sponsors/Hughes_logo.png" alt="Hughes Biotechnology Co., Ltd.">
+                <img class="member-logo" src="sponsors/Hughes_logo.png" alt="Hughes Biotechnology">
                 <div class="member-name">Hughes Biotechnology Co., Ltd.</div>
                 <span class="member-link-label">Visit Website</span>
             </a>
 
             <a class="member-card" href="https://jerosse.com.tw/" target="_blank" rel="noopener">
-                <img class="member-logo" src="sponsors/Jerosse_logo.png" alt="Jerosse Biotech Inc.">
+                <img class="member-logo" src="sponsors/Jerosse_logo.png" alt="Jerosse Biotech">
                 <div class="member-name">Jerosse Biotech Inc.</div>
                 <span class="member-link-label">Visit Website</span>
             </a>
 
             <a class="member-card" href="https://lwhklab.com.tw/en/" target="_blank" rel="noopener">
-                <img class="member-logo" src="sponsors/Leeuwenhoek_logo.jpg" alt="Leeuwenhoek Laboratories Co., Ltd.">
-                <div class="member-name">Leeuwenhoek Laboratories Co., Ltd.</div>
+                <div class="member-icon">🧫</div>
+                <div class="member-name">Leeuwenhoek Biotech Inc.</div>
                 <span class="member-link-label">Visit Website</span>
             </a>
 
@@ -525,13 +495,13 @@
             </a>
 
             <a class="member-card" href="https://www.smad.com.tw/en/" target="_blank" rel="noopener">
-                <img class="member-logo" src="sponsors/Protison.png" alt="SMAD Biotechnology Co., Ltd.">
+                <img class="member-logo" src="sponsors/Protison.png" alt="SMAD Biotechnology">
                 <div class="member-name">SMAD Biotechnology Co., Ltd.</div>
                 <span class="member-link-label">Visit Website</span>
             </a>
 
             <a class="member-card" href="https://www.weichuan.com.tw/en/home" target="_blank" rel="noopener">
-                <img class="member-logo" src="sponsors/Wei_logo.png" alt="Wei Chuan Foods Corporation">
+                <img class="member-logo" src="sponsors/Wei_logo.png" alt="Wei Chuan Foods">
                 <div class="member-name">Wei Chuan Foods Corporation</div>
                 <span class="member-link-label">Visit Website</span>
             </a>
@@ -567,8 +537,7 @@
         event.preventDefault();
         event.stopPropagation();
         const dropdown = event.currentTarget.parentElement;
-        const allDropdowns = document.querySelectorAll('.dropdown');
-        allDropdowns.forEach(item => {
+        document.querySelectorAll('.dropdown').forEach(item => {
             if (item !== dropdown) item.classList.remove('active');
         });
         dropdown.classList.toggle('active');
