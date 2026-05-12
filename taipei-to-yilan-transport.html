@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taipei → Jiaoxi / Yilan | ISPH 2026 Travel Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep:  #1B5E20;
+  --green-mid:   #2E7D32;
+  --green-bright:#4CAF50;
+  --green-light: #C8E6C9;
+  --green-pale:  #F1F8F2;
+  --amber:       #F59E0B;
+  --amber-bg:    #FFFBEB;
+  --amber-border:#FDE68A;
+  --sky:         #0EA5E9;
+  --sky-bg:      #EFF6FF;
+  --sky-border:  #BFDBFE;
+  --ink:         #111827;
+  --muted:       #6B7280;
+  --border:      #D1FAE5;
+  --white:       #fff;
+  --radius-card: 16px;
+  --radius-sm:   10px;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body { font-family: 'DM Sans', sans-serif; background: var(--green-pale); color: var(--ink); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; }
+a { color: inherit; }
+
+/* ── LAYOUT ── */
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 600px) { .wrap { padding: 0 32px; } }
+
+/* ── HEADER ── */
+header {
+  background: var(--green-deep);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.header-pattern {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0, rgba(255,255,255,.04) 1px, transparent 0, transparent 50%);
+  background-size: 18px 18px;
+}
+.header-inner {
+  position: relative;
+  padding: 36px 20px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 600px) { .header-inner { padding: 48px 32px 40px; } }
+
+.isph-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 11px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.isph-badge span { color: var(--green-bright); }
+
+header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+header h1 em { font-style: italic; color: var(--green-light); }
+header p.subtitle { font-size: 15px; color: rgba(255,255,255,.72); max-width: 480px; margin-bottom: 22px; }
+
+.route-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px; color: rgba(255,255,255,.9);
+  flex-wrap: wrap;
+}
+.route-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green-bright);
+  flex-shrink: 0;
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+/* ── SECTIONS ── */
+.section { padding: 32px 20px; max-width: 900px; margin: 0 auto; }
+@media (min-width: 600px) { .section { padding: 40px 32px; } }
+
+.sec-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--green-mid); margin-bottom: 10px;
+}
+.sec-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(20px, 3vw, 26px);
+  color: var(--green-deep); margin-bottom: 18px;
+}
+
+/* ── VENUE BANNER ── */
+.venue-banner {
+  background: linear-gradient(135deg, var(--green-deep), #2E7D32);
+  border-radius: var(--radius-card);
+  padding: 24px 22px;
+  color: white;
+  margin-bottom: 28px;
+  position: relative; overflow: hidden;
+}
+.venue-banner::after {
+  content: '礁溪';
+  position: absolute; right: 16px; bottom: -14px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 72px; opacity: .08; color: white; pointer-events: none;
+  line-height: 1;
+}
+@media (min-width: 600px) { .venue-banner { padding: 32px 28px; } .venue-banner::after { font-size: 90px; } }
+.venue-banner h2 { font-family: 'DM Serif Display', serif; font-size: 20px; margin-bottom: 14px; }
+.venue-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.88); }
+.venue-row:last-child { margin-bottom: 0; }
+.venue-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.venue-row strong { color: white; }
+.venue-row em { font-style: normal; color: var(--green-light); font-weight: 600; }
+
+/* ── NOTICE BOX ── */
+.notice {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--amber-bg); border: 1px solid var(--amber-border);
+  border-radius: var(--radius-sm); padding: 14px 16px;
+  font-size: 14px; color: #78350F; margin-bottom: 20px;
+  line-height: 1.55;
+}
+.notice-icon { flex-shrink: 0; font-size: 17px; margin-top: 1px; }
+
+/* ── COMPARE GRID ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px; margin-bottom: 36px;
+}
+@media (min-width: 560px) { .compare-grid { grid-template-columns: 1fr 1fr; } }
+
+.ccard {
+  background: white; border-radius: var(--radius-card);
+  border: 1.5px solid var(--border);
+  padding: 22px 20px;
+  position: relative; overflow: hidden;
+}
+.ccard::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+}
+.ccard.train::before { background: linear-gradient(90deg, var(--green-mid), var(--green-bright)); }
+.ccard.bus::before   { background: linear-gradient(90deg, var(--sky), #38BDF8); }
+
+.ccard-icon {
+  width: 42px; height: 42px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+  margin-bottom: 14px;
+}
+.train .ccard-icon { background: #E8F5E9; }
+.bus   .ccard-icon { background: #E0F2FE; }
+
+.ccard-title { font-family: 'DM Serif Display', serif; font-size: 19px; color: var(--green-deep); margin-bottom: 3px; }
+.ccard-sub   { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+
+.srow { display: flex; justify-content: space-between; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; gap: 8px; }
+.srow:last-child { border-bottom: none; }
+.slabel { color: var(--muted); flex-shrink: 0; }
+.sval   { font-weight: 600; text-align: right; }
+.sval.g { color: var(--green-mid); }
+.sval.b { color: #0284C7; }
+
+/* ── TRANSPORT BLOCKS ── */
+.tblock {
+  background: white; border-radius: 20px;
+  border: 1.5px solid var(--border);
+  margin-bottom: 28px; overflow: hidden;
+}
+.tblock-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 20px 22px; border-bottom: 1px solid var(--border);
+}
+@media (min-width: 600px) { .tblock-header { padding: 22px 28px; } }
+.tblock-header-icon {
+  width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.th-train .tblock-header-icon { background: #E8F5E9; }
+.th-bus   .tblock-header-icon { background: #E0F2FE; }
+.tblock-header h2 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--green-deep); line-height: 1.2; }
+.tblock-header p  { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.tblock-body { padding: 20px 22px; }
+@media (min-width: 600px) { .tblock-body { padding: 24px 28px; } }
+
+/* ── TRAIN TYPE CARDS ── */
+.train-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-bottom: 22px;
+}
+@media (min-width: 680px) { .train-types { grid-template-columns: repeat(4, 1fr); } }
+
+.ttcard {
+  border: 1.5px solid #E5E7EB; border-radius: 12px; padding: 14px 12px;
+  position: relative;
+}
+.ttcard.rec { border-color: var(--green-bright); background: #F0FDF4; }
+.rec-tag {
+  position: absolute; top: -1px; right: 10px;
+  background: var(--green-bright); color: white;
+  font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 0 0 7px 7px;
+}
+.ttcard-name { font-weight: 700; font-size: 14px; margin-bottom: 1px; }
+.ttcard-zh   { font-size: 11px; color: var(--muted); margin-bottom: 9px; }
+.ttcard-row  { font-size: 12px; color: var(--muted); display: flex; gap: 4px; margin-bottom: 3px; }
+.ttcard-row:last-child { margin-bottom: 0; }
+.ttcard-row strong { color: var(--ink); font-weight: 600; }
+
+/* ── BUS ROUTE CARDS ── */
+.bus-routes { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+.brc {
+  border: 1.5px solid #E5E7EB; border-radius: 14px; padding: 16px 16px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.brc.featured { border-color: var(--green-bright); background: #F0FDF4; }
+.brc.featured2 { border-color: var(--sky); background: var(--sky-bg); }
+.route-num {
+  font-family: 'DM Mono', monospace; font-weight: 600; font-size: 15px;
+  padding: 8px 10px; border-radius: 10px; flex-shrink: 0;
+  text-align: center; line-height: 1; color: white;
+  min-width: 52px;
+}
+.rn-green { background: var(--green-mid); }
+.rn-blue  { background: var(--sky); }
+.rn-teal  { background: #0891B2; }
+.brc-body h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+.brc-body p  { font-size: 13px; color: var(--muted); margin-bottom: 8px; line-height: 1.45; }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { background: #F3F4F6; color: #374151; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 100px; }
+.tag.g { background: #DCFCE7; color: #166534; }
+.tag.b { background: #DBEAFE; color: #1E40AF; }
+.tag.y { background: #FEF9C3; color: #713F12; }
+
+/* ── TIMETABLE CHIPS ── */
+.times-box {
+  border-radius: 12px; padding: 16px 16px 14px;
+  margin-bottom: 16px;
+}
+.times-box.green { background: #F0FDF4; border: 1px solid #BBF7D0; }
+.times-box.blue  { background: var(--sky-bg); border: 1px solid var(--sky-border); }
+.times-box.green2{ background: #F0FDF4; border: 1px solid #BBF7D0; }
+
+.times-title {
+  font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.times-box.green .times-title { color: var(--green-mid); }
+.times-box.blue  .times-title { color: #0284C7; }
+.times-box.green2 .times-title { color: var(--green-mid); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-family: 'DM Mono', monospace; font-size: 13px;
+  padding: 5px 10px; border-radius: 8px; font-weight: 500;
+  /* Larger tap target */
+  min-height: 34px; display: flex; align-items: center;
+}
+.times-box.green  .chip { background: white; border: 1px solid #BBF7D0; color: var(--green-deep); }
+.times-box.blue   .chip { background: white; border: 1px solid var(--sky-border); color: #1E40AF; }
+.times-box.green2 .chip { background: white; border: 1px solid #BBF7D0; color: var(--green-deep); }
+
+.times-note {
+  font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.5;
+}
+
+/* ── BOOKING ── */
+.booking-section {
+  background: white; border-radius: 20px;
+  border: 1.5px solid var(--border);
+  padding: 20px 22px; margin-bottom: 28px;
+}
+@media (min-width: 600px) { .booking-section { padding: 28px; } }
+
+.embed-box {
+  border-radius: 14px; padding: 18px 16px; margin-bottom: 14px;
+}
+.embed-box.g { background: #F0FDF4; border: 1.5px solid var(--green-bright); }
+.embed-box.b { background: var(--sky-bg); border: 1.5px solid #7DD3FC; }
+.embed-box h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+.embed-box.g h3 { color: var(--green-deep); }
+.embed-box.b h3 { color: #0284C7; }
+.embed-box p  { font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 11px 18px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+  transition: opacity .15s; white-space: nowrap;
+  min-height: 44px; /* touch target */
+}
+.btn:active { opacity: .8; }
+.btn.g-fill  { background: var(--green-mid); color: white; }
+.btn.b-fill  { background: #0284C7; color: white; }
+.btn.g-out   { border: 1.5px solid var(--green-mid); color: var(--green-mid); background: white; }
+.btn.b-out   { border: 1.5px solid #0284C7; color: #0284C7; background: white; }
+
+.bcard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-top: 18px;
+}
+@media (min-width: 680px) { .bcard-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.bcard {
+  border: 1.5px solid #E5E7EB; border-radius: 14px; padding: 16px 14px;
+  text-decoration: none; color: inherit; display: block;
+  transition: border-color .15s, transform .15s;
+  position: relative;
+  min-height: 44px; /* touch target */
+}
+.bcard:hover, .bcard:focus { border-color: var(--green-bright); transform: translateY(-1px); }
+.bcard:active { transform: translateY(0); }
+.bc-badge {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 100px; margin-bottom: 8px;
+}
+.bc-badge.off { background: #FEF3C7; color: #92400E; }
+.bc-badge.eng { background: #DBEAFE; color: #1E40AF; }
+.bcard-ico { font-size: 22px; margin-bottom: 8px; }
+.bcard h3 { font-size: 13px; font-weight: 700; margin-bottom: 3px; color: var(--ink); }
+.bcard p  { font-size: 12px; color: var(--muted); line-height: 1.4; }
+.bcard .arr { position: absolute; top: 14px; right: 14px; font-size: 14px; color: #D1D5DB; }
+
+/* ── TIPS ── */
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px; margin-top: 18px;
+}
+@media (min-width: 500px) { .tips-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 750px) { .tips-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.tip {
+  background: white; border: 1px solid var(--border); border-radius: 14px;
+  padding: 18px 16px;
+}
+.tip-ico   { font-size: 22px; margin-bottom: 8px; }
+.tip-title { font-weight: 700; font-size: 14px; color: var(--green-deep); margin-bottom: 5px; }
+.tip-text  { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* ── HIGHLIGHT ── */
+.hl { color: var(--green-mid); font-weight: 700; }
+.hl-hotel { color: #0284C7; font-weight: 700; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--green-deep); color: rgba(255,255,255,.6);
+  text-align: center; padding: 24px 20px;
+  font-size: 13px; line-height: 1.6;
+}
+footer strong { color: white; }
+footer small  { font-size: 11px; display: block; margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="header-pattern"></div>
+  <div class="header-inner">
+    <div class="isph-badge">🌿 <span>ISPH 2026</span> · National Ilan University · Oct 21–23</div>
+    <h1>Getting to<br><em>Jiaoxi &amp; Yilan</em><br>from Taipei</h1>
+    <p class="subtitle">Transport guide for international attendees of the ISPH 2026 Annual Conference.</p>
+    <div class="route-pill">
+      <div class="route-dot"></div>
+      Taipei → <strong style="color:#fff">Jiaoxi</strong> ~60 min by train &nbsp;·&nbsp; ~90 min by bus
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══ MAIN SECTION ═══ -->
+<div class="section">
+
+  <!-- VENUE -->
+  <div class="venue-banner">
+    <h2>📍 Your Two Destinations</h2>
+    <div class="venue-row">
+      <span class="venue-icon">🏨</span>
+      <span><strong>Conference Hotel:</strong> <em>Kilin Hotel Jiaoxi (麒麟山莊礁溪館)</em>, Jiaoxi Township — a hot-spring resort town. Alight at <strong>Jiaoxi Train Station (礁溪站)</strong> or <strong>Jiaoxi Transfer Station (礁溪轉運站)</strong>.</span>
+    </div>
+    <div class="venue-row">
+      <span class="venue-icon">🎓</span>
+      <span><strong>Conference Venue:</strong> <em>National Ilan University (國立宜蘭大學)</em>, Yilan City. Alight at <strong>Yilan Train Station (宜蘭站)</strong>, ~15 min taxi or local bus to campus.</span>
+    </div>
+    <div class="venue-row">
+      <span class="venue-icon">🚗</span>
+      <span>Jiaoxi and Yilan City are <strong>~15 min apart</strong> by taxi (NT$200–250) or local bus 191.</span>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div class="sec-label">At a glance</div>
+  <div class="sec-title">Train vs. Bus</div>
+
+  <div class="compare-grid">
+    <div class="ccard train">
+      <div class="ccard-icon">🚆</div>
+      <div class="ccard-title">Taiwan Railways (TRA)</div>
+      <div class="ccard-sub">Taipei Main Station → Jiaoxi / Yilan</div>
+      <div class="srow"><span class="slabel">To Jiaoxi</span><span class="sval g">~60 min (express)</span></div>
+      <div class="srow"><span class="slabel">To Yilan</span><span class="sval g">~68–80 min (express)</span></div>
+      <div class="srow"><span class="slabel">Fare</span><span class="sval">NT$192–306</span></div>
+      <div class="srow"><span class="slabel">Trains/day</span><span class="sval">51 daily</span></div>
+      <div class="srow"><span class="slabel">Book ahead?</span><span class="sval">Yes — seats fill fast</span></div>
+    </div>
+    <div class="ccard bus">
+      <div class="ccard-icon">🚌</div>
+      <div class="ccard-title">Highway Bus (Kamalan)</div>
+      <div class="ccard-sub">Taipei Bus Station → Jiaoxi / Yilan</div>
+      <div class="srow"><span class="slabel">To Jiaoxi</span><span class="sval b">~75–80 min</span></div>
+      <div class="srow"><span class="slabel">To Yilan</span><span class="sval b">~90–100 min</span></div>
+      <div class="srow"><span class="slabel">Fare</span><span class="sval">NT$105–140</span></div>
+      <div class="srow"><span class="slabel">Frequency</span><span class="sval">Every 15–30 min</span></div>
+      <div class="srow"><span class="slabel">Book ahead?</span><span class="sval">No — walk-up OK</span></div>
+    </div>
+  </div>
+
+  <!-- ─── TRAIN BLOCK ─── -->
+  <div class="tblock">
+    <div class="tblock-header th-train">
+      <div class="tblock-header-icon">🚆</div>
+      <div>
+        <h2>Taiwan Railways (TRA)</h2>
+        <p>Taipei Main Station (臺北站) → Jiaoxi (礁溪) / Yilan (宜蘭)</p>
+      </div>
+    </div>
+    <div class="tblock-body">
+
+      <div class="notice">
+        <span class="notice-icon">⚠️</span>
+        <span>The <strong>High Speed Rail (HSR) does not serve Yilan or Jiaoxi</strong> — HSR only runs on Taiwan's west coast. You must take <strong>Taiwan Railways (TRA)</strong> from Taipei Main Station.</span>
+      </div>
+
+      <div class="train-types">
+        <div class="ttcard rec">
+          <div class="rec-tag">Fastest</div>
+          <div class="ttcard-name">Puyuma</div>
+          <div class="ttcard-zh">普悠瑪號</div>
+          <div class="ttcard-row"><span>→ Jiaoxi</span>&nbsp;<strong>~60 min</strong></div>
+          <div class="ttcard-row"><span>→ Yilan</span>&nbsp;<strong>~68 min</strong></div>
+          <div class="ttcard-row"><strong>NT$306</strong></div>
+          <div class="ttcard-row" style="color:#666;font-size:11px;">Reserved seat only</div>
+        </div>
+        <div class="ttcard rec">
+          <div class="rec-tag">Recommended</div>
+          <div class="ttcard-name">Taroko</div>
+          <div class="ttcard-zh">太魯閣號</div>
+          <div class="ttcard-row"><span>→ Jiaoxi</span>&nbsp;<strong>~63 min</strong></div>
+          <div class="ttcard-row"><span>→ Yilan</span>&nbsp;<strong>~71 min</strong></div>
+          <div class="ttcard-row"><strong>NT$306</strong></div>
+          <div class="ttcard-row" style="color:#666;font-size:11px;">Reserved seat only</div>
+        </div>
+        <div class="ttcard rec">
+          <div class="rec-tag">Recommended</div>
+          <div class="ttcard-name">Tze-Chiang 3000</div>
+          <div class="ttcard-zh">自強3000號</div>
+          <div class="ttcard-row"><span>→ Jiaoxi</span>&nbsp;<strong>~70 min</strong></div>
+          <div class="ttcard-row"><span>→ Yilan</span>&nbsp;<strong>~78 min</strong></div>
+          <div class="ttcard-row"><strong>NT$306</strong></div>
+          <div class="ttcard-row" style="color:#666;font-size:11px;">Reserved seat only</div>
+        </div>
+        <div class="ttcard">
+          <div class="ttcard-name">Local / Express Quick</div>
+          <div class="ttcard-zh">區間 / 區間快</div>
+          <div class="ttcard-row"><span>→ Jiaoxi</span>&nbsp;<strong>~80 min+</strong></div>
+          <div class="ttcard-row"><span>→ Yilan</span>&nbsp;<strong>~100 min+</strong></div>
+          <div class="ttcard-row"><strong>NT$197</strong></div>
+          <div class="ttcard-row" style="color:#666;font-size:11px;">Unreserved · EasyCard OK</div>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--muted);margin-bottom:0;">51 trains per day. Book seats via the TRA official website or Klook — see <strong>Booking Links</strong> below.</p>
+    </div>
+  </div>
+
+  <!-- ─── BUS BLOCK ─── -->
+  <div class="tblock">
+    <div class="tblock-header th-bus">
+      <div class="tblock-header-icon">🚌</div>
+      <div>
+        <h2>Highway Bus</h2>
+        <p>Kamalan Bus (葛瑪蘭客運) · Capital Star Bus (首都客運) · Via National Highway 5 / Xueshan Tunnel 雪山隧道</p>
+      </div>
+    </div>
+    <div class="tblock-body">
+
+      <div class="bus-routes">
+
+        <!-- 1916 -->
+        <div class="brc featured2">
+          <div class="route-num rn-blue">1916</div>
+          <div class="brc-body">
+            <h3>Taipei Bus Station → <span class="hl-hotel">Jiaoxi</span> → Yilan</h3>
+            <p><strong>Kamalan Bus (葛瑪蘭客運)</strong> · Board at <strong>Taipei Bus Station (臺北轉運站)</strong> Q Square 4F, or <strong>MRT Technology Building Station (科技大樓站)</strong> Exit 2. Stops at <strong>Jiaoxi Transfer Station (礁溪轉運站)</strong> before Yilan.</p>
+            <div class="tags">
+              <span class="tag b">🏨 Stops at Jiaoxi (Hotel)</span>
+              <span class="tag">~75 min → Jiaoxi</span>
+              <span class="tag">~90 min → Yilan</span>
+              <span class="tag">NT$131–140</span>
+              <span class="tag">Every 15–20 min (peak)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1915 -->
+        <div class="brc featured">
+          <div class="route-num rn-green">1915</div>
+          <div class="brc-body">
+            <h3>Taipei Bus Station → <span class="hl">Jiaoxi</span> → Yilan → Luodong</h3>
+            <p><strong>Kamalan Bus (葛瑪蘭客運)</strong> · Board at <strong>Taipei Bus Station (臺北轉運站)</strong> Q Square 4F, or <strong>MRT Technology Building Station (科技大樓站)</strong> Exit 2. Stops at <strong>Jiaoxi Transfer Station (礁溪轉運站)</strong> en route.</p>
+            <div class="tags">
+              <span class="tag g">🏨 Stops at Jiaoxi (Hotel)</span>
+              <span class="tag">~80 min → Jiaoxi</span>
+              <span class="tag">~95 min → Yilan</span>
+              <span class="tag">NT$105–140</span>
+              <span class="tag">Every 20–30 min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1572 -->
+        <div class="brc featured">
+          <div class="route-num rn-teal">1572</div>
+          <div class="brc-body">
+            <h3>City Hall Bus Station → <span class="hl">Jiaoxi</span> → Yilan → Luodong</h3>
+            <p><strong>Capital Star Bus (首都客運)</strong> · Board at <strong>Taipei City Hall Bus Station (市府轉運站)</strong>, near MRT Taipei City Hall / Sun Yat-sen Memorial Station. Stops at <strong>Jiaoxi Transfer Station (礁溪轉運站)</strong> en route to Yilan and Luodong.</p>
+            <div class="tags">
+              <span class="tag g">🏨 Stops at Jiaoxi (Hotel)</span>
+              <span class="tag">~80 min → Jiaoxi</span>
+              <span class="tag">NT$131</span>
+              <span class="tag">20–60 min intervals</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 1916 Timetable -->
+      <div class="times-box blue">
+        <div class="times-title">🚌 Route 1916 (Kamalan) · Taipei Bus Station → Jiaoxi → Yilan · Full Timetable</div>
+        <div class="chips">
+          <span class="chip">06:20</span><span class="chip">06:40</span><span class="chip">07:00</span><span class="chip">07:20</span><span class="chip">07:40</span><span class="chip">08:00</span><span class="chip">08:20</span><span class="chip">08:40</span><span class="chip">09:00</span><span class="chip">09:20</span><span class="chip">09:40</span><span class="chip">10:00</span><span class="chip">10:20</span><span class="chip">10:35</span><span class="chip">10:50</span><span class="chip">11:05</span><span class="chip">11:20</span><span class="chip">11:35</span><span class="chip">11:50</span><span class="chip">12:05</span><span class="chip">12:20</span><span class="chip">12:35</span><span class="chip">12:50</span><span class="chip">13:05</span><span class="chip">13:20</span><span class="chip">13:35</span><span class="chip">13:50</span><span class="chip">14:05</span><span class="chip">14:20</span><span class="chip">14:35</span><span class="chip">14:50</span><span class="chip">15:05</span><span class="chip">15:20</span><span class="chip">15:35</span><span class="chip">15:50</span><span class="chip">16:05</span><span class="chip">16:20</span><span class="chip">16:35</span><span class="chip">16:50</span><span class="chip">17:05</span><span class="chip">17:20</span><span class="chip">17:35</span><span class="chip">17:50</span><span class="chip">18:05</span><span class="chip">18:20</span><span class="chip">18:35</span><span class="chip">18:50</span><span class="chip">19:05</span><span class="chip">19:20</span><span class="chip">19:35</span><span class="chip">19:50</span><span class="chip">20:05</span><span class="chip">20:20</span>
+        </div>
+        <div class="times-note">Source: Kamalan Bus official schedule. Every 15–20 min peak, every 20 min off-peak. Last bus 20:20. NT$131–140. ~75 min to Jiaoxi · ~90 min to Yilan. Confirm at <strong>kamalan.com.tw</strong>.</div>
+      </div>
+
+      <!-- 1915 Timetable -->
+      <div class="times-box green">
+        <div class="times-title">🚌 Route 1915 (Kamalan) · Taipei Bus Station → Jiaoxi → Yilan → Luodong · Key Departures</div>
+        <div class="chips">
+          <span class="chip">04:50</span><span class="chip">05:15</span><span class="chip">05:40</span><span class="chip">06:10</span>
+          <span class="chip" style="opacity:.55;font-style:italic;">… every 20–30 min …</span>
+          <span class="chip">20:32</span><span class="chip">21:12</span><span class="chip">21:32</span><span class="chip">22:22</span><span class="chip">22:47</span><span class="chip">23:12</span><span class="chip">23:32</span><span class="chip">23:55</span><span class="chip">00:15</span><span class="chip">00:35</span><span class="chip">00:55</span>
+        </div>
+        <div class="times-note">Earliest 04:50 · Last bus 00:55 · Stops at Jiaoxi Transfer Station (🏨 hotel) · NT$105–140. Confirm full schedule at <strong>kamalan.com.tw</strong>.</div>
+      </div>
+
+      <!-- 1572 Timetable -->
+      <div class="times-box" style="background:#F0FDFA;border:1px solid #99F6E4;margin-bottom:16px;">
+        <div class="times-title" style="color:#0F766E;">🚌 Route 1572 (Capital Star Bus) · City Hall Bus Station → Jiaoxi → Yilan → Luodong · Full Timetable</div>
+        <div class="chips">
+          <span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">06:10</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">06:40</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">07:00</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">07:30</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">08:20</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">09:00</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">09:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">10:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">11:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">12:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">13:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">14:35</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">15:20</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">16:20</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">17:20</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">17:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">18:20</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">18:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">19:20</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">20:10</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;opacity:.75;">20:40 ★</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">21:10</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">22:10</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">23:10</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">23:50</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">00:10</span><span class="chip" style="background:white;border:1px solid #99F6E4;color:#0F766E;">00:30</span>
+        </div>
+        <div class="times-note">Source: Capital Star Bus (首都客運) official schedule. First bus 06:10 · Last bus 00:30. ★ 20:40 operates Fri–Sun only. Intervals: 20–60 min. NT$131. ~80 min to Jiaoxi · ~95 min to Yilan. Board at <strong>Taipei City Hall Bus Station (市府轉運站)</strong> near MRT Taipei City Hall Station.</div>
+      </div>
+
+      <p style="font-size:12px;color:var(--muted);">Other operators: Kuo-Kuang Bus (國光客運, from Yuanshan or Nangang MRT)</p>
+    </div>
+  </div>
+
+  <!-- ─── BOOKING ─── -->
+  <div class="booking-section">
+    <div class="sec-label">🎟️ Online Booking</div>
+    <div class="sec-title">Where to Book Tickets</div>
+    <p style="font-size:14px;color:var(--muted);margin-top:-10px;margin-bottom:18px;">All platforms below support <strong>English</strong> and accept international credit cards.</p>
+
+    <div class="embed-box g">
+      <h3>🚆 TRA Train Tickets — Official Site (English available)</h3>
+      <p>Search timetables, reserve a seat, and pay online. Switch to English via the globe icon (top right). Accepts Visa, Mastercard, JCB. Booking opens up to 28 days ahead. Select <strong>Jiaoxi Station (礁溪)</strong> for the hotel, or <strong>Yilan Station (宜蘭)</strong> for the conference venue.</p>
+      <div class="btn-row">
+        <a href="https://tip.railway.gov.tw/tra-tip-web/tip?lang=EN_US" target="_blank" class="btn g-fill">🚆 TRA Official Booking ↗</a>
+        <a href="https://www.klook.com/activity/115546-taiwan-rail-ticket/" target="_blank" class="btn g-out">Klook (180 days ahead) ↗</a>
+      </div>
+    </div>
+
+    <div class="embed-box b">
+      <h3>🚌 Kamalan Bus — English-Friendly Platforms</h3>
+      <p>The Kamalan official site is in Chinese. Book in English via Klook or 12Go. EasyCard accepted for walk-up boarding — no booking needed.</p>
+      <div class="btn-row">
+        <a href="https://www.klook.com/activity/37453-shared-city-transfers-between-taipei-yilan/" target="_blank" class="btn b-fill">🚌 Book via Klook ↗</a>
+        <a href="https://12go.asia/en/operator/kamalan-bus" target="_blank" class="btn b-out">12Go Asia ↗</a>
+      </div>
+    </div>
+
+    <div class="bcard-grid">
+      <a href="https://tip.railway.gov.tw/tra-tip-web/tip?lang=EN_US" target="_blank" class="bcard">
+        <div class="bc-badge off">Official</div>
+        <div class="bcard-ico">🚆</div>
+        <h3>TRA Official (EN)</h3>
+        <p>Timetables, seat selection, pay online</p>
+        <span class="arr">↗</span>
+      </a>
+      <a href="https://www.kamalan.com.tw" target="_blank" class="bcard">
+        <div class="bc-badge off">Official</div>
+        <div class="bcard-ico">🚌</div>
+        <h3>Kamalan Bus</h3>
+        <p>24-hr booking (Chinese interface)</p>
+        <span class="arr">↗</span>
+      </a>
+      <a href="https://www.klook.com/activity/115546-taiwan-rail-ticket/" target="_blank" class="bcard">
+        <div class="bc-badge eng">English</div>
+        <div class="bcard-ico">🌐</div>
+        <h3>Klook — TRA Train</h3>
+        <p>Up to 180 days ahead · int'l cards</p>
+        <span class="arr">↗</span>
+      </a>
+      <a href="https://www.klook.com/activity/37453-shared-city-transfers-between-taipei-yilan/" target="_blank" class="bcard">
+        <div class="bc-badge eng">English</div>
+        <div class="bcard-ico">🌐</div>
+        <h3>Klook — Kamalan Bus</h3>
+        <p>Taipei → Jiaoxi / Yilan · e-ticket</p>
+        <span class="arr">↗</span>
+      </a>
+      <a href="https://12go.asia/en/operator/kamalan-bus" target="_blank" class="bcard">
+        <div class="bc-badge eng">English</div>
+        <div class="bcard-ico">🎫</div>
+        <h3>12Go Asia</h3>
+        <p>Kamalan Bus · multiple payment options</p>
+        <span class="arr">↗</span>
+      </a>
+      <a href="https://us.trip.com/things-to-do/detail/96232502/" target="_blank" class="bcard">
+        <div class="bc-badge eng">English</div>
+        <div class="bcard-ico">✈️</div>
+        <h3>Trip.com</h3>
+        <p>Kamalan Bus · Taipei → Jiaoxi / Yilan</p>
+        <span class="arr">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ─── TIPS ─── -->
+  <div class="sec-label">Practical Tips</div>
+  <div class="sec-title">Before You Travel</div>
+  <div class="tips-grid">
+    <div class="tip">
+      <div class="tip-ico">🏨</div>
+      <div class="tip-title">Going to the Hotel (Jiaoxi)</div>
+      <div class="tip-text">Alight at <strong>Jiaoxi Train Station (礁溪站)</strong> if taking the train, or <strong>Jiaoxi Transfer Station (礁溪轉運站)</strong> if taking bus 1915, 1916, or 1572. Kilin Hotel Jiaoxi is a short ~5 min taxi ride (NT$80–120) from either stop.</div>
+    </div>
+    <div class="tip">
+      <div class="tip-ico">🎓</div>
+      <div class="tip-title">Going to the Venue (Yilan)</div>
+      <div class="tip-text">Alight at <strong>Yilan Train Station (宜蘭站)</strong> or Yilan Transfer Station. National Ilan University is ~15 min by taxi (NT$150–200) or take local bus 79 / 241. From the hotel in Jiaoxi, taxi to NIU takes ~20 min (NT$200–260).</div>
+    </div>
+    <div class="tip">
+      <div class="tip-ico">🎟️</div>
+      <div class="tip-title">Book Train Seats Early</div>
+      <div class="tip-text">Express seats (Puyuma, Taroko, Tze-Chiang 3000) sell out quickly around Oct 21–23. Book directly via TRA up to 28 days ahead, or via Klook up to 180 days ahead. Select <strong>Jiaoxi (礁溪)</strong> as your destination for the hotel.</div>
+    </div>
+    <div class="tip">
+      <div class="tip-ico">💳</div>
+      <div class="tip-title">EasyCard for Buses</div>
+      <div class="tip-text">Kamalan Bus accepts the <strong>Taipei EasyCard (悠遊卡)</strong> — tap on board, no ticket needed. Get one at any Taipei MRT station (NT$100 refundable deposit, load any amount).</div>
+    </div>
+    <div class="tip">
+      <div class="tip-ico">✈️</div>
+      <div class="tip-title">Direct from Airport (TPE)</div>
+      <div class="tip-text"><strong>Bus 1661 (Ubus)</strong> runs directly from Taoyuan Airport (TPE) to Yilan and Luodong — ~2.5 to 3 hrs, NT$300. Get off at <strong>Jiaoxi Transfer Station</strong> for the hotel. No need to go into Taipei first.</div>
+    </div>
+    <div class="tip">
+      <div class="tip-ico">📱</div>
+      <div class="tip-title">TRA Mobile App</div>
+      <div class="tip-text">Download <strong>"Taiwan Railway e-booking"</strong> (iOS / Android). Has English support. International visitors can use their <strong>passport number</strong> as the booking ID instead of a Taiwan ID card.</div>
+    </div>
+  </div>
+
+</div><!-- end .section -->
+
+<footer>
+  Prepared for <strong>ISPH 2026 Annual Conference</strong> · National Ilan University, Yilan, Taiwan · October 21–23, 2026
+  <small>Bus timetable (Route 1916) sourced from Kamalan Bus official schedule. Train data from timetables.tw, verified 12 May 2026. Always confirm schedules on official websites before travel — timetables are subject to seasonal changes.</small>
+</footer>
+
+</body>
+</html>
