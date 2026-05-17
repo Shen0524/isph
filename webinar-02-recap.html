@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISPH Webinar Symposium No.2 — Recap | International Society for Precision Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#1b4d22;
+    --green-800:#2E7D32;
+    --green-600:#43a047;
+    --green-50:#f1f8f2;
+    --gold:#c9a227;
+    --ink:#1a1f1b;
+    --ink-soft:#4a524c;
+    --paper:#fbfaf5;
+    --line:#e4e6e0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter','Noto Sans TC',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--green-800);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,var(--green-900) 0%,var(--green-800) 60%,var(--green-600) 100%);
+    color:#fff;
+    padding:80px 24px 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 0%,transparent 40%),
+                     radial-gradient(circle at 80% 70%,rgba(201,162,39,.15) 0%,transparent 50%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+  .eyebrow{
+    font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:clamp(2.2rem,5vw,3.8rem);
+    line-height:1.1;
+    margin-bottom:18px;
+    max-width:900px;
+  }
+  .hero .subtitle{
+    font-size:1.15rem;
+    opacity:1;
+    max-width:700px;
+    font-weight:300;
+    color:rgba(255,255,255,.78);
+  }
+  .sub-opening{color:#fff;font-weight:500;background:rgba(255,255,255,.12);border-radius:4px;padding:0 5px}
+  .sub-speaker{color:#fde68a;font-weight:500}
+  .sub-affil{color:#6ee7b7;font-style:italic}
+  .sub-topic{color:#fcd34d;font-weight:500}
+  .sub-subject{color:#a7f3d0;font-style:italic}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:28px;
+    margin-top:36px;padding-top:28px;
+    border-top:1px solid rgba(255,255,255,.2);
+    font-size:.92rem;
+  }
+  .hero-meta div{display:flex;flex-direction:column;gap:4px}
+  .hero-meta .label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
+  .hero-meta .value{font-weight:500}
+
+  /* Container */
+  .container{max-width:1100px;margin:0 auto;padding:0 24px}
+  section{padding:64px 0}
+  h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;font-weight:600;
+    color:var(--green-900);
+    margin-bottom:24px;
+    position:relative;padding-bottom:12px;
+  }
+  h2::after{
+    content:"";position:absolute;bottom:0;left:0;
+    width:60px;height:3px;background:var(--gold);
+  }
+  h3{
+    font-size:1.15rem;font-weight:600;color:var(--green-800);
+    margin:24px 0 10px;
+  }
+  p{margin-bottom:14px;color:var(--ink-soft)}
+
+  /* Resources card */
+  .resources{
+    margin-top:-60px;position:relative;z-index:2;
+    background:#fff;border-radius:12px;
+    box-shadow:0 20px 60px rgba(27,77,34,.15);
+    padding:40px;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:40px;
+  }
+  @media(max-width:768px){.resources{grid-template-columns:1fr;padding:28px}}
+  .video-link{
+    display:flex;align-items:center;gap:14px;
+    background:var(--green-50);
+    border:1px solid var(--green-600);
+    border-left:4px solid var(--green-800);
+    padding:18px 22px;border-radius:8px;
+    transition:all .2s;
+    text-decoration:none;color:var(--ink);
+  }
+  .video-link:hover{
+    background:#fff;
+    transform:translateX(4px);
+    box-shadow:0 8px 20px rgba(46,125,50,.15);
+    text-decoration:none;
+  }
+  .video-link .icon{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--green-800);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;font-size:1.2rem;
+  }
+  .video-link .txt strong{display:block;font-size:1rem;color:var(--green-900)}
+  .video-link .txt span{font-size:.85rem;color:var(--ink-soft)}
+  .nav-links{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+  .nav-links a{
+    font-size:.9rem;padding:8px 0;
+    border-bottom:1px dashed var(--line);
+    display:flex;justify-content:space-between;
+  }
+  .nav-links a::after{content:"→";color:var(--gold)}
+
+  /* Speaker */
+  .speaker-card{
+    background:#fff;border:1px solid var(--line);
+    border-radius:12px;padding:32px;
+    display:grid;grid-template-columns:120px 1fr;gap:28px;
+  }
+  @media(max-width:640px){.speaker-card{grid-template-columns:1fr}}
+  .avatar{
+    width:120px;height:120px;border-radius:50%;
+    background:linear-gradient(135deg,var(--green-800),var(--green-600));
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;
+  }
+  .speaker-card h3{margin-top:0;font-size:1.4rem;color:var(--green-900)}
+  .speaker-card .affil{font-size:.9rem;color:var(--ink-soft);margin-bottom:14px;font-style:italic}
+
+  /* Abstract / highlights */
+  .highlights{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;
+  }
+  @media(max-width:768px){.highlights{grid-template-columns:1fr}}
+  .highlight{
+    background:#fff;border-top:3px solid var(--green-800);
+    padding:24px;border-radius:4px;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+  .highlight .num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;color:var(--gold);font-weight:600;line-height:1;
+  }
+  .highlight h4{font-size:1rem;color:var(--green-900);margin:8px 0 6px}
+  .highlight p{font-size:.88rem;margin-bottom:0}
+
+  /* Transcript */
+  .transcript{
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    max-height:600px;overflow-y:auto;
+    padding:8px 0;
+  }
+  .transcript details{border-bottom:1px solid var(--line)}
+  .transcript details:last-child{border-bottom:none}
+  .transcript summary{
+    padding:18px 24px;cursor:pointer;font-weight:600;
+    color:var(--green-900);font-size:.95rem;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;
+    transition:background .2s;
+  }
+  .transcript summary::-webkit-details-marker{display:none}
+  .transcript summary:hover{background:var(--green-50)}
+  .transcript summary::after{content:"+";font-size:1.4rem;color:var(--gold);font-weight:400}
+  .transcript details[open] summary::after{content:"−"}
+  .transcript .content{padding:0 24px 22px;font-size:.92rem;line-height:1.75}
+  .transcript .content p{margin-bottom:12px}
+  .speaker-tag{
+    display:inline-block;font-size:.72rem;font-weight:600;
+    color:var(--green-800);letter-spacing:.05em;
+    margin-right:6px;
+  }
+
+  /* Q&A */
+  .qa{background:var(--green-50);padding:64px 0;margin-top:20px}
+  .qa-item{
+    background:#fff;border-left:4px solid var(--gold);
+    padding:22px 26px;margin-bottom:16px;border-radius:0 6px 6px 0;
+  }
+  .qa-item .q{font-weight:600;color:var(--green-900);margin-bottom:10px;font-size:.98rem}
+  .qa-item .q::before{content:"Q  ";color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700}
+  .qa-item .a{font-size:.92rem}
+  .qa-item .a::before{content:"A  ";color:var(--green-800);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700}
+
+  /* Footer */
+  footer{
+    background:var(--green-900);color:#fff;
+    padding:40px 24px;text-align:center;
+    font-size:.85rem;
+  }
+  footer .gold{color:var(--gold)}
+  footer a{color:#fff;opacity:.85}
+  .footer-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .footer-home{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:6px;padding:9px 22px;
+    color:#fff;font-size:.85rem;font-weight:500;
+    text-decoration:none;letter-spacing:.03em;
+    transition:background .2s,border-color .2s;
+  }
+  .footer-home:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6);text-decoration:none}
+  .footer-home svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .footer-register{display:inline-flex;align-items:center;gap:8px;border-radius:6px;padding:9px 22px;background:var(--gold);color:var(--green-900);font-size:.85rem;font-weight:600;text-decoration:none;letter-spacing:.03em;transition:opacity .2s,transform .15s;}
+  .footer-register:hover{opacity:.88;transform:translateY(-1px);text-decoration:none;color:var(--green-900)}
+  .footer-register svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .footer-series{color:rgba(255,255,255,.75)}
+  .footer-series .sep{color:var(--gold);margin:0 4px}
+  .footer-series .sess{color:#fff;font-weight:500}
+  .footer-series .date-val{color:#a7f3d0}
+  .footer-copy{color:rgba(255,255,255,.45);font-size:.78rem}
+  .footer-copy .org{color:rgba(255,255,255,.65)}
+  .footer-copy a{color:var(--gold);opacity:1}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">ISPH Webinar Symposium · Session 02</div>
+    <h1>Precision Nutrition in Cancer: From Metabolic Dysregulation to Biomarker-Guided Interventions</h1>
+    <p class="subtitle"><span class="sub-opening">Second session</span> of the ISPH Webinar Symposium Series — a <span class="sub-topic">keynote lecture</span> by <span class="sub-speaker">Dr. Camelia Munteanu</span>, <span class="sub-affil">University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca, Romania</span>, on <span class="sub-topic">precision nutrition</span>, <span class="sub-subject">lncRNA biomarkers</span>, and the metabolic landscape of cancer.</p>
+    <div class="hero-meta">
+      <div><span class="label">Date</span><span class="value">1 May 2026</span></div>
+      <div><span class="label">Duration</span><span class="value">≈ 74 minutes</span></div>
+      <div><span class="label">Language</span><span class="value">English</span></div>
+      <div><span class="label">Format</span><span class="value">Online Webinar</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="resources">
+    <div>
+      <div class="eyebrow" style="color:var(--green-800);margin-bottom:14px">Recording & Materials</div>
+      <a class="video-link" href="https://nkusto365-my.sharepoint.com/:v:/g/personal/f114176114_office365_nkust_edu_tw/IQCSlWLpWfc-SapyE27iOY8tAZdAIzT0aGRq3OCwuAB1UGg?e=CkRE8c&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6Mjc0Ny42Mn19" target="_blank" rel="noopener">
+        <div class="icon">▶</div>
+        <div class="txt">
+          <strong>Watch Full Recording</strong>
+          <span>Keynote lecture, panel discussion &amp; Q&amp;A</span>
+        </div>
+      </a>
+    </div>
+    <div>
+      <div class="eyebrow" style="color:var(--green-800);margin-bottom:14px">On this page</div>
+      <nav class="nav-links">
+        <a href="#speaker">About the Speaker</a>
+        <a href="#abstract">Lecture Overview</a>
+        <a href="#transcript">Full Transcript</a>
+        <a href="#qa">Panel Q&amp;A</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<section id="speaker">
+  <div class="container">
+    <h2>Speaker</h2>
+    <div class="speaker-card">
+      <div class="avatar">CM</div>
+      <div>
+        <h3>Dr. Camelia Munteanu, Ph.D.</h3>
+        <div class="affil">University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca, Romania</div>
+        <p>Dr. Munteanu is an internationally active nutrition scientist whose research sits at the interface of precision nutrition, metabolism, and cancer biology. Her work focuses on understanding how nutrition and obesity-driven metabolic networks influence cancer risk, progression, and therapeutic response — integrating advanced molecular approaches including lncRNA-based transcriptomics and systems-level analysis.</p>
+        <p>She has authored more than 33 peer-reviewed publications in leading journals including <em>Cancers</em>, <em>Nutrients</em>, and <em>Obesity Reviews</em>, and serves as a reviewer for several international journals including the <em>Journal of Ovarian Research</em>. She is actively leading multiple national and international research initiatives including Horizon Europe proposals, and has served on the committees of numerous international and national conferences.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px">Session Chair & Panelist</h3>
+    <p><strong>Chair:</strong> Dr. Danny Dhanasekaran &nbsp;·&nbsp; <strong>Panelist:</strong> Dr. Ben Tsang &nbsp;·&nbsp; <strong>Host:</strong> Prof. Chin-Kun Wang, President, ISPH</p>
+  </div>
+</section>
+
+<section id="abstract" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <h2>Lecture Overview</h2>
+    <p>Obesity is now recognised as a major modifiable risk factor for at least 13 types of cancer, yet clinical nutrition guidelines remain largely generic. Dr. Munteanu's keynote argued that the next frontier lies in <em>precision nutrition</em> — tailoring dietary and metabolic interventions to the individual tumor's genetic, epigenetic, and metabolic landscape. Drawing on population-level epidemiological data from Romania and cutting-edge molecular work on high-grade serous ovarian cancer, she traced the path from adipocyte-driven tumor microenvironment remodelling to the identification of specific long non-coding RNA (lncRNA) signatures that may serve as diagnostic biomarkers, prognostic indicators, and therapeutic targets.</p>
+    <p>Central to her research is an adipocyte-conditioned medium (ACM) model applied to HGSOC cell lines (OVCAR4, Kuramochi, TYKnu), which revealed that key lncRNAs — CCAT1, H19, LINC00887, and PCAT1 — are differentially regulated by adipocyte-secreted factors and are functionally linked to proliferation, stemness, immune evasion, and metabolic reprogramming across glucose, lipid, and amino acid pathways. She concluded that cancer metabolism is actionable, and that lncRNA-guided precision nutrition can bridge the gap between metabolic insight and improved clinical outcomes.</p>
+
+    <div class="highlights">
+      <div class="highlight">
+        <div class="num">01</div>
+        <h4>Obesity–Cancer Connection</h4>
+        <p>Obesity drives ≥13 cancer types through chronic inflammation, insulin resistance, and adipokine secretion. Romanian data: ≈58% of men and 41% of women are overweight or obese — among the highest rates in the EU.</p>
+      </div>
+      <div class="highlight">
+        <div class="num">02</div>
+        <h4>Adipocyte–Tumor Crosstalk</h4>
+        <p>Using an ACM model on HGSOC lines, four lncRNAs (CCAT1, H19, LINC00887, PCAT1) were identified as key mediators of adipocyte-driven proliferation, stemness, immune evasion, and metabolic reprogramming.</p>
+      </div>
+      <div class="highlight">
+        <div class="num">03</div>
+        <h4>Biomarker Pipeline</h4>
+        <p>These lncRNAs are overexpressed in a substantial proportion of ovarian cancer patients and correlate with advanced disease stage and poorer survival — positioning them as strong diagnostic, prognostic, and therapeutic targets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="transcript">
+  <div class="container">
+    <h2>Full Transcript</h2>
+    <p style="margin-bottom:24px">The following transcript has been lightly edited from the automated meeting recording for clarity. Speaker attributions and timestamps are preserved from the original recording.</p>
+
+    <div class="transcript">
+      <details open>
+        <summary>Opening Remarks — Prof. Chin-Kun Wang (ISPH President)</summary>
+        <div class="content">
+          <p>OK, dear friends, good morning, good afternoon, good evening. Welcome to join the second webinar symposium of ISPH. Today, we are very pleased to invite Dr. Camelia Munteanu to be our keynote speaker, and also Dr. Danny Dhanasekaran to be the chair and Dr. Ben Tsang to be the panelist.</p>
+          <p>I believe today the title could be very attractive. This is about precision nutrition in cancer. So again, I welcome everyone to join this webinar symposium. Now I will move to the chair, Dr. Danny. Please.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Speaker Introduction — Dr. Danny Dhanasekaran (Chair)</summary>
+        <div class="content">
+          <p>Hi, I'm really glad to have the privilege of sharing this session, and especially to be with all of our friends. So it's my great pleasure to welcome all of you today to this webinar on Precision Nutrition and Cancer: From Metabolic Dysregulation to Biomarker-Guided Interventions.</p>
+          <p>I'm really delighted to have with us today Dr. Camelia Munteanu as our featured speaker. Dr. Munteanu is an internationally active nutrition scientist and faculty at the University of Agricultural Sciences and Veterinary Medicine in Cluj-Napoca, Romania. Her work sits at the exciting interface of precision nutrition, metabolism, and cancer biology.</p>
+          <p>Dr. Munteanu completed her PhD in Physical Education and Sport and Biology at Babeș-Bolyai University, Cluj-Napoca, and holds a master's degree in nutrition. Her research focuses on understanding how nutrition and obesity-driven metabolic networks influence cancer risk, progression, and therapeutic response. What makes her work particularly impactful is its integrative nature — combining nutrition science with advanced molecular approaches, including lncRNA-based transcriptomics and systems-level analysis, to uncover mechanistic links between diet, metabolic dysregulation, obesity, and cancer.</p>
+          <p>She has authored more than 33 peer-reviewed publications in leading journals including <em>Cancers</em>, <em>Nutrients</em>, and <em>Obesity Reviews</em>, serves as a reviewer for several international journals including the <em>Journal of Ovarian Research</em>, and is actively leading multiple national and international research initiatives, including Horizon Europe proposals. Dr. Munteanu, thank you so much for accepting our invitation. We all look forward to your talk.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 1 — Obesity as a Major Cancer Risk Factor</summary>
+        <div class="content">
+          <p>Thank you so much for the warm introduction. It is truly an honour to be here with the ISPH community today.</p>
+          <p>I want to start with a fact that I think should alarm all of us: obesity is now established as a major modifiable risk factor for at least 13 types of cancer. In Romania, the data are particularly striking — approximately 58% of men and 41% of women are classified as overweight or obese, placing Romania among the highest in the European Union. We see particularly high incidence rates of postmenopausal breast cancer, endometrial cancer, ovarian cancer, and colorectal cancer, with especially vulnerable populations such as the Roma community carrying a disproportionate share of that burden.</p>
+          <p>The urgency is clear. We cannot talk about cancer prevention and treatment without talking about metabolic health and nutrition — and yet, until recently, these conversations have remained largely separate. My work is about bridging that gap.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 2 — Mechanisms: How Obesity Fuels Cancer</summary>
+        <div class="content">
+          <p>So how exactly does obesity promote cancer? The mechanisms are multiple and interconnected. Chronic low-grade inflammation is a key driver — the adipose tissue in obese individuals is infiltrated by pro-inflammatory immune cells and secretes elevated levels of TNF-α, IL-6, and other cytokines that create a permissive environment for tumor growth.</p>
+          <p>Insulin resistance is another critical pathway. Hyperinsulinaemia and elevated IGF-1 activate proliferative and anti-apoptotic signalling cascades. And then there is the role of adipokines — leptin promotes proliferation and angiogenesis, while adiponectin — which is typically anti-tumorigenic — is paradoxically reduced in obese individuals.</p>
+          <p>What has become increasingly clear is that adipocytes are not passive bystanders — they are active endocrine players in the tumor microenvironment. They secrete lipids, cytokines, and — crucially — exosomes. These exosomes carry lncRNAs, DNA, and proteins that can be taken up by adjacent tumor cells and drive their progression. This is a central focus of our research.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 3 — Why Precision Nutrition?</summary>
+        <div class="content">
+          <p>The limitations of our current approach are significant. Traditional nutritional guidelines are essentially "one-size-fits-all" — they do not account for tumor heterogeneity, genetic and epigenetic profiles, metabolic status, the microbiome, the phase of treatment, or individual patient characteristics. A dietary intervention that benefits one patient may be neutral or even harmful in another.</p>
+          <p>Precision nutrition asks us to do better. It asks us to integrate multiple layers of biological information — genomic, epigenomic, metabolomic, microbiomic — to develop dietary and metabolic interventions that are tailored to the individual. And increasingly, we believe that tumor-specific molecular signatures, particularly lncRNA expression profiles, can be the key to unlocking this precision.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 4 — lncRNA Research in High-Grade Serous Ovarian Cancer</summary>
+        <div class="content">
+          <p>Let me now turn to our experimental work. We focused on high-grade serous ovarian cancer — HGSOC — which is the most common and lethal subtype of ovarian cancer and is known to be strongly influenced by the adipose-rich peritoneal microenvironment.</p>
+          <p>We used an adipocyte-conditioned medium, or ACM, model, in which we exposed HGSOC cell lines — OVCAR4, Kuramochi, and TYKnu — to media conditioned by mature adipocytes. This mimics the obese visceral adiposity microenvironment by providing the secretions of adipocytes — lipids, cytokines, and exosomal cargo — to the cancer cells.</p>
+          <p>Using lncRNA-based transcriptomics, we identified four lncRNAs that are differentially regulated by adipocyte-secreted factors: CCAT1, H19, LINC00887, and PCAT1. These are not random candidates — they are functionally linked to tumour-relevant processes, including proliferation, stemness, immune evasion, and metabolic reprogramming across glucose, lipid, and amino acid pathways.</p>
+          <p>Importantly, these lncRNAs are overexpressed in a substantial proportion of ovarian cancer patients, and their expression levels correlate with advanced disease stage and poorer overall survival. This gives them strong potential as diagnostic biomarkers, prognostic indicators, and therapeutic targets.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Keynote Part 5 — Conclusions and Future Directions</summary>
+        <div class="content">
+          <p>My take-home message is this: cancer metabolism is actionable. The era of generic nutritional advice in oncology must give way to precision nutrition guided by tumor-specific molecular signatures — and lncRNA profiles, integrated with metabolic data, offer a powerful framework for doing exactly that.</p>
+          <p>Looking ahead, we are working to validate urine-based detection of these lncRNA biomarkers using patient samples, develop metabolic profiling to complement the lncRNA signatures, and integrate exosome, lncRNA, and metabolic data with bioinformatic tools to build personalised cancer risk and prevention profiles. Our collaborations with bioinformaticians are already under way.</p>
+          <p>I believe that precision nutrition — grounded in the molecular biology of the tumor and the metabolic reality of the patient — can meaningfully improve outcomes, especially for obese patients who carry both the highest cancer risk and the least tailored support. I look forward to the discussion. Thank you.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="qa" class="qa">
+  <div class="container">
+    <h2>Panel Discussion &amp; Q&amp;A</h2>
+    <p style="margin-bottom:28px">Following the keynote, panelist <strong>Dr. Ben Tsang</strong> and chair <strong>Dr. Danny Dhanasekaran</strong> led a highly interactive Q&amp;A session. Questions from participants addressed non-invasive biomarker development, experimental design, immune landscape analysis, and prevention-oriented metabolic profiling.</p>
+
+    <div class="qa-item">
+      <div class="q">Dr. Ben Tsang — Are there non-invasive biomarkers (urine, saliva, or extracellular vesicles) that could be used for detection of ovarian cancer?</div>
+      <div class="a">Yes. lncRNAs and related biomarkers can be detected in urine samples, which makes them attractive candidates for non-invasive early detection. Dr. Munteanu highlighted the particular promise of exosomes — which carry lncRNAs, DNA, and proteins — as liquid biopsy vehicles. Her team plans to validate urine-based biomarker detection using patient samples in the near future.</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="q">Leela — Could you clarify the Romanian obesity statistics and the specifics of your experimental design, particularly the cancer cell controls and the ACM model?</div>
+      <div class="a">The figures cited refer to overweight and obesity prevalence combined. Regarding the experimental model, the ACM approach mimics the obese or visceral adiposity microenvironment by supplying secretions from mature adipocytes — including lipids, cytokines, and exosomal cargo — directly to the cancer cells. Cancer cells cultured alone (without ACM) served as controls. The model successfully demonstrated functional adipocyte–tumour crosstalk through the specific induction of the identified lncRNAs.</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="q">Dr. Claudia Cerella — Have you analysed the immune landscape — such as macrophage or T-cell infiltration — associated with these lncRNAs? Tools such as CIBERSORT or xCell could be valuable here. And for prevention, could we profile the adipocyte secretome and exosomes of apparently healthy individuals to identify cancer-prone metabolic profiles?</div>
+      <div class="a">These are excellent and timely questions. On the immune landscape, the data on lncRNA-associated adipokine and cytokine induction are very recent; immune deconvolution analyses using tools such as CIBERSORT or xCell are planned for upcoming work. On the prevention question — absolutely yes. Profiling the adipocyte secretome and exosome cargo of apparently healthy individuals to identify cancer-prone risk profiles is an important future direction. The team is already collaborating with bioinformaticians to integrate metabolic, exosomal, and lncRNA data for personalised risk stratification and prevention.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong class="gold">International Society for Precision Health (ISPH)</strong></p>
+  <p style="margin-top:10px" class="footer-series">
+    ISPH 2026 Annual Conference<span class="sep">·</span><span class="date-val">21–23 Oct 2026</span>
+  </p>
+  <p style="margin-top:20px" class="footer-copy">© 2026 <span class="org">International Society for Precision Health</span> · <a href="https://www.isfph.org">isfph.org</a></p>
+  <div class="footer-btns">
+    <a class="footer-home" href="index.html">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+      Home
+    </a>
+    <a class="footer-register" href="Annual2026.html">
+      <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Register Now
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
