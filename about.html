@@ -104,6 +104,12 @@
             display: block;
         }
 
+        /* 桌面版 hover 顯示下拉 */
+        @media screen and (min-width: 769px) {
+            .dropdown:hover .dropdown-content { display: block; }
+            .sub-dropdown:hover .sub-dropdown-content { display: block; }
+        }
+
         .dropdown > a::after {
             content: ' ▼';
             font-size: 0.7rem;
@@ -269,9 +275,39 @@
         }
 
         function toggleDropdown(event) {
+            event.preventDefault();
             event.stopPropagation();
-            const dropdown = event.currentTarget;
-            dropdown.classList.toggle("active");
+            const dropdown = event.currentTarget.closest('.dropdown');
+
+            // 關閉其他下拉選單
+            const allDropdowns = document.querySelectorAll('.dropdown');
+            allDropdowns.forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // 切換當前下拉選單
+            if (dropdown) dropdown.classList.toggle('active');
+        }
+
+        function toggleSubDropdown(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const subDropdown = event.currentTarget.closest('.sub-dropdown');
+
+            if (window.innerWidth <= 768) {
+                // 關閉其他二層下拉選單
+                const allSubDropdowns = document.querySelectorAll('.sub-dropdown');
+                allSubDropdowns.forEach(item => {
+                    if (item !== subDropdown) {
+                        item.classList.remove('active');
+                    }
+                });
+
+                // 切換當前二層下拉選單
+                if (subDropdown) subDropdown.classList.toggle('active');
+            }
         }
 
         // 點擊其他地方關閉下拉選單
@@ -281,6 +317,10 @@
                 if (!dropdown.contains(event.target)) {
                     dropdown.classList.remove('active');
                 }
+            });
+            const subDropdowns = document.querySelectorAll('.sub-dropdown');
+            subDropdowns.forEach(sd => {
+                if (!sd.contains(event.target)) sd.classList.remove('active');
             });
         });
     </script>
