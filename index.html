@@ -18,17 +18,13 @@
         header {
             background-color: #00539C;
             color: #fff;
-            padding: 0.75rem 1rem;
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            flex-wrap: nowrap; /* prevent header from wrapping */
         }
-        header .logo img { max-height: 40px; }
-        header h1 {font-size: 1.4rem; margin: 0 1rem 0 0; white-space: normal; overflow: visible; text-overflow: clip;}
-        nav {flex: 1 1 auto; display: flex; justify-content: flex-end; min-width: 0;}
-        nav ul {white-space: nowrap; display: flex; gap: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch;}
+        header h1 {font-size: 1.8rem; margin: 0;}
         nav {display: flex;}
         nav ul {list-style: none; display: flex; margin: 0; padding: 0;}
         nav ul li {margin: 0 10px; position: relative;}
@@ -36,9 +32,8 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            padding: 0.35rem 0.7rem; /* reduced padding to save space */
+            padding: 0.5rem 1rem;
             display: block;
-            font-size: 0.95rem;
         }
         
         /* 下拉選單樣式 */
@@ -362,12 +357,6 @@
             border: 2px solid #666;
         }
         .visitor-counter span {color: #00ff00; font-weight: bold;}
-        /* Nav spacing tweak: keep menu items spaced and slightly smaller */
-        nav ul { gap: 12px; }
-        nav ul li a { padding: 0.35rem 1.1rem; font-size: 0.95rem; }
-        @media (max-width: 768px) {
-            nav ul li a { font-size: 1rem; padding: 10px 20px; }
-        }
     </style>
 </head>
 <body>
@@ -424,7 +413,7 @@
                 </div>
             </li>
             <li><a href="Join us.html">Join ISPH</a></li>
-             <li><a href="https://member.isfph.org/login" target="_blank" rel="noopener">Member Login</a></li>
+			<li><a href="https://member.isfph.org/login" target="_blank">Member Login</a></li>
 			<li><a href="Contact1.html">Contact</a></li>
         </ul>
     </nav>
