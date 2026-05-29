@@ -35,11 +35,17 @@
 
         header h1 {
             font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 50%;
         }
 
         /* 電腦版導航 */
         nav {
             display: flex;
+            flex: 1;
+            justify-content: flex-end;
         }
 
         nav ul {
@@ -47,6 +53,7 @@
             display: flex;
             margin: 0;
             padding: 0;
+            white-space: nowrap;
         }
 
         nav ul li {
@@ -195,7 +202,13 @@
         .signature img {
             max-width: 200px;
         }
-    </style>
+        /* Nav spacing tweak: keep menu items spaced and slightly smaller */
+        nav ul { gap: 12px; }
+        nav ul li a { padding: 0.35rem 1.1rem; font-size: 0.95rem; }
+        @media (max-width: 768px) {
+            nav ul li a { font-size: 1rem; padding: 10px 20px; }
+        }
+        </style>
 </head>
 <body>
     <header>

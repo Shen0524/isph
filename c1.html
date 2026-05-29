@@ -76,6 +76,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            white-space: nowrap;
         }
         nav ul li {
             position: relative;
@@ -168,7 +169,13 @@
                 font-size: 2.5rem;
             }
         }
-    </style>
+        /* Nav spacing tweak: keep menu items spaced and slightly smaller */
+        nav ul { gap: 12px; }
+        nav ul li a { padding: 0.35rem 1.1rem; font-size: 0.95rem; }
+        @media (max-width: 768px) {
+            nav ul li a { font-size: 1rem; padding: 10px 20px; }
+        }
+        </style>
 </head>
 <body>
     <header>

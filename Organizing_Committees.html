@@ -102,6 +102,13 @@
             }
         }
 
+        /* Nav spacing tweak: keep menu items spaced and slightly smaller */
+        nav ul { gap: 12px; }
+        nav ul li a { padding: 0.35rem 1.1rem; font-size: 0.95rem; }
+        @media (max-width: 768px) {
+          nav ul li a { font-size: 1rem; padding: 10px 20px; }
+        }
+
         /* Main Content */
         .container {
             max-width: 1000px;

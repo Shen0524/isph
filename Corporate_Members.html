@@ -102,9 +102,16 @@
 
         .dropdown-content a:hover { background-color: #0056a6; }
 
-        @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content { display: block; }
-        }
+                @media (min-width: 769px) {
+                        .dropdown:hover .dropdown-content { display: block; }
+                }
+
+                /* Nav spacing tweak: keep menu items spaced and slightly smaller */
+                nav ul { gap: 12px; }
+                nav ul li a { padding: 0.35rem 1.1rem; font-size: 0.95rem; }
+                @media (max-width: 768px) {
+                    nav ul li a { font-size: 1rem; padding: 10px 20px; }
+                }
 
         .menu-toggle {
             display: none;
