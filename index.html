@@ -18,15 +18,17 @@
         header {
             background-color: #00539C;
             color: #fff;
-            padding: 1rem;
+            padding: 0.75rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
+            flex-wrap: nowrap; /* prevent header from wrapping */
         }
-        header h1 {font-size: 1.8rem; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50%;}
-        nav {flex: 1; display: flex; justify-content: flex-end;}
-        nav ul {white-space: nowrap;}
+        header .logo img { max-height: 40px; }
+        header h1 {font-size: 1.4rem; margin: 0 1rem 0 0; white-space: normal; overflow: visible; text-overflow: clip;}
+        nav {flex: 1 1 auto; display: flex; justify-content: flex-end; min-width: 0;}
+        nav ul {white-space: nowrap; display: flex; gap: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch;}
         nav {display: flex;}
         nav ul {list-style: none; display: flex; margin: 0; padding: 0;}
         nav ul li {margin: 0 10px; position: relative;}
@@ -34,8 +36,9 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            padding: 0.5rem 1rem;
+            padding: 0.35rem 0.7rem; /* reduced padding to save space */
             display: block;
+            font-size: 0.95rem;
         }
         
         /* 下拉選單樣式 */
