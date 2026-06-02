@@ -18,13 +18,14 @@
         header {
             background-color: #00539C;
             color: #fff;
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
+            gap: 1rem;
         }
-        header h1 {font-size: 1.8rem; margin: 0;}
+        header h1 {font-size: 1.5rem; margin: 0; flex-shrink: 1; min-width: 0;}
         nav {display: flex;}
         nav ul {list-style: none; display: flex; margin: 0; padding: 0;}
         nav ul li {margin: 0 10px; position: relative;}
@@ -32,8 +33,10 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.7rem;
             display: block;
+            font-size: 0.95rem;
+            white-space: nowrap;
         }
         
         /* 下拉選單樣式 */
@@ -112,32 +115,32 @@
         }
 
         /* 電腦版 hover 效果 */
-        @media screen and (min-width: 769px) {
+        @media screen and (min-width: 1101px) {
             .dropdown:hover .dropdown-content {
                 display: block;
             }
-            
+
             .sub-dropdown:hover .sub-dropdown-content {
                 display: block;
             }
         }
-        
+
         .menu-toggle {display: none; font-size: 1.8rem; cursor: pointer;}
-        
-        @media screen and (max-width: 768px) {
+
+        @media screen and (max-width: 1100px) {
             header h1 {font-size: 1.2rem;}
-            
+
             .menu-toggle {display: block;}
-            
+
             nav {
                 display: none;
                 position: absolute;
-                top: 60px; 
+                top: 60px;
                 right: 20px;
                 background-color: #003366;
                 border-radius: 8px;
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                width: 220px;
+                width: 240px;
                 z-index: 1000;
             }
             
@@ -213,11 +216,15 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
             
-            .hero-grid {grid-template-columns: 1fr !important;}
             .ninhealth-content {flex-direction: column;}
             #about .president-info {flex-direction: column; align-items: center;}
             #about .president-photo img {max-width: 120px !important;}
             #latest-news .news-item {margin-bottom: 20px;}
+        }
+
+        /* 手機單欄 */
+        @media screen and (max-width: 600px) {
+            .hero-grid {grid-template-columns: 1fr !important;}
         }
         
         .hero {text-align: center; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 30px; background-color: #f9f9f9;}
@@ -702,7 +709,7 @@ function toggleSubDropdown(event) {
     event.preventDefault();
     event.stopPropagation();
     
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1100) {
         const subDropdown = event.currentTarget.parentElement;
         
         // 關閉其他二層下拉選單
@@ -720,7 +727,7 @@ function toggleSubDropdown(event) {
 
 // 點擊外部關閉下拉選單
 document.addEventListener('click', function(event) {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1100) {
         const dropdowns = document.querySelectorAll('.dropdown');
         dropdowns.forEach(dropdown => {
             if (!dropdown.contains(event.target)) {
@@ -733,7 +740,7 @@ document.addEventListener('click', function(event) {
 // 點擊下拉選單內的連結後關閉選單
 document.querySelectorAll('.dropdown-content a').forEach(link => {
     link.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1100) {
             document.getElementById('nav-menu').classList.remove('menu-active');
             document.querySelectorAll('.dropdown').forEach(dropdown => {
                 dropdown.classList.remove('active');
@@ -745,7 +752,7 @@ document.querySelectorAll('.dropdown-content a').forEach(link => {
 // 點擊二層下拉選單內的連結後關閉選單
 document.querySelectorAll('.sub-dropdown-content a').forEach(link => {
     link.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1100) {
             document.getElementById('nav-menu').classList.remove('menu-active');
             document.querySelectorAll('.dropdown').forEach(dropdown => {
                 dropdown.classList.remove('active');
