@@ -178,6 +178,60 @@
             margin-top: 5px;
         }
 
+        /* Stats Section */
+        .stats-section {
+            background-color: #2E7D32;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .stats-title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 35px 0;
+        }
+
+        .stats-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stats-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 30px 50px;
+            min-width: 200px;
+        }
+
+        .stats-number {
+            color: #F9A825;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stats-label {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        @media (max-width: 480px) {
+            .stats-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stats-number {
+                font-size: 2.8rem;
+            }
+        }
+
         /* Footer */
         footer {
             background-color: #1B5E20;
@@ -438,7 +492,7 @@
 <div class="speaker">
     <img src="speakers/taejin_ahn.jpg" alt="Dr. TaeJin Ahn">
     <div class="name">Dr. TaeJin Ahn</div>
-    <div class="country">(Korea)</div>
+    <div class="country">(South Korea)</div>
 </div>
 <div class="speaker">
     <img src="speakers/asif_ali.jpg" alt="Ph.D. cand. Asif Ali">
@@ -886,7 +940,7 @@
 <div class="speaker">
     <img src="speakers/moon_suhn_ryu.jpg" alt="Dr. Moon-Suhn Ryu">
     <div class="name">Dr. Moon-Suhn Ryu</div>
-    <div class="country">(Korea)</div>
+    <div class="country">(South Korea)</div>
 </div>
 <!-- S -->
 <div class="speaker">
@@ -918,7 +972,7 @@
 <div class="speaker">
     <img src="speakers/yong_sang_song.jpg" alt="Dr. Yong Sang Song">
     <div class="name">Dr. Yong Sang Song</div>
-    <div class="country">(Korea)</div>
+    <div class="country">(South Korea)</div>
 </div>
 
 
@@ -1051,11 +1105,38 @@
         </div>
     </div>
 
+    <!-- Global Participation Statistics -->
+    <div class="stats-section">
+        <h2 class="stats-title">Global Participation Statistics</h2>
+        <div class="stats-cards">
+            <div class="stats-card">
+                <div class="stats-number" id="speakerCount">—</div>
+                <div class="stats-label">SPEAKERS</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-number" id="countryCount">—</div>
+                <div class="stats-label">COUNTRIES / REGIONS</div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 International Society for Precision Health. All rights reserved.</p>
     </footer>
 
     <script>
+        // Auto-count speakers and countries
+        (function () {
+            const speakerCards = document.querySelectorAll('.speakers .speaker');
+            const countries = new Set();
+            document.querySelectorAll('.speakers .country').forEach(el => {
+                const text = el.textContent.replace(/[()]/g, '').trim();
+                if (text) countries.add(text);
+            });
+            document.getElementById('speakerCount').textContent = speakerCards.length + '+';
+            document.getElementById('countryCount').textContent = countries.size + '+';
+        })();
+
         function toggleMenu() {
             const nav = document.getElementById("nav-menu");
             nav.classList.toggle("menu-active");
@@ -1067,17 +1148,4 @@
             const toggle = document.querySelector(".menu-toggle");
             
             if (!nav.contains(event.target) && !toggle.contains(event.target)) {
-                nav.classList.remove("menu-active");
-            }
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById("nav-menu").classList.remove("menu-active");
-            });
-        });
-    </script>
-
-</body>
-</html
+                nav.
