@@ -167,6 +167,8 @@
         .reg-table tr:hover { background: #f9fff9; }
         .reg-table td { padding: 0.55rem 0.5rem; color: #444; }
         .reg-table td:last-child { text-align: right; font-weight: 600; color: #2E7D32; white-space: nowrap; }
+        .reg-table tr.expired-early-bird td { color: #aaa; }
+        .reg-table tr.expired-early-bird td:last-child { color: #aaa; }
 
         .pay-alert {
             background: #FFF3E0; border-left: 4px solid #E65100; padding: 0.8rem 1rem;
@@ -485,14 +487,14 @@
                 <!-- Registration Fees -->
                 <div class="reg-section">
                     <h3>Registration Fees</h3>
-                    <p class="early-note">* Early-bird pricing available until June 30, 2026</p>
+                    <p class="early-note">* Early-bird pricing ended June 30, 2026</p>
 
                     <div class="reg-sub-title">🌍 International</div>
                     <table class="reg-table">
-                        <tr><td>Early-bird (ISPH members)</td><td>USD 400</td></tr>
-                        <tr><td>Early-bird (non-members)</td><td>USD 480</td></tr>
-                        <tr><td>Early-bird (ISPH student members)</td><td>USD 160</td></tr>
-                        <tr><td>Early-bird (student non-members)</td><td>USD 200</td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (ISPH members)</s></td><td><s>USD 400</s></td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (non-members)</s></td><td><s>USD 480</s></td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (ISPH student members)</s></td><td><s>USD 160</s></td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (student non-members)</s></td><td><s>USD 200</s></td></tr>
                         <tr><td>Regular (ISPH members)</td><td>USD 500</td></tr>
                         <tr><td>Regular (non-members)</td><td>USD 600</td></tr>
                         <tr><td>Regular (student members)</td><td>USD 200</td></tr>
@@ -501,10 +503,10 @@
 
                     <div class="reg-sub-title">🇹🇼 Taiwan</div>
                     <table class="reg-table">
-                        <tr><td>Early-bird (ISPH member)</td><td>TWD 2,400</td></tr>
-                        <tr><td>Early-bird (non-members)</td><td>TWD 4,000</td></tr>
-                        <tr><td>Early-bird (ISPH student member)</td><td>TWD 800</td></tr>
-                        <tr><td>Early-bird (student non-members)</td><td>TWD 1,600</td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (ISPH member)</s></td><td><s>TWD 2,400</s></td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (non-members)</s></td><td><s>TWD 4,000</s></td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (ISPH student member)</s></td><td><s>TWD 800</s></td></tr>
+                        <tr class="expired-early-bird"><td><s>Early-bird (student non-members)</s></td><td><s>TWD 1,600</s></td></tr>
                         <tr><td>Regular (ISPH member)</td><td>TWD 3,000</td></tr>
                         <tr><td>Regular (non-members)</td><td>TWD 5,000</td></tr>
                         <tr><td>Regular (student members)</td><td>TWD 1,000</td></tr>
