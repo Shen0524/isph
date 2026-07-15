@@ -85,33 +85,6 @@
             color: #A5D6A7;
         }
 
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #1B5E20;
-            min-width: 160px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
-            overflow: hidden;
-            z-index: 1001;
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 10px 15px;
-            white-space: nowrap;
-        }
-
-        .dropdown.dropdown-active .dropdown-content {
-            display: block;
-        }
-
         /* Mobile Navigation */
         .menu-toggle {
             display: none;
@@ -732,6 +705,11 @@
     <div class="country">(India)</div>
 </div>
 <div class="speaker">
+    <img src="speakers/chang_wei_hsieh.jpg" alt="Dr. Chang-Wei Hsieh">
+    <div class="name">Dr. Chang-Wei Hsieh</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
     <img src="speakers/chen_che_hsieh.jpg" alt="Dr. Chen-Che Hsieh">
     <div class="name">Dr. Chen-Che Hsieh</div>
     <div class="country">(Taiwan)</div>
@@ -1173,25 +1151,6 @@
         document.addEventListener('click', function(event) {
             const nav = document.getElementById("nav-menu");
             const toggle = document.querySelector(".menu-toggle");
-
+            
             if (!nav.contains(event.target) && !toggle.contains(event.target)) {
-                nav.classList.remove("menu-active");
-            }
-        });
-
-        function toggleDropdown(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const dropdown = document.getElementById("dropdown-member");
-            dropdown.classList.toggle("dropdown-active");
-        }
-
-        document.addEventListener('click', function(event) {
-            const dropdown = document.getElementById("dropdown-member");
-            if (dropdown && !dropdown.contains(event.target)) {
-                dropdown.classList.remove("dropdown-active");
-            }
-        });
-    </script>
-</body>
-</html>
+                nav.
