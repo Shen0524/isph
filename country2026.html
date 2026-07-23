@@ -82,13 +82,14 @@
     <script>
         const countries = [
             ['Australia', 'au'], ['Bulgaria', 'bg'], ['Canada', 'ca'], ['China', 'cn'],
-            ['France', 'fr'], ['Hong Kong', 'hk'], ['India', 'in'], ['Indonesia', 'id'], ['Israel', 'il'],
-            ['Italy', 'it'], ['Japan', 'jp'], ['Lebanon', 'lb'], ['Lithuania', 'lt'], ['Luxembourg', 'lu'],
-            ['Malaysia', 'my'], ['New Zealand', 'nz'], ['Nigeria', 'ng'], ['Pakistan', 'pk'],
-            ['Palestine', 'ps'], ['Philippines', 'ph'], ['Poland', 'pl'], ['Romania', 'ro'],
-            ['Russia', 'ru'], ['Singapore', 'sg'], ['Slovenia', 'si'], ['South Africa', 'za'], ['South Korea', 'kr'],
-            ['South Sudan', 'ss'], ['Taiwan', 'tw'], ['Tanzania', 'tz'], ['Thailand', 'th'], ['Türkiye', 'tr'],
-            ['United Kingdom', 'gb'], ['USA', 'us'], ['Vietnam', 'vn']
+            ['France', 'fr'], ['Hong Kong', 'hk'], ['India', 'in'], ['Indonesia', 'id'],
+            ['Italy', 'it'], ['Japan', 'jp'], ['Lebanon', 'lb'], ['Lithuania', 'lt'],
+            ['Luxembourg', 'lu'], ['Malaysia', 'my'], ['New Zealand', 'nz'], ['Nigeria', 'ng'],
+            ['Pakistan', 'pk'], ['Palestine', 'ps'], ['Paraguay', 'py'], ['Philippines', 'ph'],
+            ['Poland', 'pl'], ['Romania', 'ro'], ['Russia', 'ru'], ['Singapore', 'sg'],
+            ['Slovenia', 'si'], ['South Africa', 'za'], ['South Korea', 'kr'], ['South Sudan', 'ss'],
+            ['Spain', 'es'], ['Taiwan', 'tw'], ['Tanzania', 'tz'], ['Thailand', 'th'],
+            ['USA', 'us'], ['United Kingdom', 'gb'], ['Vietnam', 'vn']
         ];
 
         const grid = document.getElementById('flag-grid');
@@ -98,7 +99,7 @@
             item.innerHTML = `<img src="https://flagcdn.com/w160/${code}.png" srcset="https://flagcdn.com/w320/${code}.png 2x" alt="Flag of ${name}" loading="lazy"><p>${name}</p>`;
             grid.appendChild(item);
         });
-        document.getElementById('total-countries').textContent = countries.length + '+';
+        document.getElementById('total-countries').textContent = countries.length;
 
         const menuButton = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('#nav-menu ul');
