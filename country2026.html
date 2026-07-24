@@ -99,7 +99,7 @@
             item.innerHTML = `<img src="https://flagcdn.com/w160/${code}.png" srcset="https://flagcdn.com/w320/${code}.png 2x" alt="Flag of ${name}" loading="lazy"><p>${name}</p>`;
             grid.appendChild(item);
         });
-        document.getElementById('total-countries').textContent = countries.length;
+        document.getElementById('total-countries').textContent = countries.length + '+';
 
         const menuButton = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('#nav-menu ul');
