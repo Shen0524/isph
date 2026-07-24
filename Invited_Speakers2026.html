@@ -986,7 +986,7 @@
 </div>
 <div class="speaker">
     <img src="speakers/widiastuti_ setyaningsih.jpg" alt="Dr. Widiastuti Setyaningsih">
-    <div class="name">Dr. Widiastuti Setyaningsih</div> 
+    <div class="name">Dr. Widiastuti Setyaningsih</div>
     <div class="country">(Indonesia)</div>
 </div>
 <div class="speaker">
@@ -1169,6 +1169,19 @@
         document.addEventListener('click', function(event) {
             const nav = document.getElementById("nav-menu");
             const toggle = document.querySelector(".menu-toggle");
-            
+
             if (!nav.contains(event.target) && !toggle.contains(event.target)) {
-                nav.
+                nav.classList.remove("menu-active");
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.getElementById("nav-menu").classList.remove("menu-active");
+            });
+        });
+    </script>
+
+</body>
+</html>
