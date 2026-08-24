@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Preliminary program agenda for the ISPH 2026 Annual Conference, October 21–22, 2026 at National Ilan University, Taiwan.">
+  <meta name="theme-color" content="#2e7d32">
+  <title>ISPH 2026 Session Schedule</title>
+  <style>
+    :root { --green:#2e7d32; --dark-green:#174b1a; --green-2:#256b2a; --light-green:#e8f5e9; --pale:#f4faf4; --gold:#ffd54f; --ink:#203025; --muted:#607066; --line:#d6e3d7; --paper:#fff; --shadow:0 10px 28px rgba(25,74,30,.10); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:96px; }
+    body { margin:0; color:var(--ink); background:#f7f9f7; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; line-height:1.55; }
+    a { color:inherit; }
+    .skip-link { position:fixed; left:12px; top:-80px; z-index:100; padding:10px 14px; background:#fff; color:var(--dark-green); border-radius:6px; }
+    .skip-link:focus { top:12px; }
+    .site-header { min-height:80px; padding:14px clamp(18px,4vw,56px); background:var(--green); color:#fff; display:flex; align-items:center; justify-content:space-between; gap:24px; box-shadow:0 4px 18px rgba(0,0,0,.14); }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; white-space:nowrap; }
+    .brand img { width:44px; height:50px; object-fit:contain; }
+    .brand strong { font-size:1.45rem; line-height:1.1; }
+    nav { position:relative; z-index:20; }
+    nav ul { display:flex; align-items:center; gap:4px; list-style:none; margin:0; padding:0; }
+    nav a { display:block; padding:9px 11px; border-radius:5px; text-decoration:none; font-size:.95rem; font-weight:600; }
+    nav a:hover, nav a:focus-visible, nav a[aria-current="page"] { background:rgba(255,255,255,.16); }
+    .menu-toggle { display:none; border:1px solid rgba(255,255,255,.55); border-radius:6px; padding:6px 10px; color:#fff; background:transparent; font:inherit; font-weight:700; }
+    .hero { background:linear-gradient(120deg,rgba(23,75,26,.95),rgba(46,125,50,.86)),url("https://www.isfph.org/LOGO.PNG") center/220px no-repeat; color:#fff; padding:clamp(52px,8vw,88px) 20px 46px; text-align:center; }
+    .hero-inner { max-width:980px; margin:auto; }
+    .kicker { margin:0 0 8px; color:var(--gold); font-size:.82rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    .hero h1 { max-width:800px; margin:0 auto 12px; font-size:clamp(2rem,5vw,3.6rem); line-height:1.08; }
+    .hero .lead { margin:0 auto 25px; font-size:clamp(1rem,2.2vw,1.24rem); opacity:.94; }
+    .hero-facts { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+    .hero-facts span { padding:8px 12px; border:1px solid rgba(255,255,255,.28); border-radius:999px; background:rgba(255,255,255,.10); font-size:.92rem; }
+    .notice { max-width:1180px; margin:-1px auto 0; padding:14px 20px; background:#fff8db; border:1px solid #f0d881; border-top:0; color:#654f00; text-align:center; }
+    .jumpbar { position:sticky; top:0; z-index:12; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(8px); }
+    .jumpbar-inner { max-width:1180px; margin:auto; padding:10px 20px; display:flex; gap:8px; overflow-x:auto; }
+    .jumpbar a { flex:0 0 auto; padding:8px 13px; border-radius:999px; color:var(--green-2); background:var(--light-green); text-decoration:none; font-weight:700; font-size:.9rem; }
+    main { max-width:1180px; margin:auto; padding:42px 20px 72px; }
+    .section-heading { margin-bottom:16px; }
+    .eyebrow { margin:0 0 3px; color:var(--green); font-size:.78rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h2 { margin:0; color:var(--dark-green); font-size:clamp(1.55rem,3vw,2.05rem); line-height:1.2; }
+    .day-panel { margin-bottom:38px; }
+    .table-scroll { overflow-x:auto; border-radius:12px; box-shadow:var(--shadow); background:#fff; }
+    table { width:100%; border-collapse:collapse; background:var(--paper); }
+    th,td { padding:12px 14px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:var(--green); color:#fff; font-weight:750; }
+    .overview-table { min-width:900px; table-layout:fixed; }
+    .overview-table td:first-child,.overview-table th:first-child { width:145px; font-weight:800; white-space:nowrap; }
+    .overview-table .overview-banner th { padding:11px 14px; background:var(--dark-green); text-align:center; font-size:1.02rem; }
+    .overview-table .room-row th { background:#dceedd; color:var(--dark-green); }
+    .overview-table tbody tr:nth-child(even):not(.overview-banner):not(.room-row) td { background:#fbfdfb; }
+    .detail-section { margin-top:64px; }
+    .filters { display:grid; grid-template-columns:minmax(240px,1fr) repeat(2,minmax(150px,190px)); gap:12px; margin:20px 0 24px; padding:16px; border:1px solid var(--line); border-radius:12px; background:#fff; box-shadow:0 5px 20px rgba(25,74,30,.06); }
+    .filter-field { display:flex; flex-direction:column; gap:5px; text-align:left; }
+    .filter-field label { color:var(--muted); font-size:.79rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+    input,select { width:100%; min-height:44px; border:1px solid #b8cab9; border-radius:7px; padding:9px 11px; background:#fff; color:var(--ink); font:inherit; }
+    input:focus,select:focus { outline:3px solid rgba(46,125,50,.18); border-color:var(--green); }
+    .result-count { margin:-10px 0 20px; color:var(--muted); font-size:.9rem; }
+    .session-card { margin:0 0 24px; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; box-shadow:var(--shadow); }
+    .session-card[hidden] { display:none; }
+    .session-header { padding:20px 22px 17px; border-top:5px solid var(--green); background:linear-gradient(135deg,#fff,#f1f8f1); }
+    .session-meta { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:10px; }
+    .pill,.date-chip { display:inline-flex; align-items:center; padding:4px 9px; border-radius:999px; background:var(--green); color:#fff; font-size:.77rem; font-weight:800; }
+    .pill-outline { background:#fff; color:var(--green); border:1px solid var(--green); }
+    .date-chip { background:#edf2ed; color:var(--muted); }
+    .session-header h3 { margin:0; color:var(--dark-green); font-size:clamp(1.16rem,2.4vw,1.46rem); line-height:1.3; }
+    .chairs { margin:8px 0 0; color:var(--muted); font-size:.93rem; }
+    .detail-table { min-width:760px; table-layout:fixed; }
+    .detail-table th:first-child,.detail-table td:first-child { width:155px; }
+    .detail-table th:nth-child(2),.detail-table td:nth-child(2) { width:29%; }
+    .detail-table tbody tr:nth-child(even) td { background:#f8fbf8; }
+    .detail-table td:first-child { color:var(--green-2); font-weight:750; white-space:normal; }
+    .empty-state { display:none; padding:32px; border:1px dashed #aac1ac; border-radius:12px; text-align:center; color:var(--muted); background:#fff; }
+    .empty-state.visible { display:block; }
+    footer { padding:28px 20px; background:var(--dark-green); color:#fff; text-align:center; }
+    footer p { margin:0; }
+    @media (max-width:900px) {
+      .menu-toggle { display:block; }
+      .site-header { position:relative; }
+      nav ul { display:none; position:absolute; top:44px; right:0; width:min(320px,calc(100vw - 24px)); flex-direction:column; align-items:stretch; padding:9px; background:var(--green); border-radius:8px; box-shadow:0 10px 28px rgba(0,0,0,.2); }
+      nav ul.active { display:flex; }
+      nav a { padding:10px 12px; }
+      .filters { grid-template-columns:1fr 1fr; }
+      .filters .filter-field:first-child { grid-column:1 / -1; }
+    }
+    @media (max-width:560px) {
+      .site-header { min-height:72px; padding:11px 16px; }
+      .brand strong { font-size:1.2rem; }
+      .hero { padding-top:44px; }
+      main { padding-left:12px; padding-right:12px; }
+      .filters { grid-template-columns:1fr; }
+      .filters .filter-field:first-child { grid-column:auto; }
+      .session-header { padding:17px 16px 15px; }
+      th,td { padding:10px 11px; }
+    }
+    @media print {
+      .site-header,.jumpbar,.filters,.result-count,.empty-state,footer { display:none!important; }
+      body { background:#fff; font-size:10pt; }
+      .hero { padding:22px; background:var(--dark-green); print-color-adjust:exact; }
+      main { max-width:none; padding:20px 0; }
+      .day-panel,.session-card { break-inside:avoid; box-shadow:none; }
+      .table-scroll { overflow:visible; box-shadow:none; }
+      .overview-table,.detail-table { min-width:0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to program</a>
+  <header class="site-header">
+    <a class="brand" href="Annual2026.html"><img src="https://www.isfph.org/LOGO.PNG" alt="ISPH logo"><strong>ISPH 2026</strong></a>
+    <nav aria-label="Main navigation">
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-list">Menu</button>
+      <ul id="nav-list">
+        <li><a href="Annual2026.html">Home</a></li>
+        <li><a href="Join us.html">Join ISPH</a></li>
+        <li><a href="Sponsorship2026.html">Sponsorship</a></li>
+        <li><a href="Organizing_Committees2026.html">Organizing Committees</a></li>
+        <li><a href="Contact2026.html">Contact</a></li>
+        <li><a href="session_schedule2026.html" aria-current="page">Program</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="kicker">International Society for Precision Health</p>
+      <h1>ISPH 2026 Annual Conference</h1>
+      <p class="lead">Preliminary Program Agenda</p>
+      <div class="hero-facts">
+        <span>Oct 21–22, 2026</span><span>National Ilan University</span><span>Yilan, Taiwan</span><span>Taipei time · UTC+8</span>
+      </div>
+    </div>
+  </section>
+  <div class="notice" role="note"><strong>Preliminary program.</strong> Sessions and speakers are subject to change. Please check this page for updates.</div>
+  <nav class="jumpbar" aria-label="Program shortcuts"><div class="jumpbar-inner">
+    <a href="#day-1">Day 1 overview</a><a href="#day-2">Day 2 overview</a><a href="#sessions">Detailed sessions</a>
+  </div></nav>
+
+  <main id="main-content">
+    <section class="day-panel" id="day-1" aria-labelledby="day-1-title">
+      <div class="section-heading">
+        <p class="eyebrow">Program overview</p>
+        <h2 id="day-1-title">Day 1 · Wednesday, Oct 21, 2026</h2>
+      </div>
+      <div class="table-scroll"><table class="overview-table"><tbody><tr class="overview-banner"><th colspan="7">Wednesday, Oct 21 2026</th></tr><tr class="overview-banner"><th colspan="7">Venue: College of Bio Resource, National Ilan University</th></tr><tr><td>8:30-9:00</td><td colspan="6">Registration</td></tr><tr><td>9:00-9:20</td><td colspan="6">Opening Ceremony; Award Ceremony; ISPH-India 2027</td></tr><tr><td>9:20-10:00</td><td colspan="6">Keynote Lecture – A paradoxical role of SIRT1 in obesity-associated inflammation and cancer<br>Prof. Dr. Young-Joon Surh<br>Seoul National University<br>Republic of Korea</td></tr><tr><td>10:00-10:20</td><td colspan="6">Morning Break</td></tr><tr><td>10:00-10:20</td><td colspan="6">Poster Display</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 1</th><th>Room 2<br>Session 2</th><th>Room 3<br>Session 3</th><th>Room 4<br>Session 4</th><th>Room 5<br>Session 5</th><th>Room 6<br>Session 6</th></tr><tr><td>10:20-12:30</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Nutrition/ Precision Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Brain Health and Nutrition</td></tr><tr><td>12:30-13:30</td><td colspan="6">Lunch Break</td></tr><tr><td>12:30-13:30</td><td colspan="6">Poster competition on-site (for Master students)</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 7</th><th>Room 2<br>Session 8</th><th>Room 3<br>Session 9</th><th>Room 4<br>Session 10</th><th>Room 5<br>Session 11</th><th>Room 6<br>Session 12</th></tr><tr><td>13:30-15:00</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Nutrition/ Precision Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Brain Health and Nutrition</td></tr><tr><td>15:00-15:20</td><td colspan="6">Afternoon Break</td></tr><tr><td>15:00-15:20</td><td colspan="6">Poster Display</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 13</th><th>Room 2<br>Session 14</th><th>Room 3<br>Session 15</th><th>Room 4<br>Session 16</th><th>Room 5<br>Session 17</th><th>Room 6<br>Session 18</th></tr><tr><td>15:20-17:20</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Cancer Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Oral Presentation Competition -<br>PhD Students</td></tr><tr><td>18:30-21:30</td><td colspan="6">Gala Dinner</td></tr></tbody></table></div>
+    </section>
+    <section class="day-panel" id="day-2" aria-labelledby="day-2-title">
+      <div class="section-heading">
+        <p class="eyebrow">Program overview</p>
+        <h2 id="day-2-title">Day 2 · Thursday, Oct 22, 2026</h2>
+      </div>
+      <div class="table-scroll"><table class="overview-table"><tbody><tr class="overview-banner"><th colspan="5">Thursday, Oct 22 2026</th></tr><tr class="overview-banner"><th colspan="5">Venue: College of Bio Resource, National Ilan University</th></tr><tr><td>8:30-9:00</td><td colspan="4">Registration</td></tr><tr><td></td><td>Room 1<br>Session 19</td><td colspan="2">Room 2<br>Session 20</td><td>Room 3<br>Session 21</td></tr><tr><td>9:00-10:30</td><td>Functional Foods and Nutraceuticals</td><td colspan="2">Gut, Brain and Health</td><td>Phytotherapy and Pharmacology</td></tr><tr><td>10:30-10:50</td><td colspan="4">Morning Break</td></tr><tr><td>10:30-10:50</td><td colspan="4">Poster Display</td></tr><tr><td></td><td colspan="2">Room 1<br>Session 22</td><td colspan="2">Room 2<br>Session 23</td></tr><tr><td>10:50-12:00</td><td colspan="2">Functional Foods and Nutraceuticals</td><td colspan="2">Gut, Brain and Health</td></tr><tr><td>12:00-12:15</td><td colspan="4">Closing Ceremony (Room 1)</td></tr></tbody></table></div>
+    </section>
+
+    <section class="detail-section" id="sessions" aria-labelledby="sessions-title">
+      <div class="section-heading"><p class="eyebrow">Speakers and presentations</p><h2 id="sessions-title">Detailed Sessions</h2></div>
+      <div class="filters" role="search">
+        <div class="filter-field"><label for="search">Search program</label><input id="search" type="search" placeholder="Speaker, title, topic or session…"></div>
+        <div class="filter-field"><label for="day-filter">Day</label><select id="day-filter"><option value="all">All days</option><option value="day1">Wednesday, Oct 21</option><option value="day2">Thursday, Oct 22</option></select></div>
+        <div class="filter-field"><label for="room-filter">Room</label><select id="room-filter"><option value="all">All rooms</option><option value="1">Room 1</option><option value="2">Room 2</option><option value="3">Room 3</option><option value="4">Room 4</option><option value="5">Room 5</option><option value="6">Room 6</option></select></div>
+      </div>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+      <div id="session-list"><article class="session-card" id="program-2" data-day="day1" data-room="all" data-search="9:20-10:00 keynote lecture keynote lecture 9:20-10:00 chairperson: dr. chin-kun wang chairperson: dr. chin-kun wang 9:20-10:00 dr. young joon surh
+seoul national university
+republic of korea a paradoxical role of sirt1 in obesity-associated inflammation and cancer">
+      <header class="session-header">
+        <div class="session-meta"><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Keynote Lecture</h3>
+        <p class="chairs">Chairperson: Dr. Chin-Kun Wang</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>9:20-10:00</td><td>Dr. Young Joon Surh<br>Seoul National University<br>Republic of Korea</td><td>A paradoxical role of SIRT1 in obesity-associated inflammation and cancer</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-1" data-day="day1" data-room="1" data-search="session 1 - big data, artificial intelligence and precision health (room 1) session 1 - big data, artificial intelligence and precision health (room 1) session 1 - big data, artificial intelligence and precision health (room 1) chairpersons: dr. dora marinova, ms. adeline dorothy (ph.d student) chairpersons: dr. dora marinova, ms. adeline dorothy (ph.d student) chairpersons: dr. dora marinova, ms. adeline dorothy (ph.d student) session &amp;
+time speaker title s 1-1
+10:20-10:40 dr. chin-kun wang
+chung shan medical university
+taiwan application of artificial intelligence on precision health-real practice s 1-2
+10:40 – 11:00 dr. dora marinova
+curtin university
+australia precision health and artificial intelligence (ai): a bibliographic analysis s 1-3
+11:00 – 11:20 dr. bonglee kim
+kyung hee university
+republic of korea natural product screening technology using big data: methodologies and applications for health functional foods, functional cosmetics, and anticancer therapeutics s 1-4
+11:20 – 11:40 dr. diana bogueva
+curtin university sustainability policy (cusp) institute
+australia the gen z effect: how a data-native generation is accelerating ai-driven food innovation s 1-5
+11:40 – 12:00 dr. jaideepsinh raulji
+navrachana university
+india ai architectures for multimodal data in healthcare and precision nutrition s 1-6
+12:00 – 12:20 dr. sandeep vasant
+navrachana university
+india ai as a collaborative partner in precision health: bridging computer science and clinical practice 12:20 – 12:30 discussion time discussion time">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 1</span><span class="pill pill-outline">Room 1</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 1 - Big data, Artificial Intelligence and Precision Health (Room 1)</h3>
+        <p class="chairs">Chairpersons: Dr. Dora Marinova, Ms. Adeline Dorothy (Ph.D student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 1-1<br>10:20-10:40</td><td>Dr. Chin-Kun Wang<br>Chung Shan Medical University<br>Taiwan</td><td>Application of Artificial Intelligence on Precision Health-Real Practice</td></tr><tr><td>S 1-2<br>10:40 – 11:00</td><td>Dr. Dora Marinova<br>Curtin University<br>Australia</td><td>Precision health and artificial intelligence (AI): A bibliographic analysis</td></tr><tr><td>S 1-3<br>11:00 – 11:20</td><td>Dr. Bonglee Kim<br>Kyung Hee University<br>Republic of Korea</td><td>Natural Product Screening Technology Using Big Data: Methodologies and Applications for Health Functional Foods, Functional Cosmetics, and Anticancer Therapeutics</td></tr><tr><td>S 1-4<br>11:20 – 11:40</td><td>Dr. Diana Bogueva<br>Curtin University Sustainability Policy (CUSP) Institute<br>Australia</td><td>The Gen Z effect: How a data-native generation is accelerating AI-driven food innovation</td></tr><tr><td>S 1-5<br>11:40 – 12:00</td><td>Dr. Jaideepsinh Raulji<br>Navrachana University<br>India</td><td>AI Architectures for Multimodal Data in Healthcare and Precision Nutrition</td></tr><tr><td>S 1-6<br>12:00 – 12:20</td><td>Dr. Sandeep Vasant<br>Navrachana University<br>India</td><td>AI as a Collaborative Partner in Precision Health: Bridging Computer Science and Clinical Practice</td></tr><tr><td>12:20 – 12:30</td><td colspan="2">Discussion time</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-2" data-day="day1" data-room="2" data-search="session 2- precision nutrition/ precision medicine (room 2) session 2- precision nutrition/ precision medicine (room 2) session 2- precision nutrition/ precision medicine (room 2) chairpersons: dr. yong sang song, mr. asif ali (ph.d student) chairpersons: dr. yong sang song, mr. asif ali (ph.d student) chairpersons: dr. yong sang song, mr. asif ali (ph.d student) session &amp;
+time speaker title s 2-1
+10:20-10:40 dr. yong sang song
+myungji medical foundation,
+myungji hospital
+republic of korea spatiotemporal evolution–guided spatial omics diagnostics for predicting chemoresistance in high-grade serous ovarian cancer s 2-2
+10:40 – 11:00 dr. danny n. dhanasekaran
+university of oklahoma health sciences center
+usa lncrnas as meta-regulators: from cellular homeostasis to precision health s 2-3
+11:00 – 11:20 dr. sarah s. comstock
+michigan state university
+usa food-based dietary intervention during pregnancy: a precision health approach s 2-4
+11:20 – 11:40 dr. belinda meiring
+tshwane university of technology
+south africa food matrices as drivers of nutrient release and protein quality: contextualising precision health in african food systems s 2-5
+11:40 – 12:00 dr. amos chungwon lee
+meteor biotech, seoul republic of korea spatially-resolved isolation of disease-driving cells from intact tissues using laser-activated cell sorting s 2-6
+12:00 – 12:20 dr. sylwia zielinska
+wroclaw medical university
+poland from plant tissue culture to precision health: controlled production of edible anti-inflammatory betalains from basella alba f. rubra 12:20 – 12:30 discussion time discussion time">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 2</span><span class="pill pill-outline">Room 2</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 2- Precision Nutrition/ Precision Medicine (Room 2)</h3>
+        <p class="chairs">Chairpersons: Dr. Yong Sang Song, Mr. Asif Ali (Ph.D student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 2-1<br>10:20-10:40</td><td>Dr. Yong Sang Song<br>Myungji Medical Foundation,<br>Myungji Hospital<br>Republic of Korea</td><td>Spatiotemporal Evolution–Guided Spatial Omics Diagnostics for Predicting Chemoresistance in High-Grade Serous Ovarian Cancer</td></tr><tr><td>S 2-2<br>10:40 – 11:00</td><td>Dr. Danny N. Dhanasekaran<br>University of Oklahoma Health Sciences Center<br>USA</td><td>LncRNAs as Meta-regulators: From Cellular Homeostasis to Precision Health</td></tr><tr><td>S 2-3<br>11:00 – 11:20</td><td>Dr. Sarah S. Comstock<br>Michigan State University<br>USA</td><td>Food-Based Dietary Intervention During Pregnancy: A Precision Health Approach</td></tr><tr><td>S 2-4<br>11:20 – 11:40</td><td>Dr. Belinda Meiring<br>Tshwane University of Technology<br>South Africa</td><td>Food Matrices as Drivers of Nutrient Release and Protein Quality: Contextualising Precision Health in African Food Systems</td></tr><tr><td>S 2-5<br>11:40 – 12:00</td><td>Dr. Amos Chungwon Lee<br>Meteor Biotech, Seoul Republic of Korea</td><td>Spatially-Resolved Isolation of Disease-Driving Cells from Intact Tissues Using Laser-Activated Cell Sorting</td></tr><tr><td>S 2-6<br>12:00 – 12:20</td><td>Dr. Sylwia Zielinska<br>Wroclaw Medical University<br>Poland</td><td>From Plant Tissue Culture to Precision Health: Controlled Production of Edible Anti-Inflammatory Betalains from Basella alba f. rubra</td></tr><tr><td>12:20 – 12:30</td><td colspan="2">Discussion time</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-3" data-day="day1" data-room="3" data-search="session 3- food safety and health (room 3) session 3- food safety and health (room 3) session 3- food safety and health (room 3) chairpersons: dr. milen i. georgiev, ms. chien yu huang (ph.d student) chairpersons: dr. milen i. georgiev, ms. chien yu huang (ph.d student) chairpersons: dr. milen i. georgiev, ms. chien yu huang (ph.d student) session &amp;
+time speaker title s 3-1
+10:20-10:40 dr. thierry regnier
+tshwane university of technology
+south africa the nutrition transition, double burden of malnutrition, access and equity in africa s 3-2
+10:40 – 11:00 dr. mona elena popa
+university of agronomic sciences and veterinary medicine of bucharest
+romania meat analogues: a sustainable alternative for the food industry and human health and nutrition s 3-3
+11:00 – 11:20 dr. darshee baxi
+navrachana university
+gujarat towards precision medicine: integrating biomarkers, genomics, and translational research s 3-4
+11:20 – 11:40 dr. milen i. georgiev
+bulgarian academy of sciences
+bulgaria unveiling anti-obesity and longevity potential of natural products s 3-5
+11:40 – 12:00 dr. mathoto thaoge
+tshwane university of technology
+south africa development of functional sorghum-based foods fortified with protein and probiotics: a sustainable solution for nutritional security in south african communities s 3-6
+12:00 – 12:20 dr. yaohua betty feng purdue university
+usa human factors in food safety: bridging innovation and practitioner adoption 12:20 – 12:30 discussion time discussion time">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 3</span><span class="pill pill-outline">Room 3</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 3- Food Safety and Health (Room 3)</h3>
+        <p class="chairs">Chairpersons: Dr. Milen I. Georgiev, Ms. Chien Yu Huang (Ph.D student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 3-1<br>10:20-10:40</td><td>Dr. Thierry Regnier<br>Tshwane University of Technology<br>South Africa</td><td>The Nutrition Transition, Double Burden of Malnutrition, Access and Equity in Africa</td></tr><tr><td>S 3-2<br>10:40 – 11:00</td><td>Dr. Mona Elena Popa<br>University of Agronomic Sciences and Veterinary Medicine of Bucharest<br>Romania</td><td>Meat Analogues: A Sustainable Alternative for the Food Industry and Human Health and Nutrition</td></tr><tr><td>S 3-3<br>11:00 – 11:20</td><td>Dr. Darshee Baxi<br>Navrachana University<br>Gujarat</td><td>Towards Precision Medicine: Integrating Biomarkers, Genomics, and Translational Research</td></tr><tr><td>S 3-4<br>11:20 – 11:40</td><td>Dr. Milen I. Georgiev<br>Bulgarian Academy of Sciences<br>Bulgaria</td><td>Unveiling Anti-obesity and Longevity Potential of Natural Products</td></tr><tr><td>S 3-5<br>11:40 – 12:00</td><td>Dr. Mathoto Thaoge<br>Tshwane University of Technology<br>South Africa</td><td>Development of functional sorghum-based foods fortified with protein and probiotics: A sustainable solution for nutritional security in South African communities</td></tr><tr><td>S 3-6<br>12:00 – 12:20</td><td>Dr. Yaohua Betty Feng Purdue University<br>USA</td><td>Human Factors in Food Safety: Bridging Innovation and Practitioner Adoption</td></tr><tr><td>12:20 – 12:30</td><td colspan="2">Discussion time</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-4" data-day="day1" data-room="4" data-search="session 4- phytotherapy and pharmacology (room 4) session 4- phytotherapy and pharmacology (room 4) session 4- phytotherapy and pharmacology (room 4) chairpersons: dr. anca miron, ms. chun yu lin (ph.d student) chairpersons: dr. anca miron, ms. chun yu lin (ph.d student) chairpersons: dr. anca miron, ms. chun yu lin (ph.d student) session &amp;
+time speaker title s 4-1
+10:20-10:40 dr. abdel qawasmeh
+hebron university palestine effects of storage conditions and time on the total phenol content, antioxidant activity and secondary metabolites in the leaves of some grapevine varieties s 4-2
+10:40 – 11:00 dr. anca miron
+popa university of medicine and pharmacy
+romania unlocking the health potential and novel bioactivities of dietary and medicinal plants s 4-3
+11:00 – 11:20 dr. ardiansyah
+universitas bakrie
+indonesia physicochemical and sensory properties of katuk leaves (sauropus androgynus) s 4-4
+11:20 – 11:40 dr. debasis bagchi
+adelphi university
+usa fenfuro®, a novel fenugreek seed extract, arrests amyloid formation in methyl glyoxal adducts of bsa and hsa to different extents owing to their differential aggregation propensities s 4-5
+11:40 – 12:00 dr. elizabeth robin
+navrachana university
+india integrative phytochemical and computational approaches for identifying bioactive compounds from medicinal plants: implications for precision health and sustainable therapeutics s 4-6
+12:00 – 12:20 dr. kunle oni
+federal university oye-ekiti
+nigeria physical, texture, engineering and sensory properties oh enriched bread from soy-cheese, pineapple rind and white blends 12:20 – 12:30 discussion time discussion time">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 4</span><span class="pill pill-outline">Room 4</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 4- Phytotherapy and Pharmacology (Room 4)</h3>
+        <p class="chairs">Chairpersons: Dr. Anca Miron, Ms. Chun Yu Lin (Ph.D student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 4-1<br>10:20-10:40</td><td>Dr. Abdel Qawasmeh<br>Hebron University Palestine</td><td>Effects of storage conditions and time on the total phenol content, antioxidant activity and secondary metabolites in the leaves of some grapevine varieties</td></tr><tr><td>S 4-2<br>10:40 – 11:00</td><td>Dr. Anca Miron<br>Popa University of Medicine and Pharmacy<br>Romania</td><td>Unlocking the Health Potential and Novel Bioactivities of Dietary and Medicinal Plants</td></tr><tr><td>S 4-3<br>11:00 – 11:20</td><td>Dr. Ardiansyah<br>Universitas Bakrie<br>Indonesia</td><td>Physicochemical and Sensory properties of Katuk leaves (Sauropus androgynus)</td></tr><tr><td>S 4-4<br>11:20 – 11:40</td><td>Dr. Debasis Bagchi<br>Adelphi University<br>USA</td><td>Fenfuro®, a novel Fenugreek seed extract, arrests amyloid formation in Methyl Glyoxal adducts of BSA and HSA to different extents owing to their differential aggregation propensities</td></tr><tr><td>S 4-5<br>11:40 – 12:00</td><td>Dr. Elizabeth Robin<br>Navrachana University<br>India</td><td>Integrative Phytochemical and Computational Approaches for Identifying Bioactive Compounds from Medicinal Plants: Implications for Precision Health and Sustainable Therapeutics</td></tr><tr><td>S 4-6<br>12:00 – 12:20</td><td>Dr. Kunle Oni<br>Federal University Oye-Ekiti<br>Nigeria</td><td>Physical, Texture, Engineering and Sensory Properties oh Enriched Bread from Soy-Cheese, Pineapple Rind and White Blends</td></tr><tr><td>12:20 – 12:30</td><td colspan="2">Discussion time</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-5" data-day="day1" data-room="5" data-search="session 5- functional foods and nutraceuticals (room 5) session 5- functional foods and nutraceuticals (room 5) session 5- functional foods and nutraceuticals (room 5) chairpersons: dr. kenji sato, mr. hyunseo jo (ph. d student) chairpersons: dr. kenji sato, mr. hyunseo jo (ph. d student) chairpersons: dr. kenji sato, mr. hyunseo jo (ph. d student) session &amp;
+time speaker title s 5-1
+10:20-10:40 dr. kenji sato
+kyoto university
+japan highly bioavailable modified peptides in east asian fermented seasonings as dual immunomodulators: a potential molecular basis for low inflammatory disease burden in east asia s 5-2
+10:40 – 11:00 dr. petras rimantas venskutonis
+kaunas university of technology
+lithuania high nutritional value lipids from small fruit processing by-products for functional foods and nutraceuticals s 5-3
+11:00 – 11:20 dr. christofora hanny wijaya
+ibp university
+indonesia plant-derived extracellular vesicles of citrus sp.  as precision functional foods ingredients s 5-4
+11:20 – 11:40 dr. sirichai adisakwattana
+chulalongkorn university
+thailand a functional egg white rice-shaped analogue: from product development and sensory evaluation to clinical evidence in appetite and weight management s 5-5
+11:40 – 12:00 dr. carmen lammi
+university of milan
+italy exploitation of multifunctional food-derived bioactive peptides for cardiovascular disease
+prevention s 5-6
+12:00 – 12:20 dr. kwang-geun lee
+dongguk university
+republic of korea physicochemical and sensory enhancement of robusta coffee through ultrasound-assisted extraction and lemon pomace impregnation 12:20 – 12:30 discussion time discussion time">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 5</span><span class="pill pill-outline">Room 5</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 5- Functional Foods and Nutraceuticals (Room 5)</h3>
+        <p class="chairs">Chairpersons: Dr. Kenji Sato, Mr. Hyunseo Jo (Ph. D Student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 5-1<br>10:20-10:40</td><td>Dr. Kenji Sato<br>Kyoto University<br>Japan</td><td>Highly Bioavailable Modified Peptides in East Asian Fermented Seasonings as Dual Immunomodulators: A Potential Molecular Basis for Low Inflammatory Disease Burden in East Asia</td></tr><tr><td>S 5-2<br>10:40 – 11:00</td><td>Dr. Petras Rimantas Venskutonis<br>Kaunas University of Technology<br>Lithuania</td><td>High Nutritional Value Lipids from Small Fruit Processing by-products for Functional Foods and Nutraceuticals</td></tr><tr><td>S 5-3<br>11:00 – 11:20</td><td>Dr. Christofora Hanny Wijaya<br>IBP University<br>Indonesia</td><td>Plant-Derived Extracellular Vesicles of Citrus sp.  as Precision Functional Foods Ingredients</td></tr><tr><td>S 5-4<br>11:20 – 11:40</td><td>Dr. Sirichai Adisakwattana<br>Chulalongkorn University<br>Thailand</td><td>A Functional Egg White Rice-Shaped Analogue: From Product Development and Sensory Evaluation to Clinical Evidence in Appetite and Weight Management</td></tr><tr><td>S 5-5<br>11:40 – 12:00</td><td>Dr. Carmen Lammi<br>University of Milan<br>Italy</td><td>Exploitation of Multifunctional Food-Derived Bioactive Peptides for Cardiovascular Disease<br>Prevention</td></tr><tr><td>S 5-6<br>12:00 – 12:20</td><td>Dr. Kwang-Geun Lee<br>Dongguk University<br>Republic of Korea</td><td>Physicochemical and Sensory Enhancement of Robusta Coffee through Ultrasound-Assisted Extraction and Lemon Pomace Impregnation</td></tr><tr><td>12:20 – 12:30</td><td colspan="2">Discussion time</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-6" data-day="day1" data-room="6" data-search="session 6- brain health and nutrition (room 6) session 6- brain health and nutrition (room 6) session 6- brain health and nutrition (room 6) chairpersons: dr. gow-chin yen, ms. maja bensa (ph.d student) chairpersons: dr. gow-chin yen, ms. maja bensa (ph.d student) chairpersons: dr. gow-chin yen, ms. maja bensa (ph.d student) session &amp;
+time speaker title s 6-1
+10:20-10:40 dr. claudia cerella
+recherche sur le cancer et les maladies du sang
+luxembourg blood as a window into the brain: decoding systemic immune reprogramming in glioblastoma for non-invasive biomarker discovery s 6-2
+10:40 – 11:00 dr. k. emmanuvel rajan
+bharathidasan university
+india molecular and functional characterization of bacopa monniera: a neuro behavioural perspective s 6-3
+11:00 – 11:20 dr. stephanie yang
+puget sound family health, tacoma, wa, usa from evidence to everyday care: a whole-person approach to difficulty focusing and mental health s 6-4
+11:20 – 11:40 dr. giuseppe grosso
+university of catania
+italy feeding the aging brain: role of nutrition on cognitive resilience s 6-5
+11:40 – 12:00 dr. toshiro matsui
+kyushu university
+japan brain benefit of peptides: bioavailability and bioactivity s 6-6
+12:00 – 12:20 dr. s. thanga leela
+chung shan medical university
+taiwan. exploring the neuroprotective potential of garlic ethanol extract against β-amyloid-induced neurotoxicity in ht-22 neuronal cells 12:20 – 12:30 discussion time discussion time">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 6</span><span class="pill pill-outline">Room 6</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 6- Brain Health and Nutrition (Room 6)</h3>
+        <p class="chairs">Chairpersons: Dr. Gow-Chin Yen, Ms. Maja Bensa (Ph.D student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 6-1<br>10:20-10:40</td><td>Dr. Claudia Cerella<br>Recherche sur le Cancer et les Maladies du Sang<br>Luxembourg</td><td>Blood as a Window into the Brain: Decoding systemic immune reprogramming in Glioblastoma for Non-Invasive Biomarker Discovery</td></tr><tr><td>S 6-2<br>10:40 – 11:00</td><td>Dr. K. Emmanuvel Rajan<br>Bharathidasan University<br>India</td><td>Molecular and functional characterization of Bacopa monniera: A neuro behavioural perspective</td></tr><tr><td>S 6-3<br>11:00 – 11:20</td><td>Dr. Stephanie Yang<br>Puget Sound Family Health, Tacoma, WA, USA</td><td>From Evidence to Everyday Care: A Whole-Person Approach to Difficulty Focusing and Mental Health</td></tr><tr><td>S 6-4<br>11:20 – 11:40</td><td>Dr. Giuseppe Grosso<br>University of Catania<br>Italy</td><td>Feeding the aging brain: role of nutrition on cognitive resilience</td></tr><tr><td>S 6-5<br>11:40 – 12:00</td><td>Dr. Toshiro Matsui<br>Kyushu University<br>Japan</td><td>Brain benefit of peptides: bioavailability and bioactivity</td></tr><tr><td>S 6-6<br>12:00 – 12:20</td><td>Dr. S. Thanga Leela<br>Chung Shan Medical University<br>Taiwan.</td><td>Exploring the Neuroprotective Potential of Garlic Ethanol Extract Against β-Amyloid-Induced Neurotoxicity in HT-22 Neuronal Cells</td></tr><tr><td>12:20 – 12:30</td><td colspan="2">Discussion time</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="program-9" data-day="day1" data-room="all" data-search="poster display
+*poster competition [october 21, 12:30-13:30, on site] poster display
+*poster competition [october 21, 12:30-13:30, on site] poster display
+*poster competition [october 21, 12:30-13:30, on site] no name of the student title 1 ms ching chung*
+national ilan university, taiwan development of tartary buckwheat milk for lifespan nutrition through different milling methods and enzymatic treatment 2 ms. dahyun ko*
+dongguk university
+republic of korea effects of ultrasound treatment on the interaction between soy
+protein isolate and flavor compounds 3 ms. elizabeth k. mathew*
+navrachana university
+india identifying early biomarkers and the molecular reversibility window in the mci-to-alzheimer&#x27;s disease transition through multi-omic integration: a proposed zebrafish model for functional assessment 4 mr. felix widoto*
+chung shan medical university
+taiwan gastroprotective effect of freshwater clam and wild bitter gourd on indomethacin-induced gastric injury in wistar rats 5 ms. hikaru okahana*
+kyoto university
+japan ingestion of soft-shelled turtle powder increases the anti-fatigue dipeptide (lβ)-asp-leu in blood: a new candidate biomarker involved in fatigue 6 ms. hong yimin*
+(details yet to receive) - 7 ms. hyejin ahn*
+dongguk university
+republic of korea flavor enhancement of robusta coffee by soaking green beans in fermented spent coffee grounds extract 8 ms rabia shahzadi*
+chung shan medical university
+taiwan neuroprotective effects of fermented chrysanthemum morifolium ramat tzvel (renosage) against β- amyloid induced neuronal damage in ht-22 cells poster display poster display poster display 9 ms. an an chan
+national taiwan ocean university
+taiwan consumer responses to labeled salt-reduced foods in taiwan: implications for precision health communication and sodium-reduction strategies 10 ms adeline dorothy
+bharathidasan university india stress-regulatory effect of oxytocin in prenatal maternal stress animal model 11 mr. asif ali
+chung shan medical university
+taiwan neuroprotective effect of fresh gac fruit (momordica cochinchinensis) parts against β-amyloid-induced neurodegeneration in ht-22 cells 12 ms. ann elaine wagan
+kyoto university
+japan proline-based diketopiperazines (cyclic dipeptides) from fermented foods enhance macrophage phagocytosis while attenuating inflammatory responses 13 ms chien-yu huang
+(jasmine)
+national ilan university, taiwan heterologous expression and characterization of recombinant ochratoxin a hydrolases in gras saccharomyces cerevisiae 14 miss. chun-yu lin (loretta)
+national ilan university
+taiwan comparison of plant expression systems for enhanced accumulation of norovirus gii.4 vp1 protein 15 mr. hyunseo jo
+dongguk university
+republic of korea effects of ultrasonic treatment and drying methods on umami-active taste compounds and volatile flavor profile of raw laver (neopyropia yezoensis) 16 mr. marius užupis
+kaunas university of technology
+lithuania - 17 ms. maja bensa
+university of ljubljana, ljubljana, slovenia from kitchen to public health: insights from the slovenian consumer food safety study 18 ms rutvi vaja
+navrachana university, india duration-dependent neuroprotective reversal by melatonin in a chronic aluminium toxicity induced zebrafish model 19 ms. sedoten ogun
+university of
+nebraska–lincoln
+united states dietary γ-glutamyl valine (γ-ev) reduces vascular inflammation and slows the progression of high-fat diet-induced atherosclerosis, through modulation of gut microbiota in atherosclerosis-prone mice. 20 ms thejaswini
+bharathidasan university india matrix metalloproteinase inhibitor minimizes the maternal infection, induces neuronal structure and behavioural alterations in experimental meningitis rat model 21 mr. woojin na
+dongguk university
+republic of korea from food by-products to sustainable emulsifiers through two-stage sequential ultrasound-assisted complexation of brewer’s spent grain protein with polyphenols from spent coffee grounds and persimmon peel 22 ms. xin qing university of wisconsin-madison
+usa food structure matters: how drying methods modify digestibility and choline bioavailability of a novel dairy ingredient 23 ms. yi-ting pu
+national taiwan ocean university
+taiwan enhanced in vitro zinc bioavailability and intestinal barrier integrity of zinc-fortified wheat germ">
+      <header class="session-header">
+        <div class="session-meta"><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>POSTER DISPLAY
+*Poster competition [October 21, 12:30-13:30, on site]</h3>
+        <p class="chairs">No</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>No</th><th>Name of the student</th><th>Title</th></tr></thead>
+        <tbody><tr><td>1</td><td>Ms Ching Chung*<br>National Ilan University, Taiwan</td><td>Development of Tartary buckwheat milk for lifespan nutrition through different milling methods and enzymatic treatment</td></tr><tr><td>2</td><td>Ms. Dahyun Ko*<br>Dongguk University<br>Republic of Korea</td><td>Effects of ultrasound treatment on the interaction between soy<br>protein isolate and flavor compounds</td></tr><tr><td>3</td><td>Ms. Elizabeth K. Mathew*<br>Navrachana University<br>India</td><td>Identifying Early Biomarkers and the Molecular Reversibility Window in the MCI-to-Alzheimer&#x27;s Disease Transition Through Multi-Omic Integration: A Proposed Zebrafish Model for Functional Assessment</td></tr><tr><td>4</td><td>Mr. Felix Widoto*<br>Chung Shan Medical University<br>Taiwan</td><td>Gastroprotective Effect of Freshwater Clam and Wild Bitter Gourd on Indomethacin-Induced Gastric Injury in Wistar Rats</td></tr><tr><td>5</td><td>Ms. Hikaru Okahana*<br>Kyoto University<br>Japan</td><td>Ingestion of soft-shelled turtle powder increases the anti-fatigue dipeptide (Lβ)-Asp-Leu in blood: a new candidate biomarker involved in fatigue</td></tr><tr><td>6</td><td>Ms. Hong Yimin*<br>(details yet to receive)</td><td>-</td></tr><tr><td>7</td><td>Ms. Hyejin Ahn*<br>Dongguk University<br>Republic of Korea</td><td>Flavor enhancement of Robusta coffee by soaking green beans in fermented spent coffee grounds extract</td></tr><tr><td>8</td><td>Ms Rabia Shahzadi*<br>Chung Shan Medical University<br>Taiwan</td><td>Neuroprotective Effects of Fermented Chrysanthemum morifolium Ramat Tzvel (RenoSage) Against β- Amyloid Induced Neuronal damage in HT-22 Cells</td></tr><tr><td colspan="3">Poster Display</td></tr><tr><td>9</td><td>Ms. An An Chan<br>National Taiwan Ocean University<br>Taiwan</td><td>Consumer Responses to Labeled Salt-Reduced Foods in Taiwan: Implications for Precision Health Communication and Sodium-Reduction Strategies</td></tr><tr><td>10</td><td>Ms Adeline Dorothy<br>Bharathidasan University India</td><td>Stress-regulatory effect of oxytocin in prenatal maternal stress animal model</td></tr><tr><td>11</td><td>Mr. Asif Ali<br>Chung Shan Medical University<br>Taiwan</td><td>Neuroprotective effect of Fresh Gac Fruit (Momordica cochinchinensis) Parts against β-Amyloid-Induced Neurodegeneration in HT-22 Cells</td></tr><tr><td>12</td><td>Ms. Ann Elaine Wagan<br>Kyoto University<br>Japan</td><td>Proline-Based Diketopiperazines (Cyclic Dipeptides) from Fermented Foods Enhance Macrophage Phagocytosis while Attenuating Inflammatory Responses</td></tr><tr><td>13</td><td>Ms Chien-Yu Huang<br>(Jasmine)<br>National Ilan University, Taiwan</td><td>Heterologous Expression and Characterization of Recombinant Ochratoxin A Hydrolases in GRAS Saccharomyces cerevisiae</td></tr><tr><td>14</td><td>Miss. Chun-Yu Lin (Loretta)<br>National Ilan University<br>Taiwan</td><td>Comparison of Plant Expression Systems for Enhanced Accumulation of Norovirus GII.4 VP1 Protein</td></tr><tr><td>15</td><td>Mr. Hyunseo Jo<br>Dongguk University<br>Republic of Korea</td><td>Effects of ultrasonic treatment and drying methods on umami-active taste compounds and volatile flavor profile of raw laver (Neopyropia yezoensis)</td></tr><tr><td>16</td><td>Mr. Marius Užupis<br>Kaunas University of Technology<br>Lithuania</td><td>-</td></tr><tr><td>17</td><td>Ms. Maja Bensa<br>University of Ljubljana, Ljubljana, Slovenia</td><td>From Kitchen to Public Health: Insights from the Slovenian Consumer Food Safety Study</td></tr><tr><td>18</td><td>Ms Rutvi Vaja<br>Navrachana University, India</td><td>Duration-Dependent Neuroprotective Reversal by Melatonin in a Chronic Aluminium Toxicity induced Zebrafish Model</td></tr><tr><td>19</td><td>Ms. Sedoten Ogun<br>University of<br>Nebraska–Lincoln<br>United states</td><td>Dietary γ-Glutamyl Valine (γ-EV) reduces vascular inflammation and slows the progression of high-fat diet-induced atherosclerosis, through modulation of gut microbiota in atherosclerosis-prone mice.</td></tr><tr><td>20</td><td>Ms Thejaswini<br>Bharathidasan University India</td><td>Matrix metalloproteinase inhibitor minimizes the maternal infection, induces neuronal structure and behavioural alterations in experimental meningitis rat model</td></tr><tr><td>21</td><td>Mr. Woojin Na<br>Dongguk University<br>Republic of Korea</td><td>From food by-products to sustainable emulsifiers through two-stage sequential ultrasound-assisted complexation of brewer’s spent grain protein with polyphenols from spent coffee grounds and persimmon peel</td></tr><tr><td>22</td><td>Ms. Xin Qing University of Wisconsin-Madison<br>USA</td><td>Food Structure Matters: How Drying Methods Modify Digestibility and Choline Bioavailability of a Novel Dairy Ingredient</td></tr><tr><td>23</td><td>Ms. Yi-Ting Pu<br>National Taiwan Ocean University<br>Taiwan</td><td>Enhanced In Vitro Zinc Bioavailability and Intestinal Barrier Integrity of Zinc-Fortified Wheat Germ</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-7" data-day="day1" data-room="1" data-search="session 7- big data, artificial intelligence and precision health (room 1) session 7- big data, artificial intelligence and precision health (room 1) session 7- big data, artificial intelligence and precision health (room 1) chairpersons: dr. sue-joan chang, ms. rutvi vaja (ph.d student) chairpersons: dr. sue-joan chang, ms. rutvi vaja (ph.d student) chairpersons: dr. sue-joan chang, ms. rutvi vaja (ph.d student) session &amp;
+time speaker title s 7-1
+13:30 – 13:50 dr. widiastuti setyaningsih
+gadjah mada university
+indonesia from green analytical methods to ai-assisted raw-material quality control: an integrated platform for standardized roselle functional beverages s 7-2
+13:50 – 14:10 dr. lotis dl. francisco
+university of the philippines
+philippines beyond nutrient labels: integrating food processing science into ai-driven precision health s 7-3
+14:10 – 14:30 dr. elizabeth robin
+navrachana university
+india integrative phytochemical and computational approaches for identifying bioactive compounds from medicinal plants: implications for precision health and sustainable therapeutics s 7-4
+14:30 – 14:50 dr. sue-joan chang
+national cheng kung university taiwan precision intervention for inflammaging-induced sasp and skeletal muscle atrophy via huc-msc-derived exosomes s 7-5
+14:50 – 15:10 dr. sanar muhyaddin
+wrexham university
+united kingdom analysis of the effects of coffee consumption on sleep quality and stress levels using machine learning methods">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 7</span><span class="pill pill-outline">Room 1</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 7- Big data, Artificial Intelligence and Precision Health (Room 1)</h3>
+        <p class="chairs">Chairpersons: Dr. Sue-Joan Chang, Ms. Rutvi Vaja (Ph.D Student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 7-1<br>13:30 – 13:50</td><td>Dr. Widiastuti Setyaningsih<br>Gadjah Mada University<br>Indonesia</td><td>From Green Analytical Methods to AI-Assisted Raw-Material Quality Control: An Integrated Platform for Standardized Roselle Functional Beverages</td></tr><tr><td>S 7-2<br>13:50 – 14:10</td><td>Dr. Lotis dL. Francisco<br>University of the Philippines<br>Philippines</td><td>Beyond Nutrient Labels: Integrating Food Processing Science into AI-Driven Precision Health</td></tr><tr><td>S 7-3<br>14:10 – 14:30</td><td>Dr. Elizabeth Robin<br>Navrachana University<br>India</td><td>Integrative Phytochemical and Computational Approaches for Identifying Bioactive Compounds from Medicinal Plants: Implications for Precision Health and Sustainable Therapeutics</td></tr><tr><td>S 7-4<br>14:30 – 14:50</td><td>Dr. Sue-Joan Chang<br>National Cheng Kung University Taiwan</td><td>Precision Intervention for Inflammaging-Induced SASP and Skeletal Muscle Atrophy via hUC-MSC-Derived Exosomes</td></tr><tr><td>S 7-5<br>14:50 – 15:10</td><td>Dr. Sanar Muhyaddin<br>Wrexham University<br>United Kingdom</td><td>Analysis of the Effects of Coffee Consumption on Sleep Quality and Stress Levels Using Machine Learning Methods</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-8" data-day="day1" data-room="2" data-search="session 8- precision nutrition/precision medicine (room 2) session 8- precision nutrition/precision medicine (room 2) session 8- precision nutrition/precision medicine (room 2) chairpersons: dr. johji inazawa, ms. thejaswini (ph.d student) chairpersons: dr. johji inazawa, ms. thejaswini (ph.d student) chairpersons: dr. johji inazawa, ms. thejaswini (ph.d student) session &amp;
+time speaker title s 8-1
+13:30 – 13:50 dr. johji inazawa
+institute of science tokyo
+japan multi-modal mir-634 replacement therapy: overcoming chemo-resistance and suppressing tumor progression via systemic and topical delivery s 8-2
+13:50 – 14:10 dr. jie ni
+cancer care centre
+st george hospital
+australia proteomic identification of plasma-derived extracellular vesicles and particle exomere and supermere biomarkers for prostate cancer risk stratification s 8-3
+14:10 – 14:30 dr. bonglee kim
+kyung hee university
+republic of korea caesalpinia sappan l. potentiates osimertinib activity by reactivating p53 signaling via gsk-3β/mdm2 modulation in resistant non-small cell lung cancer s 8-4
+14:30 – 14:50 dr. camelia munteanu
+university of agricultural sciences and veterinary medicine
+romania from obesity to ovarian cancer: modeling adipocyte-driven lncrna signaling s 8-5
+14:50 – 15:10 dr. tomoko asai
+kyoto university
+japan food processing matters: how high-temperature treatment changes the nutritional and physiological effects of dietary protein">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 8</span><span class="pill pill-outline">Room 2</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 8- Precision Nutrition/Precision Medicine (Room 2)</h3>
+        <p class="chairs">Chairpersons: Dr. Johji Inazawa, Ms. Thejaswini (Ph.D Student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 8-1<br>13:30 – 13:50</td><td>Dr. Johji Inazawa<br>Institute of Science Tokyo<br>Japan</td><td>Multi-modal miR-634 Replacement Therapy: Overcoming Chemo-resistance and Suppressing Tumor Progression via Systemic and Topical Delivery</td></tr><tr><td>S 8-2<br>13:50 – 14:10</td><td>Dr. Jie Ni<br>Cancer Care Centre<br>St George Hospital<br>Australia</td><td>Proteomic identification of Plasma-Derived Extracellular Vesicles and Particle Exomere and Supermere Biomarkers for Prostate Cancer Risk Stratification</td></tr><tr><td>S 8-3<br>14:10 – 14:30</td><td>Dr. Bonglee Kim<br>Kyung Hee University<br>Republic of Korea</td><td>Caesalpinia sappan L. potentiates osimertinib activity by reactivating p53 signaling via GSK-3β/MDM2 modulation in resistant non-small cell lung cancer</td></tr><tr><td>S 8-4<br>14:30 – 14:50</td><td>Dr. Camelia Munteanu<br>University of Agricultural Sciences and Veterinary Medicine<br>Romania</td><td>From Obesity to Ovarian Cancer: Modeling Adipocyte-Driven lncRNA Signaling</td></tr><tr><td>S 8-5<br>14:50 – 15:10</td><td>Dr. Tomoko Asai<br>Kyoto University<br>Japan</td><td>Food Processing Matters: How High-Temperature Treatment Changes the Nutritional and Physiological Effects of Dietary Protein</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-9" data-day="day1" data-room="3" data-search="session 9- food safety and health (room 3) session 9- food safety and health (room 3) session 9- food safety and health (room 3) chairpersons: dr. rotimi. e. aluko, mr. woojin na (ph.d student) chairpersons: dr. rotimi. e. aluko, mr. woojin na (ph.d student) chairpersons: dr. rotimi. e. aluko, mr. woojin na (ph.d student) session &amp;
+time speaker title s 9-1
+13:30 – 13:50 dr. eni harmayani
+universitas gadjah mada
+indonesia porang (amorphophallus oncophyllus) glucomannan and its hydrolysate as emerging prebiotics: physicochemical characteristics and roles in gut microbiota modulation s 9-2
+13:50 – 14:10 dr. chiou jiachi, amber
+the hong kong polytechnic university
+hong kong targeting the gut-skin axis via precision nutrition for atopic dermatitis management s 9-3
+14:10 – 14:30 dr. rotimi. e. aluko
+university of manitoba
+canada metabolomics-based investigation of the antihypertensive activity of corn peptides in spontaneously hypertensive rats s 9-4
+14:30 – 14:50 dr. aline issa
+notre dame university-louaize
+lebanon microbial communities in traditional lebanese fermented foods: functions, safety, and research gaps- a scoping review s 9-5
+14:50 – 15:10 dr. christelle bou mitri
+notre dame university-louaize
+lebanon digestive health as a driver of plant-based alternative consumption: evidence from multi countries surveys">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 9</span><span class="pill pill-outline">Room 3</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 9- Food Safety and Health (Room 3)</h3>
+        <p class="chairs">Chairpersons: Dr. Rotimi. E. Aluko, Mr. Woojin Na (Ph.D Student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 9-1<br>13:30 – 13:50</td><td>Dr. Eni Harmayani<br>Universitas Gadjah Mada<br>Indonesia</td><td>Porang (Amorphophallus oncophyllus) Glucomannan and Its Hydrolysate as Emerging Prebiotics: Physicochemical Characteristics and Roles in Gut Microbiota Modulation</td></tr><tr><td>S 9-2<br>13:50 – 14:10</td><td>Dr. Chiou Jiachi, Amber<br>The Hong Kong Polytechnic University<br>Hong Kong</td><td>Targeting the Gut-Skin Axis via Precision Nutrition for Atopic Dermatitis Management</td></tr><tr><td>S 9-3<br>14:10 – 14:30</td><td>Dr. Rotimi. E. Aluko<br>University of Manitoba<br>Canada</td><td>Metabolomics-based investigation of the antihypertensive activity of corn peptides in spontaneously hypertensive rats</td></tr><tr><td>S 9-4<br>14:30 – 14:50</td><td>Dr. Aline Issa<br>Notre Dame University-Louaize<br>Lebanon</td><td>Microbial Communities in Traditional Lebanese Fermented Foods: Functions, Safety, and Research Gaps- a Scoping Review</td></tr><tr><td>S 9-5<br>14:50 – 15:10</td><td>Dr. Christelle Bou Mitri<br>Notre Dame University-Louaize<br>Lebanon</td><td>Digestive Health as a Driver of Plant-Based Alternative Consumption: Evidence from Multi Countries Surveys</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-10" data-day="day1" data-room="4" data-search="session 10- phytotherapy/pharmacology (room 4) session 10- phytotherapy/pharmacology (room 4) session 10- phytotherapy/pharmacology (room 4) chairpersons: dr. elfahmi, ms. xin qing (ph. d student) chairpersons: dr. elfahmi, ms. xin qing (ph. d student) chairpersons: dr. elfahmi, ms. xin qing (ph. d student) session &amp;
+time speaker title s 10-1
+13:30 – 13:50 dr. elfahmi
+institute of technology sumatera (itera)
+indonesia development of plant derived drugs and nutraceuticals from mitragyna speciosa s 10-2
+13:50 – 14:10 dr. hao jing
+china agricultural university
+china from garlic to black garlic: health-promoting effects s 10-3
+14:10 – 14:30 dr. indrawati oey
+university of otago
+new zealand modulating anthocyanin extraction and antioxidant capacity in red grape juice through pulsed electric field processing s 10-4
+14:30 – 14:50 dr. hye-kyung na
+sungshin women&#x27;s university
+republic of lorea food-derived modulators of dopaminergic signaling for cancer prevention s 10-5
+14:50 – 15:10 dr. shiva sankaran
+genexplore diagnostics and research centre pvt. ltd.
+india beyond mutation detection: personalized genomic architecture for precision embryo selection in pgt-m">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 10</span><span class="pill pill-outline">Room 4</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 10- Phytotherapy/Pharmacology (Room 4)</h3>
+        <p class="chairs">Chairpersons: Dr. Elfahmi, Ms. Xin Qing (Ph. D Student)</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 10-1<br>13:30 – 13:50</td><td>Dr. Elfahmi<br>Institute of Technology Sumatera (ITERA)<br>Indonesia</td><td>Development of plant derived drugs and nutraceuticals from Mitragyna speciosa</td></tr><tr><td>S 10-2<br>13:50 – 14:10</td><td>Dr. Hao Jing<br>China Agricultural University<br>China</td><td>From Garlic to Black Garlic: Health-Promoting Effects</td></tr><tr><td>S 10-3<br>14:10 – 14:30</td><td>Dr. Indrawati Oey<br>University of Otago<br>New Zealand</td><td>Modulating Anthocyanin Extraction and Antioxidant Capacity in Red Grape Juice Through Pulsed Electric Field Processing</td></tr><tr><td>S 10-4<br>14:30 – 14:50</td><td>Dr. Hye-Kyung NA<br>Sungshin Women&#x27;s University<br>Republic of Lorea</td><td>Food-Derived Modulators of Dopaminergic Signaling for Cancer Prevention</td></tr><tr><td>S 10-5<br>14:50 – 15:10</td><td>Dr. Shiva Sankaran<br>Genexplore Diagnostics and Research Centre Pvt. Ltd.<br>India</td><td>Beyond Mutation Detection: Personalized Genomic Architecture for Precision Embryo Selection in PGT-M</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-11" data-day="day1" data-room="5" data-search="session 11- functional foods and nutraceuticals (room 5) session 11- functional foods and nutraceuticals (room 5) session 11- functional foods and nutraceuticals (room 5) chairpersons: dr. shizuo yamada, dr. thierry astruc chairpersons: dr. shizuo yamada, dr. thierry astruc chairpersons: dr. shizuo yamada, dr. thierry astruc session &amp;
+time speaker title s 11-1
+13:30 – 13:50 dr. shizuo yamada
+university of shizuoka
+japan beneficial effects of enoki mushroom extract on male menopausal symptoms in japanese subjects: a randomized, double-blind, placebo-controlled study s 11-2
+13:50 – 14:10 dr. jun nishihira
+hokkaido information university
+japan dietary habits and age–health gradient among older adults s 11-3
+14:10 – 14:30 dr. matkowski adam
+wroclaw medical university
+poland beauty and the beet - on the undervalued and colorful betalains, not only from beetroots s 11-4
+14:30 – 14:50 dr. thierry astruc
+inrae, national research institute for agriculture, food and environment
+france the study of protein-protein interactions for controlling the texture of hybrid foods s 11-5
+14:50 – 15:10 dr. emmanouil papaioannou
+lancaster
+university
+united kingdom bioprocesses in nutrition: past, present and future">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 11</span><span class="pill pill-outline">Room 5</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 11- Functional Foods and Nutraceuticals (Room 5)</h3>
+        <p class="chairs">Chairpersons: Dr. Shizuo Yamada, Dr. Thierry Astruc</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 11-1<br>13:30 – 13:50</td><td>Dr. Shizuo Yamada<br>University of Shizuoka<br>Japan</td><td>Beneficial effects of enoki mushroom extract on male menopausal symptoms in Japanese subjects: A randomized, double-blind, placebo-controlled study</td></tr><tr><td>S 11-2<br>13:50 – 14:10</td><td>Dr. Jun Nishihira<br>Hokkaido Information University<br>Japan</td><td>Dietary Habits and Age–Health Gradient Among Older Adults</td></tr><tr><td>S 11-3<br>14:10 – 14:30</td><td>Dr. Matkowski Adam<br>Wroclaw Medical University<br>Poland</td><td>Beauty and the Beet - on the undervalued and colorful betalains, not only from beetroots</td></tr><tr><td>S 11-4<br>14:30 – 14:50</td><td>Dr. Thierry Astruc<br>INRAE, National Research Institute for Agriculture, Food and Environment<br>France</td><td>The study of protein-protein interactions for controlling the texture of hybrid foods</td></tr><tr><td>S 11-5<br>14:50 – 15:10</td><td>Dr. Emmanouil Papaioannou<br>Lancaster<br>University<br>United Kingdom</td><td>Bioprocesses in nutrition: past, present and future</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-12" data-day="day1" data-room="6" data-search="session 12- brain health and nutrition (room 6) session 12- brain health and nutrition (room 6) session 12- brain health and nutrition (room 6) chairpersons: dr. linyi chen, dr. chang-wei hsieh chairpersons: dr. linyi chen, dr. chang-wei hsieh chairpersons: dr. linyi chen, dr. chang-wei hsieh session &amp;
+time speaker title s 12-1
+13:30 – 13:50 dr. nae-cherng yang
+chung shan medical university
+taiwan development of potential anti-aging molecules using the caenorhabditis elegans model: nicotinic acid, myo-inositol, and calcium chloride as examples s 12-2
+13:50 – 14:10 dr. linyi chen
+national tsing hua university, hsinchu, taiwan toward brain injury therapy: from epigenome, mitochondrial biogenesis to drug development s 12-3
+14:10 – 14:30 dr. chang-wei hsieh
+national chung hsing university
+taiwan non-thermal food processing for sustainable and health-oriented innovation s 12-4
+14:30 – 14:50 dr. i-ning tsai
+chung shan medical university
+taiwan coffee extracts and their major components to prevent glucolipotoxicity-induced diabetic neurodegenerative diseases and steatohepatitis s 12-5
+14:50 – 15:10 dr. razinah sharif 
+national university of malaysia
+malaysia from metabolic phenotypes to cellular senescence: advancing precision nutrition for healthy ageing">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 12</span><span class="pill pill-outline">Room 6</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 12- Brain Health and Nutrition (Room 6)</h3>
+        <p class="chairs">Chairpersons: Dr. Linyi Chen, Dr. Chang-wei Hsieh</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 12-1<br>13:30 – 13:50</td><td>Dr. Nae-Cherng Yang<br>Chung Shan Medical University<br>Taiwan</td><td>Development of Potential Anti-Aging Molecules Using the Caenorhabditis elegans Model: Nicotinic Acid, Myo-Inositol, and Calcium Chloride as Examples</td></tr><tr><td>S 12-2<br>13:50 – 14:10</td><td>Dr. Linyi Chen<br>National Tsing Hua University, Hsinchu, Taiwan</td><td>Toward brain injury therapy: from epigenome, mitochondrial biogenesis to drug development</td></tr><tr><td>S 12-3<br>14:10 – 14:30</td><td>Dr. Chang-wei Hsieh<br>National Chung Hsing University<br>Taiwan</td><td>Non-Thermal Food Processing for Sustainable and Health-Oriented Innovation</td></tr><tr><td>S 12-4<br>14:30 – 14:50</td><td>Dr. I-Ning Tsai<br>Chung Shan Medical University<br>Taiwan</td><td>Coffee Extracts and Their Major Components to Prevent Glucolipotoxicity-Induced Diabetic Neurodegenerative Diseases and Steatohepatitis</td></tr><tr><td>S 12-5<br>14:50 – 15:10</td><td>Dr. Razinah Sharif <br>National University of Malaysia<br>Malaysia</td><td>From Metabolic Phenotypes to Cellular Senescence: Advancing Precision Nutrition for Healthy Ageing</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-13" data-day="day1" data-room="1" data-search="session 13- big data, artificial intelligence and precision health (room 1) session 13- big data, artificial intelligence and precision health (room 1) session 13- big data, artificial intelligence and precision health (room 1) chairpersons: dr. moon-suhn ryu, dr. neema kassim chairpersons: dr. moon-suhn ryu, dr. neema kassim chairpersons: dr. moon-suhn ryu, dr. neema kassim session &amp;
+time speaker title s 13-1
+15:20 – 15:40 dr. chalermpong saenjum
+chiang mai university
+thailand bio-composite bone delivery system containing natural active pharmaceutical ingredients from nga-mon seed (perilla frutescens) for osteoporotic protection s 13-2
+15:40 – 16:00 dr. moon-suhn ryu
+yonsei university
+republic of korea zinc-dependent regulation of erythropoiesis: linking zip10-mediated homeostasis to heme biosynthesis and anemia risk s 13-3
+16:00 – 16:20 dr. neema kassim
+the nelson mandela african institution of science and technology
+tanzania provision of low-aflatoxin local foods reduced urinary aflatoxin biomarker in children in rural tanzania s 13-4
+16:20 – 16:40 dr. yue-jia lee
+national taiwan university
+taiwan biofilm formation limits nisin efficacy – implications for optimizing natural antimicrobials in food systems s 13-5
+16:40 – 17:00 dr abbe maleyki bin mhd jalil
+universiti brunei darussalam
+brunei the value of &#x27;no&#x27;: robustness and reproducibility in precision health">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 13</span><span class="pill pill-outline">Room 1</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 13- Big data, Artificial Intelligence and Precision Health (Room 1)</h3>
+        <p class="chairs">Chairpersons: Dr. Moon-Suhn Ryu, Dr. Neema Kassim</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 13-1<br>15:20 – 15:40</td><td>Dr. Chalermpong Saenjum<br>Chiang Mai University<br>Thailand</td><td>Bio-composite Bone Delivery System Containing Natural Active Pharmaceutical Ingredients from Nga-Mon Seed (Perilla frutescens) for Osteoporotic Protection</td></tr><tr><td>S 13-2<br>15:40 – 16:00</td><td>Dr. Moon-Suhn Ryu<br>Yonsei University<br>Republic of Korea</td><td>Zinc-Dependent Regulation of Erythropoiesis: Linking ZIP10-Mediated Homeostasis to Heme Biosynthesis and Anemia Risk</td></tr><tr><td>S 13-3<br>16:00 – 16:20</td><td>Dr. Neema Kassim<br>The Nelson Mandela African Institution of Science and Technology<br>Tanzania</td><td>Provision of Low-Aflatoxin Local Foods Reduced Urinary Aflatoxin Biomarker in Children in Rural Tanzania</td></tr><tr><td>S 13-4<br>16:20 – 16:40</td><td>Dr. Yue-Jia Lee<br>National Taiwan University<br>Taiwan</td><td>Biofilm Formation Limits Nisin Efficacy – Implications for Optimizing Natural Antimicrobials in Food Systems</td></tr><tr><td>S 13-5<br>16:40 – 17:00</td><td>Dr Abbe Maleyki Bin Mhd Jalil<br>Universiti Brunei Darussalam<br>Brunei</td><td>The Value of &#x27;No&#x27;: Robustness and Reproducibility in Precision Health</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-14" data-day="day1" data-room="2" data-search="session 14- precision cancer medicine (room 2) session 14- precision cancer medicine (room 2) session 14- precision cancer medicine (room 2) chairpersons: dr. benjamin k tsang, dr. ciro isidoro chairpersons: dr. benjamin k tsang, dr. ciro isidoro chairpersons: dr. benjamin k tsang, dr. ciro isidoro session &amp;
+time speaker title s 14-1
+15:20 – 15:40 dr. benjamin k tsang
+university of ottawa
+canada global dna methylation signatures associated with chemoresistance and poor prognosis of high grade serous ovarian cancer s 14-2
+15:40 – 16:00 dr. ciro isidoro
+università del piemonte orientale, italy cathepsin d-mediated proteolysis and autophagy play a pivotal role in pediatric neuroblastoma progression s 14-3
+16:00 – 16:20 john digiovanni
+the university of texas at austin
+texas the stat3-twist1-ovol1 transcription factor network driving development of cutaneous squamous cell carcinoma s 14-4
+16:20 – 16:40 dr. dony dahana wirawan
+osaka university, japan impact health claims on new product diffusion and lifetime: a quasi-experimental study s 14-5
+16:40 – 17:00 dr. hemakumar
+dayananda sagar college of engineering
+india bioinformatics analysis of genes responsible for the diseases such as breast cancer, lupus and gonorrhoea">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 14</span><span class="pill pill-outline">Room 2</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 14- Precision Cancer Medicine (Room 2)</h3>
+        <p class="chairs">Chairpersons: Dr. Benjamin K Tsang, Dr. Ciro Isidoro</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 14-1<br>15:20 – 15:40</td><td>Dr. Benjamin K Tsang<br>University of Ottawa<br>Canada</td><td>Global DNA Methylation Signatures Associated with Chemoresistance and Poor Prognosis of High Grade Serous Ovarian Cancer</td></tr><tr><td>S 14-2<br>15:40 – 16:00</td><td>Dr. Ciro Isidoro<br>Università del Piemonte Orientale, Italy</td><td>Cathepsin D-mediated proteolysis and autophagy play a pivotal role in pediatric neuroblastoma progression</td></tr><tr><td>S 14-3<br>16:00 – 16:20</td><td>John DiGiovanni<br>The University of Texas at Austin<br>Texas</td><td>The STAT3-TWIST1-OVOL1 Transcription Factor Network Driving Development of Cutaneous Squamous Cell Carcinoma</td></tr><tr><td>S 14-4<br>16:20 – 16:40</td><td>Dr. Dony Dahana Wirawan<br>Osaka University, Japan</td><td>Impact health claims on new product diffusion and lifetime: A quasi-experimental study</td></tr><tr><td>S 14-5<br>16:40 – 17:00</td><td>Dr. Hemakumar<br>Dayananda Sagar College of Engineering<br>India</td><td>Bioinformatics Analysis of Genes Responsible for the Diseases such as Breast Cancer, Lupus and Gonorrhoea</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-15" data-day="day1" data-room="3" data-search="session 15- food safety and health (room 3) session 15- food safety and health (room 3) session 15- food safety and health (room 3) chairpersons: dr. marc diederich, dr. perry ng chairpersons: dr. marc diederich, dr. perry ng chairpersons: dr. marc diederich, dr. perry ng session &amp;
+time speaker title s 15-1
+15:20 – 15:40 dr. marc diederich
+seoul national university republic of korea rewiring autophagy and mitochondrial signaling to overcome therapy resistance s 15-2
+15:40 – 16:00 dr. takuya sugahara
+ehime university
+japan the anti-inflammatory effects of isocoronarin d on lps-stimulated macrophages s 15-3
+16:00 – 16:20 dr. richard khaw
+federation of institute of food science &amp; technology in asean (fifsta)
+singapore singapore food toxicology network: advancing precision health through new approach methodologies s 15-4
+16:20 – 16:40 dr. tae jin ahn
+handong university
+republic of korea personalized risk assessment and re-balancing the risk of type 2 diabetes s 15-5
+16:40 – 17:00 dr. yohanes tandoro
+widya mandala catholic university surabaya
+indonesia indonesia local plant bioactivity, toxicity, and bioavailability prediction by using in silico method and its application on health">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 15</span><span class="pill pill-outline">Room 3</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 15- Food Safety and Health (Room 3)</h3>
+        <p class="chairs">Chairpersons: Dr. Marc Diederich, Dr. Perry Ng</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 15-1<br>15:20 – 15:40</td><td>Dr. Marc Diederich<br>Seoul National University Republic of Korea</td><td>Rewiring Autophagy and Mitochondrial Signaling to Overcome Therapy Resistance</td></tr><tr><td>S 15-2<br>15:40 – 16:00</td><td>Dr. Takuya Sugahara<br>Ehime University<br>Japan</td><td>The Anti-inflammatory effects of isocoronarin D on LPS-stimulated macrophages</td></tr><tr><td>S 15-3<br>16:00 – 16:20</td><td>Dr. Richard Khaw<br>Federation of Institute of Food Science &amp; Technology in ASEAN (FIFSTA)<br>Singapore</td><td>Singapore Food Toxicology Network: Advancing Precision Health Through New Approach Methodologies</td></tr><tr><td>S 15-4<br>16:20 – 16:40</td><td>Dr. Tae Jin Ahn<br>Handong University<br>Republic of Korea</td><td>Personalized Risk Assessment and Re-balancing the Risk of Type 2 Diabetes</td></tr><tr><td>S 15-5<br>16:40 – 17:00</td><td>Dr. Yohanes Tandoro<br>Widya Mandala Catholic University Surabaya<br>Indonesia</td><td>Indonesia local plant bioactivity, toxicity, and bioavailability prediction by using in silico method and its application on health</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-16" data-day="day1" data-room="4" data-search="session 16- phytotherapy/pharmacology (room 4) session 16- phytotherapy/pharmacology (room 4) session 16- phytotherapy/pharmacology (room 4) chairpersons: dr. chia-jui weng, dr. dae young kwon chairpersons: dr. chia-jui weng, dr. dae young kwon chairpersons: dr. chia-jui weng, dr. dae young kwon session &amp;
+time speaker title s 16-1
+15:20 – 15:40 dr. hun taeg chung
+daegu haany university
+republic of korea perk activation by carbon monoxide sensitizes cancer cells to ferroptosis and suppresses tumor growth s 16-2
+15:40 – 16:00 ms. hsiang-yu lai
+hualien district agricultural research and extension station
+taiwan effects of thermosonication extraction time on the quality of dried grass jelly s 16-3
+16:00 – 16:20 dr. diana lo
+bina nusantara university
+indonesia in vitro evaluation of the antihyperglycemic and antioxidant properties of wedang (traditional indonesian herbal beverages) s 16-4
+16:20 – 16:40 dr. dae young kwon
+institute of food culture and science
+republic of korea the global fever of k-food and the recent status of food research in korea s 16-5
+16:40 – 17:00 kaustav majumder
+university of
+nebraska–lincoln
+united states from food to function: γ-glutamyl valine targets the gut-systemic axis in cardiometabolic health">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 16</span><span class="pill pill-outline">Room 4</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 16- Phytotherapy/Pharmacology (Room 4)</h3>
+        <p class="chairs">Chairpersons: Dr. Chia-Jui Weng, Dr. Dae Young Kwon</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 16-1<br>15:20 – 15:40</td><td>Dr. Hun Taeg Chung<br>Daegu Haany University<br>Republic of Korea</td><td>PERK Activation by Carbon Monoxide Sensitizes Cancer Cells to Ferroptosis and Suppresses Tumor Growth</td></tr><tr><td>S 16-2<br>15:40 – 16:00</td><td>Ms. Hsiang-Yu Lai<br>Hualien District Agricultural Research and Extension Station<br>Taiwan</td><td>Effects of Thermosonication Extraction Time on the Quality of Dried Grass Jelly</td></tr><tr><td>S 16-3<br>16:00 – 16:20</td><td>Dr. Diana Lo<br>Bina Nusantara University<br>Indonesia</td><td>In vitro evaluation of the antihyperglycemic and antioxidant properties of wedang (traditional Indonesian herbal beverages)</td></tr><tr><td>S 16-4<br>16:20 – 16:40</td><td>Dr. Dae Young Kwon<br>Institute of Food Culture and Science<br>Republic of Korea</td><td>The Global Fever of K-Food and the Recent Status of Food Research in Korea</td></tr><tr><td>S 16-5<br>16:40 – 17:00</td><td>Kaustav Majumder<br>University of<br>Nebraska–Lincoln<br>United states</td><td>From Food to Function: γ-Glutamyl Valine Targets the Gut-Systemic Axis in Cardiometabolic Health</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-17" data-day="day1" data-room="1" data-search="session 17- nutrition and food science (room 1) session 17- nutrition and food science (room 1) session 17- nutrition and food science (room 1) chairpersons: dr kiri andrew amegovu, dr. liviu gaceu chairpersons: dr kiri andrew amegovu, dr. liviu gaceu chairpersons: dr kiri andrew amegovu, dr. liviu gaceu session &amp;
+time speaker title s 17-1
+15:20 – 15:40 dr kiri andrew amegovu
+university of juba south sudan  digital muac tape: to screen acute malnutrition in children under five years of age s 17-2
+15:40 – 16:00 dr. liviu gaceu
+transilvania university of brasov
+romania assessing sustainable food behaviour within urban food systems: a study among romanian university students s 17-3
+16:00 – 16:20 dr. liviu giurgiulescu
+technical university of cluj napoca,
+romania ultrasonics application in food technology s 17-4
+16:20 – 16:40 dr. chia-cheng wei
+national taiwan university
+taiwan dietary methylglyoxal accelerates alzheimer’s disease progression during aging: evidence from an alternative model s 17-5
+16:40 – 17:00 dr. eniola oni
+chung shan medical university
+taiwan precision nutrition and food safety in resource-limited settings: harnessing microbiome,
+mycotoxin, and environmental data for health equity.">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 17</span><span class="pill pill-outline">Room 1</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 17- Nutrition and Food Science (Room 1)</h3>
+        <p class="chairs">Chairpersons: Dr Kiri Andrew Amegovu, Dr. Liviu Gaceu</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 17-1<br>15:20 – 15:40</td><td>Dr Kiri Andrew Amegovu<br>University of Juba South Sudan </td><td>Digital MUAC tape: To screen Acute malnutrition in children under five years of age</td></tr><tr><td>S 17-2<br>15:40 – 16:00</td><td>Dr. Liviu Gaceu<br>Transilvania University of Brasov<br>Romania</td><td>Assessing Sustainable Food Behaviour within Urban Food Systems: A Study among Romanian University Students</td></tr><tr><td>S 17-3<br>16:00 – 16:20</td><td>Dr. Liviu Giurgiulescu<br>Technical University of Cluj Napoca,<br>Romania</td><td>Ultrasonics Application in Food Technology</td></tr><tr><td>S 17-4<br>16:20 – 16:40</td><td>Dr. Chia-Cheng Wei<br>National Taiwan University<br>Taiwan</td><td>Dietary Methylglyoxal Accelerates Alzheimer’s Disease Progression during Aging: Evidence from an Alternative Model</td></tr><tr><td>S 17-5<br>16:40 – 17:00</td><td>Dr. Eniola Oni<br>Chung Shan Medical University<br>Taiwan</td><td>Precision Nutrition and Food Safety in Resource-Limited Settings: Harnessing Microbiome,<br>Mycotoxin, and Environmental Data for Health Equity.</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-18" data-day="day1" data-room="6" data-search="session 18- oral presentation competition - phd students (room 6) session 18- oral presentation competition - phd students (room 6) session 18- oral presentation competition - phd students (room 6) chairpersons: dr. hsin-tang lin, dr. danny n. dhanasekaran chairpersons: dr. hsin-tang lin, dr. danny n. dhanasekaran chairpersons: dr. hsin-tang lin, dr. danny n. dhanasekaran session &amp;
+time speaker title s 18-1
+15:20-15:25 ms adeline dorothy
+bharathidasan university
+india stress-regulatory effect of oxytocin in prenatal maternal stress animal model s 18-2
+15:25-15:30 mr. asif ali
+chung shan medical university
+taiwan neuroprotective effect of fresh gac fruit (momordica cochinchinensis) parts against β-amyloid-induced neurodegeneration in ht-22 cells s 18-3
+15:30-15:35 ms. ann elaine wagan
+kyoto university
+japan proline-based diketopiperazines (cyclic dipeptides) from fermented foods enhance macrophage phagocytosis while attenuating inflammatory responses s 18-4
+15:35-15:40 ms chien-yu huang
+national ilan university, taiwan heterologous expression and characterization of recombinant ochratoxin a hydrolases in gras saccharomyces cerevisiae s 18-5
+15:40-15:45 miss. chun-yu lin
+national ilan university
+taiwan comparison of plant expression systems for enhanced accumulation of norovirus gii.4 vp1 protein s 18-6
+15:45-15:50 mr. hyunseo jo
+dongguk university
+republic of korea effects of ultrasonic treatment and drying methods on umami-active taste compounds and volatile flavor profile of raw laver (neopyropia yezoensis) s 18-7
+15:50-15:55 ms. maja bensa
+university of ljubljana, ljubljana, slovenia from kitchen to public health: insights from the slovenian consumer food safety study s 18-8
+15:55-16:00 mr. marius užupis
+kaunas university of technology
+lithuania - s 18-9
+16:00-16:05 ms. rutvi vaja
+navrachana university, india duration-dependent neuroprotective reversal by melatonin in a chronic aluminium toxicity induced zebrafish model s 18-10
+16:05-16:10 ms. sedoten ogun
+university of
+nebraska–lincoln
+united states dietary γ-glutamyl valine (γ-ev) reduces vascular inflammation and slows the progression of
+high-fat diet-induced atherosclerosis, through modulation of gut microbiota in atherosclerosis-
+prone mice s 18-11
+16:10-16:15 ms. thejaswini
+bharathidasan university, india matrix metalloproteinase inhibitor minimizes the maternal infection, induces neuronal structure and behavioural alterations in experimental meningitis rat model s 18-12
+16:15-16:20 mr. woojin na
+dongguk university
+republic of korea from food by-products to sustainable emulsifiers through two-stage sequential ultrasound-assisted complexation of brewer’s spent grain protein with polyphenols from spent coffee grounds and persimmon peel s 18-13
+16:20-16:25 ms. xin qing
+research scholar
+university of wisconsin-madison
+usa food structure matters: how drying methods modify digestibility and choline bioavailability of a novel dairy ingredient">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 18</span><span class="pill pill-outline">Room 6</span><span class="date-chip">Wednesday · Oct 21</span></div>
+        <h3>Session 18- Oral Presentation Competition - PhD Students (Room 6)</h3>
+        <p class="chairs">Chairpersons: Dr. Hsin-Tang Lin, Dr. Danny N. Dhanasekaran</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 18-1<br>15:20-15:25</td><td>Ms Adeline Dorothy<br>Bharathidasan University<br>India</td><td>Stress-regulatory effect of oxytocin in prenatal maternal stress animal model</td></tr><tr><td>S 18-2<br>15:25-15:30</td><td>Mr. Asif Ali<br>Chung Shan Medical University<br>Taiwan</td><td>Neuroprotective effect of Fresh Gac Fruit (Momordica cochinchinensis) Parts against β-Amyloid-Induced Neurodegeneration in HT-22 Cells</td></tr><tr><td>S 18-3<br>15:30-15:35</td><td>Ms. Ann Elaine Wagan<br>Kyoto University<br>Japan</td><td>Proline-Based Diketopiperazines (Cyclic Dipeptides) from Fermented Foods Enhance Macrophage Phagocytosis while Attenuating Inflammatory Responses</td></tr><tr><td>S 18-4<br>15:35-15:40</td><td>Ms Chien-Yu Huang<br>National Ilan University, Taiwan</td><td>Heterologous Expression and Characterization of Recombinant Ochratoxin A Hydrolases in GRAS Saccharomyces cerevisiae</td></tr><tr><td>S 18-5<br>15:40-15:45</td><td>Miss. Chun-Yu Lin<br>National Ilan University<br>Taiwan</td><td>Comparison of Plant Expression Systems for Enhanced Accumulation of Norovirus GII.4 VP1 Protein</td></tr><tr><td>S 18-6<br>15:45-15:50</td><td>Mr. Hyunseo Jo<br>Dongguk University<br>Republic of Korea</td><td>Effects of ultrasonic treatment and drying methods on umami-active taste compounds and volatile flavor profile of raw laver (Neopyropia yezoensis)</td></tr><tr><td>S 18-7<br>15:50-15:55</td><td>Ms. Maja Bensa<br>University of Ljubljana, Ljubljana, Slovenia</td><td>From Kitchen to Public Health: Insights from the Slovenian Consumer Food Safety Study</td></tr><tr><td>S 18-8<br>15:55-16:00</td><td>Mr. Marius Užupis<br>Kaunas University of Technology<br>Lithuania</td><td>-</td></tr><tr><td>S 18-9<br>16:00-16:05</td><td>Ms. Rutvi Vaja<br>Navrachana University, India</td><td>Duration-Dependent Neuroprotective Reversal by Melatonin in a Chronic Aluminium Toxicity induced Zebrafish Model</td></tr><tr><td>S 18-10<br>16:05-16:10</td><td>Ms. Sedoten Ogun<br>University of<br>Nebraska–Lincoln<br>United states</td><td>Dietary γ-Glutamyl Valine (γ-EV) reduces vascular inflammation and slows the progression of<br>high-fat diet-induced atherosclerosis, through modulation of gut microbiota in atherosclerosis-<br>prone mice</td></tr><tr><td>S 18-11<br>16:10-16:15</td><td>Ms. Thejaswini<br>Bharathidasan University, India</td><td>Matrix metalloproteinase inhibitor minimizes the maternal infection, induces neuronal structure and behavioural alterations in experimental meningitis rat model</td></tr><tr><td>S 18-12<br>16:15-16:20</td><td>Mr. Woojin Na<br>Dongguk University<br>Republic of Korea</td><td>From food by-products to sustainable emulsifiers through two-stage sequential ultrasound-assisted complexation of brewer’s spent grain protein with polyphenols from spent coffee grounds and persimmon peel</td></tr><tr><td>S 18-13<br>16:20-16:25</td><td>Ms. Xin Qing<br>Research Scholar<br>University of Wisconsin-Madison<br>USA</td><td>Food Structure Matters: How Drying Methods Modify Digestibility and Choline Bioavailability of a Novel Dairy Ingredient</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-19" data-day="day2" data-room="1" data-search="session 19- functional foods and nutraceuticals (room 1) session 19- functional foods and nutraceuticals (room 1) session 19- functional foods and nutraceuticals (room 1) chairpersons: dr. kuan-chen cheng; dr. hong-ting victor lin chairpersons: dr. kuan-chen cheng; dr. hong-ting victor lin chairpersons: dr. kuan-chen cheng; dr. hong-ting victor lin session &amp;
+time speaker title s 19-1
+9:00-9:20 dr. kuan-chen cheng
+national taiwan university
+taiwan artificial intelligence assisted technology in precision fermentation for functional foods development s 19-2
+9:20 – 9:40 dr. hong-ting victor lin
+national taiwan ocean university
+taiwan combating antimicrobial resistance in foodborne escherichia coli: efflux pump inhibitors and machine learning-enhanced maldi-tof ms s 19-3
+9:40 – 10:00 dr. shin-ping lin
+taipei medical university
+taipei pomace-enriched kombucha as a functional beverage: metabolite profiling and bioactivity enhancement s 19-4
+10:00 – 10:20 dr. chih-hui lin
+national taitung university
+taiwan application of a novel solid-state fermentation bioreactor and an electronic nose sensor for the production of bioactive compounds monascin and ankaflavin by monascus purpureus tst 10:20 – 10:30 discussion discussion">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 19</span><span class="pill pill-outline">Room 1</span><span class="date-chip">Thursday · Oct 22</span></div>
+        <h3>Session 19- Functional Foods and Nutraceuticals (Room 1)</h3>
+        <p class="chairs">Chairpersons: Dr. Kuan-Chen Cheng; Dr. Hong-Ting Victor Lin</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 19-1<br>9:00-9:20</td><td>Dr. Kuan-Chen Cheng<br>National Taiwan University<br>Taiwan</td><td>Artificial intelligence assisted technology in precision fermentation for functional foods development</td></tr><tr><td>S 19-2<br>9:20 – 9:40</td><td>Dr. Hong-Ting Victor Lin<br>National Taiwan Ocean University<br>Taiwan</td><td>Combating Antimicrobial Resistance in Foodborne Escherichia coli: Efflux Pump Inhibitors and Machine Learning-Enhanced MALDI-TOF MS</td></tr><tr><td>S 19-3<br>9:40 – 10:00</td><td>Dr. Shin-Ping Lin<br>Taipei Medical University<br>Taipei</td><td>Pomace-Enriched Kombucha as a Functional Beverage: Metabolite Profiling and Bioactivity Enhancement</td></tr><tr><td>S 19-4<br>10:00 – 10:20</td><td>Dr. Chih-Hui Lin<br>National Taitung University<br>Taiwan</td><td>Application of a Novel Solid-State Fermentation Bioreactor and an Electronic Nose Sensor for the Production of Bioactive Compounds Monascin and Ankaflavin by Monascus purpureus TST</td></tr><tr><td>10:20 – 10:30</td><td colspan="2">Discussion</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-20" data-day="day2" data-room="2" data-search="session 20- gut brain and health (room 2) session 20- gut brain and health (room 2) session 20- gut brain and health (room 2) chairpersons: dr. kuan-pin su, dr. chin-chu chen chairpersons: dr. kuan-pin su, dr. chin-chu chen chairpersons: dr. kuan-pin su, dr. chin-chu chen session &amp;
+time speaker title s 20-1
+9:00-9:20 dr. kuan-pin su
+china medical university
+taiwan. psychoneuroimmunity of mind-body interventions in depression s 20-2
+9:20 – 9:40 dr. jian-da lin
+national taiwan university
+taiwan mapping immunological complexity in disease progression with single-cell multi-omics and machine learning s 20-3
+9:40 – 10:00 dr. chin-chu chen
+grape king bio, biotech research institute
+taiwan harnessing microbes for the next generation of precision self-care s 20-4
+10:00-10:20 dr. hong- jhang chen national taiwan university
+taiwan ai-enabled metabolomics for precision nutrition: translating coffee byproducts into anti-inflammatory functional ingredients 10:20-10:30 discussion discussion">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 20</span><span class="pill pill-outline">Room 2</span><span class="date-chip">Thursday · Oct 22</span></div>
+        <h3>Session 20- Gut Brain and Health (Room 2)</h3>
+        <p class="chairs">Chairpersons: Dr. Kuan-Pin Su, Dr. Chin-Chu Chen</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 20-1<br>9:00-9:20</td><td>Dr. Kuan-Pin Su<br>China Medical University<br>Taiwan.</td><td>Psychoneuroimmunity of Mind-Body Interventions in Depression</td></tr><tr><td>S 20-2<br>9:20 – 9:40</td><td>Dr. Jian-Da Lin<br>National Taiwan University<br>Taiwan</td><td>Mapping immunological complexity in disease progression with single-cell multi-omics and machine learning</td></tr><tr><td>S 20-3<br>9:40 – 10:00</td><td>Dr. Chin-Chu Chen<br>Grape king Bio, Biotech Research Institute<br>Taiwan</td><td>Harnessing Microbes for the Next Generation of Precision Self-Care</td></tr><tr><td>S 20-4<br>10:00-10:20</td><td>Dr. Hong- Jhang Chen National Taiwan University<br>Taiwan</td><td>AI-Enabled Metabolomics for Precision Nutrition: Translating Coffee Byproducts into Anti-inflammatory Functional Ingredients</td></tr><tr><td>10:20-10:30</td><td colspan="2">Discussion</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-21" data-day="day2" data-room="3" data-search="session 21- phytotherapy and pharmacology (room 3) session 21- phytotherapy and pharmacology (room 3) session 21- phytotherapy and pharmacology (room 3) chairpersons: dr. min-chao jiang, dr. tai-yuan chen chairpersons: dr. min-chao jiang, dr. tai-yuan chen chairpersons: dr. min-chao jiang, dr. tai-yuan chen session &amp;
+time speaker title s 21-1
+9:00-9:20 dr. min-chao jiang
+national ilan university
+taiwan plant molecular farming for precision diagnostics, vaccine, and therapeutic protein production s 21-2
+9:20-9:40 dr. ting-jang lu
+national taiwan university
+taiwan exploring the phytochemical profile of poaceae plants using a molecular network approach s 21-3
+9:40-10:00 dr. yen-chen tung
+national ilan university
+taiwan bioactive compounds of citrus and hedychium variants: impacts on lipid accumulation and cancer progression s 21-4
+10:00-10:20 dr. tai-yuan chen
+national taiwan ocean university
+taiwan plasma-activated water as an emerging strategy for controlling listeria monocytogenes: cellular responses and molecular mechanisms 10:20-10:30 discussion discussion">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 21</span><span class="pill pill-outline">Room 3</span><span class="date-chip">Thursday · Oct 22</span></div>
+        <h3>Session 21- Phytotherapy and Pharmacology (Room 3)</h3>
+        <p class="chairs">Chairpersons: Dr. Min-Chao Jiang, Dr. Tai-Yuan Chen</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 21-1<br>9:00-9:20</td><td>Dr. Min-Chao Jiang<br>National Ilan University<br>Taiwan</td><td>Plant Molecular Farming for Precision Diagnostics, Vaccine, and Therapeutic Protein Production</td></tr><tr><td>S 21-2<br>9:20-9:40</td><td>Dr. Ting-Jang Lu<br>National Taiwan University<br>Taiwan</td><td>Exploring the Phytochemical Profile of Poaceae Plants Using a Molecular Network Approach</td></tr><tr><td>S 21-3<br>9:40-10:00</td><td>Dr. Yen-Chen Tung<br>National Ilan University<br>Taiwan</td><td>Bioactive Compounds of Citrus and Hedychium Variants: Impacts on Lipid Accumulation and Cancer Progression</td></tr><tr><td>S 21-4<br>10:00-10:20</td><td>Dr. Tai-Yuan Chen<br>National Taiwan Ocean University<br>Taiwan</td><td>Plasma-Activated Water as an Emerging Strategy for Controlling Listeria monocytogenes: Cellular Responses and Molecular Mechanisms</td></tr><tr><td>10:20-10:30</td><td colspan="2">Discussion</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-22" data-day="day2" data-room="1" data-search="session 22- functional foods and nutraceuticals (room 1) session 22- functional foods and nutraceuticals (room 1) session 22- functional foods and nutraceuticals (room 1) chairpersons: dr. deng-jye yang, dr. chen-che hsieh chairpersons: dr. deng-jye yang, dr. chen-che hsieh chairpersons: dr. deng-jye yang, dr. chen-che hsieh session &amp;
+time speaker title s 23-1
+10:50-11:10 dr. chen-che hsieh
+national kaohsiung university of science and technology
+taiwan integrating fermentation bioprocessing and in silico simulation for functional bioactive compound development s 23-2
+11:10-11:30 dr. deng-jye yang
+national yang ming chiao tung university yangming campus, taiwan. formation and mitigation of cholesterol oxidation products (cops) in milk: analytical determination and dietary exposure evaluation s 23-3
+11:30-11:50 dr. hua-tsung lin
+national ilan university
+taiwan valorization and nutritional enhancement of sustainable agro-products via integrated processing techniques: modification of rice, buckwheat, and okara in taiwan 11:50-12:00 discussion discussion 12:00-12:15 closing ceremony (room 1) closing ceremony (room 1)">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 22</span><span class="pill pill-outline">Room 1</span><span class="date-chip">Thursday · Oct 22</span></div>
+        <h3>Session 22- Functional Foods and Nutraceuticals (Room 1)</h3>
+        <p class="chairs">Chairpersons: Dr. Deng-Jye Yang, Dr. Chen-Che Hsieh</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 22-1<br>10:50-11:10</td><td>Dr. Chen-Che Hsieh<br>National Kaohsiung University of Science and Technology<br>Taiwan</td><td>Integrating Fermentation Bioprocessing and In Silico Simulation for Functional Bioactive Compound Development</td></tr><tr><td>S 22-2<br>11:10-11:30</td><td>Dr. Deng-Jye Yang<br>National Yang Ming Chiao Tung University Yangming Campus, Taiwan.</td><td>Formation and Mitigation of Cholesterol Oxidation Products (COPs) in Milk: Analytical Determination and Dietary Exposure Evaluation</td></tr><tr><td>S 22-3<br>11:30-11:50</td><td>Dr. Hua-Tsung Lin<br>National Ilan University<br>Taiwan</td><td>Valorization and Nutritional Enhancement of Sustainable Agro-Products via Integrated Processing Techniques: Modification of Rice, Buckwheat, and Okara in Taiwan</td></tr><tr><td>11:50-12:00</td><td colspan="2">Discussion</td></tr><tr><td>12:00-12:15</td><td colspan="2">Closing Ceremony (Room 1)</td></tr></tbody>
+      </table></div>
+    </article><article class="session-card" id="session-23" data-day="day2" data-room="2" data-search="session 23- gut, brain and health (room 2) session 23- gut, brain and health (room 2) session 23- gut, brain and health (room 2) chairpersons: dr. kuan-ju chen, dr. yuwen ting chairpersons: dr. kuan-ju chen, dr. yuwen ting chairpersons: dr. kuan-ju chen, dr. yuwen ting session &amp;
+time speaker title s 24-1
+10:50-11:10 dr. kuan-ju chen
+university of guam
+guam, united states from farm stress to precision health: a community-based approach to farmer health and well-being in guam and micronesia s 24-2
+11:10-11:30 dr. yuwen ting
+national taiwan university
+taiwan title yet to receive s 24-3
+11:30-11:50 dr. tsung-ju li
+grape king bio, biotech research institute
+taiwan precision liquid fermentation-derived ss-mn4 mycelia for enhanced physical performance and mitigated muscle damage 11:50-12:00 discussion discussion 12:00-12:15 closing ceremony (room 1) closing ceremony (room 1)">
+      <header class="session-header">
+        <div class="session-meta"><span class="pill">Session 23</span><span class="pill pill-outline">Room 2</span><span class="date-chip">Thursday · Oct 22</span></div>
+        <h3>Session 23- Gut, Brain and Health (Room 2)</h3>
+        <p class="chairs">Chairpersons: Dr. Kuan-Ju Chen, Dr. Yuwen Ting</p>
+      </header>
+      <div class="table-scroll"><table class="detail-table">
+        <thead><tr><th>Session &amp;<br>Time</th><th>Speaker</th><th>Title</th></tr></thead>
+        <tbody><tr><td>S 23-1<br>10:50-11:10</td><td>Dr. Kuan-Ju Chen<br>University of Guam<br>Guam, United States</td><td>From Farm Stress to Precision Health: A Community-Based Approach to Farmer Health and Well-Being in Guam and Micronesia</td></tr><tr><td>S 23-2<br>11:10-11:30</td><td>Dr. Yuwen Ting<br>National Taiwan University<br>Taiwan</td><td>Title yet to receive</td></tr><tr><td>S 23-3<br>11:30-11:50</td><td>Dr. Tsung-Ju Li<br>Grape king Bio, Biotech Research Institute<br>Taiwan</td><td>Precision Liquid Fermentation-Derived SS-MN4 Mycelia for Enhanced Physical Performance and Mitigated Muscle Damage</td></tr><tr><td>11:50-12:00</td><td colspan="2">Discussion</td></tr><tr><td>12:00-12:15</td><td colspan="2">Closing Ceremony (Room 1)</td></tr></tbody>
+      </table></div>
+    </article></div>
+      <div class="empty-state" id="empty-state">No sessions match the selected filters.</div>
+    </section>
+  </main>
+
+  <footer><p>© 2026 International Society for Precision Health. All rights reserved.</p></footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navList = document.getElementById('nav-list');
+    menuButton.addEventListener('click', () => { const open = navList.classList.toggle('active'); menuButton.setAttribute('aria-expanded', String(open)); });
+    navList.addEventListener('click', event => { if (event.target.closest('a')) { navList.classList.remove('active'); menuButton.setAttribute('aria-expanded','false'); } });
+
+    const search = document.getElementById('search');
+    const dayFilter = document.getElementById('day-filter');
+    const roomFilter = document.getElementById('room-filter');
+    const cards = [...document.querySelectorAll('.session-card')];
+    const resultCount = document.getElementById('result-count');
+    const emptyState = document.getElementById('empty-state');
+    function filterSessions() {
+      const query = search.value.trim().toLowerCase();
+      const day = dayFilter.value;
+      const room = roomFilter.value;
+      let visible = 0;
+      cards.forEach(card => {
+        const matches = (!query || card.dataset.search.includes(query)) && (day === 'all' || card.dataset.day === day) && (room === 'all' || card.dataset.room === room);
+        card.hidden = !matches;
+        if (matches) visible++;
+      });
+      resultCount.textContent = `${visible} program item${visible === 1 ? '' : 's'} shown`;
+      emptyState.classList.toggle('visible', visible === 0);
+    }
+    [search,dayFilter,roomFilter].forEach(control => control.addEventListener('input',filterSessions));
+    filterSessions();
+  </script>
+</body>
+</html>
