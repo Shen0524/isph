@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Invited Speakers - ISPH 2026</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            color: #333;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header - ISPH 2026 green */
+        header {
+            background-color: #2E7D32;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header .logo img {
+            max-height: 50px;
+            height: auto;
+            width: auto;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Desktop Navigation */
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #A5D6A7;
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .keynote-section {
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            color: #2E7D32;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .text-center {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .keynote-row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .keynote-speaker-img {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+            margin: 20px auto;
+            display: block;
+        }
+
+        .speakers {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .speaker {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-left: 4px solid #4CAF50;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .speaker:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .speaker img {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid #E8F5E9;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
+        .name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 10px 0 5px 0;
+            color: #1B5E20;
+            line-height: 1.4;
+        }
+
+        .country {
+            color: #4CAF50;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: #2E7D32;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .stats-title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 35px 0;
+        }
+
+        .stats-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stats-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 30px 50px;
+            min-width: 200px;
+        }
+
+        .stats-number {
+            color: #F9A825;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stats-label {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        @media (max-width: 480px) {
+            .stats-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stats-number {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Tablet Optimization (iPad) */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 25px 30px;
+            }
+
+            .speakers {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li a {
+                font-size: 0.95rem;
+                padding: 6px 10px;
+            }
+        }
+
+        /* Mobile Optimization */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 12px 15px;
+                position: relative;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            header .logo img {
+                max-height: 40px;
+            }
+
+            header .logo {
+                gap: 10px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+        /* Nav spacing tweak: keep menu items spaced and slightly smaller */
+        nav ul { gap: 12px; }
+        nav ul li a { padding: 0.35rem 1.1rem; font-size: 0.95rem; }
+        @media (max-width: 768px) {
+          nav ul li a { font-size: 1rem; padding: 10px 20px; }
+        }
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background-color: #1B5E20;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+                animation: slideDown 0.3s ease;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            nav ul {
+                display: block;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                text-align: center;
+                margin: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+
+            .menu-active {
+                display: block;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .page-title {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+
+            .text-center {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+            .keynote-speaker-img {
+                max-width: 280px;
+            }
+
+            .speakers {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .speaker {
+                padding: 15px;
+            }
+
+            .speaker img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 0.95rem;
+            }
+
+            .country {
+                font-size: 0.85rem;
+            }
+
+            footer {
+                padding: 1.2rem;
+                margin-top: 30px;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 1rem;
+            }
+
+            header .logo img {
+                max-height: 35px;
+            }
+
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .speakers {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .speaker {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .speaker img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .name {
+                font-size: 1rem;
+            }
+
+            .keynote-speaker-img {
+                max-width: 250px;
+            }
+        }
+
+        /* Large screens optimization */
+        @media screen and (min-width: 1400px) {
+            .speakers {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="LOGO.PNG" alt="ISPH Logo">
+            <h1>ISPH 2026</h1>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="Annual2026.html">Home</a></li>
+                <li><a href="Join us.html">Join ISPH</a></li>
+                <li class="dropdown" id="dropdown-member">
+                    <a href="javascript:void(0)" onclick="toggleDropdown(event)">Member</a>
+                    <div class="dropdown-content">
+                        <a href="https://member.isfph.org/login" target="_blank" rel="noopener">Member Login</a>
+                    </div>
+                </li>
+                <li><a href="Sponsorship2026.html">Sponsorship</a></li>
+                <li><a href="Organizing_Committees2026.html">Organizing Committees</a></li>
+                <li><a href="Contact2026.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Keynote Speaker -->
+    <div class="container keynote-section">
+        <h1 class="page-title">Keynote Speaker</h1>
+        <div class="keynote-row">
+            <img src="speakers/wu.jpg" alt="Dr. Ming-Shiang Wu" class="keynote-speaker-img">
+            <img src="speakers/Surh.jpg" alt="Dr. Young-Joon Surh" class="keynote-speaker-img">
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Invited Speakers</h1>
+        <p class="text-center">(Listed by the order of family name)</p>
+
+        <div class="speakers">
+            <!-- Speakers ordered by family name -->
+
+<!-- A -->
+<!-- Confirmed #26 -->
+<div class="speaker">
+    <img src="speakers/sirichai_adisakwattana.jpg" alt="Dr. Sirichai Adisakwattana">
+    <div class="name">Dr. Sirichai Adisakwattana</div>
+    <div class="country">(Thailand)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/hye_jin_ahn.jpg" alt="Ms. Hye Jin Ahn">
+    <div class="name">Ms. Hye Jin Ahn (Master student)</div>
+    <div class="country">(South Korea)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/asif_ali.jpg" alt="Ph.D. cand. Asif Ali">
+    <div class="name">Ph.D. cand. Asif Ali</div>
+    <div class="country">(Pakistan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/rotimi_aluko.jpg" alt="Dr. Rotimi Aluko">
+    <div class="name">Dr. Rotimi Aluko</div>
+    <div class="country">(Canada)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/kiri_andrew_amegovu.jpg" alt="Dr. Kiri Andrew Amegovu">
+    <div class="name">Dr. Kiri Andrew Amegovu</div>
+    <div class="country">(South Sudan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/ardiansyah_michwan.jpg" alt="Dr. Ardiansyah">
+    <div class="name">Dr. Ardiansyah</div>
+    <div class="country">(Indonesia)</div>
+</div>
+
+
+<div class="speaker">
+    <img src="speakers/tomoko_asai.jpg" alt="Dr. Tomoko Asai">
+    <div class="name">Dr. Tomoko Asai</div>
+    <div class="country">(Japan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/thierry_astruc.jpg" alt="Dr. Thierry Astruc">
+    <div class="name">Dr. Thierry Astruc</div>
+    <div class="country">(France)</div>
+</div><!-- B -->
+<!-- Confirmed #10 -->
+<div class="speaker">
+    <img src="speakers/debasis_bagchi.jpg" alt="Dr. Debasis Bagchi">
+    <div class="name">Dr. Debasis Bagchi</div>
+    <div class="country">(USA)</div>
+</div>
+<!-- Confirmed #11 -->
+<div class="speaker">
+    <img src="speakers/darshee_baxi.jpg" alt="Dr. Darshee Baxi">
+    <div class="name">Dr. Darshee Baxi</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/maja_bensa.jpg" alt="Ms. Maja Bensa">
+    <div class="name">Ms. Maja Bensa (PhD candidate)</div>
+    <div class="country">(Slovenia)</div>
+</div>
+
+
+<div class="speaker">
+    <img src="speakers/diana_bogueva.jpg" alt="Dr. Diana Bogueva">
+    <div class="name">Dr. Diana Bogueva</div>
+    <div class="country">(Australia)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/christelle_bou_mitri.jpg" alt="Dr. Christelle Bou-Mitri">
+    <div class="name">Dr. Christelle Bou-Mitri</div>
+    <div class="country">(Lebanon)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/chaitanya_s_buch.jpg" alt="Dr. Chaitanya S. Buch">
+    <div class="name">Dr. Chaitanya S. Buch</div>
+    <div class="country">(India)</div>
+</div>
+<!-- C -->
+<div class="speaker">
+    <img src="speakers/claudia_cerella.jpg" alt="Dr. Claudia Cerella">
+    <div class="name">Dr. Claudia Cerella</div>
+    <div class="country">(Luxembourg)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/sue_joan_chang.jpg" alt="Dr. Sue-Joan Chang">
+    <div class="name">Dr. Sue-Joan Chang</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/Chin-Chu.jpg" alt="Dr. Chin-Chu Chen">
+    <div class="name">Dr. Chin-Chu Chen</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/hong_jhang_chen.jpg" alt="Dr. Hong-Jhang Chen">
+    <div class="name">Dr. Hong-Jhang Chen</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/kuan_ju_chen.JPG" alt="Dr. Kuan-Ju Chen">
+    <div class="name">Dr. Kuan-Ju Chen</div>
+    <div class="country">(USA)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/Linyi.jpg" alt="Dr. Linyi Chen">
+    <div class="name">Dr. Linyi Chen</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/tai_yuan_chen.jpg" alt="Dr. Tai-yuan Chen">
+    <div class="name">Dr. Tai-yuan Chen</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/kuan_chen_cheng.jpg" alt="Dr. Kuan-Chen Chen">
+    <div class="name">Dr. Kuan-Chen Cheng</div>
+    <div class="country">(Taiwan)</div>
+</div>  
+<div class="speaker">
+    <img src="speakers/chiou_jiachi_amber.jpg" alt="Dr. Chiou Jiachi Amber">
+    <div class="name">Dr. Chiou Jiachi Amber</div>
+    <div class="country">(Hong Kong)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/ching_chung.jpg" alt="Miss. Ching Chung">
+    <div class="name">Miss. Ching Chung</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/hun_taeg_chung.jpg" alt="Dr. Hun Taeg Chung">
+    <div class="name">Dr. Hun Taeg Chung</div>
+    <div class="country">(South Korea)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/sarah_s_comstock.jpg" alt="Dr. Sarah S. Comstock">
+    <div class="name">Dr. Sarah S. Comstock</div>
+    <div class="country">(USA)</div>
+</div>
+
+<!-- D -->
+<!-- Confirmed #9 -->
+<div class="speaker">
+    <img src="speakers/wirawan_dony _dahana.jpg" alt="Dr. Wirawan Dony Dahana">
+    <div class="name">Dr. Wirawan Dony Dahana</div>
+    <div class="country">(Japan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/wahyudi_david.jpg" alt="Dr. Wahyudi David">
+    <div class="name">Dr. Wahyudi David</div>
+    <div class="country">(Indonesia)</div>
+</div>
+
+
+<div class="speaker">
+    <img src="speakers/danny_dhanasekaran.jpg" alt="Dr. Danny N. Dhanasekaran">
+    <div class="name">Dr. Danny N. Dhanasekaran</div>
+    <div class="country">(USA)</div>
+</div>
+<!-- Confirmed #20 -->
+<div class="speaker">
+    <img src="speakers/marc_diederich.jpg" alt="Dr. Marc Diederich">
+    <div class="name">Dr. Marc Diederich</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/john_digiovanni.jpg" alt="Dr. John DiGiovanni">
+    <div class="name">Dr. John DiGiovanni</div>
+    <div class="country">(USA)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/adeline_dorothy.jpg" alt="PhD student P. Adeline Dorothy">
+    <div class="name">PhD student P. Adeline Dorothy</div>
+    <div class="country">(India)</div>
+</div>
+
+<!-- E -->
+<div class="speaker">
+    <img src="speakers/elfahmi.jpg" alt="Dr. Elfahmi">
+    <div class="name">Dr. Elfahmi</div>
+    <div class="country">(Indonesia)</div>
+</div>
+
+<!-- F -->
+<div class="speaker">
+    <img src="speakers/yaohua_betty_feng.jpg" alt="Dr. Yaohua Betty Feng">
+    <div class="name">Dr. Yaohua Betty Feng</div>
+    <div class="country">(USA)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/lotis_francisco.jpg" alt="Dr. Lotis Francisco">
+    <div class="name">Dr. Lotis Francisco</div>
+    <div class="country">(Philippines)</div>
+</div>
+
+<!-- G -->
+<div class="speaker">
+    <img src="speakers/liviu_gaceu.jpg" alt="Dr. Liviu Gaceu">
+    <div class="name">Dr. Liviu Gaceu</div>
+    <div class="country">(Romania)</div>
+</div>
+<!-- Confirmed #21 -->
+<div class="speaker">
+    <img src="speakers/milen_georgiev.jpg" alt="Dr. Milen I. Georgiev">
+    <div class="name">Dr. Milen I. Georgiev</div>
+    <div class="country">(Bulgaria)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/giurgiulescu_liviu.jpg" alt="Dr. Liviu Giurgiulescu">
+    <div class="name">Dr. Liviu Giurgiulescu</div>
+    <div class="country">(Romania)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/giuseppe_grosso.jpg" alt="Dr. Giuseppe Grosso">
+    <div class="name">Dr. Giuseppe Grosso</div>
+    <div class="country">(Italy)</div>
+</div>
+
+<!-- H -->
+<div class="speaker">
+    <img src="speakers/eni_harmayani.jpg" alt="Dr. Eni Harmayani">
+    <div class="name">Dr. Eni Harmayani</div>
+    <div class="country">(Indonesia)</div>
+</div>
+
+
+<div class="speaker">
+    <img src="speakers/hemakumar.jpg" alt="Dr. Hemakumar">
+    <div class="name">Dr. Hemakumar</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/chang_wei_hsieh.jpg" alt="Dr. Chang-Wei Hsieh">
+    <div class="name">Dr. Chang-Wei Hsieh</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/chen_che_hsieh.jpg" alt="Dr. Chen-Che Hsieh">
+    <div class="name">Dr. Chen-Che Hsieh</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<!-- I -->
+<div class="speaker">
+    <img src="speakers/johji_inazawa.jpg" alt="Dr. Johji Inazawa">
+    <div class="name">Dr. Johji Inazawa</div>
+    <div class="country">(Japan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/ciro_isidoro.jpg" alt="Dr. Ciro Isidoro">
+    <div class="name">Dr. Ciro Isidoro</div>
+    <div class="country">(Italy)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/aline_issa.jpg" alt="Dr. Aline Issa">
+    <div class="name">Dr. Aline Issa</div>
+    <div class="country">(Lebanon)</div>
+</div>
+
+<!-- J -->
+<div class="speaker">
+    <img src="speakers/abbe_maleyki_jalil.jpg" alt="Dr. Abbe Maleyki Bin Mhd Jalil">
+    <div class="name">Dr. Abbe Maleyki Bin Mhd Jalil</div>
+    <div class="country">(Brunei)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/min_chao_jiang.jpg" alt="Dr. Min-Chao Jiang">
+    <div class="name">Dr. Min-Chao Jiang</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<!-- Confirmed #15 -->
+<div class="speaker">
+    <img src="speakers/hao_jing.jpg" alt="Dr. Hao Jing">
+    <div class="name">Dr. Hao Jing</div>
+    <div class="country">(China)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/hyeonseo_jo.jpg" alt="Mr. Hyeonseo Jo">
+    <div class="name">Mr. Hyeonseo Jo (PhD student)</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+<!-- K -->
+<div class="speaker">
+    <img src="speakers/neema_kassim.jpg" alt="Dr. Neema Kassim">
+    <div class="name">Dr. Neema Kassim</div>
+    <div class="country">(Tanzania)</div>
+</div>
+<!-- Confirmed #23 -->
+<div class="speaker">
+    <img src="speakers/richard_khaw.jpg" alt="Dr. Richard Khaw">
+    <div class="name">Dr. Richard Khaw</div>
+    <div class="country">(Singapore)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/bonglee_kim.jpg" alt="Dr. Bonglee Kim">
+    <div class="name">Dr. Bonglee Kim</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/dahyun_ko.jpg" alt="Ms. Dahyun Ko">
+    <div class="name">Ms. Dahyun Ko (Master student)</div>
+    <div class="country">(South Korea)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/dae_young_kwon.jpg" alt="Dr. Dae Young Kwon">
+    <div class="name">Dr. Dae Young Kwon</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+<!-- L -->
+<div class="speaker">
+    <img src="speakers/hsiang_yu_lai.jpg" alt="Ms. Hsiang-Yu Lai">
+    <div class="name">Ms. Hsiang-Yu Lai</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/carmen_lammi.jpg" alt="Dr. Carmen Lammi">
+    <div class="name">Dr. Carmen Lammi</div>
+    <div class="country">(Italy)</div>
+</div>
+
+
+ <div class="speaker">
+    <img src="speakers/amos_chungwon_lee.jpg" alt="Dr. Amos Chungwon Lee">
+    <div class="name">Dr. Amos Chungwon Lee</div>
+    <div class="country">(South Korea)</div>
+ </div> 
+<div class="speaker">
+    <img src="speakers/kwang_geun_lee.jpg" alt="Dr. Kwang-Geun Lee">
+    <div class="name">Dr. Kwang-Geun Lee</div>
+    <div class="country">(South Korea)</div>
+</div>
+ 
+<div class="speaker">
+    <img src="speakers/yue_jia_lee.jpg" alt="Dr. Yue-Jia Lee">
+    <div class="name">Dr. Yue-Jia Lee</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/s_thanga_leela.jpg" alt="Dr. S. Thanga Leela">
+    <div class="name">Dr. S. Thanga Leela</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/tsung_ju_li.jpg" alt="Dr. Tsung-Ju Li">
+    <div class="name">Dr. Tsung-Ju Li</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/chih_hui_lin.jpg" alt="Dr. Chih Hui Lin">
+    <div class="name">Dr. Chih Hui Lin</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/hong_ting_lin.jpg" alt="Dr. Hong-Ting Victor Lin">
+    <div class="name">Dr. Hong-Ting Victor Lin</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/hua_tsung_lin.jpg" alt="Dr. Hua-Tsung Lin">
+    <div class="name">Dr. Hua-Tsung Lin</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/jian_da_lin.jpg" alt="Dr. Jian-Da Lin">
+    <div class="name">Dr. Jian-Da Lin</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/shin_ping_lin.jpg" alt="Dr. Shin-Ping Lin">
+    <div class="name">Dr. Shin-Ping Lin</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/diana_lo.jpg" alt="Dr. Diana Lo">
+    <div class="name">Dr. Diana Lo</div>
+    <div class="country">(Indonesia)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/ting_jang_lu.jpg" alt="Dr. Ting-Jang Lu">
+    <div class="name">Dr. Ting-Jang Lu</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<!-- M -->
+<div class="speaker">
+    <img src="speakers/dora_marinova.jpg" alt="Dr. Dora Marinova">
+    <div class="name">Dr. Dora Marinova</div>
+    <div class="country">(Australia)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/k_elizabeth_mathew.jpg" alt="Ms. K. Elizabeth Mathew">
+    <div class="name">Ms. K. Elizabeth Mathew</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/adam_matkowski.jpg" alt="Dr. Adam Matkowski">
+    <div class="name">Dr. Adam Matkowski</div>
+    <div class="country">(Poland)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/toshiro_matsui.jpg" alt="Dr. Toshiro Matsui">
+    <div class="name">Dr. Toshiro Matsui</div>
+    <div class="country">(Japan)</div>
+</div>
+<!-- Confirmed #3 -->
+<div class="speaker">
+    <img src="speakers/belinda_meiring.jpg" alt="Dr. Belinda Meiring">
+    <div class="name">Dr. Belinda Meiring</div>
+    <div class="country">(South Africa)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/anca_miron.jpg" alt="Dr. Anca Miron">
+    <div class="name">Dr. Anca Miron</div>
+    <div class="country">(Romania)</div>
+</div>
+<!-- Confirmed #7 -->
+<div class="speaker">
+    <img src="speakers/sanar_muhyaddin.jpg" alt="Dr. Sanar Muhyaddin">
+    <div class="name">Dr. Sanar Muhyaddin</div>
+    <div class="country">(United Kingdom)</div>
+</div>  
+
+
+
+<div class="speaker">
+    <img src="speakers/camelia_munteanu.jpg" alt="Dr. Camelia Munteanu">
+    <div class="name">Dr. Camelia Munteanu</div>
+    <div class="country">(Romania)</div>
+</div><!-- N -->
+<div class="speaker">
+    <img src="speakers/hye_kyung_na.jpg" alt="Dr. Hye-Kyung Na">
+    <div class="name">Dr. Hye-Kyung Na</div>
+    <div class="country">(South Korea)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/woojin_na.jpg" alt="Mr. Woojin Na">
+    <div class="name">Mr. Woojin Na (PhD student)</div>
+    <div class="country">(South Korea)</div>
+</div>
+<!-- Confirmed #16 -->
+<div class="speaker">
+    <img src="speakers/jie_ni.jpg" alt="Dr. Jie Ni">
+    <div class="name">Dr. Jie Ni</div>
+    <div class="country">(Australia)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/jun_nishihira.jpg" alt="Dr. Jun Nishihira">
+    <div class="name">Dr. Jun Nishihira</div>
+    <div class="country">(Japan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/perry_ng.jpg" alt="Dr. Perry Ng">
+    <div class="name">Dr. Perry Ng</div>
+    <div class="country">(USA)</div>
+</div> 
+<!-- O -->
+<div class="speaker">
+    <img src="speakers/indrawati_oey.jpg" alt="Dr. Indrawati Oey">
+    <div class="name">Dr. Indrawati Oey</div>
+    <div class="country">(New Zealand)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/sedoten_ogun.jpg" alt="Ms. Sedoten Ogun">
+    <div class="name">Ms. Sedoten Ogun (PhD student)</div>
+    <div class="country">(USA)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/eniola_oni.jpg" alt="Dr. Eniola O. Oni">
+    <div class="name">Dr. Eniola O. Oni</div>
+    <div class="country">(Nigeria)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/kunle_oni.jpg" alt="Dr. Kunle Oni">
+    <div class="name">Dr. Kunle Oni</div>
+    <div class="country">(Nigeria)</div>
+</div>
+
+<!-- P -->
+<div class="speaker">
+    <img src="speakers/emmanouil_papaioannou.jpg" alt="Dr. Emmanouil Papaioannou">
+    <div class="name">Dr. Emmanouil Papaioannou</div>
+    <div class="country">(United Kingdom)</div>
+</div>
+<!-- Confirmed #22 -->
+<div class="speaker">
+    <img src="speakers/mona_elena_ popa.jpg" alt="Dr. Mona Elena Popa">
+    <div class="name">Dr. Mona Elena Popa</div>
+    <div class="country">(Romania)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/yi_ting_pu.jpg" alt="Ms. Yi-Ting Pu">
+    <div class="name">Ms. Yi-Ting Pu</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<!-- Q -->
+<div class="speaker">
+    <img src="speakers/abdel_qader_qawasmeh.jpg" alt="Dr. Abdel Qader Qawasmeh">
+    <div class="name">Dr. Abdel Qader Qawasmeh</div>
+    <div class="country">(Palestine)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/xin_qing.jpg" alt="PhD student Xin Qing (Crystal)">
+    <div class="name">PhD student Xin Qing (Crystal)</div>
+    <div class="country">(USA)</div>
+</div> 
+
+<!-- R -->
+<!-- Confirmed #27 -->
+<div class="speaker">
+    <img src="speakers/koilmani_emmanuvel_rajan.jpg" alt="Dr. Koilmani Emmanuvel Rajan">
+    <div class="name">Dr. Koilmani Emmanuvel Rajan</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/av_ramachandran.jpg" alt="Dr. A.V. Ramachandran">
+    <div class="name">Dr. A.V. Ramachandran</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/jaideepsinh_raulji.jpg" alt="Dr. Jaideepsinh Raulji">
+    <div class="name">Dr. Jaideepsinh Raulji</div>
+    <div class="country">(India)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/thierry_regnier.jpg" alt="Dr. Thierry J.C. Regnier">
+    <div class="name">Dr. Thierry J.C. Regnier</div>
+    <div class="country">(South Africa)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/elizabeth_robin.jpg" alt="Dr. Elizabeth Robin">
+    <div class="name">Dr. Elizabeth Robin</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/moon_suhn_ryu.jpg" alt="Dr. Moon-Suhn Ryu">
+    <div class="name">Dr. Moon-Suhn Ryu</div>
+    <div class="country">(South Korea)</div>
+</div>
+<!-- S -->
+<div class="speaker">
+    <img src="speakers/chalermpong.jpg" alt="Dr. Chalermpong Saenjum">
+    <div class="name">Dr. Chalermpong Saenjum</div>
+    <div class="country">(Thailand)</div>
+</div>
+<!-- Confirmed #28 -->
+<div class="speaker">
+    <img src="speakers/kenji_sato.jpg" alt="Dr. Kenji Sato">
+    <div class="name">Dr. Kenji Sato</div>
+    <div class="country">(Japan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/widiastuti_ setyaningsih.jpg" alt="Dr. Widiastuti Setyaningsih">
+    <div class="name">Dr. Widiastuti Setyaningsih</div>
+    <div class="country">(Indonesia)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/rabia_shahzadi.jpg" alt="Miss. Rabia Shahzadi">
+    <div class="name">Miss. Rabia Shahzadi</div>
+    <div class="country">(Pakistan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/shiva_shankaran.jpg" alt="Dr. Shiva Shankaran">
+    <div class="name">Dr. Shiva Shankaran</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/razinah_sharif.jpg" alt="Dr. Razinah Sharif">
+    <div class="name">Dr. Razinah Sharif</div>
+    <div class="country">(Malaysia)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/yong_sang_song.jpg" alt="Dr. Yong Sang Song">
+    <div class="name">Dr. Yong Sang Song</div>
+    <div class="country">(South Korea)</div>
+</div>
+
+
+<div class="speaker">
+    <img src="speakers/takuya_sugahara.jpg" alt="Dr. Takuya Sugahara">
+    <div class="name">Dr. Takuya Sugahara</div>
+    <div class="country">(Japan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/young_joon_surh.jpg" alt="Dr. Young-Joon Surh">
+    <div class="name">Dr. Young-Joon Surh</div>
+    <div class="country">(South Korea)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/kuan_pin_su.jpg" alt="Dr. Kuan Pin Su">
+    <div class="name">Dr. Kuan Pin Su</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<!-- T -->
+<!-- Confirmed #4 -->
+<div class="speaker">
+    <img src="speakers/yohanes_tandoro.jpg" alt="Dr. Yohanes Tandoro">
+    <div class="name">Dr. Yohanes Tandoro </div>
+    <div class="country">(Indonesia)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/mathoto_thaoge.jpg" alt="Dr. Mathoto Thaoge">
+    <div class="name">Dr. Mathoto Thaoge</div>
+    <div class="country">(South Africa)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/thejaswini.jpg" alt="Miss. Thejaswini">
+    <div class="name">Miss. Thejaswini (PhD student)</div>
+    <div class="country">(India)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/yuwen_ting.jpg" alt="Dr. Yuwen Ting">
+    <div class="name">Dr. Yuwen Ting</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/ining_tsai.jpg" alt="Dr. I-Ning Tsai">
+    <div class="name">Dr. I-Ning Tsai</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/benjamin_tsang.jpg" alt="Dr. Benjamin K. Tsang">
+    <div class="name">Dr. Benjamin K. Tsang</div>
+    <div class="country">(Canada)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/yen_chen_tung.jpg" alt="Dr. Yen Chen Tung">
+    <div class="name">Dr. Yen Chen Tung</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/marius_uzupis.jpg" alt="Mr. Marius Užupis">
+    <div class="name">Mr. Marius Užupis</div>
+    <div class="country">(Lithuania)</div>
+</div>
+<!-- V -->
+<div class="speaker">
+    <img src="speakers/rutvi_vaja.jpg" alt="Miss. Rutvi Vaja">
+    <div class="name">Miss. Rutvi Vaja (PhD Student)</div>
+    <div class="country">(India)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/sandeep_vasant.jpg" alt="Dr. Sandeep Vasant">
+    <div class="name">Dr. Sandeep Vasant</div>
+    <div class="country">(India)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/petras_rimantas_venskutonis.jpg" alt="Dr. Petras Rimantas Venskutonis">
+    <div class="name">Dr. Petras Rimantas Venskutonis</div>
+    <div class="country">(Lithuania)</div>
+</div>
+
+<!-- W -->
+<div class="speaker">
+    <img src="speakers/ann_elaine_wagan.jpg" alt="Ms. Ann Elaine Wagan">
+    <div class="name">Ms. Ann Elaine Wagan</div>
+    <div class="country">(Japan)</div>
+</div>
+<!-- Confirmed #8 -->
+<div class="speaker">
+    <img src="speakers/chia_cheng_wei.jpg" alt="Dr. Chia-Cheng Wei">
+    <div class="name">Dr. Chia-Cheng Wei</div>
+    <div class="country">(Taiwan)</div>
+</div>
+
+<div class="speaker">
+    <img src="speakers/felix_widodo.jpg" alt="Mr. Felix Widodo">
+    <div class="name">Mr. Felix Widodo (PhD student)</div>
+    <div class="country">(Indonesia)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/christofora_hanny_wijaya.jpg" alt="Dr. Christofora Hanny Wijaya">
+    <div class="name">Dr. Christofora Hanny Wijaya</div>
+    <div class="country">(Indonesia)</div>
+</div><!-- Y -->
+<!-- Confirmed #5 -->
+<div class="speaker">
+    <img src="speakers/shizuo_yamada.jpg" alt="Dr. Shizuo Yamada">
+    <div class="name">Dr. Shizuo Yamada</div>
+    <div class="country">(Japan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/deng_jye_yang.jpg" alt="Dr. Deng-Jye Yang">
+    <div class="name">Dr. Deng-Jye Yang</div>
+    <div class="country">(Taiwan)</div>
+</div>
+<div class="speaker">
+    <img src="speakers/stephanie_yang.jpg" alt="Dr. Stephanie Yang">
+    <div class="name">Dr. Stephanie Yang</div>
+    <div class="country">(USA)</div>
+</div>
+
+<!-- Z -->
+<div class="speaker">
+    <img src="speakers/sylwia_zielinska.jpg" alt="Dr. Sylwia Zielińska">
+    <div class="name">Dr. Sylwia Zielińska</div>
+    <div class="country">(Poland)</div>
+</div>
+<!-- Confirmed #24 -->
+        </div>
+    </div>
+
+    <!-- Global Participation Statistics -->
+    <div class="stats-section">
+        <h2 class="stats-title">Global Participation Statistics</h2>
+        <div class="stats-cards">
+            <div class="stats-card">
+                <div class="stats-number" id="speakerCount">—</div>
+                <div class="stats-label">SPEAKERS</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-number" id="countryCount">—</div>
+                <div class="stats-label">COUNTRIES / REGIONS</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 International Society for Precision Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Auto-count speakers and countries
+        (function () {
+            const speakerCards = document.querySelectorAll('.speakers .speaker');
+            const countries = new Set();
+            document.querySelectorAll('.speakers .country').forEach(el => {
+                const text = el.textContent.replace(/[()]/g, '').trim();
+                if (text) countries.add(text);
+            });
+            document.getElementById('speakerCount').textContent = speakerCards.length + '+';
+            document.getElementById('countryCount').textContent = countries.size + '+';
+        })();
+
+        function toggleMenu() {
+            const nav = document.getElementById("nav-menu");
+            nav.classList.toggle("menu-active");
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById("nav-menu");
+            const toggle = document.querySelector(".menu-toggle");
+
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove("menu-active");
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.getElementById("nav-menu").classList.remove("menu-active");
+            });
+        });
+    </script>
+
+</body>
+</html>
