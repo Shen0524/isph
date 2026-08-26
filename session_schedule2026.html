@@ -37,7 +37,7 @@
     .eyebrow { margin:0 0 3px; color:var(--green); font-size:.78rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
     h2 { margin:0; color:var(--dark-green); font-size:clamp(1.55rem,3vw,2.05rem); line-height:1.2; }
     .day-panel { margin-bottom:38px; }
-    .table-scroll { overflow-x:auto; border-radius:12px; box-shadow:var(--shadow); background:#fff; }
+    .table-scroll { overflow-x:auto; border-radius:12px; box-shadow:var(--shadow); background:#fff; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
     table { width:100%; border-collapse:collapse; background:var(--paper); }
     th,td { padding:12px 14px; border:1px solid var(--line); text-align:left; vertical-align:top; }
     th { background:var(--green); color:#fff; font-weight:750; }
@@ -76,19 +76,39 @@
       .site-header { position:relative; }
       nav ul { display:none; position:absolute; top:44px; right:0; width:min(320px,calc(100vw - 24px)); flex-direction:column; align-items:stretch; padding:9px; background:var(--green); border-radius:8px; box-shadow:0 10px 28px rgba(0,0,0,.2); }
       nav ul.active { display:flex; }
-      nav a { padding:10px 12px; }
+      nav a { min-height:44px; display:flex; align-items:center; padding:10px 12px; }
       .filters { grid-template-columns:1fr 1fr; }
       .filters .filter-field:first-child { grid-column:1 / -1; }
     }
     @media (max-width:560px) {
-      .site-header { min-height:72px; padding:11px 16px; }
+      html { scroll-padding-top:72px; }
+      .site-header { min-height:72px; padding:10px 12px; gap:12px; }
+      .brand { gap:8px; }
+      .brand img { width:36px; height:42px; }
       .brand strong { font-size:1.2rem; }
       .hero { padding-top:44px; }
-      main { padding-left:12px; padding-right:12px; }
+      .jumpbar-inner { padding:8px 12px; gap:6px; scrollbar-width:thin; }
+      .jumpbar a { padding:8px 11px; font-size:.84rem; }
+      main { padding:28px 12px 56px; }
+      .day-panel { margin-bottom:30px; }
+      .section-heading { margin-bottom:12px; }
+      h2 { font-size:1.5rem; }
+      .table-scroll { margin-inline:-12px; border-radius:0; box-shadow:0 3px 12px rgba(25,74,30,.08); }
+      th,td { padding:9px 10px; font-size:.86rem; line-height:1.45; }
+      .overview-table { min-width:760px; }
+      .overview-table td:first-child,.overview-table th:first-child { width:120px; }
+      .overview-table tr:not(.overview-banner) > td:first-child,.overview-table tr:not(.overview-banner) > th:first-child { position:sticky; left:0; z-index:2; background:var(--paper); box-shadow:2px 0 5px rgba(25,74,30,.12); }
+      .overview-table tr.room-row > th:first-child { background:#dceedd; }
+      .detail-table { min-width:640px; font-size:.88rem; }
+      .detail-table th:first-child,.detail-table td:first-child { width:128px; }
+      .detail-table th:first-child,.detail-table td:first-child { position:sticky; left:0; z-index:2; background:var(--paper); box-shadow:2px 0 5px rgba(25,74,30,.12); }
+      .detail-table th:first-child { background:var(--green); color:#fff; }
+      .session-card { margin-bottom:18px; border-radius:10px; }
       .filters { grid-template-columns:1fr; }
       .filters .filter-field:first-child { grid-column:auto; }
       .session-header { padding:17px 16px 15px; }
-      th,td { padding:10px 11px; }
+      .session-header h3 { font-size:1.12rem; }
+      .chairs { font-size:.88rem; }
     }
     @media print {
       .site-header,.jumpbar,.filters,.result-count,.empty-state,footer { display:none!important; }
@@ -136,7 +156,7 @@
         <p class="eyebrow">Program overview</p>
         <h2 id="day-1-title">Day 1 · Wednesday, Oct 21, 2026</h2>
       </div>
-      <div class="table-scroll"><table class="overview-table"><tbody><tr class="overview-banner"><th colspan="7">Wednesday, Oct 21 2026</th></tr><tr class="overview-banner"><th colspan="7">Venue: College of Bio Resource, National Ilan University</th></tr><tr><td>8:30-9:00</td><td colspan="6">Registration</td></tr><tr><td>9:00-9:20</td><td colspan="6">Opening Ceremony; Award Ceremony; ISPH-India 2027</td></tr><tr><td>9:20-10:00</td><td colspan="6">Keynote Lecture – A paradoxical role of SIRT1 in obesity-associated inflammation and cancer<br>Prof. Dr. Young-Joon Surh<br>Seoul National University<br>Republic of Korea</td></tr><tr><td>10:00-10:20</td><td colspan="6">Morning Break</td></tr><tr><td>10:00-10:20</td><td colspan="6">Poster Display</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 1</th><th>Room 2<br>Session 2</th><th>Room 3<br>Session 3</th><th>Room 4<br>Session 4</th><th>Room 5<br>Session 5</th><th>Room 6<br>Session 6</th></tr><tr><td>10:20-12:30</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Nutrition/ Precision Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Brain Health and Nutrition</td></tr><tr><td>12:30-13:30</td><td colspan="6">Lunch Break</td></tr><tr><td>12:30-13:30</td><td colspan="6">Poster competition on-site (for Master students)</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 7</th><th>Room 2<br>Session 8</th><th>Room 3<br>Session 9</th><th>Room 4<br>Session 10</th><th>Room 5<br>Session 11</th><th>Room 6<br>Session 12</th></tr><tr><td>13:30-15:00</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Nutrition/ Precision Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Brain Health and Nutrition</td></tr><tr><td>15:00-15:20</td><td colspan="6">Afternoon Break</td></tr><tr><td>15:00-15:20</td><td colspan="6">Poster Display</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 13</th><th>Room 2<br>Session 14</th><th>Room 3<br>Session 15</th><th>Room 4<br>Session 16</th><th>Room 5<br>Session 17</th><th>Room 6<br>Session 18</th></tr><tr><td>15:20-17:20</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Cancer Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Oral Presentation Competition -<br>PhD Students</td></tr><tr><td>18:30-21:30</td><td colspan="6">Gala Dinner</td></tr></tbody></table></div>
+      <div class="table-scroll"><table class="overview-table"><tbody><tr class="overview-banner"><th colspan="7">Wednesday, Oct 21 2026</th></tr><tr class="overview-banner"><th colspan="7">Venue: College of Bio Resource, National Ilan University</th></tr><tr><td>8:30-9:00</td><td colspan="6">Registration</td></tr><tr><td>9:00-9:20</td><td colspan="6">Opening Ceremony; Award Ceremony; ISPH-India 2027</td></tr><tr><td>9:20-10:00</td><td colspan="6">Keynote Lecture – A paradoxical role of SIRT1 in obesity-associated inflammation and cancer<br>Prof. Dr. Young-Joon Surh<br>Seoul National University<br>Republic of Korea</td></tr><tr><td>10:00-10:20</td><td colspan="6">Morning Break</td></tr><tr><td>10:00-10:20</td><td colspan="6">Poster Display</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 1</th><th>Room 2<br>Session 2</th><th>Room 3<br>Session 3</th><th>Room 4<br>Session 4</th><th>Room 5<br>Session 5</th><th>Room 6<br>Session 6</th></tr><tr><td>10:20-12:30</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Nutrition/ Precision Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Brain Health and Nutrition</td></tr><tr><td>12:30-13:30</td><td colspan="6">Lunch Break</td></tr><tr><td>12:30-13:30</td><td colspan="6">Poster competition on-site (for Master students)</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 7</th><th>Room 2<br>Session 8</th><th>Room 3<br>Session 9</th><th>Room 4<br>Session 10</th><th>Room 5<br>Session 11</th><th>Room 6<br>Session 12</th></tr><tr><td>13:30-15:00</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Nutrition/ Precision Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Brain Health and Nutrition</td></tr><tr><td>15:00-15:20</td><td colspan="6">Afternoon Break</td></tr><tr><td>15:00-15:20</td><td colspan="6">Poster Display</td></tr><tr class="room-row"><th>Rooms and Sessions</th><th>Room 1<br>Session 13</th><th>Room 2<br>Session 14</th><th>Room 3<br>Session 15</th><th>Room 4<br>Session 16</th><th>Room 5<br>Session 17</th><th>Room 6<br>Session 18</th></tr><tr><td>15:20-17:00</td><td>Big Data, Artificial Intelligence and Precision Health</td><td>Precision Cancer Medicine</td><td>Food Safety and Health</td><td>Phytotherapy and Pharmacology</td><td>Functional Foods and Nutraceuticals</td><td>Oral Presentation Competition -<br>PhD Students</td></tr><tr><td>18:30-21:30</td><td colspan="6">Gala Dinner</td></tr></tbody></table></div>
     </section>
     <section class="day-panel" id="day-2" aria-labelledby="day-2-title">
       <div class="section-heading">
