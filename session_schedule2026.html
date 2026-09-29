@@ -58,7 +58,15 @@
     .filter-help { margin:0; color:var(--muted); font-size:.78rem; }
     input,select { width:100%; min-height:44px; border:1px solid #b8cab9; border-radius:7px; padding:9px 11px; background:#fff; color:var(--ink); font:inherit; }
     input:focus,select:focus { outline:3px solid rgba(46,125,50,.18); border-color:var(--green); }
-    .result-count { margin:-10px 0 20px; color:var(--muted); font-size:.9rem; }
+    .result-count { margin:0 0 20px; color:var(--muted); font-size:.9rem; }
+    .search-results { scroll-margin-top:12px; }
+    .search-results:focus { outline:none; }
+    .results-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+    .results-heading h3 { margin:0; color:var(--dark-green); font-size:1.25rem; }
+    .clear-filters { min-height:44px; border:1px solid var(--green); border-radius:7px; padding:8px 14px; background:#fff; color:var(--green); font:inherit; font-weight:700; cursor:pointer; }
+    .clear-filters:hover { background:var(--light-green); }
+    .clear-filters:focus-visible { outline:3px solid rgba(46,125,50,.25); outline-offset:2px; }
+    .clear-filters:disabled { opacity:.5; cursor:default; }
     .session-card { margin:0 0 24px; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; box-shadow:var(--shadow); }
     .session-card[hidden] { display:none; }
     .session-header { padding:20px 22px 17px; border-top:5px solid var(--green); background:linear-gradient(135deg,#fff,#f1f8f1); }
@@ -118,7 +126,7 @@
       .chairs { font-size:.88rem; }
     }
     @media print {
-      .site-header,.jumpbar,.filters,.result-count,.empty-state,footer { display:none!important; }
+      .site-header,.jumpbar,.filters,.results-heading,.result-count,.empty-state,footer { display:none!important; }
       body { background:#fff; font-size:10pt; }
       .hero { padding:22px; background:var(--dark-green); print-color-adjust:exact; }
       main { max-width:none; padding:20px 0; }
@@ -211,7 +219,9 @@
         <div class="filter-field"><label for="day-filter">Day</label><select id="day-filter"><option value="all">All days</option><option value="day1">Wednesday, Oct 21</option><option value="day2">Thursday, Oct 22</option></select></div>
         <div class="filter-field"><label for="room-filter">Room</label><select id="room-filter"><option value="all">All rooms</option><option value="1">Room 1</option><option value="2">Room 2</option><option value="3">Room 3</option><option value="4">Room 4</option><option value="5">Room 5</option><option value="6">Room 6</option></select></div>
       </form>
-      <p class="result-count" id="result-count" aria-live="polite"></p>
+      <section class="search-results" id="search-results" aria-labelledby="results-title" tabindex="-1">
+      <div class="results-heading"><h3 id="results-title">All program items</h3><button class="clear-filters" id="clear-filters" type="button" disabled>Clear filters</button></div>
+      <p class="result-count" id="result-count" aria-live="polite" aria-atomic="true"></p>
       <div id="session-list"><article class="session-card" id="program-2" data-day="day1" data-room="all" data-search="wednesday · oct 21 keynote lecture chairperson: dr. chin-kun wang time speaker title 09:20–10:00 dr. young joon surh seoul national university korea a paradoxical role of sirt1 in obesity-associated inflammation and cancer">
       <header class="session-header">
         <div class="session-meta"><span class="date-chip">Wednesday · Oct 21</span></div>
@@ -599,7 +609,8 @@
 <tr><td>12:00–12:15</td><td colspan="2">Closing Ceremony (Room 1)</td></tr></tbody>
       </table></div>
     </article></div>
-      <div class="empty-state" id="empty-state">No sessions match the selected filters.</div>
+      <div class="empty-state" id="empty-state">No sessions match the selected filters. Try another keyword or choose Clear filters to show all program items.</div>
+      </section>
     </section>
   </main>
 
@@ -617,32 +628,77 @@
     const cards = [...document.querySelectorAll('.session-card')];
     const resultCount = document.getElementById('result-count');
     const emptyState = document.getElementById('empty-state');
+    const results = document.getElementById('search-results');
+    const resultsTitle = document.getElementById('results-title');
+    const clearFilters = document.getElementById('clear-filters');
     let confirmedQuery = '';
     function normalizeSearchText(value) {
       return String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[–—‑]/g, '-').replace(/[^\p{L}\p{N}-]+/gu, ' ').replace(/\s+/g, ' ').trim();
     }
     function queryTokens(value) { return normalizeSearchText(value).split(' ').filter(Boolean); }
-    const indexedCards = cards.map(card => ({ card, text: normalizeSearchText(`${card.dataset.search || ''} ${card.textContent}`) }));
+    const indexedCards = cards.map(card => {
+      const headerText = normalizeSearchText(card.querySelector('.session-header').innerText);
+      let group = null;
+      const rows = [...card.querySelectorAll('tbody tr')].map(row => {
+        const isGroup = row.cells.length === 1 && row.cells[0].colSpan === 3;
+        if (isGroup) group = row;
+        return { row, isGroup, group, text: normalizeSearchText(`${headerText} ${group ? group.innerText : ''} ${row.innerText}`) };
+      });
+      return { card, headerText, rows };
+    });
     function filterSessions() {
       const tokens = queryTokens(confirmedQuery);
       const day = dayFilter.value;
       const room = roomFilter.value;
       let visible = 0;
-      indexedCards.forEach(({ card, text }) => {
-        const matches = (!tokens.length || tokens.every(token => text.includes(token))) && (day === 'all' || card.dataset.day === day) && (room === 'all' || card.dataset.room === room);
+      indexedCards.forEach(({ card, headerText, rows }) => {
+        const showAllRows = !tokens.length || tokens.every(token => headerText.includes(token));
+        const matchingRows = rows.filter(item => !item.isGroup && (showAllRows || tokens.every(token => item.text.includes(token))));
+        const rowSet = new Set(matchingRows.map(item => item.row));
+        const groupSet = new Set(matchingRows.map(item => item.group));
+        const matches = (showAllRows || matchingRows.length > 0) && (day === 'all' || card.dataset.day === day) && (room === 'all' || card.dataset.room === room);
         card.hidden = !matches;
+        rows.forEach(item => { item.row.hidden = !(showAllRows || rowSet.has(item.row) || (item.isGroup && groupSet.has(item.row))); });
         if (matches) visible++;
       });
-      resultCount.textContent = `${visible} program item${visible === 1 ? '' : 's'} shown`;
+      const hasFilters = Boolean(confirmedQuery.trim()) || day !== 'all' || room !== 'all';
+      const scope = [];
+      if (confirmedQuery.trim()) scope.push(`“${confirmedQuery.trim()}”`);
+      if (day !== 'all') scope.push(dayFilter.options[dayFilter.selectedIndex].text);
+      if (room !== 'all') scope.push(roomFilter.options[roomFilter.selectedIndex].text);
+      resultsTitle.textContent = hasFilters ? 'Search results' : 'All program items';
+      clearFilters.disabled = !hasFilters;
+      resultCount.textContent = `${visible} program item${visible === 1 ? '' : 's'} shown${scope.length ? ' for ' + scope.join(' · ') : ''}`;
       emptyState.classList.toggle('visible', visible === 0);
+    }
+    function showResults() {
+      // Move focus out of the input so the mobile keyboard does not cover results.
+      if (document.activeElement && typeof document.activeElement.blur === 'function') document.activeElement.blur();
+      results.focus({ preventScroll:true });
+      requestAnimationFrame(() => {
+        const top = results.getBoundingClientRect().top + window.pageYOffset - document.querySelector('.jumpbar').getBoundingClientRect().height - 16;
+        window.scrollTo({ top:Math.max(0, top), behavior:'instant' });
+      });
     }
     searchForm.addEventListener('submit', event => {
       event.preventDefault();
       confirmedQuery = search.value;
       filterSessions();
-      document.getElementById('sessions').scrollIntoView({ behavior:'smooth', block:'start' });
+      showResults();
     });
-    [dayFilter,roomFilter].forEach(control => control.addEventListener('change',filterSessions));
+    [dayFilter,roomFilter].forEach(control => control.addEventListener('change', () => {
+      confirmedQuery = search.value;
+      filterSessions();
+      showResults();
+    }));
+    clearFilters.addEventListener('click', () => {
+      search.value = '';
+      confirmedQuery = '';
+      dayFilter.value = 'all';
+      roomFilter.value = 'all';
+      filterSessions();
+      showResults();
+    });
     filterSessions();
   </script>
 </body>
